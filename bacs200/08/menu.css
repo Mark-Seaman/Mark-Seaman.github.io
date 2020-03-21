@@ -1,0 +1,58 @@
+nav {
+    font-family: sans-serif;
+}
+
+
+/* ----------------------------------------------- */
+/* IDs */
+
+#main-menu ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+#main-menu ul li {
+    display: inline;
+    padding: 1em;
+    margin: 0px;
+    width: 200px;
+    background-color: black;
+    color: white;
+    box-shadow: 2px 2px 5px gray;
+}
+
+#main-menu ul li a {
+    color: white;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+
+
+#side-menu {
+    margin: 10px;
+    float: left;
+    background-color: #eeeeee;
+    box-shadow: 2px 2px 5px gray;
+    text-align: center;
+}
+
+#side-menu ul {
+    list-style-type: none;
+}
+
+#side-menu ul li {
+    padding: 5px;
+    width: 200px;
+    margin: 0px;
+    background-color: lightblue;
+    box-shadow: 2px 2px 5px gray;
+}
+
+#side-menu ul li a {
+    display: block;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}

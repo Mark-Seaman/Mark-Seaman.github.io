@@ -1,0 +1,25 @@
+* {
+    border: dashed 1px blue;
+    padding: 10px;
+    margin: 50px;
+}
+
+body {
+    border: solid 3px black;
+    background-color: gray;
+}
+
+header {
+    border: solid 3px blue;
+    background-color: lightblue;
+}
+
+footer {
+    border: solid 3px green;
+    background-color: lightgreen;
+}
+
+main {
+    border: solid 3px yellow;
+    background-color: white;
+}

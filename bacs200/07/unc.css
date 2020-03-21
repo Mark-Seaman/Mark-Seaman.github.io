@@ -1,0 +1,13 @@
+body {
+    background-color: white;
+}
+
+h1 {
+    color: yellow;
+    border: 1px solid gray;
+    background-color: black;
+}
+
+a {
+    color: red;
+}
