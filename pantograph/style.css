@@ -44,8 +44,13 @@ h2 {
     box-shadow: 2px 2px 4px grey;
     color: dodgerblue;
     text-align: center;
-    margin: 2em;
-    padding: .2em 1em;
+}
+
+h1,
+h2,
+h3 {
+    margin: 20px;
+    padding: 20px;
 }
 
 p {
