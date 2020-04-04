@@ -1,6 +1,12 @@
 # Seaman Family News - Pandemic Edition
 
-March 1 - March 31 by Mark Seaman
+March 1 - March 31
+
+by Mark Seaman
+
+![](img/coronavirus.png)
+
+---
 
 
 ### Pandemic Paralyzes the World

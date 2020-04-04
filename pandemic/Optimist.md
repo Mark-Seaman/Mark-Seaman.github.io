@@ -1,9 +1,15 @@
 # The Optimist Website
 
+by Mark Seaman
+
+![](img/coronavirus.png)
+
+---
+
 
 ## My new heroes
 
-These folk are doing more than anyone else I know to make the world better.
+These folks are doing more than anyone else I know to make the world better.
 
 [Bill and Melinda Gates Foundation](https://www.gatesfoundation.org/)
 

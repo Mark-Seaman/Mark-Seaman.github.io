@@ -1,4 +1,10 @@
-## My First Pandemic
+# My First Pandemic
+
+by Mark Seaman
+
+![](img/coronavirus.png)
+
+---
 
 I'll never forget my first global pandemic.  For me it happened on March 9, 2020.
 Sure, we had all been watching the news of yet another virus in China. But we

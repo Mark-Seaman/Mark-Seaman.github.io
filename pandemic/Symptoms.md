@@ -1,5 +1,11 @@
 # COVID-19 Symptoms
 
+by Mark Seaman
+
+![](img/coronavirus.png)
+
+---
+
 There is a deadly virus circulating globally.  Learn about the symptoms and the progress of the 
 disease that it causes.
 

@@ -1,5 +1,10 @@
+# Are you suffering from CTSD?
 
-## Are you suffering from CTSD?
+by Mark Seaman
+
+![](img/coronavirus.png)
+
+---
 
 Veterans of combat and people that have experienced other forms of trauma often
 suffer from PTSD.  Humans are not made to endure such extreme
