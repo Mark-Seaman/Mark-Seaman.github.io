@@ -6,6 +6,9 @@ by Mark Seaman
 
 ---
 
+A fresh look at the strange times we are now experiencing.
+
+* [Pandemic Blues Journal](Journal)
 * [Family News](FamilyNews)
 * [My First Pandemic](FirstPandemic)
 * [Are you suffering from CTSD?](CTSD)
