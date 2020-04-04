@@ -12,3 +12,4 @@ by Mark Seaman
 * [Symptoms of COVID-19](Symptoms)
 * [The Optimist](Optimist)
 * [COVID-19 Genetic Research Project](Pantograph)
+* [Pandemic Homeschool](Homeschool)
