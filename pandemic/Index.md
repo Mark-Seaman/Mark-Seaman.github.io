@@ -1,6 +1,7 @@
 # Pandemic Blues Journal
 
 by Mark Seaman
+![](img/coronavirus.png)
 
 * [Family News](FamilyNews)
 * [My First Pandemic](FirstPandemic)
