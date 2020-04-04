@@ -2,7 +2,7 @@
 
 by Mark Seaman
 
-![](img/coronavirus.png)
+![](img/coronavirus.png =100x)
 
 ---
 
