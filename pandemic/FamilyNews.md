@@ -55,7 +55,7 @@ and help ensure that the vaccine will be effective on the various strains.
 
 Mark, Stacie, Christine, and Samantha have already been pressed into service on aspects of this project.
 
-Samantha is working on publishing a novel she wrote and actively working with a publisher.
+Samantha is working diligently on writing and making great progress.
 
 Cassie is seven and out of school.  She is trapped in the house with five adults who are giving her
 way too much supervision. She loves to draw and we play guitar together and make up songs.
@@ -87,7 +87,7 @@ He is slated to teach three class in the Fall of 2020.
 ---
 
 Every day brings new challenges and new opportunities.  My Mom used to tell me, 
-"Don't worry about tommorow. Tommorrow will worry about itself!"
+"Don't worry about tomorrow. Tomorrow will worry about itself!"
 
 Be safe and don't forget to be awesome!
 

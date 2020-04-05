@@ -16,14 +16,3 @@ A fresh look at the strange times we are now experiencing.
 * [The Optimist](Optimist)
 * [COVID-19 Genetic Research Project](Pantograph)
 * [Pandemic Homeschool](Homeschool)
-
-
-<div class="card">
-    <div class="card-header">
-        Table of Contents
-    </div>
-    <div class="card-body">
-        <h3>Subheading</h3>
-        <p>Paragraph</p>
-    </div>
-</div>
