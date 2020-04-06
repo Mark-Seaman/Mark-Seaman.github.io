@@ -22,7 +22,7 @@ I have spent a great deal of time pondering this morbid math but choose not to s
 here.  There is very little to be done beyond taking personal precautions. There is no
 value making you lie awake at night contemplating what might happen.
 
-So that brings us back to the Viralsphere.  According to todays numbers 1 out of 1000 
+So, that brings us back to the Viralsphere.  According to today's numbers 1 out of 1000 
 Americans have been hospitalized.  The Johns-Hopkins site posts the number of confirmed 
 infections.  With virtually no testing these are a count of hospital cases with the
 virus.
@@ -32,14 +32,14 @@ of every 100 people you interact with is infected.  Getting infected is a number
 If you only interact with a few people then you are relatively safe. But if you have
 interactions with many people each day then you are at significant risk.
 
-We have eight people in our viralsphere.  Since March 13 we have been as isolated as
+We have eight people in our Viralsphere.  Since March 13 we have been as isolated as
 we can possibly be.  We send people out to get food and supplies but other than that
-have not physical contact with others.
+have no physical contact with others.
 
 When one of us go out to a store we take extreme precautions to help ensure that we
-are not bringing any unplanned pain into our world.  This could be a pratice that 
+are not bringing any unplanned pain into our world.  This could be a practice that 
 many of us will be using until a solid vaccine can be developed.
 
-Whose in your viralsphere?
+Whose in your Viralsphere?
 
 
