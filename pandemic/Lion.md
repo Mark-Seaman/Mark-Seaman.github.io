@@ -1,6 +1,6 @@
 # Like a Lion
 
-![](lion.jpg)
+![](img/lion.jpg)
 
 No so funny now!
 
