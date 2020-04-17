@@ -34,16 +34,27 @@ Course Outline - Software Engineering
                 Code - software developer/programmer
                 Test - quality assurance engineer
 
-            Book Builder App
-                Sample app that I built
-                7 milestone and 4 project roles = 28 deliverables
-                Use my example to simplify your work
-
             Teamwork
                 The most important aspect of your career
                 This class will force you to learn how to work together
                 Half your grade will be based on your teamwork
                 Half your grade will be based on your individual contribution
+                
+            Possible Apps
+                Evernote
+                Twitter
+                Facebook
+                Issue Tracker
+                Page Tester
+                Voting System
+                Canvas
+                Survey Monkey
+
+            Book Builder App
+                Sample app that I built
+                7 milestone and 4 project roles = 28 deliverables
+                Use my example to simplify your work
+
 
         Project Kickoff
 
@@ -72,33 +83,6 @@ Course Outline - Software Engineering
                 Use my example to simplify your work
                 Mimic the documents that I produced
 
-            Milestone 1 - Project Plan Complete
-                Requirements - project manager & customer interaction
-                    Project Charter
-                        Business proposition
-                        Project scope & budget
-                        Client communication
-                        Sprint Planning meetings
-                Design - technical lead
-                    Technology selection
-                        Select Development Tools
-                        Infrastructure - Frameworks & Tools
-                        Setup Guide
-                        Create "Hello World"
-                        Decide on App deployment
-                Code - software developer/programmer
-                    Version control
-                        Setup Github account
-                        Setup Github Pages repository
-                        Decide how to publish your project docs
-                        User Guide for development workflow
-                Test - quality assurance engineer
-                    Test Plan
-                        Outline of testing that will be used
-                        Setup structure for testing
-                        Log three issues in Github
-                        Document how to log issues
-
             Teamwork
                 The most important aspect of your career
                 This class will force you to learn how to work together
@@ -119,6 +103,48 @@ Course Outline - Software Engineering
                 Make steady progress on each milestone
                 I will act as both client and advisor
                 Work together to solve problems
+
+            Milestone 1 - Project Plan Complete
+                Requirements Phase
+                    Role - Project manager & customer interaction
+                    Contribution - Project Charter
+                        
+                Design Phase
+                    Role - Technical lead
+                    Contribution - Technology selection
+                       
+                Code Phase
+                    Role - Software developer/programmer
+                    Contribution - Version control
+                        
+                Test Phase
+                    Role - Quality assurance engineer
+                    Contribution - Test Plan
+                        
+            Requirements - Project Charter
+                Business proposition
+                Project scope & budget
+                Client communication
+                Sprint Planning meetings
+            
+            Design - Technology selection
+                Select Development Tools
+                Infrastructure - Frameworks & Tools
+                Setup Guide
+                Create "Hello World"
+                Decide on App deployment
+            
+            Code - Version control
+                Setup Github account
+                Setup Github Pages repository
+                Decide how to publish your project docs
+                User Guide for development workflow
+            
+            Test - Test Plan
+                Outline of testing that will be used
+                Setup structure for testing
+                Log three issues in Github
+                Document how to log issues
 
         Software Lifecycle
         
@@ -364,15 +390,7 @@ Course Outline - Software Engineering
             Each milestone will have unique criteria for success
             Team will deliver a medium-sized software application
 
-        Possible Apps
-            Evernote
-            Twitter
-            Facebook
-            Issue Tracker
-            Page Tester
-            Voting System
-            Canvas
-            Survey Monkey
+        
 
     Software Process Disciplines & Tools
 

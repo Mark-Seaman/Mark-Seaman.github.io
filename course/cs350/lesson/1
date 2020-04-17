@@ -60,41 +60,6 @@
 ### Mimic the documents that I produced
 
 
-## Milestone 1 - Project Plan Complete
-
-### Requirements - project manager & customer interaction
-
-* Project Charter
-    * Business proposition
-    * Project scope & budget
-    * Client communication
-    * Sprint Planning meetings
-
-### Design - technical lead
-
-* Technology selection
-    * Select Development Tools
-    * Infrastructure - Frameworks & Tools
-    * Setup Guide
-    * Create "Hello World"
-    * Decide on App deployment
-
-### Code - software developer/programmer
-
-* Version control
-    * Setup Github account
-    * Setup Github Pages repository
-    * Decide how to publish your project docs
-    * User Guide for development workflow
-
-### Test - quality assurance engineer
-
-* Test Plan
-    * Outline of testing that will be used
-    * Setup structure for testing
-    * Log three issues in Github
-    * Document how to log issues
-
 ## Teamwork
 
 ### The most important aspect of your career
@@ -140,4 +105,85 @@
 
 
 ### Work together to solve problems
+
+
+## Milestone 1 - Project Plan Complete
+
+### Requirements Phase
+
+* Role - Project manager & customer interaction
+* Contribution - Project Charter
+
+### Design Phase
+
+* Role - Technical lead
+* Contribution - Technology selection
+
+### Code Phase
+
+* Role - Software developer/programmer
+* Contribution - Version control
+
+### Test Phase
+
+* Role - Quality assurance engineer
+* Contribution - Test Plan
+
+## Requirements - Project Charter
+
+### Business proposition
+
+
+### Project scope & budget
+
+
+### Client communication
+
+
+### Sprint Planning meetings
+
+
+## Design - Technology selection
+
+### Select Development Tools
+
+
+### Infrastructure - Frameworks & Tools
+
+
+### Setup Guide
+
+
+### Create "Hello World"
+
+
+### Decide on App deployment
+
+
+## Code - Version control
+
+### Setup Github account
+
+
+### Setup Github Pages repository
+
+
+### Decide how to publish your project docs
+
+
+### User Guide for development workflow
+
+
+## Test - Test Plan
+
+### Outline of testing that will be used
+
+
+### Setup structure for testing
+
+
+### Log three issues in Github
+
+
+### Document how to log issues
 
