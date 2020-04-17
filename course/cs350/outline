@@ -1,0 +1,397 @@
+Course Outline - Software Engineering
+
+    Lesson Plan
+
+        Course Overview
+
+            Goal
+                Teach students critical skills needed for commercial software development.
+
+            Strategy
+                Hands-on programming
+                Students build and deploy a complex application
+                Follow accepted best practices for each lifecycle phase
+                Use Scrum to deliver seven product iterations
+                Work with a customer proxy to simulate realistic interactions
+                Documents capture the process so that it can be repeated for other projects
+        
+            Class Overview
+                Learn about the best practices of software engineering
+                Learn by doing
+                Create one medium sized project
+                Project will be graded in 7 milestones
+                Teams of 4 - each person plays a unique role
+
+            Team Project
+                Visit [Student Registry](cs350/register) to sign up for a student account
+                Visit [Select Your Project](cs350/select-project) to register for a project
+                Wednesday - remaining students will be assigned to a project
+                Project milestones will be graded every other Friday
+
+            Software Lifecycle
+                Requirements - project manager & customer interaction
+                Design - technical lead
+                Code - software developer/programmer
+                Test - quality assurance engineer
+
+            Book Builder App
+                Sample app that I built
+                7 milestone and 4 project roles = 28 deliverables
+                Use my example to simplify your work
+
+            Teamwork
+                The most important aspect of your career
+                This class will force you to learn how to work together
+                Half your grade will be based on your teamwork
+                Half your grade will be based on your individual contribution
+
+        Project Kickoff
+
+            Team Assignments
+                Entire class is organized into teams of four or five
+                Visit the [Project Dashboard](cs350/project) to view your project
+
+            Project Milestones
+                Project Plan Complete
+                Technology Proven
+                Core Features Implemented
+                Functionality Complete
+                Test Complete
+                Release
+                First Upgrade
+
+            Project Roles
+                Each milestone you will be assigned a role
+                You will need to deliver the expected results for your role
+                Grading will be done after each milestone
+                You will be given instructions for how to succeed at your role
+
+            Book Builder App
+                Sample app that I built
+                7 milestone and 4 project roles = 28 deliverables
+                Use my example to simplify your work
+                Mimic the documents that I produced
+
+            Milestone 1 - Project Plan Complete
+                Requirements - project manager & customer interaction
+                    Project Charter
+                        Business proposition
+                        Project scope & budget
+                        Client communication
+                        Sprint Planning meetings
+                Design - technical lead
+                    Technology selection
+                        Select Development Tools
+                        Infrastructure - Frameworks & Tools
+                        Setup Guide
+                        Create "Hello World"
+                        Decide on App deployment
+                Code - software developer/programmer
+                    Version control
+                        Setup Github account
+                        Setup Github Pages repository
+                        Decide how to publish your project docs
+                        User Guide for development workflow
+                Test - quality assurance engineer
+                    Test Plan
+                        Outline of testing that will be used
+                        Setup structure for testing
+                        Log three issues in Github
+                        Document how to log issues
+
+            Teamwork
+                The most important aspect of your career
+                This class will force you to learn how to work together
+                Half your grade will be based on your teamwork
+                Half your grade will be based on your individual contribution
+
+            Grading
+                Project results - your contribution - 10 points
+                Teamwork - your team members will give thumbs up - 10 points
+                I will work with dysfunctional teams 
+                Every other week you will see your current grade
+
+            Project Continuation
+                If your project fails to meet the milestone criteria your project will be canceled
+                Team members will be reassigned to other projects
+
+            Incremental Development
+                Make steady progress on each milestone
+                I will act as both client and advisor
+                Work together to solve problems
+
+        Software Lifecycle
+        
+            Aspects of development
+                Requirements - What problem are we trying to solve?
+                Design - What will the solution do?
+                Code - How can we make it work properly?
+                Test - Is it ready to release?
+
+            Project Roles
+
+            Communication
+                Client communication - weekly meetings
+                Team communication - daily meetings
+                Issue tracking - gather all outstanding issues
+                Communication tools
+                    Zoom, Github, Slack, Production server
+
+            Engineering Process
+                How we get thing done
+                Each part of the lifecycle
+
+            Software Lifecycle Phases
+
+                Requirements
+                    Development Plan
+                    Product Milestones
+                    Sprint Planning
+                    Issues List
+
+                Design
+                    Technology Plan
+                    Architecture
+                    Detailed Design
+                    Prototype Core Features
+
+                Code
+                    Test-driven Development
+                    Version Control
+                    Code Editing
+                    Tracking progress
+
+                Test
+                    Test Planning
+                    Unit Tests
+                    System Tests
+                    Acceptance Tests
+                    Devops
+
+    Software Engineering Milestones
+
+        Project Plan Complete
+        Technology Proven
+        Core Features Implemented
+        Functionality Complete
+        Test Complete
+        Release
+        First Upgrade
+
+    Development Role Responsibility
+
+        Project Manager - Requirements
+
+            Project Charter
+                Business proposition
+                Project scope & budget
+                Client communication
+                Sprint Planning meetings
+            Setup communications
+                Configure communication tools
+                Team communication
+                Plan daily meetings
+            Functional requirements
+                Plan User Stories
+                Customer review
+            Team coordinator
+                Task Kanban
+                Prioritize feature requests
+                Sprint planning
+            Project progress
+                Burn down graph
+                Prioritize Features
+                Product backlog
+            Issues Review
+                Acceptance criteria
+                Release checkpoint
+            First maintenance roll
+                Downtime management
+                Maintenace plan
+                Upgrade strategy
+
+        Designer - Design
+
+            Technology selection
+                Select Development Tools
+                Infrastructure - Frameworks & Tools
+                Setup Guide
+                Create "Hello World"
+                Decide on App deployment
+            Software Architecture
+                Apps = Data + Views
+                Data models
+                Views and wireframes
+            Component Design - API
+                Prototype - development spike of core functionality
+                Implement data models
+                Implement views
+                Implement URL routes
+            Refactoring and code structure
+                Create code analysis tools
+                Draw diagram of code structure
+                Refine key APIs
+            Help with Code
+                Implement all required features
+                Improve code structure
+                Ensure test quality
+            Resolve open design issues
+                Assist with defect fixing
+                Assist with completion of tests
+                Ensure test quality
+            Design future enhancements
+                Create plan for product upgrade
+                Archive the finish design
+                Update design documents
+
+        Programmer - Code
+
+            Version control
+                Setup Github account
+                Setup Github Pages repository
+                Decide how to publish your project docs
+                User Guide for development workflow
+            Test-driven development workflow
+                Build simple app
+                Build simple test
+                Document workflow built around tests
+            Incremental development (Sprints)
+                Select features for sprint
+                Implement the features
+                Test the features
+                Fix all defects
+            Write code - core features
+                Implement User Stories
+                Test-driven workflow
+                Implementation Cycle - Test, Fix, Extend, Improve
+                Implement all core features
+            Write code - functional complete
+                Implement all features
+                Test-driven workflow
+                Implementation Cycle - Test, Fix, Extend, Improve
+            Write code - debug
+                Extend test cases
+                Work with burn-down graph
+                Implement regression test cases
+            Write code - fix issues
+                Close all remaining issues
+                Complete all missing tests
+                Release checklist
+
+        QA Engineer - Test
+
+            Test Plan
+                Outline of testing that will be used
+                Setup structure for testing
+                Log issues
+                Document how to log issues
+            Test Infrastructure
+                Unit test framework
+                System testing framework
+                Regression testing
+            Automated testing
+                Unit testing
+                System testing
+                Code coverage of tests
+            Continuous integration
+                Build and test with every push
+                Implement Travis (CI tool)
+            Acceptance testing
+                Work with Requirements specialist
+                Identify unmet customer needs
+                Develop client acceptance test
+            Issue tracking
+                Issues management workflow
+                Track metrics for issue found, fixed, outstanding
+                Test resolved issue
+                Close issues that pass test
+            Software Release
+                Release criteria
+                Maintenance plan
+                Server management
+
+    Example Project - Book Builder
+
+        Requirements
+            Development Plan
+            Product Milestones
+            Sprint Planning
+            Issues List
+
+        Design
+            Technology Plan
+            Architecture
+            Detailed Design
+            Prototype Core Features
+
+        Code
+            Test-driven Development
+            Version Control
+            Code Editing
+            Tracking progress
+
+        Test
+            Test Planning
+            Unit Tests
+            System Tests
+            Acceptance Tests
+            Devops
+
+    Team Projects
+
+        Team Organization
+            Each student has a role
+            Each student will spend 10 hours/week
+            Students will take on new role at midterm
+
+        Development Iterations
+            Seven milestones - mini projects
+            Student time: 10 hours/week
+            Each role has deliverables
+            Team effort 80 hours/milestone
+
+        Grading
+            Seven milestones will be graded
+            Team participation (measured by peer review)
+            Team success (measured by teacher)
+
+        Team Success
+            Each milestone will deliver
+                Documented requirements & client management
+                Documented tools and process and designs
+                Running code
+                Tests that pass
+            Each milestone will have unique criteria for success
+            Team will deliver a medium-sized software application
+
+        Possible Apps
+            Evernote
+            Twitter
+            Facebook
+            Issue Tracker
+            Page Tester
+            Voting System
+            Canvas
+            Survey Monkey
+
+    Software Process Disciplines & Tools
+
+        Version control (Git)
+        Project Kanban (Github)
+        Commercial web hosting (Digital Ocean, Heroku, AWS, PythonAnywhere)
+        Incremental development
+        Test-driven development
+        Debugging
+        Refactoring
+        Code review
+        Acceptance testing
+        Scrum
+        Extreme-programming
+        Usability testing
+        Automated testing (Selenium)
+        Continuous integration (Travis)
+        Issue tracking (Github)
+        Automated deployment
+        DevOps
+        Instant messaging (Slack)
+

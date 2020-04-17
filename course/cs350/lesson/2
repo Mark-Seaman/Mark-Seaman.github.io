@@ -1,0 +1,72 @@
+# Lesson 2 = Software Lifecycle
+
+
+## Aspects of development
+
+### Requirements - What problem are we trying to solve?
+
+
+### Design - What will the solution do?
+
+
+### Code - How can we make it work properly?
+
+
+### Test - Is it ready to release?
+
+
+## Project Roles
+
+## Communication
+
+### Client communication - weekly meetings
+
+
+### Team communication - daily meetings
+
+
+### Issue tracking - gather all outstanding issues
+
+
+### Communication tools
+
+* Zoom, Github, Slack, Production server
+
+## Engineering Process
+
+### How we get thing done
+
+
+### Each part of the lifecycle
+
+
+## Software Lifecycle Phases
+
+### Requirements
+
+* Development Plan
+* Product Milestones
+* Sprint Planning
+* Issues List
+
+### Design
+
+* Technology Plan
+* Architecture
+* Detailed Design
+* Prototype Core Features
+
+### Code
+
+* Test-driven Development
+* Version Control
+* Code Editing
+* Tracking progress
+
+### Test
+
+* Test Planning
+* Unit Tests
+* System Tests
+* Acceptance Tests
+* Devops
