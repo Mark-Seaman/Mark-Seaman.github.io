@@ -8,7 +8,7 @@
     "css": "/static/css/unc.css",
     "home": [
         "CS 350 - Software Engineering",
-        "/course/cs350/Index"
+        "/course/cs350/Index.md"
     ],
     "settings": "course/cs350/page_settings.json"
 }
