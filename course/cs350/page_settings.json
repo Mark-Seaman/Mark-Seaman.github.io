@@ -1,0 +1,14 @@
+{
+    "site_title": "Shrinking World Training",
+    "site_subtitle": "CS 350 - Software Engineering",
+    "page_title": "Software Engineering - Table of Contents",
+    "logo": "/static/images/unc/Bear.png",
+    "icon": "/static/favicon.ico",
+    "document": "course/Index.md",
+    "css": "/static/css/unc.css",
+    "home": [
+        "CS 350 - Software Engineering",
+        "/course/cs350/Index"
+    ],
+    "settings": "course/cs350/page_settings.json"
+}

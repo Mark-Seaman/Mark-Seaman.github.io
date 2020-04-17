@@ -27,4 +27,4 @@ departure from other training that is available.
 * Web Dev 1 - Web pages (HTML/CSS)
 * Web Dev 2 - Web apps (Django)
 * Web Dev 3 - Web services (MERN and REST)
-* [Software Engineering Skills](cs350/Index) - best practices  & survival guide
+* [Software Engineering Skills](cs350) - best practices  & survival guide

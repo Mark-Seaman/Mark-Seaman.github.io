@@ -1,0 +1,14 @@
+{
+    "site_title": "Shrinking World Training",
+    "site_subtitle": "Software Engineering Courses",
+    "page_title": "Table of Courses",
+    "logo": "/static/images/SWS_Logo_200.jpg",
+    "icon": "/static/favicon.ico",
+    "document": "course/Index",
+    "css": "/static/css/brain.css",
+    "home": [
+        "Practical Engineering Courses",
+        "/course/Index"
+      ],
+    "settings": "course/page_settings.json"
+}
