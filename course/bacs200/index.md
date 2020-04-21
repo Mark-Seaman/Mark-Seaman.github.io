@@ -54,7 +54,7 @@
 
 ## Demo Code
 
-* [Source Files](demo)
-* [Demo Server](https://unco-bacs.org/bacs200)
+* [Source Files](demo) - Github Pages Server
+* [Demo Server](https://unco-bacs.org/bacs200) - Bluehost Server
 
 
