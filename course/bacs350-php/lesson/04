@@ -1,0 +1,109 @@
+# Lesson 4 -  Page Template Pattern
+
+* UNC - BACS 350
+* Wednesday, Sep 4
+* Mark Seaman
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+---
+
+### Review
+* Github - Sample Code
+* Variable Insertion into Views
+* Header and Footer with Variables
+* Header/Footer design pattern
+
+### Today
+* Page Template Pattern
+* Clone Github Repository
+
+
+
+---
+
+### Seaman's Rules
+* Rule #4: Bugs breed
+    * act immediately
+    * zero tolerance
+
+
+### Mark's Github Repo
+* [Sample Code at Github](https://github.com/Mark-Seaman/UNC-BACS350-2019-Fall)
+* Use this code on your projects
+* New code shared daily
+
+
+### Hardcoded HTML
+* Create a Page
+* [Step 1](https://github.com/Mark-Seaman/UNC-BACS350-2019-Fall/blob/master/public_html/bacs350/demo/04/page1.php)
+
+
+### Set and Use Variables
+* Create a Page
+* [Step 2](https://github.com/Mark-Seaman/UNC-BACS350-2019-Fall/blob/master/public_html/bacs350/demo/04/page2.php)
+
+
+### Use PHP Echo
+* Create a Page
+* [Step 3](https://github.com/Mark-Seaman/UNC-BACS350-2019-Fall/blob/master/public_html/bacs350/demo/04/page3.php)
+
+
+### Include the Template
+* Create a Page
+* [Step 4 - Template](https://github.com/Mark-Seaman/UNC-BACS350-2019-Fall/blob/master/public_html/bacs350/demo/04/page_template.php)
+* [Step 4 - Page](https://github.com/Mark-Seaman/UNC-BACS350-2019-Fall/blob/master/public_html/bacs350/demo/04/page4.php)
+
+
+
+---
+
+## BUILD
+
+---
+
+
+### Visit the BACS Demo Server
+* Use the code to help you
+* [Mark's example code](https://unco-bacs.org/bacs350/index.html)
+* Solutions to all projects
+
+
+### Pages Live of Servers
+* [Source Code at Github](https://github.com/Mark-Seaman/UNC-BACS350-2019-Fall/blob/master/public_html/bacs350/index.php)
+* [Web Page at Bluehost](https://unco-bacs.org/bacs350/index.php)
+* View the Source Code in Browser (Ctrl-U)
+
+
+### Windows Short-cuts
+* Brackets pinned to start bar
+* Default browser
+* Show file extensions
+* Folder short-cut to 'public_html/bacs350'
+
+
+### Copy and Paste from Browser
+* Source code from any page on internet
+* Broken image and broken links
+
+
+### Sign up for a Github account
+* Free accounts for public repos
+* Recommend using your human user name
+
+
+### Fork My Repo
+* [My Code at Github](https://github.com/Mark-Seaman/UNC-BACS350-2019-Fall)
+* Browse the source code
+
+
+
+### See you next time
+
+---
+
+![](img/Bear3.png)

@@ -1,0 +1,244 @@
+# Lesson 2 - Server-side Includes
+
+---
+
+* UNC - BACS 350
+* Monday, Aug 26
+* Mark Seaman
+
+![](img/Bear_Logo.png)
+
+---
+
+## LEARN
+
+---
+
+![](img/Bear_Logo.png)
+
+
+### Review
+* New literacy
+* How the class works
+* Web servers: Sensei, Bluehost, Zybooks
+
+
+### Today
+* PHP is extended HTML
+* Executing PHP code
+* Dynamic page content
+* Server-side includes
+* Reusable page structure
+
+---
+
+### Seaman's Rules
+
+---
+
+Rule #2: Do not repeat yourself
+
+---
+
+* Eliminate every form of duplication
+* Use tools to repeat steps
+
+
+### Internet - Clients and Servers
+Computers and phones request content from web servers
+
+![](img/Client-Server.png)
+
+
+### Web Servers and Web Browsers
+Web servers responds with the requested web pages
+
+![](img/WebServer.png)
+
+
+### Static Websites
+* Static server produces fixed information
+* Dynamic server produces information that is unique
+
+
+### Database Storage
+* Saved state
+* Pages affected by past activity
+
+
+### New Technologies
+* PHP - Server side scripting language
+* MySQL - Database engine uses SQL
+* JavaScript - Client-side scripting language
+
+
+### Technology We Know
+* HTML Provides Website Structure
+* CSS Provides Website Style
+* JS Provides Programming Logic
+
+
+### What is missing from HTML?
+
+### Example: Form validation
+* Server can check all the data for completeness
+* JavaScript can check the page before posting results
+
+
+### HTML is stateless
+* Every page to a URL is the same
+* 1000 users all get the same page
+* Applications must remember things
+
+
+### PHP is Extended HTML
+* PHP is a preprocessor that converts PHP logic into HTML code
+* Every HTML file is a valid PHP file
+
+
+### Standard code for each page
+* Write code once
+* Inheritance by Cut/Paste
+* Duplication is the primary enemy
+
+
+### Capture common code with includes
+* Start with a simple web page
+* Apply the format to every page without duplicating the code
+
+```html
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Page Title</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <h1>Main Topic</h1>
+        <p>This simple page shows how to hook up an external stylesheet.</p>
+
+    </body>
+
+    </html>
+```    
+    
+
+### Server-side includes
+* Find code that is the same
+* Create file
+* Insert where needed
+
+```php
+include "header.html";
+```
+
+
+## BUILD
+
+---
+
+![](img/Bear_Logo.png)
+
+
+### Every page has Header, Main, Footer
+* Cannot duplicate code for each page
+* Make ongoing maintenance easy
+
+
+### Development Loop
+* Edit - Create code with text editor
+* Deploy - Send pages to server
+* Test - Load web pages in browser
+
+
+### Step 1 - Create web page
+* Start with a simple web page
+* Start Menu, Brackets
+* "Documents\\BACS-350-Code\\public_html\\bacs350\\index.php"
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <h1>BACS 350 - MY NAME</h1>
+        <p>
+            This is my home page for the UNC BACS 350 class.
+        </p>
+    </body>
+</html>
+```
+
+
+### Test the page
+* Push the code to the remote server
+* Browse the URL to your file
+* Test all these links
+
+
+### Step 2 - Create header.php and footer.php
+* Copy leading code into header.php
+* Copy trailing code into footer.php
+
+
+### Step 3 - Refactor page.php
+* Extract code that will be shared across all pages
+* Refactor index to use includes
+* Replace logic in each page
+
+```php
+<?php include "header.php"; ?>
+    <!--  Your code goes here -->
+<?php include "footer.php"; ?>
+```
+
+
+### Step 4 - Test the page
+* Push the code to the remote server
+* Browse the URL to your file
+
+
+### Step 5 - Improve your header and footer
+
+### Add CSS stylesheet to your header.php
+
+```html
+<link rel="stylesheet" type="text/css" href="styles.css">
+```
+
+```css
+h1 { color: red; }
+```
+
+### Download an image to use
+Save and upload to your web site
+
+![](img/Bear3.png)
+
+
+### Create a banner
+
+header.php
+
+```html
+<header>
+    <h1><img src="Bear3.png" alt="Bear logo">Page Title</h1>
+</header>
+```
+
+styles.css
+
+```css
+header { background-color: purple; }
+header h1 { color: yellow; }
+```
+
+
+
+### See you next time
+
+---
+
+![](img/Bear3.png)

@@ -1,0 +1,132 @@
+BACS 350 - Lesson 14
+
+* MVC Pattern
+* Friday, Sep 24, 2018
+* by Mark Seaman
+
+![](img/Bear_Logo.png)
+
+
+### Overview
+
+### Grading
+* Skill drills
+* Integrated apps
+* Quizzes
+* Exams
+* Exams are for testing knowledge
+* Projects are for testing capability
+
+
+### Review
+* Use includes to capture page layout
+* Create and use databases
+* Build an app by creating building blocks
+* Now we must learn to create better structures
+* Modern code sharing practices
+
+
+### Next Steps
+* Development productivity
+* Technical details of PHP and MySQL
+* App structure and design
+
+
+
+## App Design
+
+### Every app has a design
+* Design should change to reflect understanding
+* Designs should be reused as patterns
+
+
+### Refactoring
+* Popularized by Martin Fowler
+* Code gets worse with time
+* Make code better by improving its structure
+
+
+### How to Refactor
+* Bad smells indicate the need for cleanup
+* Must be done with good tests
+* Change the structure without changing the features
+* Refactor every time you touch the code
+* Only refactor a working system that can be easily tested
+
+
+### Process for Refactoring
+* Find a bad smell
+* Clean it up
+* Make sure nothing broke
+
+
+
+## CRUD Functions
+
+### Limits of File Includes
+* Everything weve done is based on files
+* Functions will make our code cleaner
+* PHP code should be gathered together in files
+* All database code should be consolidated
+* Too many small pieces
+
+
+### Learn programming by programming
+* All code is demonstrated in [Solution 14](http://unco-bacs.org/bacs_350/solution/14)
+
+
+### Steps to MVC
+* Step 1 - Page Structure
+* Step 2 - Database Connection
+* Step 3 - CRUD
+* Step 4 - Views
+* Step 5 - Controller
+* Step 5 - Testing
+
+
+### MVC Design Pattern
+* CRUD operations are consolidated in functions
+* Views are encapsulated by functions
+* Controller processes action verbs
+
+
+### Project #17 - due Friday
+* Refactor your application into an MVC Design pattern
+* Build out full CRUD
+
+
+
+## eBook
+
+### Interactive Learning Tool
+* Better tools can accelerate learning
+* Static reading does not fully engage the brain
+* Need to invoke problem solving
+
+
+### New Tool for Interactive Learning
+* Read text/answer questions/do exercises
+* Aim to fill holes in understanding
+
+
+### New Rhythm for Class
+* Monday
+    - Lecture for overview
+    - zyBooks for Exercise
+* Monday
+    - Lecture for overview
+    - zyBooks for Exercise
+* Friday
+    - Lecture for overview
+    - Build Pages and Reviews
+
+
+### Getting Started
+1. Sign in or create an account at learn.zybooks.com
+2. Enter zyBook code - UNCOBACS350SeamanFall2018
+3. Subscribe
+
+
+### Assignments
+* Monday, Sep 24 - [Full-stack development](https://learn.zybooks.com/zybook/UNCOBACS350SeamanFall2018/chapter/12/section/1)
+* Wednesday, Sep 26 - [Getting Started](https://learn.zybooks.com/zybook/UNCOBACS350SeamanFall2018/chapter/12/section/2)

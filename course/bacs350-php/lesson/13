@@ -1,0 +1,88 @@
+# Lesson 13 - Directory Listing
+
+
+* UNC - BACS 350
+* Wednesday, Sep 25
+* Mark Seaman
+ 
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+---
+
+### Review
+* Skill #4 - URL Game
+* Project #5 - Study Guide
+
+
+### Today
+* Zybooks - 13.3 - Files
+* Demo #12
+    * List Directories
+    * List Files
+    * Form an HTML List
+* Demo #13
+    * Wrap logic in functions
+    * Create hyperlinks
+* Skill #5 - Setup Apache
+
+---
+
+### Seaman's Rules
+* Rule #13 - Listen to the Pain
+    * Pain can be a great teacher
+    * It may indicate an issue that needs attention
+  
+---
+
+### Pull Demo Code
+* From Github Desktop
+* Select the Mark-Seaman/UNC-BACS350-Demo repo
+* Pull new code
+
+
+### View Mark's Demo Code
+* Run Brackets
+* Open Folder Documents/UNC-BACS350-Demo/bacs350
+* This will be a standard folder selection for later
+
+
+### Demo #12
+* Visit source code for "bacs350/demo/12"
+* List Directories
+* List Files
+* Form an HTML List
+* Run the code on [UNCO-BACS.org](https://unco-bacs.org/bacs350/demo/12)
+
+
+### Demo #13
+* Visit source code for "bacs350/demo/13"
+* Wrap logic in functions
+* Create hyperlinks 
+* Run the code on [UNCO-BACS.org](https://unco-bacs.org/bacs350/demo/13)
+
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+
+### Skill #5 - Setup Apache
+* [Setup Apache](/unc/bacs350/skills/05)
+
+
+### Project #5 - Document Manager
+* Copy code from Demo 12 and debug it on your computer
+* Copy code from Demo 13 and debug it on your computer
+
+
+### Work with your partner
+

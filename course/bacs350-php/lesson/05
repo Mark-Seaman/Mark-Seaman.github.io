@@ -1,0 +1,87 @@
+# Lesson 5 - Code Sharing
+
+* UNC - BACS 350
+* Friday, Sep 6
+* Mark Seaman
+
+---
+
+![](img/Bear_Logo.png)
+
+---
+
+
+## LEARN
+
+---
+
+* Review
+    * Page Template Pattern
+    * Clone Github Repository
+
+* Today
+    * Render Page Design Pattern
+    * Code Sharing with Github
+    * Create Many Pages
+
+---
+
+
+### Seaman's Rules
+* Rule #5: Easy way out - hard way back
+    * Short-cut result in you taking the long way around
+    * Pay now or pay later
+
+
+### Page Template Pattern
+* Wrap the Page Template Pattern in a function
+* Save render_page in views.php
+* Call render_page to get the HTML
+* Pass the custom settings as paramters
+
+
+### PHP Functions
+
+```php
+function headline($title) {
+    echo '<h1>' . $title . '</h1>';
+}
+
+echo headline('I am Iron Man');
+```
+
+### render_page
+
+```php
+function render_page($site_title, $page_title, $content) {
+    echo '...' . $site_title . $page_title . $content . '...';
+}
+
+echo render_page('350', 'Page Demo', '<p>text</p>');
+```
+
+
+### Demo Code
+*  [Source Code](https://github.com/Mark-Seaman/UNC-BACS350-2019-Fall/tree/master/public_html/bacs350/pattern/render_page)
+* [Running Code](https://unco-bacs.org/bacs350/pattern/render_page)
+
+
+---
+
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Project #2 - Code Sharing
+* Follow the script for Project #2
+* [Project #2 - Code Sharing](/unc/bacs350/project/02)
+
+
+### See you next time
+
+---
+
+![](img/Bear3.png)

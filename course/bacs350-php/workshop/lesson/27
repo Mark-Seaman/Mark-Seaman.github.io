@@ -1,0 +1,84 @@
+BACS 350 - Lesson27 - Week 10
+
+* Cookies & Sessions
+* Monday, Oct 22, 2018
+* by Mark Seaman
+
+![](img/Bear_Logo.png)
+
+
+
+### Review
+* Simple HTML Templates
+* View Templates
+* Page Template Design
+* Handling Errors
+
+### Next Steps
+* Cookies & Sessions
+
+
+
+## Cookies
+
+How do you use the browser to remember somethings between pages?
+
+* Cookies can be set by the server
+* The server can read cookies from the browser
+
+
+### Set a Cookie
+Create a variable stored in the Browser
+
+```
+setcookie ('FIRST_TIME', 'FALSE');
+```
+
+
+### Read a Cookie
+Execute Differently Based on the Cookie
+
+```
+if ($_COOKIE['FIRST_TIME'] == "TRUE") {
+    act_on_first_time();
+}
+```
+
+
+### Initialize the Cookie
+Uninitialized cookies can cause errors
+
+```
+if (! isset($_COOKIE['FIRST_TIME'])) {
+    $_COOKIE['FIRST_TIME'] = "TRUE";
+} 
+```
+
+
+### Cookies Are Remembered Forever
+You can also add an expiration date
+
+* Closing the browser does not reset the cookie
+
+
+### Sessions are Reset When Browser Closes
+Special kind of cookies
+
+* Closing the browser resets the session cookies
+
+```
+session_start ();
+$_SESSION['SHOPPING'] = 'TRUE';
+```
+
+
+### Check the Session Cookie
+Handle the uninitialized case
+
+```
+if (isset($_SESSION['SHOPPING']) and $_SESSION['SHOPPING']=='TRUE')
+```
+
+
+### Demo Code
+Review code at "solution/27" on the demo server

@@ -1,0 +1,62 @@
+BACS 350 - Lesson 18
+
+* App Milestones
+* Wednesday, Oct 3, 2018
+* by Mark Seaman
+* ![](img/Bear_Logo.png)
+
+
+### Review
+* Setup development
+* Pages
+* Data
+* Views
+
+
+## App Milestones
+Building Apps step-by-step
+
+
+### Milestones
+1. PROJECT - Create new project
+2. PAGE - Create app page
+3. DATA - Create database connection and CRUD
+4. VIEWS - Create subscriber Views
+5. CONTROLLER - Create subscriber business logic
+
+
+### 1. PROJECT
+* Create new project
+* Apache, MySQL local servers
+* Version control
+* Test links in browser (local, remote)
+* Data admin links (local, remote)
+
+
+### 2. PAGE
+* Create app page
+* General page template
+* Organization of pages
+* Structure of code
+
+
+### 3. DATA
+* Create database connection
+* Create database (local, remote)
+* Setup general connection function
+* Create database table for model
+* Design data model
+* Create subscriber CRUD functions
+
+
+### 4. VIEWS
+* Create subscriber Views
+* Create views (list, details, add, update, delete)
+* Encapsulate in views for each data type
+
+
+### 5. CONTROLLER
+* Create subscriber Controller
+* Call the DB or views
+* Handle page sequence
+* Handle errors

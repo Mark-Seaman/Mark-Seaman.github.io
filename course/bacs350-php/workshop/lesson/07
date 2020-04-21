@@ -1,0 +1,160 @@
+Software Design
+
+* Lesson 7
+* Date: Wed, 09-05
+* by Mark Seaman
+
+![](img/Bear_Logo.png)
+
+
+### Processing Input from Forms
+* Forms UI
+* Post or Get
+* Retrieving the data from Form
+* Connect to database
+* Save data in database
+
+### Next Steps
+* Encapsulation & duplication
+* Separation of concerns
+* Incremental development
+* CRUD Operations
+* Using Version Control
+
+
+
+## Software Structure
+
+### Encapsulation 
+* Logical operations must be grouped together
+* Abstraction lets you think about the result not the details
+* Provide good names to capture the desired outcome
+
+
+### Duplication
+* Duplication is the most important cause of poor quality
+* Never allow duplicate code to survive
+* Use better structure to reduce duplication
+
+
+### Separation of concerns
+* Every piece of code should do one thing
+* Better encapsulation leads to less overlap in responsibilities
+
+
+### Incremental development
+* Develop new features in isolation
+* Integrate into the whole
+* Test to make sure that quality does not decrease
+* Never tolerate defects
+
+
+## CRUD Operations
+
+### CREATE
+* Insert records in database
+* SQL - INSERT, VALUES
+* Study code for [Database Connection](templates/db.php)
+
+### READ
+* Query for records that match
+* SQL - SELECT, WHERE
+* Study code for [READ operation](templates/select.php)
+
+### UPDATE
+* Edit the fields in existing records
+* SQL - SELECT, WHERE, UPDATE, SET
+* Study code for [UPDATE operation](templates/update.php)
+
+### DELETE
+* Remove records for database
+* SQL - DELETE, WHERE
+* Study code for [DELETE opeation](templates/delete.php)
+
+
+
+## Tools
+
+### Using Version Control
+* Create repo
+* Make changes
+* Commit changes
+* Pull - Push
+* Show changes
+
+### Create repo
+* Create on Github
+* Clone another repo
+* Create locally and push to Github
+
+### Make changes
+* Edit files on Github
+* Online editor
+* View changes in Github
+
+### Commit changes
+* Make the current file the the new master
+* Preserve all history
+* Allow rollback of Change Set
+
+### Pull
+* Get changes from remote repo
+* Share changes from others
+* Merge multiple streams of changes
+
+### Push
+* Share my changes with others
+* Must have permissions set correctly
+* Merge my changes with all other changes
+
+### Show changes
+* Show full history
+* Rollback to any moment in time
+
+
+
+## Build
+
+### Go to [Github.com](http://github.com) and login
+
+
+### Create your copy of the BACS_350 repo
+* View repo at [Mark-Seaman/BACS_350_2018_Fall](https://github.com/Mark-Seaman/BACS_350_2018_Fall)
+* Fork repo to create your own copy
+* View your repos
+
+
+### View source code in repo
+* Select the BACS_350_2018_Fall repo
+* Browse source code folders
+    * Go to project/07 folder
+    * Click on db.php
+    
+    
+### Edit your db.php
+* Click on "pencil" icon to edit
+* Customize your settings
+* Type "Change to my settings"
+* Commit Changes
+* Verify that db.php is changed
+
+
+### Create project/07/index.php
+* Copy contents from project/06/index.php
+* Update title to "BACS 350 - Project #7"
+
+
+### Link to Github Repos
+* [Mark-Seaman/BACS_350_2018_Fall](https://github.com/Mark-Seaman/BACS_350_2018_Fall)
+* [your-github/BACS_350_2018_Fall](https://github.com/your-github/BACS_350_2018_Fall)
+
+
+### Connect to Database
+* Link to project/07/db.php from your project/07/index.php
+* When clicked this should show the database connection success
+
+
+### Submit the page in Canvas
+* Post the link to project/07/index.php
+
+![](img/Bear3.png)

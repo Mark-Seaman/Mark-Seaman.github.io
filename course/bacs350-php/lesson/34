@@ -1,0 +1,108 @@
+# Lesson 34 - Technical Debt
+ 
+
+* UNC - BACS 350
+* Wednesday, Nov 13
+* Mark Seaman
+ 
+---
+
+### Assignments
+* Reading - 9.6 Ajax
+* Review - Review the overall site and log defects
+* Project #12  - Brain App Testing
+
+
+### Seaman's Rules
+* Rule #34 - Every action you do affects the technical debt
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+  
+---
+
+### Project Flexibility
+* Projects are constantly moving
+* Each meeting with a client or boss may clarify the requirements
+* We need a process for adjusting to change
+
+
+### Technical Debt
+* Write yourself an IOU 
+* Save the work for later
+* Calculate the current debt level
+
+
+### Best Practices in Software Engineering
+* [My Book on Engineering](https://shrinking-world.com/Leverage/)
+
+
+### Software Process
+* Efficient path to release
+* Addresses all outstanding debt
+
+
+### Issue Tracking
+* Test - Capture all outstanding issues
+* Fix - Pay off existing debt
+* Closure - Resolve the disagreements
+
+
+### Teamwork
+* Work the problem
+* Prevent inflamed egos
+* Respond to truth
+
+
+### Duplication of Code
+* Smell the duplication
+* Create libraries of reusable code
+* Standardize on design patterns
+
+
+### Root libraries
+* Stylesheet
+* HTML Templates
+* View rendering
+* CRUD patterns
+* View Inheritance
+
+
+### Project #12 - Brain Testing
+* Create project plan
+    * Requirements.md, Design.md, Code.md, Test.md
+    * Set goals and objectives
+* Test the team websites
+    * Test the site
+    * Review the code
+    * File defects
+* Work on issues
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+
+### Grading Project 
+* [Project #12 - Brain Test](/unc/bacs350/project/12)
+* Grading Criteria
+    * 10 points - You documented your project plan
+    * 10 points - You logged 9 issues
+    * 10 points - You received 9 issues
+
+
+### Project Teams
+* Create a page 'team.php'
+* Make a table of quick links
+* Name, Domain, Github Repo, Issues
+
+
+

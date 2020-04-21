@@ -1,0 +1,121 @@
+# Lesson 33 - Documentation
+ 
+
+* UNC - BACS 350 - Lesson 33
+* Monday, Nov 11 
+* Mark Seaman
+ 
+---
+
+### Assignments
+* Reading - 9.5 DOM
+* Project Documentation
+* Project #12 - Integrated Brain App
+
+
+### Seaman's Rules
+* Rule #33 - Write the smallest amount of documents required
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+  
+---
+
+    
+### Github Wiki
+* Github can automatically display markdown content
+* Use this feature to create essential documents for your project
+
+
+### Essential Documents
+* Create docs for Requirements.md, Design.md, Code.md, Test.md
+* Create a simple plan for each phase of the software lifecycle
+
+
+### Requirements.md
+* Priorities for finished project
+* Clear objectives for success
+* Spend 25% of your project working on requirements
+* Prototypes to test requirements
+
+
+### Design.md
+* Select your technology and tools
+* Identify the components you must build
+* Create an index of pages to build
+* App = Data + Views (design for both data and views)
+* How will you test the design?
+
+
+### Code.md
+* Implementation plan
+* Code milestones
+* Schedule for tracking progress
+
+
+### Test.md
+* Requirements and testing process
+* Tests to create
+* Design review process
+* Customer acceptance testing
+* Maintenance plan
+* Design review checklist
+
+
+### Github Issue tracking
+* One list to track progress
+* System manages notifications
+* Use design review groups
+* File at least three issues for each designer (9 total)
+
+
+### Design Review
+* Ten point evaluation
+* Log defects as Github Issues
+* Show defect numbers in Review Summary
+
+
+### Review Brain App - Design Review Teams
+* Initial design review 
+* Designers respond to logged Issues
+* Designers mark issues as fixed
+* Reviewers retest the issues and close them
+
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Brain Project 
+* [Project #12 - Brain App](/unc/bacs350/project/12)
+
+
+### Document Your Project
+* Create the essential documents for your project work
+* Describe your work done and work remaining
+* [Examples to Get Started](https://github.com/Mark-Seaman/UNC-BACS350-Demo/tree/master/bacs350/docs)
+
+
+### Log Initial Github Issue
+* Create an Issue build project documents
+* Update this issue description as you work
+* When complete mark the issue as closed
+
+
+### Conduct First Review
+* Identify your team mates
+* Conduct an initial review for each
+* Log at least three issues for each designer
+* Complete the design review form on the Sensei website
+* Add filed issue to report summary
+
+
+

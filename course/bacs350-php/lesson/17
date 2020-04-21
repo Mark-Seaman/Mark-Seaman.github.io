@@ -1,0 +1,133 @@
+# Lesson 17 - List Records
+
+
+* UNC - BACS 350
+* Friday, Oct 4
+* Mark Seaman
+ 
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+---
+
+### Review
+* Skill #6 - SQL Database at Bluehost
+* Create a database
+* Connect to database with PHP
+
+
+### Today
+* Project #6 - Superhero Database
+* Zybooks - 13.7 - MYSQLi
+* Demo #17 - List the records
+
+---
+
+### Seaman's Rules
+* Rule #17 - Build your personal Dashboard
+    * Check out [Mark's Dashboard](https://unco-bacs.org/bacs350/docman)
+    * Build your own dashboard using your document manager
+    * Create docs in Markdown
+    * Update daily as you work
+  
+---
+
+### Rows and columns (Records, Fields)
+* Subscriber database
+* Each row in the table holds a subscriber record
+* There are two columns that hold name and email
+* Columns are called fields and hold the values of a record
+
+
+### Working with a database
+* Connect to database
+* Query records
+* Build a list
+
+
+### Basic Debug
+* If your code throws and error or produces a white page it may have died from a PHP error
+* Connect with Filezilla and look for a file "error_log" in the directory with the page
+* This file contain error info
+
+
+### Pull Demo Code
+* From Github Desktop
+* Select the Mark-Seaman/UNC-BACS350-Demo repo
+* Pull new code
+
+
+### View Mark's Demo Code
+* Run Brackets
+* Open Folder Documents/UNC-BACS350-Demo/bacs350
+* This will be a standard folder selection for later
+* Visit source code for "bacs350/demo/17"
+
+
+### Demo #17 - List Database Records 
+* Run the code on [UNCO-BACS.org](https://unco-bacs.org/bacs350/demo/17)
+* Connect to your Bluehost database
+* Run a SQL SELECT statement
+* Echo the records returned to the output
+
+
+### Connect to Database
+* Connect to Bluehost database
+* This will open a database connection
+
+```php
+    $db_connect = "mysql:host=localhost:$port;dbname=$dbname";
+    $db = new PDO($db_connect, $username, $password);
+```
+
+Debug this before continuing
+
+
+### Run a SQL SELECT statement
+* Get a list of records into an array
+
+```php
+    $query = "SELECT * FROM subscribers";
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $subscribers = $statement->fetchAll();
+```
+
+
+### Echo the records returned to the output
+* Create an HTML list on the output
+
+```php
+    echo '<ul>';
+    foreach($subscribers as $row) {
+        echo "<li><b>$row[name]</b> - email: $row[email]</li>";
+    }
+    echo '</ul>';
+```
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Complete Lesson 16 first
+* Finish creating database connection before attempting anything else
+
+
+### Replicate Demo 17
+* Copy code from "bacs350/demo/17" to your computer
+* Connect to your Bluehost database
+* Debug this before continuing
+* Now you know that you can work with your database
+
+
+### Project #6 - Subscriber Database
+* Build the code for [Project #6 - Subscriber Database](/unc/bacs350/project/06)
+

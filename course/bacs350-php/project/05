@@ -1,0 +1,36 @@
+# Project #5 - Document App
+
+This PHP application is an app that is integrated into your Brain App.
+
+* bacs350
+    * superhero
+    * planner
+    * docman
+        * docs
+            * Markdown docs from Project #4
+            
+## Custom Stylesheet
+
+Create your own look that applies only to Document Manager App (docman).
+
+* Colors
+* Fonts
+* Logo
+* Header layout
+
+
+## Requirements
+
+* Work with partner (assigned teammate)
+* Build new app to work within brain (bacs350/docman)
+* Create a folder for markdown documents (bacs350/docman/docs)
+* Commit all changes (at least 5 new commits)
+* All pages must validate
+* Reviews will be done by producing a Markdown document
+* Review your partner's website "look and feel"
+* Review your partner's code (using Github repo)
+* Work with partner to get changes made
+* Review the work to produce (before and after snapshots)
+* The top "notes" page will show an Index of hyperlinks
+* A "doc.php" will display the selected document
+

@@ -1,0 +1,108 @@
+# Lesson 39 - Software Testing
+
+
+* UNC - BACS 350
+* Wednesday, Dec 4
+* Mark Seaman
+ 
+---
+
+### Assignments
+* Final Review - round #2 - due 12-04
+* Final Project - respond to code review feedback
+
+
+### Seaman's Rules
+* Rule #39 - Test everything you care about
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+  
+---
+
+### Software Testing
+* Plan your testing
+* Plan different types of testing
+
+
+### Test Plan
+* Usability
+* Acceptance
+* Automated Tests
+* Code Review
+* Issue Tracking
+* Refactoring
+
+
+### Usability Testing
+* How will you guarantee that you meet the project objectives?
+* Get real users to use the product while you watch
+
+
+### Acceptance Testing
+* Make sure to include the top 10 requirements
+* Review with client weekly
+* Build a written script to test every feature
+* Start simple, grow as needed
+
+
+### Automated Testing 
+* unit testing -- test every part in isolation
+* system testing -- use a script to drive the entire product
+
+
+### Code Review
+* Use a checklist of requirements
+* Create a 10 point scorecard
+* Give specific feedback
+
+
+### Issue Tracking
+* Log all problems
+* Create a test case for each issue
+
+
+### Code structure
+* Make the features work first
+* Refactor to get improved structure
+* Don't break the features
+* Build quick test to make sure
+
+
+### Documents
+* Build essential documents to communicate your plans
+* Update all docs throughout the project
+* Keep the docs lightweight
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Final Project 
+* [Project #14 - Final Release](/unc/bacs350/project/14)
+* Four rounds of review
+
+
+### Final Project Reviews 
+* 40 points total
+* accurate, timely, helpful feedback
+* 1st Review - due Mon Dec 2
+* 2nd Review - due Mon Dec 4
+* 3rd Review - due Mon Dec 6
+* Final Review (during final exam period - Wed, 12-11, 1:30-4:00pm)
+
+
+### Final Project Design 
+* 100 points total (10 points for each requirement)
+* Published requirements
+* Mark will use info from reviewers but check the accuracy
+
+

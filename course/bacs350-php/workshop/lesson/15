@@ -1,0 +1,91 @@
+BACS 350 - Lesson 15
+
+* Design Patterns
+* Wednesday, Sep 26, 2018
+* by Mark Seaman
+
+
+![](img/Bear_Logo.png)
+
+
+### Types of Knowledge
+* Engineering - last for 10 years
+* Technology - lasts for 2 years
+
+
+### Design Patterns
+* Allows recycling of old designs
+* Dress makers and Architects
+* Problem, Solution, Constraints
+
+
+### Catalog of Patterns
+* Include Pattern
+* Header/Footer Pattern
+* Page Pattern
+* CRUD Pattern
+* View Pattern
+* Controller Pattern
+* MVC Pattern
+
+
+### Include Pattern
+* Solution 2,3
+* Create include files with variables for config
+
+
+### Header/Footer Pattern
+* Solution 2,3
+* Define pages based on header/footer
+
+
+### Page Pattern
+* Solution 14
+* Define page structure the begin/end page functions
+
+
+### CRUD Pattern
+* Solution 14
+* Gather functions for each CRUD operation
+
+
+### CRUD operations for a datatype
+* Create
+* Read
+* Update
+* Delete
+
+
+### View Pattern
+* Solution 14
+* Standard views defined as functions
+
+
+### Presentation layer
+* list view
+* add view
+* details view
+* delete view
+* update view
+
+
+### Controller Pattern
+* Solution 15
+* Define single file to control actions on a data type
+
+
+### Acts on verbs to perform actions
+* list
+* add
+* get
+* delete
+* update
+
+
+### Transforming code into MVC
+1. Define the operations for data, views, actions
+2. Create a PHP file to hold database operations (eg. subscriber_db.php)
+3. Build database functions
+4. Create a PHP file to hold views (subscriber_views.db)
+5. Create a controller to perform all actions (subscriber.php)
+

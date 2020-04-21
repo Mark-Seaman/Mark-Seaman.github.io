@@ -1,0 +1,62 @@
+# Week 4 - Document Display
+
+
+* prep artifacts
+    * Lesson
+        * /unc/bacs350/project/04 -- Project #4 - Project Workshop
+        * /unc/bacs350/lesson/09 -- Lesson 9 - Reading Files
+        * /unc/bacs350/lesson/10 -- Lesson 10 - Markdown Docs
+        * /unc/bacs350/lesson/11 -- Lesson 11 - Document Selector
+    * Demo: 
+        * bacs350/demo/09/index.php -- ReadMe.txt, php
+        * bacs350/demo/10/index.php -- ReadMe.md
+        * bacs350/demo/11/index.php -- Select a doc
+    * Skill:
+        * bacs350/skills/03 - Github - create, clone
+
+---
+
+## Lesson Plans
+
+Lesson 9 - Reading Files
+    
+    LEARN
+        Zybooks - 12.9 - Strings
+        Rule #9: Invest in Yourself (systematically build your skills)
+        Project 4 - Project Workshop
+
+    BUILD
+        Github Skill
+            Create Student Repo (setup, usage)
+            Clone Instructor Demos (setup, usage)
+        Create "bacs350/project/04/index.php"
+        Learn from "bacs350/demo/09/index.php"
+        Read text file "bacs350/project/04/ReadMe.txt"
+        Display source code for "bacs350/project/04/ReadMe.php"
+
+
+Lesson 10 - Markdown Docs
+    
+    LEARN
+        Zybooks - 12.10 - Forms
+        Rule #10: Focus of core activities: Learn, Plan, Build, Teach
+
+    BUILD
+        Read a markdown file
+        Convert markdown text to HTML text
+        Decide on Install of Apache
+
+
+Lesson 11 - Document Viewer
+    
+    LEARN
+        Zybooks - 13.1 - Regex
+        Rule #11: You only have one Brain so use it wisely (eliminate distractions, single focus)
+        Passing Data to View
+            Query Parameter
+
+
+    BUILD
+        Skill #4 - Share Code
+        Project #4 - Project Planner
+

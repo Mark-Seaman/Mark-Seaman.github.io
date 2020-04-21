@@ -1,0 +1,343 @@
+# Lesson 29 - Component Views
+
+
+* UNC - BACS 350 - Lesson 29
+* Friday, Nov 1
+* Mark Seaman
+ 
+---
+
+### Assignments
+* Reading - 9.1 jQuery
+* [Skill #10 - Using Templates](/unc/bacs350/skills/10)
+* [Project #9 - Review App](/unc/bacs350/project/09) - due 11-1
+
+### Seaman's Rules
+* Rule #29 - Do the easy thing first
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+  
+---
+
+
+### Component Views
+* Need to separate the HTML design from the PHP logic
+* Page structure is created by Designers using HTML
+* PHP code is created by programmers
+* Create a design pattern that fits the parts together
+
+
+### Component Views
+* Create HTML in a template file
+* templates/card.html
+
+```html
+<div class="card">
+    <div class="card-header">
+        {{ title }}
+    </div>
+    <div class="card-body card-padding">
+        {{ body }}
+    </div>
+</div>
+```
+
+
+### Replace Multiple Variables
+* Create an array of substitutions
+* Make sure that options match the variables in the template
+
+```php
+$settings = array(
+    "title"   => "Music Makes the Heart Move",
+    "body" => 'This is some text about the power of music');
+```
+
+
+### transform_text
+* Convert each setting in a block of text
+* We already have this function from previous lessons
+
+```php
+    function transform_text ($text, $settings) {
+        foreach ($settings as $key => $value) {
+            $text = str_replace("{{ $key }}",  $value,  $text);
+        }
+        return $text;
+    }
+```
+
+
+### render_template
+* Read HTML template from file
+* Convert template file using the settings
+* We already have this function from previous lessons
+
+```php
+    function render_template($template, $settings) {
+        $text = file_get_contents($template); 
+        $text = transform_text($text, $settings);
+        return $text;
+    }
+```
+
+
+### Add Desired Customizations
+* Make sure that options match the variables in the template
+
+```php
+$settings = array(
+    "title"   => "Music Makes the Heart Move",
+    "body" => 'This is some text about the power of music');
+    
+echo render_template('templates/card.html, $settings);
+```
+
+
+### Code Demo - Page Template
+* Pull demo code from Mark-Seaman/UNC-BACS350-Demo repo
+* See full demo at [Demo 29](https://unco-bacs.org/bacs350/demo/29)
+* View code in Brackets
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Project 
+* [Project #9 - Review App](/unc/bacs350/project/09) - due 11-1
+* Project #10 - is replaced with Skill #10 for 10 points
+
+
+### Review App Solution
+* Create an app to manage design reviews
+* Data - id, designer, url, report, score, date, 
+* CRUD SQL (CREATE, READ, UPDATE, DELETE)
+
+
+### Review App Solution - Data
+* review
+    * id - int (primary key and autoincrement)
+    * designer - string (100 chars)
+    * url - string(200 chars)
+    * report - text(no limit)
+    * score - number(0-10)
+    * date - date
+
+
+
+### Review SQL code
+
+    Database table
+
+    CREATE TABLE reviews (
+        id          int(3) NOT NULL AUTO_INCREMENT,
+        designer    varchar(100) NOT NULL,
+        url         varchar(200) NOT NULL,
+        report      text         NOT NULL,
+        score       int(1)       NOT NULL,
+        date        date         NOT NULL,
+        PRIMARY KEY (id)
+    );
+
+
+### Review App Connection Settings  
+
+    PHP Variables 
+
+    $dbname = 'uncobacs_350';
+    $username = 'uncobacs_350';
+    $password = 'BACS_350';
+    $port = '3306';
+    $host = "localhost:$port";
+
+
+### Review SQL code - CREATE
+
+    INSERT INTO reviews (designer, url, report, score, date) 
+    VALUES (:designer, :url, :report, :score, :date);
+
+
+###  Review SQL code - READ
+
+    SELECT * FROM reviews;
+
+    SELECT * FROM reviews WHERE url = :url; 
+
+    foreach (reviews as row) {
+        row['id']
+        row['designer']
+        row['url']
+        row['report']
+        row['score']
+        row['date']
+    }
+
+
+###  Review SQL code - UPDATE
+
+    SELECT * FROM reviews WHERE id = :id;
+
+    UPDATE reviews 
+    SET designer=:designer, url=:url, report=:report, score=:score, date=:date
+    WHERE id = :id;
+
+
+###  Review SQL code - DELETE
+
+    DELETE from reviews WHERE id = :id;
+
+
+
+### List Records
+* Lookup all records
+* SQL -- SELECT * FROM reviews;
+
+```php
+$query = "SELECT * FROM reviews;";
+$statement = $db->prepare($query);
+$statement->execute();
+$subscribers = $statement->fetchAll();
+```
+
+### Review App Solution - Views
+* List view is created from database query
+
+```html
+<table class="table table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Designer</th>
+        <th>Score</th>
+        <th>Page</th>
+        <th>Report</th>
+        <th>Date</th>
+    </tr>
+    <tr>
+        <td>ID #1</td>
+        <td>Designer #1</td>
+        <td>Score #1 </td>
+        <td>Page #1</td>
+        <td>Report #1 </td>
+        <td>Date #1</td>
+    </tr>
+</table>
+```
+
+
+### Review App Solution - Views
+* List view is created from database query
+* Print out data for each record
+
+```php
+    echo "<tr>
+        <td>$row[id]</td>
+        <td>$row[designer]</td>
+        <td>$row[score]</td>
+        <td>$row[url]</td>
+        <td>$row[report]</td>
+        <td>$row[date]</td>
+    </tr>";
+```
+
+
+### Add Records
+* Insert new records
+* Parameters for add_review() function
+
+```php
+function add_review($db, $designer, $url, $report, $score, $date) 
+```
+
+### Add Records
+* Insert new records
+* SQL -- INSERT statement
+
+```
+INSERT INTO reviews (designer, url, report, score, date) 
+VALUES (:designer, :url, :report, :score, :date);
+```
+
+
+### Add Records
+* Insert new records
+* PHP code to form SQL
+
+```php
+
+$query = "INSERT INTO reviews (designer, url, report, score, date) 
+          VALUES (:designer, :url, :report, :score, :date);";
+```
+
+
+### Add Records
+* Insert new records
+* Data bindings for INSERT
+
+```php
+$statement->bindValue(':designer', $designer);
+$statement->bindValue(':url',      $url);
+$statement->bindValue(':report',   $report);
+$statement->bindValue(':score',    $score);
+$statement->bindValue(':date',     $date);
+
+```
+
+
+### Add Records
+* Show the Add Form if data is missing
+
+```php
+if ($designer == '' || $url == '' || $report == '' || $score == '' || $date == '') {
+        $add_form = add_review_form();
+}
+```
+
+
+### Add Records
+* Display the form
+
+```php
+function add_review_form() {
+    $title = 'Add Review';
+    $body = '
+        <form action="insert.php" method="get">
+            <table class="table table-hover">
+                <tr>
+                    <td style="width:300px"><label>Date:</label></td>
+                    <td><input type="date" name="date"></td>
+                </tr>
+                <tr>
+                    <td><label>Designer:</label></td>
+                    <td><input type="text" name="designer"></td>
+                </tr>
+                <tr>
+                    <td><label>Page to Review:</label></td>
+                    <td><input type="url" name="url"></td>
+                </tr>
+                <tr>
+                    <td><label>Review Score:</label></td>
+                    <td><input type="number" name="score"></td>
+                </tr>
+                <tr>
+                    <td><label>Review Summary:</label></td>
+                    <td><textarea name="report">REPORT</textarea></td>
+                </tr>
+                <tr>
+                    <td><button class="button">Save Review</button></td>
+                </tr>
+            </table>
+        </form>
+        ';
+    return render_card($title, $body);
+}
+```
+

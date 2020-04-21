@@ -1,0 +1,122 @@
+# Lesson 32 - Slide Show App
+
+
+* UNC - BACS 350
+* Friday, Nov 8
+* Mark Seaman
+ 
+---
+
+### Assignments
+* Reading - 9.4 Styles
+* Review #4 - Design Review of Superhero App 
+* Brackets Git - version control plug-in
+* Skill #11 - MVC Pattern
+* [Project #11 - Slide Show App](/unc/bacs350/project/11)
+
+### Seaman's Rules
+* Rule #32 - Do the easy thing first
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+  
+---
+
+
+### Brackets Git Plug-in
+* Allows Git operations within the text editor
+* Install using File menu, Extension Manager
+* Available, Search for "Brackets Git"
+* Use Git icon in upper right
+
+
+### Code Demo - Page Template
+* Pull demo code from Mark-Seaman/UNC-BACS350-Demo repo
+* See full demo at [Demo 32](https://unco-bacs.org/bacs350/demo/32)
+* View code in Brackets
+
+
+### Demo 32 Features
+* Secret settings design pattern (db.php)
+* Simplified logging (log.php)
+* Templates for views (note.html, add.html, edit.html)
+* Button toolbar (index.php)
+* Simplified controller (note.php)
+
+
+### Simplified controller
+* Visit code for note.php
+* Model - Data CRUD operations
+* Views - User experience
+* Controller - Business logic for app
+
+
+### Controller Design
+* When page is loaded "action" is passed in
+* CRUD actions
+    * create
+    * read
+    * update
+    * delete
+* View actions
+    * add
+    * list
+    * edit
+    * remove
+
+
+### CRUD actions
+* Parse off the input parameters
+* Use POST or GET method to pass arguments
+* If info is present then do the action
+* Pass true if successful
+* Go to next page on success
+
+
+### View actions
+* Present the appropriate HTML 
+* Return HTML from each action
+* Populate views with data
+* Show the form
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+
+### Project 
+* [Project #11 - Slide Show App](/unc/bacs350/project/11)
+* [Slides Solution](https://github.com/Mark-Seaman/UNC-BACS350-Demo/tree/master/bacs350/slides)
+
+
+### Your App
+* Start with published solution
+* Work on milestones one at a time
+
+
+### Milestones
+*  1 - App Plan
+*  2 - App Database
+*  3 - Add and List Records
+*  4 - Edit Records
+*  5 - Logging
+*  6 - Slide Show
+*  7 - Code Review
+
+
+### Code Features
+* Basic page with template
+* Database and connection
+* Add and list
+* Edit
+* Logging
+* Slide show
+* Basic user testing and code review

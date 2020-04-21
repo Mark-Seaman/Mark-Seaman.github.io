@@ -1,0 +1,108 @@
+BACS 350 - Lesson 34
+
+* Design Review Application
+* Monday, Nov 12, 2018
+* by Mark Seaman
+
+![](img/Bear_Logo.png)
+
+
+### Review
+* Apps = Views + Data
+* Cookies
+* User Auth
+* Brain - Notes App
+
+ 
+### Auth Workflow
+* Create a password
+* Verify a password
+* Remember login session
+* Require login
+
+### Auth - Working Demos
+* [solution/30](https://unco-bacs.org/bacs_350/solution/30)
+* [templates/auth.php](https://unco-bacs.org/bacs_350/solution/30)
+
+
+### Brain - Working Demos
+* [brain](https://unco-bacs.org/bacs_350/brain)
+* [brain/test.php](https://unco-bacs.org/bacs_350/brain/test.php)
+* [brain/views.php](https://unco-bacs.org/bacs_350/brain/views.php)
+* [brain/style.css](https://unco-bacs.org/bacs_350/brain/style.css)
+
+
+### Notes - Working Demos
+* [brain/notes_data.php](https://unco-bacs.org/bacs_350/brain/notes_data.php)
+* [brain/notes.php](https://unco-bacs.org/bacs_350/brain/notes.php)
+* [markdown formatter](https://unco-bacs.org/bacs_350/templates/markdown.php)
+
+
+
+## Design Reviews
+
+### Technical Requirements - Site
+* Notes App is available at "brain/notes.php" on your Bluehost server
+* All pages share a single HTML template file
+* Style is set by a Bootstrap CSS file
+* Banner is same on every page (contains site title, page title, user login, logo)
+* Visual appeal (no weirdness)
+* NOT REQUIRED FOR NOTES APP:  User management for editing content
+
+
+### Technical Requirements - Notes App
+* Data - Title, Date, Body
+* Views - List, Detail, Add, Edit, Delete
+* Controller - proper User Experience (UX)
+* Business logic constrains activities
+* Valid HTML
+
+
+### Design Review Groups
+* Allen Adams, Eric Sova
+* Nicholas Alm, Daniel Herrera
+* Robert Carver, Evan Minor
+* Garrett Hasch, Alexander Brems
+* Jessica Herold, Noah Rolf
+* Cosme Martinez, Christina Ritchey
+
+
+### Design Reviews
+* Visit the site of your partner
+* Go to page "brain/index.php"
+* If page does not exist then email your partner
+
+
+### Complete the Following Scorecard
+
+    Page: brain.app
+    Review Date: 
+    Reviewed By:
+    Designer:
+
+    Requirements:   (X means requirement is met)
+    
+    _X_ Notes App is available at "brain/notes.php" on your Bluehost server
+    _X_ All pages share a single HTML template file
+    ___ Style is set by a Bootstrap CSS file
+    ___ Banner is same on every page (contains site title, page title, user login, logo)
+    ___ Visual appeal (no weirdness)
+        NOT REQUIRED FOR NOTES APP:  User management for editing content
+
+    ___ Data - Title, Date, Body
+    ___ Views - List, Detail, Add, Edit, Delete
+    ___ Controller - proper User Experience (UX)
+    ___ Business logic constrains activities
+    ___ Valid HTML
+
+
+### Submit Your Review
+* Create a note on the website being reviewed
+* Post your review scorecard
+* Submit your review in Canvas
+
+
+### Broken Apps
+* If the app will not take your design review then email your partner with that information.
+* Broken websites will get a grade of 0 but will be rewarded more points when they get fixed.
+

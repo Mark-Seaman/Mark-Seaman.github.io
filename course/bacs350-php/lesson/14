@@ -1,0 +1,79 @@
+# Lesson 14 - Document Select
+
+
+* UNC - BACS 350
+* Friday, Sep 27
+* Mark Seaman
+ 
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+---
+
+### Review
+* Skill #5 - Setup Apache
+* Design Pattern - Document Selector
+* Project #5 - Doc Man
+
+
+### Today
+* Zybooks - 13.4 Cookies
+* Demo #14 - Directory Browser
+* Project #5 - Doc Man
+
+
+---
+
+### Seaman's Rules
+* Rule #14 - Build incrementally
+    * Every step is better than before
+    * Never lose any ground
+  
+---
+
+### Pull Demo Code
+* From Github Desktop
+* Select the Mark-Seaman/UNC-BACS350-Demo repo
+* Pull new code
+
+
+### View Mark's Demo Code
+* Run Brackets
+* Open Folder Documents/UNC-BACS350-Demo/bacs350
+* This will be a standard folder selection for later
+* Visit source code for "bacs350/demo/14"
+
+
+### Demo #14 - Document Browser
+* Run the code on [UNCO-BACS.org](https://unco-bacs.org/bacs350/demo/14)
+* Study the source code until you can reproduce this result on your own
+
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+
+### Skill #5 - Setup Apache
+* If you have not completed [Skill #5](/unc/bacs350/skills/05) then move on
+* Come back to it at a later time
+* Work around is to Edit, Deploy, and Test (transferring files each time)
+
+
+### Project #5 - Doc Man
+* Review project solution from Mark's code
+* Run the code on [UNCO-BACS.org](https://unco-bacs.org/bacs350/docman)
+* Look through available documents
+* Notice the links for navigating between pages
+
+
+### Work with your partner
+

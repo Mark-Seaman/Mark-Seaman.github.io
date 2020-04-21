@@ -1,0 +1,165 @@
+# Lesson 28 - Page Template
+
+
+* UNC - BACS 350
+* Wednesday, Oct 30
+* Mark Seaman
+ 
+---
+        
+### Assignments
+* Reading - 14.8 Modifying Rows
+* Review - Publish your Github repo
+* Skill  - Render Templates
+* Project  - No project this week
+
+
+### Seaman's Rules
+* Rule #28 - Get feedback from customers
+
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+  
+---
+
+
+### Limitations of render_page
+* Specific customizations are passed as arguments 
+* Cannot easily adapt to new customizations
+
+```php
+function render_page($site_title, $page_title, $content) {
+
+    return '<!DOCTYPE html>
+        <html lang="en">
+            <head>
+                <title>' . $page_title . '</title>
+            </head>
+            <body>
+                <h1>' . $site_title . '</h1>
+                <main>
+                    ' . $content . '
+                </main>
+            </body>
+        </html>
+    ';
+    }
+```
+
+
+### Need more general solution
+* Pass in an array of custom values
+* Create a template that contains spots for the variables
+* Use text replacement to set the values in the HTML
+
+
+### Replace Text in String
+* Variables are marked with "{{ }}"
+* One substitution is made at a time
+
+```php
+$text = 'My name is {{ name }}';
+$name = 'Mark';
+$text = str_replace('{{ name }}',  $name,  $text);
+
+```
+
+
+### Replace Multiple Variables
+* Create an array of substitutions
+
+```php
+$settings = array(
+    "title"   => "UNC BACS 350",
+    "content" => 'My Content goes here!');
+```
+
+
+### Create a Template of HTML
+* Build some HTML text with variables
+
+```html
+<h1>{{ title }}</h1>
+<div>{{ content }}</div>
+
+```
+
+
+### transform_text
+* Convert each setting in a block of text
+
+```php
+    function transform_text ($text, $settings) {
+        foreach ($settings as $key => $value) {
+            $text = str_replace("{{ $key }}",  $value,  $text);
+        }
+        return $text;
+    }
+```
+
+
+
+### render_template
+* Read HTML template from file
+* Convert template file using the settings
+
+```php
+    function render_template($template, $settings) {
+        $text = file_get_contents($template); 
+        $text = transform_text($text, $settings);
+        return $text;
+    }
+```
+
+
+### render_page
+* Use template to create a page
+* Create one HTML page from a template.
+* Avoid caching of page
+
+```php
+    function render_page($settings) {
+        header("Pragma: no-cache");
+        header("Expires: 0");
+        header("Cache-Control: no-store, no-cache, must-revalidate");
+        return render_template("templates/page.html", $settings);
+    }
+
+```
+
+
+### Add Desired Customizations
+* Make sure that options match the variables in the template
+
+```php
+$settings = array(
+    "site_title" => "UNC BACS 350",
+    "page_title" => "Page Templates", 
+    "logo"       => "Bear.png",
+    "style"      => 'style.css',
+    "content"    => $content);
+    
+echo render_page($settings);
+```
+
+
+### Code Demo - Page Template
+* Pull demo code from Mark-Seaman/UNC-BACS350-Demo repo
+* See full demo at [Demo 26 - Page Template HTML](https://unco-bacs.org/bacs350/demo/26)
+* View code in Brackets
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Skill
+* [Skill #10 - Render Templates](/unc/bacs350/skills/10)

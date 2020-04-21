@@ -1,0 +1,190 @@
+# Lesson 38 - Code
+
+
+* UNC - BACS 350
+* Monday, Dec 2
+* Mark Seaman
+ 
+---
+
+### Assignments
+* Reading - 10.2 Mobile Dev Tools (optional)
+* Project #14 - Final Release
+
+
+### Seaman's Rules
+* Rule #38 - Refactoring is the most important coding skill
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+  
+---
+
+### Software Lifecycle
+* Requirements - What is the problem?
+* Design - What is the high-level solution?
+* Code - What is the detailed solution?
+* Test - Did we solve the problem?
+
+
+### Coding Phase of Software Lifecyle
+* Version control
+* Test-driven Development
+* Functional requirements
+* Issue tracking
+* Drive to closure 
+* Refactoring
+
+
+### Version Control
+* Commit every hour
+* Use multiple computers (makes your code flexible)
+* Keep some files secret
+* Put everything in Git Repo
+
+
+### Test-driven Development
+* Complete one feature before going to the next
+* Write a test that fails
+* Write the code that makes the test succeed
+* Save your tests for later
+
+
+### Functional requirements
+* The software should do what it is designed to do
+* Build each requirement before going to the next
+* Fix all outstanding issues (bugs breed)
+
+
+### Issues
+* Record all issues as soon as they arise
+* Issue tracking phases - find, resolve, test
+* List represents the distance from release
+* Brain Project (log at least 20 issues)
+
+
+### Refactoring
+* How to do design change after you have code
+* Plan your changes (Code.md)
+* Change the structure without changing functionality
+
+
+### Refactoring Process
+* Do one refactoring at a time
+* Implement a quick test
+* Change one thing and make sure the code still works
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Project Documents
+* [Project Documents](https://github.com/Mark-Seaman/UNC-BACS350-Demo/tree/master/docs)
+    * Requirements
+    * Design
+    * Code
+    * Test
+* Document the plan for each lifecycle phase
+
+
+### Refactoring Plan
+* Create a plan for code refactoring
+* Establish order of refactorings needed
+* Pattern your work on Mark's
+* [Project Documents](https://github.com/Mark-Seaman/UNC-BACS350-Demo/tree/master/docs/Code.md)
+
+
+### Reusable Code Libraries
+* Create code library at the root level
+* Use libraries in all code
+
+```php
+<?php
+    define ('LIB_DIR', $_SERVER['DOCUMENT_ROOT'] . '/bacs350/lib/');
+    require_once LIB_DIR . 'views.php';
+    require_once LIB_DIR . 'log.php';
+?>   
+```
+
+
+### Reusable Stylesheet
+* Create CSS files at the root level
+* Create HTML templates at the root level
+* Use libraries in all code
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/bacs350/unc.css">
+    </head>
+</html>
+```
+
+
+### Code Generator
+* Create a simple script to write code for you
+* Automate any tedious task to save time
+* Create files by converting a standard template
+
+
+### Code Generator
+* Example:
+
+```python
+    # Read template
+    text = open('code_template.php').read()
+    
+    # Convert variables
+    text = text.replace('{{ datatype }}', datatype)
+
+    # Save file
+    with open(datatype+'.php', 'w').write(text)
+```
+
+
+### Code Generator
+* Use the generator on each datatype
+
+```python
+    generate('note')
+    generate('slide')
+    generate('superhero')
+    generate('docman')
+    generate('review')
+    generate('subscribe')
+```
+
+
+### Code Demo - Code Generator
+* Pull demo code from Mark-Seaman/UNC-BACS350-Demo repo
+* See full demo at [Demo 38](https://unco-bacs.org/bacs350/demo/38)
+* View code in Brackets
+
+
+### Class Final Project 
+* Milestones
+    * Integrated Brain App (project 12 - due 11-15)
+    * User Auth (project 13 - due 11-22)
+    * Final Release (project 14 - due 12-6)
+    * Final Review (final exam - Wed, 12-11, 1:30-4:00pm)
+* Finalize the Brain App project
+* Final exam will be review conducted - Wed, 12-11, 1:30-4:00pm
+
+
+### Class Final Project (150 points)
+* Early Reviews - 30 points
+    * 12-2, 12-4, 12-6
+    * Must be timely
+* Final Review - 30 points
+    * Grade based on accuracy of review
+* Projects 12, 13, 14 - 90 points total
+    * Grade based on requirements met

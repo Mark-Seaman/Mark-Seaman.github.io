@@ -1,0 +1,47 @@
+BACS 350 - Lesson 35
+
+* Design Review App
+* Wednesday, Nov 14, 2018
+* by Mark Seaman
+
+![](img/Bear_Logo.png)
+
+
+### Design Review App
+* Create a page 'brain/review.php'
+* Customize Notes code to create Review
+* Build database table for Review records
+* Use Mark's 'brain/notes_data.php' as an example
+
+
+### Data
+Review:
+
+* date - date of last update
+* designer - email contact for student
+* reviewer - email contact for student
+* page url - absolution URL for page
+* scorecard - text for requirements met/unmet
+* score - 10 point scoring value
+
+
+### Views
+* List
+* Details
+* Add
+* Edit
+* Delete
+
+
+### Code structure
+* CRUD functions
+* View render functions
+* Controller that manages views
+* Page and view templates
+* Standard stylesheet
+
+
+### Design Reviews
+* Code will be published before Nov 16
+* Design reviews will be done in class on Nov 16
+

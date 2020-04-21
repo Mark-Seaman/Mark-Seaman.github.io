@@ -1,0 +1,85 @@
+BACS 350 - Lesson 29
+
+* Data Application
+* Wednesday, Oct 31, 2018
+* by Mark Seaman
+
+![](img/Bear_Logo.png)
+
+
+### Review
+* Build Music Manager application
+    * Albums records stored in database
+    * Create new albums using form
+    * Display all albums
+
+
+### Next Steps
+* Practice pair programming
+* Debug all requirements
+* Work incrementally - one feature at a time
+
+
+### Work Together
+* Both parties must turn in the same work
+* Teams that do not work together will only get 1/2 credit
+
+
+### Pairs
+* Allen Adams, Christina Ritchey
+* Nicholas Alm, Alexander Brems
+* Robert Carver, Noah Rolf
+* Garrett Hasch, Daniel Herrera
+* Jessica Herold, Evan Minor
+* Cosme Martinez, Eric Sova
+
+
+
+## Milestones
+* Build and test before moving on
+* Commit each milestone to version control
+
+
+### Milestone 1 - Page Template
+* Display page at "project/30/index.php"
+* Build "page.html" with outer page structure
+* Make sure that the page has a nice stylesheet
+* Use page template render_page()
+* Commit to version control
+
+
+### Milestone 2 - Album Template
+* Use album query to create a list of cards
+* Create "album.html" with the card template
+* Use render_template("album.html", $album) to create display
+* Commit to version control
+
+
+### Milestone 3 - Logging
+* Add logging of all key events
+* Log each page load "albums" showing actions executed
+* Log database connect, add record "album name"
+* Commit to version control
+
+
+### Milestone 4 - Data Operations
+* Build and debug database connection
+* Create object for Album abstration
+* Debug adding a record
+* Debug listing all albums
+* Commit to version control
+
+
+### Milestone 5 - Controller
+* Use the index page to insert records
+* After the insertion reload the index page to display the album
+* Show the add form after clicking a link (Add New Album)
+* Commit to version control
+
+
+### Milestone 6 - Testing
+* Use the URL to get to your web page  http://your-domain/project/30
+* After the insertion reload the index page to display the album
+* Show the add form after clicking a link (Add New Album)
+* Commit to version control
+

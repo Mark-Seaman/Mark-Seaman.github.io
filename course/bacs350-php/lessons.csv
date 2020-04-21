@@ -1,0 +1,40 @@
+bacs350,1,Web Hosting,1,2019-08-26,12.1 - - Development 
+bacs350,2,Includes,1,2019-08-28,12.2 - - Using PHP 
+bacs350,3,Header/Footer,1,2019-08-30,12.3 - - Arithmetic
+bacs350,4,Page Template Pattern,2,2019-09-04,12.4 - - Conditionals
+bacs350,5,Render Page Pattern,2,2019-09-06,12.5 - - Arrays
+bacs350,6,Apache,3,2019-09-09,12.6 - - Functions
+bacs350,7,Testing,3,2019-09-11,12.7 - - Includes
+bacs350,8,Composite Views,3,2019-09-13,12.8 - - Objects
+bacs350,9,Strings,4,2019-09-16,12.9 - - Strings
+bacs350,10,Forms,4,2019-09-18,12.10 - - Forms
+bacs350,11,Document Viewer,4,2019-09-20,13.1 - - Regex
+bacs350,12,Document Manager,5,2019-09-23,13.2 - - Errors
+bacs350,13,Directory Listing,5,2019-09-25,13.3 - - Files
+bacs350,14,Document Select,5,2019-09-27,13.4 - Cookies
+bacs350,15,SQL Tables,6,2019-09-30,13.5 - - Database
+bacs350,16,Database Connect,6,2019-10-02,13.6 - - MySQL
+bacs350,17,List Rows ,6,2019-10-04,13.7 - - MYSQLi
+bacs350,18,CRUD Operations,7,2019-10-07,13.8 - - PHP Data Objects
+bacs350,19,Add Records,7,2019-10-09,13.9 - - Users
+bacs350,20,Update Records,7,2019-10-11,13.10 - APIs
+bacs350,21,Data Form Views,8,2019-10-14,14.1 - Relational Databases
+bacs350,22,Edit View,8,2019-10-16,14.2 - SQL
+bacs350,23,Forms App,8,2019-10-18,14.3 - Tables
+bacs350,24,Logging,9,2019-10-21,14.4 - Insert Records
+bacs350,25,Review Manager App,9,2019-10-23,14.5 - Selecting Records
+bacs350,26,Design Reviews,9,2019-10-25,14.6 - SQL Functions
+bacs350,27,Page Caching,10,2019-10-28,14.7 - Joining Tables
+bacs350,28,Page Template,10,2019-10-30,14.8 - Modifying Rows
+bacs350,29,Component Templates,10,2019-11-01,9.1 - jQuery
+bacs350,30,MVC Design Pattern,11,2019-11-04,9.2 - Selectors
+bacs350,31,Reveal JS,11,2019-11-06,9.3 - Events
+bacs350,32,Slide Show App,11,2019-11-08,9.4 - Styles
+bacs350,33,Documentation,12,2019-11-11,9.5 - DOM
+bacs350,34,Technical Debt,12,2019-11-13,9.6 - Ajax
+bacs350,35,Requirements,12,2019-11-18,9.8 - Weather App
+bacs350,36,User Authentication,13,2019-11-20,9.9 - Currency
+bacs350,37,Design,13,2019-11-22,
+bacs350,38,Code,14,2019-12-02,
+bacs350,39,Software Testing,14,2019-12-04,
+bacs350,40,Code Reviews,14,2019-12-06,

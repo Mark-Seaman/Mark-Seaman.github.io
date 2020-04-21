@@ -1,0 +1,192 @@
+# Project #14 - Final Release
+
+Brain App - BACS 350 Final project - Final Release Milestone
+
+
+## Milestones
+    
+Development [100 points total]
+
+* Integrated Brain App (project 12 - due 11-15)
+* User Auth (project 13 - due 11-22)
+* Final Release (project 14 - due 12-6)
+
+Reviews (accurate, timely, helpful feedback)   [40 points total]
+
+* 1st Review - due Mon Dec 2
+* 2nd Review - due Mon Dec 4
+* 3rd Review - due Mon Dec 6
+* Final Review (during final exam period - Wed, 12-11, 1:30-4:00pm)
+
+
+## Final Release Milestone
+
+### Project Goals
+
+Build a PHP app that is host to the following functionality.
+
+* Documents
+* Notes
+* Slides
+* Planner
+* Reviewer
+* Subscribers
+* Superhero
+
+
+The application will use a single database to store information for all app modules. Each app will create its own table within the database.
+
+### Project Features
+
+* One integrated set of libraries is used by all apps (templates, views.php, db.php, css)
+* Data Views (list, detail, add, edit, delete)
+* Documents show project plan (Requirements.md, Design.md, Code.md, Test.md) 
+* Allow duplication in code
+
+
+### Software Process
+
+The application will be built with standard development best practices.
+
+1. All source code will be tracked with a git repo
+2. Code will be edited locally and tested on the remote server
+3. Each milestone will be visible in the git repo
+4. Incremental development will be used to eliminate debugging
+5. Design reviews will score the requirements that were met
+6. Code review will be done using the student Github repo
+
+
+### Key app features
+* Data Forms - list, add, edit, delete
+* Users - users login to edit
+* Logging - pages loaded, crud operations
+* MVC - every view type has a controller
+
+
+## Milestone Goals
+
+### Software Plan
+
+Each phase of the software lifecycle is documented.  
+This allows the entire project to be replicated by someone else.
+
+* Requirements.md - What is the problem?
+* Design.md - What is the high-level solution?
+* Code.md - What is the detailed solution?
+* Test.md - Did we solve the problem?
+
+The the essential aspects of the process are documented and stored within the "doc" 
+folder in the student Git repo.
+
+
+### Requirements Plan  (Requirements.md)
+* Prime Directive
+* Top 10
+* Functional Milestones
+* Customer Interaction
+
+
+### Design Plan  (Design.md)
+* App = Data + Views
+* Data Models
+* View List
+* Design Patterns
+
+
+### Code Plan  (Code.md)
+* Plan for code refactoring
+* Issue tracking system
+* File Structure
+* Reusable code plan
+
+
+### Test Plan (Test.md)
+* Release criteria 
+* Acceptance testing (basic features to test)
+* Automated testing plan
+* Issues resolved/outstanding
+* Design reviews
+
+
+## Project Requirements Checklist
+
+### Requirements
+* Top app is located at "bacs350/index.php"
+* Brain contains links to each component
+* Each app component works properly
+* Each app component has valid HTML and CSS
+* Design is consistent with the code
+* All code is updated in Github account
+* All outstanding issues are logged in database
+* Visual appearance and behavior (look and feel)
+* Require login to modify content
+* Reusable code eliminates duplication
+
+
+### 1. Page Published
+* Top app is located at "bacs350/index.php"
+* Starting page must be at "bacs350/index.php"
+* Missing page will meet 0 requirements
+* Score of -1 is a missing review (not a missing page)
+
+
+### 2. All components exist 
+* Brain contains links to each component
+    * Documents
+    * Notes
+    * Slides
+    * Planner
+    * Reviewer
+    * Subscribers
+    * Superhero
+
+
+### 3. Each app works 
+* Each app component works properly
+* May have minor problems
+* Log issues for problems you find
+
+
+### 4. Valid HTML and CSS
+* Each app component has valid HTML and CSS
+* May have minor issues (especially with included CSS files)
+
+
+### 5. Design Documents
+* Design is consistent with the code
+* Requirements match the code
+
+
+### 6. Git History
+* All code is updated in Github account
+* More than 20 commits in the git history
+
+
+### 7. Issues are logged
+* All outstanding issues are logged in database
+* There are at least 20 issues logged
+* All issues have been closed
+
+
+### 8. Look and feel
+* Visual appearance and behavior (look and feel)
+* No visual weirdness
+* Must have your own custom look
+* Must use linked stylesheets (not embedded styles)
+
+
+### 9. User Auth
+* Modifying data requires a User login
+* User can sign up on the website
+
+
+### 10. Clean Code
+* Reusable code eliminates duplication
+* Design Patterns
+    * MVC
+    * Templates
+    * Common views.php
+    * Common CSS stylesheet
+    * Common database connection
+    * Common auth.php
+

@@ -1,0 +1,138 @@
+# Lesson 6 - Apache
+
+* UNC - BACS 350
+* Monday, Sep 9
+* Mark Seaman
+
+---
+
+![](img/Bear_Logo.png)
+
+---
+
+
+## LEARN
+
+
+---
+
+* Review
+    * Code Sharing with Github
+    * Render Page Design Pattern
+    * Create Many Pages
+
+* Today
+    * Project #3 - Superhero Gallery
+    * Card View Design Pattern
+    * Install XAMPP
+
+
+---
+
+### Seaman's Rules
+
+---
+
+* Rule #6: Test everything you care about 
+    * If you don't test it then remove it  
+    * Testing is your primary concern
+    * Development proceeds at the speed of testing
+
+---
+
+
+### Project #3 - Superhero Gallery
+* Build a room onto your brain app
+* Add page "bacs350/superhero/index.php"
+* Create character sheets for three superheroes
+    * Photo
+    * Headline
+    * Description with Superpowers and Weaknesses
+    * What I learned from them
+
+
+### Card View Design Pattern
+* Use the Render Page and Card View patterns
+* Write the minimal amount of code
+
+
+### Install XAMPP
+* Windows Apache MySQL PHP Perl
+* Open source development tools
+    * Web server
+    * Database
+    * PHP preprocessor
+* Lets you develop and test locally
+
+
+---
+
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+## Apache Web Server
+* Apache is the most common web server
+* PHP preprocessor is built in
+
+
+### Setup on Home Computer
+* Download from http://sourceforge.net/projects/xampp/files
+
+
+### Configure Apache
+* Edit the config file  c:\\xampp\\php\\php.ini
+* Search for "timezone"
+    * date.timezone=America/Denver
+    
+    
+### Configure phpMyAdmin
+* Edit c:\\xampp\\phpMyAdmin\\config.inc.php
+* Authentication Settings
+
+```
+$cfg['blowfish_secret'] = '-- My Secret Key -- My Secret Key --'; 
+$cfg['Servers'][$i]['auth_type'] = 'cookie';
+$cfg['Servers'][$i]['user'] = '';
+$cfg['Servers'][$i]['password'] = '';
+```
+
+
+### Server Start Up
+* Start Menu XAMPP Control Panel
+* Apache Start
+* Visit [http://localhost](http://localhost)
+* MySQL Start
+* Visit [http://localhost/phpmyadmin](http://localhost/phpmyadmin)
+
+
+### Move Web Documents
+* Edit C:\\xampp\\properties.ini
+
+```
+apache_htdocs_directory=C:\\Users\\mark.seaman\\Documents\\UNC-BACS350-2019-Spring
+```
+
+
+### Setup Apache & MySQL
+* Setup tools on Student Computer
+* Setup tools on Personal Computer
+* Get started on Project #3
+
+
+### Today
+* Get Apache installed
+* Create page on you local machine (bacs350/project/03/index.php)
+* Add a link to (bacs350/superhero/index.php)
+* After testing locally send it to your server
+
+
+### See you next time
+
+---
+
+![](img/Bear3.png)
+

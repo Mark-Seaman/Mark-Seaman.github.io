@@ -1,0 +1,51 @@
+## Week 11 - Slide Show
+    
+[Skill #11 - MVC Design Pattern](/unc/bacs350/skills/11)
+
+    * MVC Pattern applied to notes
+    * Database CRUD
+    * Single PHP file
+    * Views: List, Detail, Add, Edit, Delete
+
+[Project #11 - Slide Show App](/unc/bacs350/project/11)
+
+    * slides/index.php
+    * Data Views (list, detail, add, edit, delete)
+    * Users (register, login, check)
+    * Create and modify markdown content
+    * Run slide show
+    * Use good development process (github history)
+    * Simple Design Documented
+    * Design Patterns Used
+    * Development Plan
+    * Acceptance Testing
+
+
+---
+
+Monday, Nov 4 - Lesson 30 - MVC Design Pattern
+
+    Rule    - Always build the top 10 requirements
+    Reading - 9.2 Selectors
+    [Demo 30 - MVC Design Pattern](https://unco-bacs.org/bacs350/demo/30)
+    Review #3 - Design Review of Brain App (Publish your Github repo)
+    Skill #11 - MVC Design Pattern
+
+
+Wednesday, Nov 6 - Lesson 31 - Reveal JS
+
+    Rule    - Apps = Data + Views
+    Reading - 9.3 Events
+    [Demo 31 - - Reveal JS](https://unco-bacs.org/bacs350/demo/31)
+    [Project #11 - Slide Show App](/unc/bacs350/project/11)
+    Review #3 - Code Review of Brain App 
+   
+   
+Friday, Nov 8 - Lesson 32 - Slide Show App
+
+    Rule    - Do the easy thing first
+    Reading - 9.4 Styles
+    [Project #11 - Slide Show App](/unc/bacs350/project/11)
+    Review #4 - Design Review of Superhero App 
+    Brackets Git - version control plug-in
+    

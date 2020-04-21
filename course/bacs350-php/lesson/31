@@ -1,0 +1,156 @@
+# Lesson 31 - Reveal JS
+
+
+* UNC - BACS 350 - Lesson 31
+* Wednesday, Nov 6
+* Mark Seaman
+ 
+---
+
+### Assignments
+* Reading - 9.3 Events
+* Review #3 - Code Review of Superhero
+* Skill #11 - MVC Pattern
+* [Demo 30 - Secret Settings](https://unco-bacs.org/bacs350/demo/30)
+* [Demo 31 - Reveal JS](https://unco-bacs.org/bacs350/demo/31)
+* [Project #11 - Slide Show App](/unc/bacs350/project/11)
+
+
+### Seaman's Rules
+* Rule #31 - Apps = Data + Views
+    * What is the content and how is it created?
+    * How is content presented?
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+  
+---
+
+### Secret Settings
+* Keep Your settings secret
+* Remove files from git repo by using .gitignore
+* .gitignore can be set in any directory
+
+.gitignore
+
+```
+*.pyc
+*.sql
+
+secret_settings.php
+```
+
+### Extract Secrets
+* Build a file "secret_settings.php" to hold values
+
+secret_settings.php
+
+```php
+<?php
+    $host = "localhost";
+    $port = '3306';
+    $dbname = 'uncobacs_subscribers';
+    $username = 'uncobacs_350';
+    $password = 'BACS_350';
+?>
+```
+
+### Include Settings
+* Include settings file "secret_settings.php" where needed
+
+db.php
+
+```php
+function remote_connect() {
+    // Set up .gitignore to prevent this file in git repo
+    require_once 'secret_settings.php';
+    $db_connect = "mysql:host=$host:$port;dbname=$dbname";
+    return db_connect($db_connect, $username, $password);
+}
+```
+
+
+### Code Demo - Secret Settings
+* Pull demo code from Mark-Seaman/UNC-BACS350-Demo repo
+* See full demo at [Demo 30](https://unco-bacs.org/bacs350/demo/30)
+* View code in Brackets
+
+
+### Reveal JS
+* Visit the [Reveal JS](https://revealjs.com) website
+* JavaScript app that shows slide shows
+* Build slide content in markdown
+* Sides are text that can managed under version control
+* Formatting is controlled with a stylesheet
+
+
+### Include Stylesheets
+* Bring in default styles from Reveal JS
+* Override styles for this page
+
+```html
+<head>
+    <link rel="stylesheet" href="https://revealjs.com/css/reveal.css">
+    <link rel="stylesheet" href="https://revealjs.com/css/theme/white.css">
+    <link rel="stylesheet" href="https://revealjs.com/lib/css/zenburn.css" />
+    <link rel="stylesheet" href="slides.css">
+</head>
+
+```
+
+
+### Include JavaScript
+* After the page loads run the JavaScript
+
+```php
+<body>
+    ...
+    <script src="https://revealjs.com/lib/js/head.min.js"></script>
+    <script src="https://revealjs.com/js/reveal.js"></script>
+    <script src="slides.js"></script>
+</body>
+```
+
+
+### Content Added From a Document
+* Simple text can be version controlled
+* Same page structure works for all slide shows
+
+```php
+<div class="reveal">
+    <div class="slides">
+        <section data-markdown data-separator="\n---\n" data-separator-vertical="\n--\n">
+            <textarea data-template>
+                <?php include 'slides.md'; ?>
+            </textarea>
+        </section>
+    </div>
+</div>
+```
+
+
+### Code Demo - Page Template
+* Pull demo code from Mark-Seaman/UNC-BACS350-Demo repo
+* See full demo at [Demo 31](https://unco-bacs.org/bacs350/demo/31)
+* View code in Brackets
+
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Skill
+* [Skill #11 - MVC Pattern](/unc/bacs350/skills/11)
+
+
+### Project 
+* [Project #11 - Slide Show App](/unc/bacs350/project/11)
+

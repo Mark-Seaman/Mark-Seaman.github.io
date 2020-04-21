@@ -1,0 +1,143 @@
+# Lesson 9 - Displaying Files
+
+* UNC - BACS 350
+* Monday, Sep 16
+* Mark Seaman
+
+---
+
+![](img/Bear.200.png)
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+---
+
+### Review
+* Development Skills
+
+### Today
+* Github Version Control
+* Project #4
+* Zybooks - 12.9 - Strings
+
+
+---
+
+### Seaman's Rules
+
+* Rule #9: Invest in Yourself
+    * Systematically build your skills
+    * Learning is a lifetime commitment
+    * It makes you more valuable
+
+---
+
+### Homework
+
+### Reading Files
+* Including "php code" in HTML output
+* Reading a text file
+* Echoing text from a file
+* Displaying PHP code
+
+
+### Examples
+* Visit the [Demo Server](https://unco-bacs.org/bacs350/demo/09)
+
+### Include
+* include statement adds the file contents to the output page
+
+```php
+<h1>Format as HTML</h1>
+
+include "ReadMe.txt";
+```
+
+### Reading a File
+* Sometimes you want to read a file before you generate any output
+* This statement adds nothing to the output page
+
+```php
+<h1>Read File Contents </h1>
+
+$text = file_get_contents ("ReadMe.txt");
+```
+
+
+### Echo Command
+* Sometimes you want to send text to the output page
+* This statement creates output
+
+```php
+<h1>Read File Contents </h1>
+
+$text = file_get_contents ("ReadMe.txt");
+echo $text;
+```
+
+
+### Display PHP Code
+* Sometimes you want to show PHP code without executing it
+* This statement creates output
+
+```php
+<h1>Show PHP Source Code</h1>
+
+<?php
+    $text = "<h2>Bad Things Happen</h2><ul><li>Item 1</li><li>Item 2</li></ul>";
+    htmlspecialchars($text);
+?>
+```
+
+
+### Display PHP Code File
+* Sometimes you want to show PHP code without executing it
+* This statement creates output
+
+```php
+<h1>Show PHP Source Code</h1>
+
+<?php
+    $text = file_get_contents("ReadMe.php");
+    htmlspecialchars($text);
+?>
+```
+
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Demo Server
+* Visit the [Demo Server](https://unco-bacs.org/bacs350)
+* [Sample Code in Github](https://github.com/Mark-Seaman/UNC-BACS350-Demo/tree/master)
+* Study the source code
+
+
+### Skill Demonstration Challenge
+* Create screen shots for Skills #1 & #2 & #3
+* Create "bacs350/skills/index.html" with links to screen shots
+* Check to make sure that images show in your dashboard
+
+
+### Skill #3 - Github Version Control
+* [Github Version Control](/unc/bacs350/skills/03)
+* Github Skill
+    * Create Student Repo (setup, usage)
+    * Clone Instructor Demos (setup, usage)
+
+
+### Start on Project #4
+* Select a partner that is different than the last partner you had
+* Work as a team each day this week
+
+
+### See you next time
+

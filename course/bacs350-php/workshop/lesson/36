@@ -1,0 +1,130 @@
+BACS 350 - Lesson 36
+
+* Design Review App
+* Friday, Nov 16, 2018
+* by Mark Seaman
+
+![](img/Bear_Logo.png)
+
+### Almost Finished with BACS 350
+* Three classes left
+* Mon, Nov 19 - No lecture - Finish projects
+* All assignments must be published by Nov 26 (No credit for late work)
+
+
+### App Projects
+* Brain
+* Notes
+* Reviews
+* Slides
+
+
+### Design Reviews
+* Publish all code before Nov 26
+* Teacher grading Nov 26
+* Design Reviews will use your Review app (make sure it works)
+* Students will review (4 apps)
+
+
+### Design Review Grading
+Designer Review scores will determine the grade (100 points possible)
+
+* 20 points - Feedback as reviewer
+* 20 points - Brain
+* 20 points - Notes
+* 20 points - Reviews
+* 20 points - Slides
+
+
+## Markdown
+
+### Why not HTML?
+* HTML is too wordy
+* Syntax is too complex
+* Lots of redundant typing
+
+
+### Markup/Markdown
+* HTML is a markup language
+* Markers are added to plain text for formatting
+* This causes inflation of 100% to 600% in source code
+
+
+### Markdown
+* A markdown language converts plain text into HTML
+* Simple formatting is applied
+* Easy and quick to write
+
+Markdown
+
+    # Heading
+    
+HTML
+
+    <h1>Heading</h1>
+
+
+### Markdown Cheatsheet
+* [Markdown Text](https://unco-bacs.org/bacs_200/templates/markdown.md)
+* [Markdown HTML](https://unco-bacs.org/bacs_200/templates/markdown.php)
+
+
+
+## Reveal.JS
+
+
+### Motivation
+* You will create many presentations throughout your career
+* Interactive tools require a lot of time to adjust formatting
+* Build your slides with a text editor
+
+
+### Slides Show App
+* [Reveal JS](https://revealjs.com)
+
+
+### Create your own
+Example solutions for slide shows
+
+* [Slide Show Solution](https://unco-bacs.org/bacs_350/solution/34)
+* [Slide Show Template](https://unco-bacs.org/bacs_350/templates/slides.php)
+
+
+### Slide Show App
+* Create a page 'brain/slides.php'
+* Customize Notes code to create Slides records
+* Build database table for Slides records
+* Use Mark's 'brain/notes_data.php' as an example
+
+
+### Data
+Review:
+
+* title - title of presentation
+* date - date of last update
+* author - creator of presentation
+* slides - markdown for presentation content
+
+
+### Views
+* List
+* Run Slide Show
+* Add
+* Edit
+* Delete
+
+
+### Code structure
+* CRUD functions
+* View render functions
+* Controller that manages views
+* Page and view templates
+* Standard stylesheet
+
+
+### Design Reviews
+* Code will be published before Nov 26
+* Design reviews will be done in class on Nov 26
+
+
+

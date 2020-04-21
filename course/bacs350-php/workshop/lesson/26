@@ -1,0 +1,105 @@
+BACS 350 - Lesson26 - Week 10
+
+* Handling Errors
+* Monday, Oct 22, 2018
+* by Mark Seaman
+
+![](img/Bear_Logo.png)
+
+
+
+### Review
+* Simple HTML Templates
+* View Templates
+* Page Template Design
+
+
+### Next Steps
+* Handling Errors
+
+
+
+## Error Handling
+
+What will you do when the unexpected happens?
+
+
+### Things go wrong
+* System failure - don't care
+* Bad input - expect it
+* Context change - handle likely cases gracefully
+
+
+### PHP Mechanisms for Errors
+* Parsing Errors - nothing you can do
+* Error Handlers - define your own handler
+* Exception Handling - build recovery paths
+
+
+### Parsing Errors - nothing you can do
+Not legitimate PHP code at all
+
+```
+('this is bad'));
+
+```
+
+### Error Handlers
+- used by most errors
+    - undefined constants
+    - file errors
+    - unassigned variables
+- default is to die with error_log
+
+
+### Define your own handler
+Called for each error
+
+```
+    set_error_handler("errorHandler");
+
+    function errorHandler($errno, $errstr) {
+        echo "<p>Error $errno: $errstr</p>";
+        global $log;
+        $log->log_page("PHP Error: $errstr");
+        die();
+    }
+```
+
+
+
+### Exception Handling - build recovery paths
+Jumps to catch block on an exception
+
+```
+    try {
+        $db = new PDO($db_connect, $username, $password);
+        $log->log_page("Database connect: $db_connect");
+    }
+    catch (PDOException $e) {
+        $error_message = $e->getMessage();
+        $log->log_page("Database Error: $error_message, $password");
+        echo "Error: $error_message, $password";
+    }
+```
+
+
+## CRUD Templates
+
+### CRUD Demos
+* crud_create.php - Add new subscribers
+* crud_read.php   - List of subscribers
+* crud_update.php - Edit one subscriber
+* crud_delete.php - Clear the list of subscribers
+
+
+### Each View
+* Uses a page template
+* Provides log of all key events
+* Demonstrates database operations
+* Isolates the controller logic
+* Displays user interface views
+* Explicit navigation to related views
+
+### Code Walkthrough of Each View
+

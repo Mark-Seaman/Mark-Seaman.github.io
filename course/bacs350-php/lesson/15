@@ -1,0 +1,180 @@
+# Lesson 15 - SQL Tables
+
+
+* UNC - BACS 350
+* Monday, Sep 30
+* Mark Seaman
+ 
+ 
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+---
+
+### Review
+* Skill #5 - Apache (optional for your own productivity)
+* Project #5 - Document Manager (not yet graded)
+
+
+### Today
+* Zybooks - 13.5 - Database
+* Intro to Databases
+
+---
+
+### Seaman's Rules
+* Rule #15 - Turn objectives into Milestones
+  
+---
+
+### Pull Demo Code
+* From Github Desktop
+* Select the Mark-Seaman/UNC-BACS350-Demo repo
+* Pull new code
+
+
+### Intro to databases
+
+
+### What is a database?
+* Relational database
+    - Most popular type of database
+    - Tables that relate to each other
+* Recent movement to NoSQL databases (eg. MongoDB)
+    - More flexibility
+    - Better scaling for big data
+
+
+### Tables are organized by rows and columns
+* Rows represent the records that are stored
+* Columns represent the fields that contain specific values
+* A table can be represented as a spreadsheet
+
+
+### Example: Subscribers Database Table
+Each subscriber record has a name and email address
+
+Record structure:
+
+    subscriber_1:  name_1,  email_1
+
+    subscriber_2:  name_2,  email_2
+
+    subscriber_3:  name_3,  email_3
+
+
+### What is SQL?
+* Structured Query Language
+* Language of relational databases
+
+
+### SQL statements
+* Insert - add data to database
+* Select - query the database for matches
+* Update - change existing records
+* Delete - remove records
+
+
+### MySQL
+* MySQL is the most popular relational databases
+* Open-source software
+    - free as in beer
+    - free as in liberty
+
+
+
+### Database Admin Tools
+* Bluehost provides an interface for building databases
+* Once the database is created then you can use phpMyAdmin to work with the database
+
+
+### Tour phpMyAdmin
+* server URL
+* setup password
+* import a database
+* interactive viewer
+* SQL Queries
+* user privileges
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+
+### Project #6 - Not yet published
+
+
+### Skill #6 - Create a Database
+* [Skill #6 - Create a Database](/unc/bacs350/skills/06)
+
+
+
+
+### Create Database Table - subscribers (name, email)
+* Create a table
+* Execute SQL in phpMyAdmin view SQL tab
+
+```
+CREATE TABLE subscribers (
+  id int(3) NOT NULL AUTO_INCREMENT,
+  name varchar(100)  NOT NULL,
+  email varchar(100) NOT NULL,
+  PRIMARY KEY (id)
+);
+```
+
+
+### INSERT
+* Add one record
+*  Execute SQL in phpMyAdmin view SQL tab
+
+```
+INSERT INTO subscribers (name, email)
+VALUES
+('Abe Lincoln', 'abe@us.gov');
+```
+
+
+### SELECT
+* Show the table
+* Execute SQL in phpMyAdmin view SQL tab
+
+```
+SELECT * FROM subscribers;
+```
+
+
+### UPDATE
+* Modify one record
+* Execute SQL in phpMyAdmin view SQL tab
+
+```
+UPDATE subscribers
+SET email='honest.abe@us.gov'
+WHERE id='1';
+```
+
+
+### DELETE
+* Delete one record
+* Execute SQL in phpMyAdmin view SQL tab
+
+```
+DELETE FROM subscribers WHERE id='1';
+```
+
+
+### Save database as SQL file
+* Use the Export tab to download the database as a SQL file.
+
+
+### Work with your partner
+

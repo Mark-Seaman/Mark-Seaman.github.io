@@ -1,0 +1,179 @@
+# Lesson 9
+* Testing
+* Date: Mon, 09-10
+* by Mark Seaman
+
+![](img/Bear_Logo.png)
+
+
+### Review
+* Learn skills in isolation
+* Apply skills to build an app
+* Subscriber App
+
+### Next Steps
+* Version control
+* Testing your apps
+
+
+## Version Control
+
+### Critical tools
+* Version control
+* Editor
+* Debugging environment
+* Testing framework
+
+### Version control
+* Essential to software development
+* More important than a text editor
+* 2x performance gain by knowing Git
+
+### Git Skills
+* Create a Github account (repo hosting)
+* Fork (to get code from others)
+* Clone (to get a local copy of code)
+* Pull/Push to sync your code tree
+* Pull Request (to share code with others)
+
+
+## Testing
+
+### Basic Idea of Testing
+* Make sure that the code works in every case
+* Think of the test first
+* Automate testing for later use
+
+### Test Case
+* A specific requirement that should be testing
+* A condition that your code will run in
+
+### Test Coverage
+* Every line of code deserves a test case
+* Express every test case in one line of code
+
+### Test Life Cycle
+* Manual testing (poke on button and look)
+* Write assertion
+* Think of failure modes
+* Write test cases for every bug
+
+### Start with Manual Testing
+* Use a page of links
+* Find
+    * missing pages
+    * broken pages
+    * bad styling
+* Use the validator
+
+
+
+## Pair Programming
+
+### How it works
+* Popularized by Kent Beck
+* Two brains one keyboard
+* Talker and typer
+* Switch after every feature
+* Increased quality and productivity
+
+
+### Teams  9-10
+* Jessica/Alex
+* Allen/Cosme
+* Noah/Robert
+* Evan/Garrett
+* Daniel/Christina
+* Bryan/Eric
+* Nick
+
+
+### Today's Assignment
+* Build Lesson 9
+* Switch roles for each iteration
+* Commit changes into git
+* Retype the changes
+
+
+### Iterations
+* Pull request for Mark-Seaman changes
+* Create a test page
+* Create a home page
+* Create a project page
+* Create a link to auto-validate
+
+
+
+## Build
+
+### Pull request for fresh code
+* Use Github Desktop to create a Pull Request
+* Select the Mark-Seaman repo to pull from
+* Merge the pull request
+* Confirm that files have been updated
+
+
+### Create a test page
+* Build a page project/09/test.php
+* Use the header and footer from lesson 9
+* Study the template code for test.php
+* Customize to create 'project/09/test.php'
+* Deploy and test
+
+
+### Add test code to project/09/index.php
+* Import the test code you just wrote
+* Shows links to test cases
+
+```
+require 'test.php';
+```
+
+
+### Link to test page
+* Add the following hyperlink
+* [Test for index.php](test.php)
+
+
+### Modify test.php to Validate Automatically
+* Copy the URL from the interactive view
+* Paste into test.php
+
+```
+<a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Funco-bacs.org%2Fbacs_350%2Fdemo%2Findex.php">HTML Validator</a>
+```
+
+
+### Setup Variable to URL
+* Study the following string manipulations
+
+```
+$domain = "https://unco-bacs.org";
+echo "domain = $domain";
+
+$page = "$domain/bacs_350/demo/index.php";
+echo "page = $page";
+
+$validator = 'https://validator.w3.org/nu/';
+echo "validator = $validator";
+
+$href = "$validator?doc=$page";
+echo "href = $href";
+
+```
+
+
+### Automatic Valadation
+* Build page variable into test.php
+* Debug code one line at a time
+
+```
+<a href="$href">HTML Validator</a>
+```
+
+
+### Submit into Canvas
+* Commit all changes to version control
+* Submit your URL in Canvas for project/09/index.php
+
+![](img/Bear3.png)

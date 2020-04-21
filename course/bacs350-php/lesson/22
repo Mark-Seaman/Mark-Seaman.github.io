@@ -1,0 +1,109 @@
+# Lesson 22 - Edit View
+
+
+* UNC - BACS 350
+* Wednesday, Oct 16
+* Mark Seaman
+ 
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+---
+
+
+### Review
+* Project #7 - Superhero Database - Finish this first!
+* Standard Data Views
+    * List View
+    * Detail View
+    * Add View
+    * Update View
+    * Delete View
+* Skill #8 - Data Views
+
+
+### Today
+* Reading - 14.2 SQL
+* Project #8 - Notes App
+* Data Views
+
+---
+
+### Seaman's Rules
+* Rule #22 - Business runs on Trust
+  
+---
+
+### Pull Demo Code
+* From Github Desktop
+* Select the Mark-Seaman/UNC-BACS350-Demo repo
+* Pull new code
+
+
+### View Mark's Demo Code
+* Run Brackets
+* Open Folder Documents/UNC-BACS350-Demo/bacs350
+* This will be a standard folder selection for later
+* Visit source code for "bacs350/demo/22"
+
+
+### Demo #22 - Edit View
+* NOTE: this code is not fully debugged!  You must find the error.
+* Run the code on [Demo 22](https://unco-bacs.org/bacs350/demo/22)
+* Review the files
+    * index.php
+    * views.php
+    * style.css
+    * notes_db.php
+    * notes_views.php
+    * insert.php
+    * update.php
+    * delete.php
+
+### Now you are ready to build your own!
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Create Notes App
+* Create a page "bacs350/notes/index.php"
+* Build page with style using render_page() function
+* Commit changes
+
+
+### Connect to Bluehost Database
+* Create a database at Bluehost
+* Connect database with "bacs350/notes/notes_db.php"
+* Commit changes
+
+
+### Build List View
+* Create list_notes() function in "bacs350/notes/notes_db.php"
+* Create render_notes() function in "bacs350/notes/notes_views.php"
+* Commit changes
+
+
+### Build Add View
+* Show add form if input is needed
+* Call add_note_form() in "bacs350/notes/notes_views.php"
+* Create add_note() function in "bacs350/notes/notes_db.php"
+* Redirect after add to "bacs350/notes/"
+* Commit changes
+
+
+### Build Edit View
+* Show add form if input is needed
+* Call edit_note_form() in "bacs350/notes/notes_views.php"
+* Create update_note() function in "bacs350/notes/notes_db.php"
+* Redirect after add to "bacs350/notes/"
+* Commit changes
+

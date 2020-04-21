@@ -1,0 +1,129 @@
+# HTML Elements
+
+
+## HTML Template
+* Doc Type
+* Head
+* Body
+
+
+### HTML Doctype
+* Start with a document type tag that tells that this is an HTML file.
+
+```
+<!DOCTYPE html>
+```
+
+
+### HTML root element
+* The top level element in HTML is <html>.   Add both the open and close.
+
+```
+<html lang="en">
+</html>
+```
+
+
+### HTML head & body
+* Add the head and body elements
+* Add both the open and close tags for all elements
+* **head** holds invisible settings for the page
+* **body** holds the visible content for the page
+
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  </head>
+  <body>
+  </body>
+</html>
+```
+
+
+### HTML body
+* Contains the visible content of your page
+
+```
+<h1>Simple HTML Page</h1>
+<p>This demo shows how to create a page that contains a single headline and two paragraphs of text.</p>
+<p>HTML is not really that hard.  There are just a lot of details.</p>
+```
+
+
+### HTML Head
+Invisible settings of your page
+
+* characters that are used within the page
+* size of the display area
+* title used for the browser tab label and bookmarks
+
+```
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Page Title</title>
+</head>
+```
+
+
+### Basic Page Template
+
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>My Title</title>
+  </head>
+  <body>
+    <h1>My Headline</h1>
+    <p>This demo shows how to create a page that contains a single headline and two paragraphs of text.</p>
+    <p>HTML is not really that hard.  There are just a lot of details.</p>
+  </body>
+</html>
+```
+
+
+### Semantic Elements
+Semantic elements are used to clarify meaning for your page content
+
+* Outer Structure
+    * nav, header, main, footer
+* Content Structure
+    * section, article, aside
+* Content Details
+    * figure, figcaption, time
+
+
+
+## Visible HTML Elements
+
+
+### Basic HTML Elements
+* h1, h2, h3, h4, h5
+* p
+* a
+* img
+* blockquote
+
+
+### Lists and tables
+* ul, li
+* ol, li
+* table, tr, td
+
+
+### Containers
+* div
+
+
+### Forms
+* form
+* input
+* button
+
+
+
+

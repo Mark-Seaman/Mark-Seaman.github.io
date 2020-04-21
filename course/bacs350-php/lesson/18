@@ -1,0 +1,112 @@
+# Lesson 18 - CRUD
+
+
+* UNC - BACS 350
+* Monday, Oct 7
+* Mark Seaman
+ 
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+---
+
+### Review
+* Skill #6 - SQL Database
+* Project #6 - Subscribers
+
+
+### Today
+* Zybooks - 13.8 - PHP Data Objects
+* Demo #18 - CRUD operations
+* [Skill #7 - CRUD operations](/unc/bacs350/skills/07)
+
+---
+
+### Seaman's Rules
+* Rule #18 - Success is produced by sustained effort
+    * A burst of extra energy occasionally is not enough
+    * Understand what the minimum requirements are and always meet those
+ 
+---
+
+### CRUD Operations
+* CREATE - add new records
+* READ - list records from the database
+* UPDATE - modify existing records
+* DELETE - remove records
+
+### List Records
+* Lookup all records
+* SQL -- SELECT * FROM subscribers;
+
+```php
+$query = "SELECT * FROM subscribers;";
+$statement = $db->prepare($query);
+$statement->execute();
+$subscribers = $statement->fetchAll();
+```
+
+
+### Add Records
+* Insert new records
+* SQL -- INSERT INTO subscribers (name, email) VALUES (:name, :email);
+
+```php
+$query = "INSERT INTO subscribers (name, email) VALUES (:name, :email);";
+$statement = $db->prepare($query);
+$statement->bindValue(':name', $name);
+$statement->bindValue(':email', $email);
+$statement->execute();
+$statement->closeCursor();
+```
+
+
+### Delete Records
+* Delete existing records
+* SQL --DELETE from subscribers WHERE email = :email;
+
+```php
+$query = "DELETE from subscribers WHERE email = :email;";
+$statement = $db->prepare($query);
+$statement->bindValue(':email', $email);
+$statement->execute();
+$statement->closeCursor();
+```
+
+
+### Pull Demo Code
+* From Github Desktop
+* Select the Mark-Seaman/UNC-BACS350-Demo repo
+* Pull new code
+
+
+### View Mark's Demo Code
+* Run Brackets
+* Open Folder Documents/UNC-BACS350-Demo/bacs350
+* This will be a standard folder selection for later
+* Visit source code for "bacs350/demo/18"
+
+
+### Demo #18 - CRUD operations & Workflow
+* Run the code on [UNCO-BACS.org](https://unco-bacs.org/bacs350/demo/18)
+
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### CRUD operations & Workflow
+* [Skill #7](/unc/bacs350/skills/07)
+
+
+
+### Work on Project #6 and Skill #7
+

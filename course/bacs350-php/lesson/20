@@ -1,0 +1,277 @@
+# Lesson 20 - Add Form View
+
+
+* UNC - BACS 350
+* Friday, Oct 11
+* Mark Seaman
+ 
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+---
+
+### Review
+* Skill #07 - Database CRUD
+* Design Pattern - db_connect
+    * Study this code if you are doing local development
+
+
+### Today
+* Zybooks - 13.10 APIs
+* Form for adding records 
+    * Processing form input
+    * Insert record from PHP page
+    * Reload list page after add
+    * Display a form
+    * Prevent page caching
+* Project #7 - Superhero Database
+
+        
+---
+
+### Seaman's Rules
+* Rule #20 - Automate everything you can
+  
+---
+
+### Pull Demo Code
+* From Github Desktop
+* Select the Mark-Seaman/UNC-BACS350-Demo repo
+* Pull new code
+
+
+### View Mark's Demo Code
+* Run Brackets
+* Open Folder Documents/UNC-BACS350-Demo/bacs350
+* This will be a standard folder selection for later
+* Visit source code for "bacs350/demo/20"
+
+
+### Demo #20 - UNCO-BACS.org
+* Run the code on [Demo 20](https://unco-bacs.org/bacs350/demo/20)
+* Open the source code in Brackets
+
+
+### Code Files
+* index.php - Show list of current subscribers
+* insert.php - Show form to add a new subscriber
+* delete.php - Delete one subscriber
+* style.css - Stylesheet for all views
+* subscriber_db.php - All subscriber database logic
+* subscriber_view.php - All subscriber view logic
+* views.php - General view rendering
+
+
+### index.php
+* Show a nice looking page
+
+```php
+    require_once 'views.php';
+    $content = "Create a blank page that looks nice";
+    echo render_page('UNC BACS 350', "Demo 20 - Add Subscriber View", $content);
+```
+
+
+### index.php
+* Connect to subscriber database at Bluehost
+
+```php
+require_once 'subscriber_db.php';
+```
+
+
+### index.php
+* List subscriber records from database at Bluehost
+
+```php
+require_once 'subscriber_views.php';
+
+$list = list_subscribers ($db);
+$content = render_subscribers($list);
+```
+
+
+### index.php
+* Create a button to add a new record
+
+```php
+$add_button = '<a class="button" href="insert.php">Add Subscriber</a>';
+```
+
+
+### insert.php
+* Read name and email from form
+
+```php
+    $name = filter_input(INPUT_GET, 'name');
+    $email = filter_input(INPUT_GET, 'email');
+
+    if ($name == '' || $email == '') {
+        
+        ... show add form ...
+    }
+
+
+    ... add record to database
+```
+
+
+### insert.php
+* Either show the form or add the record depending on form input
+
+```php
+if ($name == '' || $email == '') ... show add form ... 
+else ... add record to database ...
+```
+
+
+### insert.php
+* Add a new record
+
+```php
+require_once 'subscriber_db.php';
+
+add_subscriber ($db, $name, $email)
+```
+
+
+### insert.php
+* Redirect back to the list page if successful
+* add_subscribers returns true when successful
+
+```php
+// Add record and return to list
+if (add_subscriber ($db, $name, $email))
+{
+    header("Location: index.php");
+};
+```
+
+
+### insert.php
+* Show the form to collect input
+
+```php
+require_once 'subscriber_views.php';
+
+// Form view to add subscriber
+$add_form = add_subscriber_form();   
+```
+
+
+### Prevent web page caching
+* Tell the browser that this page must not be cached
+* This prevents not seeing new changes to page
+
+```php
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+```
+
+
+### Prevent web page caching
+* Modify render_page function
+
+```php
+function render_page($site_title, $page_title, $content) {
+    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+    header("Cache-Control: post-check=0, pre-check=0", false);
+    header("Pragma: no-cache");
+    return '<!DOCTYPE html>
+        <html lang="en">
+            ...
+        </html>
+    ';
+}
+```
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Skill #07 - 
+* [Skill #07](/unc/bacs350/skills/07)
+* Complete this before attempting the project
+
+
+### Project #7 - Goals
+* You will build a complete forms app
+    * Nicely styled pages with no duplicated code
+    * List all records in a database
+    * Add new records using a form
+    * Delete specific records
+* Demo 20 will give you a working example that you can emulate
+
+
+### Step by Step
+* Move through each step before attempting the next one
+* Test each step and commit changes
+* When complete push all your changes to Github
+
+
+### superhero/index.php
+* Show a nice looking page
+
+```php
+require_once 'views.php';
+$content = "Create a blank page that looks nice";
+echo render_page('UNC BACS 350', "Superhero Registration App", $content);
+```
+
+
+### Superhero Database
+* Each superhero record should have
+    * name - Regular name
+    * superhero - Hero identity
+    * image - Photo of super (URL to image on website)
+    * description - Notes for strengths, weaknesses, etc.
+
+
+### Superhero Database
+* SQL - Here is a shortcut for creating the table
+* Create a table
+* Execute SQL in phpMyAdmin view SQL tab
+
+```sql
+CREATE TABLE superheroes (
+  id int(3) NOT NULL AUTO_INCREMENT,
+  name varchar(100)  NOT NULL,
+  aka varchar(100) NOT NULL,
+  image varchar(100) NOT NULL,
+  description text NOT NULL,
+  PRIMARY KEY (id)
+);
+```
+
+
+### Superhero Database
+* Create "superhero_db.php" to hold your code logic
+* Leverage code from Demo 20 to create your database connection
+* Add this to index.php page
+
+
+### Save database as SQL file
+* Use the Export tab to download the database as a SQL file.
+* Add the file to your code as "superhero.sql"
+* Review the contents of this file
+
+
+### Meet all requirements
+* Go to [Project #7 - Superhero Database](/unc/bacs350/project/07)
+* Work on each milestone sequentially
+
+
+### Mark's Solution
+* Go to [Project #7 - Superhero Database](https://unco-bacs.org/bacs350/superhero/)
+* Use this code as part of your solution if you want to
+* Be sure and customize it for your taste
+

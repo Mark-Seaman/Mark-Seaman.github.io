@@ -1,0 +1,67 @@
+Lesson 6 - Apache
+    
+    LEARN
+        Seaman's Rules Rule     6: Test everything you care about 
+        Project     3 - Superhero Gallery
+        Card View Design Pattern
+        Install XAMPP
+
+    BUILD
+        Apache Web Server
+        Setup on Home Computer
+        Configure Apache
+        Configure phpMyAdmin
+        Server Start Up
+        Move Web Documents
+        Setup Apache & MySQL
+        Install PHP on Mac
+            Remove the default Mac Apache (for Mojave OSX - 10.14)
+            Create code directory
+            Install apache with Homebrew
+            You may not need these
+            Edit the configuration
+            Listen on port 80
+        Load PHP
+        Load Docs from here
+        Start Your Web Server
+        Test Your Web Server
+        Hook Up Your Code
+        See you next time
+
+
+Lesson 7 - Card View
+
+    LEARN
+        Seaman's Rules Rule     7: Solving problems involves learning and doing 
+        Development Skills
+        Skill     1 - Web Hosting
+        Skill     2 - Windows Setup
+        Skill     3 - Editing Code
+        Skill     4 - Test Code with Browser
+        Skill     5 - Setup Filezilla
+        Skill     6 - Demo Server
+        Skill     7 - Git Repository
+        Card View Pattern
+        Card View Pattern
+
+    BUILD
+        Demo With Apache
+        Find the Docs
+        Modify c:\\xampp\\httpdocs\\index.php
+        See you next time
+
+
+Lesson 8 - Development Skills
+
+    LEARN
+        Seaman's Rules Rule     8: Crawl, Walk, Run
+        Card View Pattern
+
+    BUILD
+        Development Skills
+        Skill     1 - Web Hosting
+        Skill     2 - FTP
+        Demo Server
+        Project Solution Examples
+        Visit the Sensei Classroom Website
+        See you next time

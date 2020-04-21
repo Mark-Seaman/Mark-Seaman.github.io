@@ -1,0 +1,97 @@
+# Lesson 27 - Page Caching
+
+
+* UNC - BACS 350
+* Monday, Oct 28
+* Mark Seaman
+ 
+---
+
+### Assignments
+* Reading - 14.7 Joining Tables
+* Review - Do team reviews
+* Skill  - Skill #10 - Using Templates
+* Project  - Project #10 - Slide Show App
+
+### Seaman's Rules
+* Rule #27 - Always build the top 10 requirements
+
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+  
+---
+
+### How to prevent page Caching
+* Pages are cached by the browser and web server
+* Requests for pages are fulfilled first from the cache
+
+
+### Use Pragmas to Prevent Caching
+* Must be set before any HTML is produced
+* See "bacs350/demo/25/index.php" for example code
+
+```php
+<?php
+
+    header("Pragma: no-cache");
+    header("Expires: 0");
+    header("Cache-Control: no-store, no-cache, must-revalidate");
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        ...
+    </head>
+    <body>
+        ...
+    </body>
+</html>
+```
+
+
+### Use Pragmas to Prevent Caching
+* Must be set before any HTML is produced
+* See "bacs350/demo/26/views.php" for example code
+* Review "render_page" function
+
+
+### Code Demo - Avoid Page Caching
+* Run [Demo 25 - Avoid Page Caching](https://unco-bacs.org/bacs350/demo/25)
+* Study source code for demo/25 and demo/26
+
+
+### Pull Demo Code
+* From Github Desktop
+* Select the Mark-Seaman/UNC-BACS350-Demo repo
+* Pull new code
+
+
+### View Mark's Demo Code
+* Run Brackets
+* Open Folder Documents/UNC-BACS350-Demo/bacs350
+* This will be a standard folder selection for later
+* Visit source code for "bacs350/demo"
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Recreate demos on your system
+* Demo 25 - Avoid page caching
+* Demo 26 - Create page template
+* Demo 27 - Display cards from templates
+
+
+### Skill
+* [Skill #10](/unc/bacs350/skills/10)
+

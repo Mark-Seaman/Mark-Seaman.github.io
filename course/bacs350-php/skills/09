@@ -1,0 +1,33 @@
+# Skill #9 - Logging
+
+Skill Demonstration Challenge
+
+---
+
+## Objective
+
+Add logging of key events to a PHP applications.
+
+
+## Steps 
+* Go to your dashboard page and verify your screenshots in the skill section.
+* Follow the instructions in [Lesson 24 - Logging](/unc/bacs350/24)
+* Produce a screen shot showing the page history of your app
+
+
+## Demonstration
+
+Each skill can be proved with a screen shot.
+
+
+### logging.png
+
+This screen shot shows the location in the file system that contains the BACS 350 Demo code.
+
+<a href="{{ skills }}/logging.png">
+    Click Here to see full size
+    <img src="{{ skills }}/logging.png" width="200" target="_blank">
+</a>
+
+See [Instructor's Solution](https://unco-bacs.org/bacs350/skills/logging.png) for an example
+

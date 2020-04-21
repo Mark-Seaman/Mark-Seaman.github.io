@@ -1,0 +1,63 @@
+## Week 8 - Data Views
+
+* [Skill #8 - Form Views](/unc/bacs350/skills/08)
+    * List View
+    * Detail View
+    * Add View
+    * Update View
+    * Delete View
+
+
+* [Project #8 - Notes App - Form Views](/unc/bacs350/project/08)
+    * New database "notes"
+    * Data Model - Notes: title, text, date
+    * SQL Create table
+    * Views - List, Detail, Add, Edit, Delete
+    * Logging page hits
+    * Display log
+
+
+* Monday, 10/14/2019 
+    * Reading - 14.1 Relational Databases
+    * Rules - Learn from Mistakes
+    * Lesson - Data Form Views
+        * List View
+        * Detail View
+        * Add View
+        * Update View
+        * Delete View
+        
+    
+* Wednesday, 10/16/2019
+    * Reading - 14.2 SQL
+    * [Demo 22 - Edit View](https://unco-bacs.org/bacs350/demo/22)
+    * Rules - Business runs on Trust
+    * Lesson - Edit View
+        * Hidden fields
+        * Post vs. Get
+
+    
+* Friday, 10/18/2019
+    * Reading - 14.3 Tables
+    * Rules - Build the new one before breaking the old one
+    * [Skill #8 - Form Views](/unc/bacs350/skills/08)
+        * List View
+        * Detail View
+        * Add View
+        * Update View
+        * Delete View
+    * [Demo 23 - Page Logging](https://unco-bacs.org/bacs350/demo/23)
+    * Lesson -  
+        * Use the best process -- Always (10x difference)
+        * Debug Process
+            * When code fails remove all the bad code
+            * When test is successful add more code
+            * Tests should pass each minute
+        * Do not work on multiple features at once
+        * Commit changes every 10 minutes
+    * [Project #8 - Notes App - Form Views](/unc/bacs350/project/08)
+        * Notes Record (date, title, text)
+        * Views - List, Detail, Edit, Add, Delete
+        * Optional - Log page hits
+        
+ 

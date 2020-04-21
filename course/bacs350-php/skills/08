@@ -1,0 +1,61 @@
+# Skill #8 - Data Views 
+
+Skill Demonstration Challenge
+
+---
+
+## Objective
+
+Show that you can create each of the five views properly.
+
+* List
+* Detail
+* Add
+* Edit
+* Delete
+
+
+## Steps 
+* Go to your dashboard page and verify your screen shots in the skill section.
+
+
+
+## Demonstration
+
+Each skill can be proved with a screen shot.
+
+
+### list.png
+
+This screen shot shows the location in the file system that contains the BACS 350 Demo code.
+
+<a href="{{ skills }}/list.png">
+    Click Here to see full size
+    <img src="{{ skills }}/list.png" width="200" target="_blank">
+</a>
+
+See [Instructor's Solution](https://unco-bacs.org/bacs350/skills/list.png) for an example
+
+
+### add.png
+
+This screen shot shows the location in the file system that contains the BACS 350 Demo code.
+
+<a href="{{ skills }}/add.png">
+    Click Here to see full size
+    <img src="{{ skills }}/add.png" width="200" target="_blank">
+</a>
+
+See [Instructor's Solution](https://unco-bacs.org/bacs350/skills/add.png) for an example
+
+
+### edit.png
+
+This screen shot shows the location in the file system that contains the BACS 350 Demo code.
+
+<a href="{{ skills }}/edit.png">
+    Click Here to see full size
+    <img src="{{ skills }}/edit.png" width="200" target="_blank">
+</a>
+
+See [Instructor's Solution](https://unco-bacs.org/bacs350/skills/edit.png) for an example

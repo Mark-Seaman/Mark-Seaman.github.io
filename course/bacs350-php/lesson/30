@@ -1,0 +1,172 @@
+# Lesson 30 - MVC Design Pattern
+ 
+
+* UNC - BACS 350 - Lesson 30 
+* Monday, Nov 4
+* Mark Seaman
+ 
+---
+
+### Assignments
+* Reading - 9.2 Selectors
+* Review #3 - Code Review of Superhero Database (Publish your Github repo)
+* Skill #11 - MVC Design Pattern applied to Notes app
+* Project  - Details on Wednesday
+
+
+### Seaman's Rules
+* Rule #30 - Always build the top 10 requirements
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+  
+---
+
+
+### Subscribers App
+* App = Data + Views
+
+
+### Subscribers App Data
+* Bluehost database 
+
+```php
+$host = 'localhost:3306';
+$dbname = 'uncobacs_subscribers';
+$username = 'uncobacs_350';
+```
+
+
+### Subscribers App Data
+* Data Model: Subscribers
+    * id
+    * name
+    * email
+* Use in CRUD operations
+* Data bindings
+* Function signatures
+
+
+### Subscribers App Data
+* CRUD operations
+
+
+```php
+// CREATE - add record
+function add_subscriber($db, $record)
+
+// READ - Lookup Record using ID
+function get_subscriber($db, $id)
+
+// READ - Query for all subscribers
+function query_subscribers ($db)
+
+// UPDATE - Edit the database record
+function update_subscriber ($db, $record)
+
+// DELETE - Delete Database Record
+function delete_subscriber($db, $id) 
+```
+
+
+### Subscribers App Views
+* Views: 
+    * List
+    * Add
+    * Edit
+    * Delete
+
+
+### Controller - Handle Events
+* Use the same PHP page but do different actions
+* Data Operations - CRUD
+* View Actions - List, Add, Edit, Delete
+
+```php
+// Handle all action verbs
+function handle_actions() {
+    $action = filter_input(INPUT_GET, 'action');
+    
+    // Data Actions
+    if ($action == 'create') add_subscriber()
+    if ($action == 'read') query_subscribers()
+    if ($action == 'update') update_subscriber()
+    if ($action == 'delete') delete_subscriber()
+    
+    // View Actions
+    if ($action == 'add') add_subscriber_view()
+    if ($action == 'list') subscriber_list_view()
+    if ($action == 'edit') edit_subscriber_view()
+    if ($action == 'remove') delete_subscriber_view()
+}
+
+```
+
+
+### MVP PHP Page
+* Single file contains all page modality
+* Action variable and other input variable control the page
+
+```php
+require_once 'subscriber.php';
+
+$content = handle_actions();
+
+// Display page content
+$settings = array(
+    "site_title" => "UNC BACS 350 Demo",
+    "page_title" => "MVC Design Pattern", 
+    "content"    => $content);
+echo render_page($settings);
+```
+
+
+### MVC Design Pattern
+* Model - data model and CRUD operations
+* View - visible appearance of page
+* Controller - business logic that controls sequencing
+
+
+### Building Apps
+* App = Data + Views
+* Step 1 - Identify the top ten requirements
+* Step 2 - Create the simplest data model that will work
+* Step 3 - Select the smallest number of views needed
+* Step 4 - Build the data model
+* Step 5 - Build the required views
+* Step 6 - Build the controller
+
+
+### Code Demo - Page Template
+* Pull demo code from Mark-Seaman/UNC-BACS350-Demo repo
+* See full demo at [Demo 30 - MVC Design Pattern](https://unco-bacs.org/bacs350/demo/30)
+* View code in Brackets "bacs350/demo/30"
+
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Design Review of Superhero Database
+* Review #3 - Code review of Home page
+* Publish your Github repo
+
+
+### Skill - Use the MVC Pattern
+* [Skill #11 - MVC Design Pattern](/unc/bacs350/skills/11)
+* Apply the MVC example code from "demo/30" to "notes"
+* Take a screen shot of the working app
+* Details to show
+    * MVC Pattern applied to notes
+    * Database CRUD
+    * Single PHP file
+    * Views: List, Detail, Add, Edit, Delete
+

@@ -1,0 +1,110 @@
+BACS 350 - Lesson 31
+
+* Data Encapsulation
+* Monday, Nov 5, 2018
+* by Mark Seaman
+
+![](img/Bear_Logo.png)
+
+
+### Review
+* View Templates
+* Data Application
+    * CREATE
+    * READ
+    * UPDATE
+    * DELETE
+* Object Encapsulation
+
+
+### Data Encapsulation
+* Data hiding
+* Standard abstraction for datatype
+* Common code structure
+* Reusable design pattern
+
+
+### Template "subscriber.php"
+* Provides a running code example
+* Used in "email_list.php" application
+
+
+### Object Class
+* Create a database connection automatically
+
+```
+require_once 'subscriber.php';
+```
+
+
+### Object Abstraction
+* All data operations
+    * CREATE
+    * READ
+    * UPDATE
+    * DELETE
+* All data views
+    * Add view
+    * List view
+    * Edit view
+    * Delete view
+
+
+### Data Controller
+* All actions are done by one PHP page
+* Handle Add operation
+
+```
+if action == add
+    show add form
+if action == create
+    create database record
+```
+
+
+### Data Controller
+* All actions are done by one PHP page
+* Handle List operation
+
+```
+if action == list
+    show list
+if action == detail
+    show one record
+```
+
+
+### Data Controller
+* All actions are done by one PHP page
+* Handle Edit operation
+
+```
+if action == edit
+    show edit form with data
+if action == update
+    update database record
+```
+
+
+### Data Controller
+* All actions are done by one PHP page
+* Handle Delete operation
+
+```
+if action == confirm
+    show delete form
+if action == delete
+    delete database record
+```
+
+
+### Handle Actions
+* Object class provides a single function to implement controller
+* All parameters are passed through POST and GET variables
+* User interface is created by handle_actions()
+
+
+```
+$content = $subscriber->handle_actions();
+```
+

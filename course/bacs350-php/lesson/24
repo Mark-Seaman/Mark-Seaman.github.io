@@ -1,0 +1,213 @@
+# Lesson 24 - Logging
+
+
+* UNC - BACS 350
+* Monday, Oct 21 - Lesson 24
+* Mark Seaman
+ 
+---
+
+### Seaman's Rules
+* Rule #24 - If it's broke fix it
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+  
+---
+
+### Assignments
+* Reading - 14.4 Insert Records
+* [Skill #09 - Logging](/unc/bacs350/skills/09)
+* [Project #09 - Review Manager App](/unc/bacs350/project/09)
+
+
+### Building Logging
+* Create log table
+* Logging database CRUD
+* Page logging
+* Clear history
+* Log History
+
+
+### SQL Database table
+* Create the table by executing SQL
+* Table log: date, text
+
+```sql
+    CREATE TABLE log (
+        id int(3) NOT NULL AUTO_INCREMENT,
+        date varchar(100)  NOT NULL,
+        text varchar(100) NOT NULL,
+        PRIMARY KEY (id)
+    );
+```
+
+
+### Logging database CRUD
+* Add one record to the log
+
+```php
+date_default_timezone_set("America/Denver");
+$date = date('Y-m-d g:i:s a');
+
+// Add database row
+$query = "INSERT INTO log (date, text) VALUES (:date, :text);";
+$statement = $log->prepare($query);
+$statement->bindValue(':date', $date);
+$statement->bindValue(':text', $text);
+$statement->execute();
+$statement->closeCursor();
+```
+
+
+### Logging database CRUD
+* Add one record to the log
+* Add error handling
+
+```php
+// Show if insert is successful or not
+try {
+    // Create a string for "now"
+    date_default_timezone_set("America/Denver");
+    $date = date('Y-m-d g:i:s a');
+
+    // Add database row
+    $query = "INSERT INTO log (date, text) VALUES (:date, :text);";
+    $statement = $log->prepare($query);
+    $statement->bindValue(':date', $date);
+    $statement->bindValue(':text', $text);
+    $statement->execute();
+    $statement->closeCursor();
+    return true;
+} catch (PDOException $e) {
+    $error_message = $e->getMessage();
+    echo "<p>Error: $error_message</p>";
+    die();
+}
+```
+
+
+### Logging database CRUD
+* Wrap in a function
+
+```php
+function add_log($log, $text) {
+    try {
+        ... add the record
+    } catch (PDOException $e) {
+        ... handle errors
+    }
+}
+
+```
+
+
+### Page logging
+* Connect to the log database table
+* Insert one record
+
+```php
+require_once 'log.php';
+add_log($log, "This page loaded");
+```    
+   
+   
+### Clear history
+* Connect to the log database table
+* Delete all records
+
+```php
+$query = "DELETE FROM log";
+$statement = $log->prepare($query);
+$row_count = $statement->execute();
+return true;
+```    
+
+
+### Log History
+* Connect to the log database table
+* Query for all records
+* Format the list from the query
+
+```php
+$query = "SELECT * FROM log";
+$statement = $log->prepare($query);
+$statement->execute();
+return $statement->fetchAll();
+```    
+
+    
+### Pull Demo Code
+* From Github Desktop
+* Select the Mark-Seaman/UNC-BACS350-Demo repo
+* Pull new code
+
+
+### View Mark's Demo Code
+* Run Brackets
+* Open Folder Documents/UNC-BACS350-Demo/bacs350
+* This will be a standard folder selection for later
+* Visit source code for "bacs350/demo/23"
+
+
+### Demo #23 - Logging
+* Run the code on [Demo #23 - Logging](https://unco-bacs.org/bacs350/demo/23)
+
+
+### Reviews App
+* Data forms app 
+* Capture and display design reviews
+* Review data record
+* Design Review Report
+* Logging
+
+
+### Review data record
+* Date
+* URL (Page URL reviewed)
+* Designer (bear email)
+* Report (Requirements, Improvements needed)
+* Score
+
+
+### Design Review Report
+* Displayed for each review
+* Markdown report document
+    * Date
+    * Page URL reviewed
+    * Designer 
+    * Review Requirements met
+    * Improvements needed (for each missing requirement)
+    * Score
+
+
+### Conducting Reviews
+* Reviews will be assigned on your dashboard page
+* First review will be a self-review of your Brain App page
+* Review report will be published on "domain/bacs350/review/review.php?url=PAGE"
+
+
+### Demo #24 - Reviewer App
+* Run the code on [Demo #24 - Reviewer App](https://unco-bacs.org/bacs350/demo/24)
+* Working copy of my review app
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Skill
+* [Skill #09 - Logging](/unc/bacs350/skills/09)
+
+
+### Project 
+* [Project #09 - Review Manager App](/unc/bacs350/project/09)
+

@@ -1,0 +1,195 @@
+# Project #2 - Code Sharing
+
+* Due Sep 6, 2019
+
+
+### Goal
+
+Setup your Github code repository with code from Mark.
+
+Build a collection of pages without duplicating code.
+
+
+## Step 1 - Setup Git Repo
+
+### Register an account at [Github.com](http://Github.com)
+* Free accounts for public repos
+* Recommend using your human user name
+
+
+### Browse my Repo
+* [My Code at Github](https://github.com/Mark-Seaman/UNC-BACS350-2019-Fall)
+* Browse the source code
+
+
+### Fork My Repo
+* Create a copy with its own history
+* Remember how to get code updates from Mark
+
+![](img/fork-repo.png)
+
+
+### View Your Fork of the Repo
+* Clone the repo onto each local computer
+* Pin Github Desktop to Windows Start Bar
+
+![](img/GithubDesktop.png)
+
+
+### Github Desktop
+* Show code that changed
+* Commit changes
+* Pull/Push to share changes
+* Show history
+
+
+### Edit Your Code Using Brackets
+* Github will automatically track your changes
+* Open Folder to point to "public_html/bacs350"
+
+
+### Commit Changes Every Hour
+* Each time you get something new working
+* Do not wait too long
+
+
+### Install Github Desktop on Each Computer
+* Setup each computer for efficiency
+
+
+
+## Step 2 - Debug the Render Page Pattern
+
+### Directory Structure
+* Make sure that you have the following directory structure.
+
+```
+.
+├── demo
+│   ├── 01
+│   │   ├── index.html
+│   │   ├── index.php
+│   │   └── styles.css
+│   ├── 02
+│   │   ├── footer.html
+│   │   ├── header.html
+│   │   ├── index.php
+│   │   ├── styles.css
+│   │   ├── unc2.php
+│   │   └── uncpage.php
+│   ├── 03
+│   │   ├── footer.html
+│   │   ├── header.html
+│   │   ├── styles.css
+│   │   ├── uncpage1.php
+│   │   └── uncpage2.php
+│   ├── 04
+│   │   ├── index.php
+│   │   ├── page1.php
+│   │   ├── page2.php
+│   │   ├── page3.php
+│   │   ├── page4.php
+│   │   ├── page_template.php
+│   │   └── views.php
+│   ├── 05
+│   │   ├── index.php
+│   │   └── views.php
+│   └── index.php
+├── favicon.ico
+├── images
+│   ├── Bear.200.png
+│   ├── Bear_Logo.png
+│   └── Mark-Seaman-200.jpg
+├── index.php
+├── pattern
+│   ├── header
+│   │   ├── footer.html
+│   │   ├── header.html
+│   │   └── index.php
+│   ├── include
+│   │   ├── index.php
+│   │   └── template.html
+│   ├── index.php
+│   ├── page_template
+│   │   ├── index.php
+│   │   └── page_template.php
+│   └── render_page
+│       ├── index.php
+│       └── views.php
+├── project
+│   ├── 01
+│   │   ├── footer.html
+│   │   ├── header.html
+│   │   ├── styles.css
+│   │   ├── uncpage1.php
+│   │   └── uncpage2.php
+│   ├── 02
+│   │   ├── index.php
+│   │   └── views.php
+│   └── index.php
+├── unc.css
+└── views.php
+
+```
+
+
+### Use Brackets to Edit Project 2
+* Edit the source code in "bacs350/project/index.php"
+
+
+### Setup Filezilla
+* Run Filezilla 
+* Configure New Site using Site Manager
+* Connect to Bluehost with credentials (host, user, password)
+* Set up youe directory paths to connect to the right place
+* Send files to Bluehost
+
+
+### Repeat Until Done
+* Test your page at "bacs350/project/02/index.php"
+* Modify the code until it looks right
+* Push code every minute
+
+
+### Commit changes when this works
+
+
+
+## Step 3 - Build Brain App
+
+### Create Home Page
+* Build the page to look like [Unco-Bacs.org](https://unco-bacs.org/bacs350)
+* Create your home page at "bacs350/index.php"
+
+### Build Demo Pages
+* Create pages to show class demo
+    * bacs350/demo/index.php
+    * Build folders: 01, 02, 03, 04, 05
+
+### Build Project Pages
+* Create pages to show class demo
+    * bacs350/project/index.php
+    * Build folders: 01, 02
+
+### Build Design Patterns Pages
+* Create pages to show class demo
+    * bacs350/pattern/index.php
+    * Build folders: 01, 02, 03, 04
+
+
+
+## Requirements
+The completed assignment must meet the following requirements.
+
+* Page exists at "bacs350/index.php"
+* Page exists at "bacs350/project/02/index.php"
+* Page exists at "bacs350/demo/05/index.php"
+* Page exists at "bacs350/pattern/render_page/index.php"
+* Home page has custom content
+* Demo page has custom content
+* Project page has custom content
+* Pattern page has custom content
+* Github repo is shown as link on "bacs350/project/02/index.php"
+* Your custom photo
+
+

@@ -1,0 +1,50 @@
+# Skill #1 - Web Hosting
+
+Skill Demonstration Challenge
+
+---
+
+## Objective
+
+Demonstrate web hosting using Bluehost
+
+* Sign up for [Bluehost](http://bluehost.com) server account
+* Register a custom domain at Bluehost (optional)
+* Setup WordPress blog
+* Create user profile page (with photo)
+
+
+## Demonstration
+
+### bluehost.png
+
+This screen shot is proof of skill.  It shows the following ...
+
+* My properly registered account at Bluehost
+* Advanced settings of Bluehost
+* Unique user ID and domain for my website
+* Screen shot can be uploaded to the correct location
+* Ability to create a screen shot with the correct name
+
+<img src="{{ skills }}/bluehost.png" width="100%">
+
+See [Instructor's Solution](https://unco-bacs.org/bacs200/skills/bluehost.png) for an example
+
+
+### wordpress.png
+
+* WordPress Profile Page
+* WordPress configuration
+
+<img src="{{ skills }}/wordpress.png" width="100%">
+
+See [Instructor's Solution](https://unco-bacs.org/bacs350/skills/wordpress.png) for an example
+
+
+### Test Your Work
+* Create a page for your skills "bacs350/skills/index.html"
+* Include content from [Skills Index](https://unco-bacs.org/bacs350/skills/index.html)
+* Go to the [Sensei Page](/unc/bacs350)
+* Click on the link to the skills page
+* Create this page in your skills folder
+

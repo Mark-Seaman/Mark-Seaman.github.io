@@ -1,0 +1,97 @@
+Lesson 1 - Intermediate Web Dev
+
+    LEARN
+        Today
+        Seaman's Rules Rule     1 - Do it simply; do it now.
+        Literacy
+        Literacy 50 years ago
+        Literacy 30 years ago
+        Literacy Today
+        Literacy
+        Opportunity
+        Software Runs the World
+        Design and Development
+        What is BACS 350?
+        What will you learn?
+        Costs
+        Grading (graded deliverables every day)
+        Sensei Digital Classroom
+        Rules for Success
+        Do Not Fall Behind
+        Today's Lesson
+        Web Development for Small Business
+        Internet - Clients and Servers
+        Web Servers and Web Browsers
+        Static Websites
+        Database Storage
+        New Technologies
+
+    BUILD
+        Login to Sensei Digital Classroom
+        Buy Textbook
+        ZyBooks Daily Readings
+        Project     1 - Bluehost Web Hosting
+        See you next time
+
+
+Lesson 2 - Server-side Includes
+
+    LEARN
+        Review
+        Today
+        Seaman's Rules Rule     2: Do not repeat yourself
+        Internet - Clients and Servers
+        Web Servers and Web Browsers
+        Static Websites
+        Database Storage
+        New Technologies
+        Technology We Know
+        What is missing from HTML?
+        Example: Form validation
+        HTML is stateless
+        PHP is Extended HTML
+        Standard code for each page
+        Capture common code with includes
+        Server-side includes
+
+    BUILD
+        Every page has Header, Main, Footer
+        Development Loop
+        Step 1 - Create web page
+        Test the page
+        Step 2 - Create header.php and footer.php
+        Step 3 - Refactor page.php
+        Step 4 - Test the page
+        Step 5 - Improve your header and footer
+        Add CSS stylesheet to your header.php
+        Download an image to use
+        Create a banner
+        See you next time
+
+
+Lesson 3 - Header/Footer Pattern
+
+    LEARN
+        Review
+        Today
+        Seaman's Rules Rule     3: Take small steps to move fast
+        Github - Sample Code
+        Pair Programming Game
+         Variable Insertion into Views
+         Header and Footer with Variables
+         Header and Footer with Variables
+         Reusable page structure
+        Visit the Source Code
+        See it Run
+
+    BUILD
+        Create directory structure for code
+        Pair Programming Game
+        Step 1 - Get Mark's sample code
+        Step 2 - Setup Windows for Development
+        Step 3 - Test remote page
+        Step 4 - Change the title of the page
+        Step 5 - Create an index page for Project 1
+        Step 6 - Change computers & Switch players
+        See you next time
+

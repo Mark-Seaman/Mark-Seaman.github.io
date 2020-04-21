@@ -1,0 +1,155 @@
+# Lesson 16 - Connect to Database
+
+
+* UNC - BACS 350
+* Wednesday, Oct 2
+* Mark Seaman
+ 
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+---
+
+### Review
+* Skill #6 - Database & SQL
+* Design Pattern - Database Connection
+* Project #6 - Superhero Database
+
+
+### Today
+* Zybooks - 13.6 - MySQL
+* Demo #16 - How to connect to a database with PHP
+* Skill #6 - Database & SQL
+
+---
+
+### Seaman's Rules
+* Rule #16 - Estimate the Learning Cost
+    * Compare to the last project you did
+    * Add one day for each technical trick you do not yet know
+  
+---
+
+
+### Pull Demo Code
+* From Github Desktop
+* Select the Mark-Seaman/UNC-BACS350-Demo repo
+* Pull new code
+
+
+### View Mark's Demo Code
+* Run Brackets
+* Open Folder Documents/UNC-BACS350-Demo/bacs350
+* This will be a standard folder selection for later
+* Visit source code for "bacs350/demo/16"
+
+
+### Demo #16 - How to connect to a database with PHP
+* Run the code on [UNCO-BACS.org](https://unco-bacs.org/bacs350/demo/16)
+* Study the code for [Connect to Database](https://unco-bacs.org/bacs350/demo/16/index.php)
+
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+
+### Skill #6 - Database & SQL
+* [Skill #6](/unc/bacs350/skills/06)
+* Capture a screen shot to show that you can work with the SQL code
+
+### Bluehost Database
+* Settings for my credentials
+
+```php
+$port = '3306';
+$dbname = 'uncobacs_subscribers';
+
+$username = 'uncobacs_350';
+$password = 'BACS_350';
+```
+
+
+### Bluehost Database
+* Connection String is used to connect to the database
+
+```php
+$db_connect = "mysql:host=localhost:$port;dbname=$dbname";
+$db = new PDO($db_connect, $username, $password);
+```
+
+
+### Connect with PHP
+* Collect the credentials for your Bluehost database
+* Create a page **bacs350/superhero/db.php**
+* Add some code
+
+```php
+<h1>Superhero Database</h1>
+<p>Database connnection</p>
+```
+
+* Deploy and test this new page
+
+### Connect with PHP
+* Collect the credentials for your Bluehost database
+* Create a page **bacs350/superhero/db.php**
+* Add some code
+
+```php
+echo "<h2>Settings</h2>
+    <p>$port</p>
+    <p>$dbname</p>
+    <p>$username</p>
+    <p>$password</p>";
+```
+
+* Deploy and test this new page
+
+
+### Connect with PHP
+* Set the values for your database
+
+```php
+echo "<p>$db_connect</p>";
+```
+
+* Deploy and test this new page
+
+
+### Connect with PHP
+* Attempt to connect your database
+
+```php
+$db = new PDO($db_connect, $username, $password);
+```
+
+* Deploy and test this new page
+* Keep working on this one line until it works
+
+
+### Use this database connection
+* Add the **db.php** code in **bacs350/superhero/index.php** page
+* When you reload your page it will now automatically connect to the database
+
+```php
+require 'db.php';
+```
+
+* Commit all changes
+
+
+### Optional - Design Pattern
+* Study the design pattern for [Connect to Database](https://unco-bacs.org/bacs350/pattern/db_connect)
+* This code has error handling built in
+* It automatically displays info as the connection is made
+* It automatically supports both local and Bluehost databases
+

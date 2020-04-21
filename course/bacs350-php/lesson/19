@@ -1,0 +1,190 @@
+# Lesson 19 - CRUD Functions
+
+
+* UNC - BACS 350
+* Wednesday, Oct 9
+* Mark Seaman
+ 
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+---
+
+### Review
+* Skill #7 - SQL Database
+* Project #6 - Subscribers
+
+
+### Today
+* Zybooks - 13.9 - Users
+* Demo #19 - CRUD functions (subscribers.php)
+* [Skill #7 - CRUD operations](/unc/bacs350/skills/07)
+
+---
+
+### Seaman's Rules
+* Rule #19 - If you cannot repeat it then it is not working yet
+    * It is possible to get something working and still miss the key learning
+    * Learning requires applying it three times
+ 
+---
+
+### CRUD Operations
+* CREATE - add new records
+* READ - list records from the database
+* UPDATE - modify existing records
+* DELETE - remove records
+
+
+### List Records
+* Lookup all records
+* SQL -- SELECT * FROM subscribers;
+
+```php
+$query = "SELECT * FROM subscribers;";
+$statement = $db->prepare($query);
+$statement->execute();
+$subscribers = $statement->fetchAll();
+```
+
+
+### List Records
+* Create a function in subscribers.php
+
+```php
+function list_subscribers ($db) {
+    $query = "SELECT * FROM subscribers";
+    $statement = $db->prepare($query);
+    $statement->execute();
+    return $statement->fetchAll();
+}
+
+echo list_subscribers ($db);
+```
+
+
+### List Records
+* Add exception handling
+* Show the errors as output
+
+```php
+function list_subscribers ($db) {
+   try {
+        ...
+    } catch (PDOException $e) {
+        $error_message = $e->getMessage();
+        echo "<p>Error: $error_message</p>";
+        die();
+    }
+}
+```
+
+
+### Add Records
+* Start with database CREATE operation
+
+```php
+$query = "INSERT INTO subscribers (name, email) VALUES (:name, :email);";
+$statement = $db->prepare($query);
+$statement->bindValue(':name', $name);
+$statement->bindValue(':email', $email);
+$statement->execute();
+$statement->closeCursor();
+```
+
+
+### Add Records
+* Add exception handling
+
+```php
+try {
+    ...
+} catch (PDOException $e) {
+    $error_message = $e->getMessage();
+    echo "<p>Error: $error_message</p>";
+    die();
+}
+
+```
+
+
+### Add Records
+* Wrap as a function
+
+```php
+function add_subscriber($db, $name, $email) {
+    try {
+        $query = "INSERT INTO subscribers (name, email) VALUES (:name, :email);";
+        $statement = $db->prepare($query);
+        $statement->bindValue(':name', $name);
+        $statement->bindValue(':email', $email);
+        $statement->execute();
+        $statement->closeCursor();
+    } catch (PDOException $e) {
+        $error_message = $e->getMessage();
+        echo "<p>Error: $error_message</p>";
+        die();
+    }
+}
+
+```
+
+
+### subscribers.php
+* Build a PHP file to hold all database logic
+* CRUD operations
+    * connect_subscribers
+    * get_subscriber
+    * list_subscribers
+    * add_subscriber
+    * update_subscriber
+    * delete_subscriber
+    
+
+### views.php
+* Use render_page to apply page structure and style
+* Use render_card to display each subscriber in a card
+* Use render_subscribers to display the list
+
+
+### Pull Demo Code
+* From Github Desktop
+* Select the Mark-Seaman/UNC-BACS350-Demo repo
+* Pull new code
+
+
+### View Mark's Demo Code
+* Run Brackets
+* Open Folder Documents/UNC-BACS350-Demo/bacs350
+* This will be a standard folder selection for later
+* Visit source code for "bacs350/demo/19"
+
+
+### Demo #19 - CRUD functions
+* Run the code on [UNCO-BACS.org](https://unco-bacs.org/bacs350/demo/19)
+
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### CRUD operations & Workflow
+* Complete [Skill #7](/unc/bacs350/skills/07) before starting on Project #7
+
+
+### Update your "Subscriber List"
+* You created a page at "bacs350/subscribers/index.php"
+* Update this page with logic from [Demo #19](https://unco-bacs.org/bacs350/demo/19)
+* Debug this page until it works properly
+
+
+### Work on Project #6 and Skill #7
+

@@ -1,0 +1,109 @@
+# Lesson 12
+* Better Dev Tools
+* Date: Fri, 09-14
+* by Mark Seaman
+
+![](img/Bear_Logo.png)
+
+
+### Review
+* CRUD Operations
+* Testing
+* Building Applications
+    * Subscribers
+    * Logging App
+
+
+### Next Steps
+* XAMPP - Apache + MySQL
+* NetBeans  - IDE for later
+* XDebug - Interactive Debugger
+
+
+## Solutions to Projects
+* Each lesson has taught a key skill
+* I added code to demonstrate each skill
+* [Solutions to Projects](http://unco-bacs.org/bacs_350/solution)
+
+
+### Core Skills
+1. Hosting
+2. Includes
+3. Variables
+4. Databases
+5. Forms
+6. Database Connection
+7. List Records
+8. Add Records
+9. App UI
+10. Testing
+
+
+### Exam on Friday
+* 10 Core Skills
+* Study Solutions
+* Build an app using skills learned
+
+
+### Example Exam (not the real thing)
+* Build an application that manages a list of widgets
+* Each widget contains a, b, c (To Be Determined)
+* Create a database table to hold widgets
+* Create main view that lists the existing widgets
+* Create another view to add one widget using a form
+* Make sure that both pages produce valid HTML
+* Make the page look nice by using header and footer code with a stylesheet
+
+
+
+## Apache Web Server
+* Apache is the most common web server
+* PHP preprocessor is built in
+
+
+### Setup on Home Computer
+* Download from http://sourceforge.net/projects/xampp/files
+* Use Murach PHP/MySQL - Appendix A
+
+
+### Configure Apache
+* Edit the config file  c:\\xampp\\php\\php.ini
+* Search for "timezone"
+    * date.timezone=America/Denver
+    
+    
+### Configure phpMyAdmin
+* Edit c:\\xampp\\phpMyAdmin\\config.inc.php
+* Authentication Settings
+
+```
+$cfg['blowfish_secret'] = '-- My Secret Key -- My Secret Key --'; 
+$cfg['Servers'][$i]['auth_type'] = 'cookie';
+$cfg['Servers'][$i]['user'] = '';
+$cfg['Servers'][$i]['password'] = '';
+```
+
+
+### Server Start Up
+* Start Menu XAMPP Control Panel
+* Apache Start
+* Visit [http://localhost](http://localhost)
+* MySQL Start
+* Visit [http://localhost/phpmyadmin](http://localhost/phpmyadmin)
+
+
+### Move Web Documents
+* Edit C:\\xampp\\properties.ini
+
+```
+apache_htdocs_directory=C:\\Users\\mark.seaman\\Documents\\Documents-2018\\guide\\PhpApps\\web-root
+```
+
+
+### Setup Apache & MySQL
+* Setup tools on Student Computer
+* Setup tools on Personal Computer
+* No assignment to turn in
+* Practice building an app
+
+![](img/Bear3.png)

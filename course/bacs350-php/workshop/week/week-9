@@ -1,0 +1,53 @@
+## Week 9 - Data Apps
+
+
+[Review #9 - Check list](/unc/bacs350/review/09)
+
+    * Review app (bacs350/review/index.php?domain=unco-bacs.org&page=bacs350/index.php)
+    * Requirements check list
+    * Self review (bacs350/index.php)
+    
+[Skill #9 - Logging](09)
+
+    * Logging database CRUD
+    * Page logging
+    * Clear history
+    * Log History
+
+[Project #9 - Review Manager App](/unc/bacs350/project/09)
+
+    * Logging
+    * Design Review
+    * Code Review
+    * Refactoring & Testing
+    * Review app (bacs350/review/index.php)
+    *? Query parameters (domain=unco-bacs.org, page=bacs350/index.php)
+    *? Review URL (bacs350/review/index.php?domain=unco-bacs.org&page=bacs350/index.php)
+
+---
+
+Monday, Oct 21 - Lesson 24
+
+    Rule    - If it's broke fix it
+    Reading - 14.4 Insert Records
+    Lesson  - Logging
+    [Demo](https://unco-bacs.org/bacs350/demo/24)
+    [Skill #9 - Logging](/unc/bacs350/skills/09)
+
+Wednesday, Oct 23 - Lesson 25
+
+    Rule    - New knowledge should change your plan
+    Reading - 14.5 Selecting Records
+    Lesson  - Review Application, Review check list
+    [Demo](https://unco-bacs.org/bacs350/demo/25)
+    [Review #9 - Home Page](/unc/bacs350/review/09)
+    [Project #9 - Design Review App](/unc/bacs350/project/09)
+    
+Friday, Oct 25 - Lesson 26
+
+    Rule    - Every action affects technical debt
+    Reading - 14.6 SQL Functions
+    [Demo](https://unco-bacs.org/bacs200/demo/26)
+    Lesson  - MVC Pattern, Single Page App
+    [Project #9 - Review Manager App](/unc/bacs350/project/09)
+    

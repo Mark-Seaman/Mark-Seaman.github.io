@@ -1,0 +1,126 @@
+# Project #3 - Superhero Gallery
+
+* Due Friday, Sep 13, 2019
+
+
+## Skill Demonstration Challenge
+
+This class requires you to master a number of different skills
+
+* [Skill #1 - Setup Web Hosting](/unc/bacs350/skills/01) - due Friday, Sep 13
+* [Skill #2 - Setup FTP](/unc/bacs350/skills/02) - due Friday, Sep 13
+
+
+## Superhero Gallery
+
+### Goal
+
+Build a collection of pages without duplicating code.
+
+Demonstrate that you can use the Render Page and Card View design patterns
+
+
+### Requirements
+
+The completed assignment must meet the following requirements.
+
+* Page exists at "bacs350/superhero/index.php"
+* Profile info for three superheros
+* Use the Render Page & Card View design patterns
+
+
+### Browse Mark's Demo Code Repo
+* [My Code at Github](https://github.com/Mark-Seaman/UNC-BACS350-Demo)
+* Browse the source code for demos, patterns, projects
+
+
+### Edit Your Code Using Brackets
+* Github will automatically track your changes
+* Open Folder to point to "public_html/bacs350"
+* Edit a sample file 'public_html/bacs350/superhero/index.php'
+* Add bogus code to test path
+
+```
+<h1>PROJECT #3: Superhero Gallery</h1>
+```
+
+
+### Test Your Page
+* Browse to your server
+* Load page "bacs350/superhero/index.php"
+
+
+### Make sure PHP works
+
+```php
+<?php echo "This is hard work"; ?>
+```
+
+Test your page
+
+
+### Use the Render Page Pattern
+* Copy code into views.php from [views.php](https://github.com/Mark-Seaman/UNC-BACS350-Demo/blob/master/pattern/card_view/views.php)
+* Edit index.php
+
+```php
+<?php
+    $site_title = 'UNC BACS 350';
+    $page_title = 'Superhero Gallery';
+    $content = 'No content yet';
+    include 'views.php';
+    echo render_page($site_title, $page_title, $content);
+?>
+```
+
+Test your page
+
+
+### Use the Card View Pattern
+* views.php should contain both the render_page and render_card functions
+
+```php
+<?php
+    $site_title = 'UNC BACS 350';
+    $page_title = 'Superhero Gallery';
+    $content = render_card("Captain America", "Classic America hero archtype");
+    include 'views.php';
+    echo render_page($site_title, $page_title, $content);
+?>
+```
+
+Test your page
+
+
+### Multiple Cards
+* views.php should contain both the render_page and render_card functions
+
+```php
+<?php
+    $site_title = 'UNC BACS 350';
+    $page_title = 'Superhero Gallery';
+    $content = render_card("Captain America", "Classic America hero archtype") .
+        render_card("Iron Man", "Billionaire Entrpreneur");
+    include 'views.php';
+    echo render_page($site_title, $page_title, $content);
+?>
+```
+
+Test your page
+
+
+### Arrange the Cards
+* views.php should contain both the render_page and render_card functions
+
+```php
+    $card1 = render_card("Captain America", "Classic America hero archtype");
+    $card2 = render_card("Iron Man", "Billionaire Entrpreneur");
+
+    $content =  '
+        <div class="container-fluid">
+            <div class="row">
+                ' . $card1 . $card2 . '
+            </div>
+        </div>
+    ';
+```

@@ -1,0 +1,38 @@
+# Skill #4 - Working with Code Files
+
+Skill Demonstration Challenge
+
+---
+
+## Objective
+
+Demonstrate proper setup and configuration of code files with version control to work with code from other people.
+
+
+## Steps
+
+* Clone Demo code repo
+    * Use Github to clone "Mark-Seaman/UNC-BACS350-Demo"
+    * Save as "Documents/UNC-BACS350-Demo"
+    * [Clone Repo screenshot](/static/images/unc/bacs350/git-clone.png)
+* Clone programming partner's code
+* Pull fresh code from Mark & partner
+    * Select Demo repo in Github Desktop
+    * Pull Origin if button appears
+* Remove old local code
+* Remove old remote code
+
+
+## Demonstration
+
+Each skill can be proved with a screen shot.
+
+
+### git-pull.png
+
+This screen shot shows the location in the file system that contains the BACS 350 Demo code.
+
+<img src="{{ skills }}/git-pull.png" width="100%">
+
+See [Instructor's Solution](https://unco-bacs.org/bacs350/skills/git-pull.png) for an example
+

@@ -1,0 +1,163 @@
+# Lesson 36 - User Authentication
+
+
+* UNC - BACS 350
+* Wednesday, Nov 20
+* Mark Seaman
+ 
+
+---
+
+### Assignments
+* Reading - 9.9 Currency 
+* Project #13 - Brain App with no Duplication
+
+
+### Seaman's Rules
+* Rule #36 - Create a standard way to handle user authentication
+
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+  
+---
+
+
+### User Authentication
+* Register Users
+* Login view
+* Require login
+* Storing Password
+* Application Controller
+
+
+### View Demo of Auth.php
+* Pull demo code from Mark-Seaman/UNC-BACS350-Demo repo
+* See full demo at [Demo 33](https://unco-bacs.org/bacs350/demo/33)
+
+
+### Demo 33 - User Authentication
+* Register Users
+* Login view
+* Require login
+* Storing Password
+* Application Controller
+
+
+### Register Users
+* Create a database table to hold user info
+* Do not store passwords in clear text
+* 
+
+```sql
+-- Admin Table SQL
+CREATE TABLE administrators (
+    id          INT             NOT NULL  AUTO_INCREMENT,
+    email       VARCHAR(255)    NOT NULL,    
+    password    VARCHAR(255)    NOT NULL,
+    firstName   VARCHAR(60),
+    lastName    VARCHAR(60),
+    PRIMARY KEY (id)
+);
+```
+
+
+### Storing Password Data
+* Save the hash of the password to protect the data
+* demo/33/auth.php - line 50
+
+```php
+$hash = password_hash($password, PASSWORD_DEFAULT);
+```
+
+
+### Login view
+* Create a template for login
+* Render template when need to login 
+* demo/33/template/login.html 
+* Call login_form()   demo/33/auth.php - line 73
+
+
+### Validating the Password
+* Read the password from the user
+* Lookup the user record
+* Compare the hash of the password
+
+```php
+$user = db_lookup ($username)
+$hash = $user['password'];
+```
+
+
+### Validating the Password
+* Checking the password for the user
+* Call function is_valid_login ($user, $password)
+* demo/33/auth.php - line 27
+
+
+### Require login
+* Call require_login()
+* demo/33/auth.php - line 115
+* Redirects the page to login view if needed
+
+
+### Save User Info
+* Create a session cookie for the user info
+* Remember that the user is logged in
+* Force user to login when needed
+* Closing the browser forgets the login
+
+
+### Application Controller
+* Select operations that require authentication
+* Call require_login() for each
+* See running demo in Notes app (demo/34)
+
+
+## Application Controller
+* Notes controller requires authentication
+* Call require_login() for each
+* See running demo in Notes app (demo/34)
+
+```
+Add Note - demo/34/note.php - line 163
+Edit Note - demo/34/note.php - line 172
+Delete Note - demo/34/note.php - line 181
+```
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Step 1
+* Recreate Demo 33 on your server
+* Build a stand-alone app with Public and Private pages
+* Create full user authentication system to protect your data
+
+
+### Step 2 
+* Add user authentication to your notes app
+* Use Demo 34 as a model
+* Debug and test on your server
+
+
+### Step 3
+* Continue work on Project #13
+* Note that User Auth is added to the requirements
+* Start with notes but work on each app
+
+
+### Projects and Grading
+* Project #12 - Brain App (with all Components)
+* Project #13 - Brain App (with Auth)
+* Project #14 - Brain App (no code duplicated)
+* Final - Final review of Project #14
+

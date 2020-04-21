@@ -1,0 +1,110 @@
+# Lesson 37 - Design
+
+
+* UNC - BACS 350
+* Friday, Nov 22
+* Mark Seaman
+ 
+---
+
+### Assignments
+* Reading - 10.1 Mobile Websites
+* Project #13 - User Authentication
+* Review - Log Issues for your teammates
+
+
+### Seaman's Rules
+* Rule #37 - Design Must Evolve!
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+  
+---
+
+### Design Must Evolve!
+
+### True Problems are Initially Unknown
+* Project start with little understanding
+* More understanding creates better design
+* Best solutions are not forced
+* Design must emerge over time
+
+
+### Emergent Design
+* Continue to refine the requirements
+* Build working prototypes
+* Get customer feedback
+* Close in on the final solution
+
+
+### Design is the Big Picture
+* Map is not reality
+* Right-brain/Left-brain
+* Abstract details to see the big picture
+
+
+### Picture of Reality
+* What it is now?
+* How should it change?
+* Create a plan to implement the ideal solution
+
+
+### Essential Design
+* App = Data + Views
+* Data Models
+* View List
+* Design Patterns
+* File Structure
+
+
+### Documenting Design
+* Show essential details only
+* Keep it current (update weekly)
+* Keep it simple
+* Store it with your code
+
+
+### Data Models
+* List the data types (tables)
+* Show the data fields (columns)
+* Records of data (rows)
+* Relationships between data types
+
+
+### View List
+* Create table showing views for each data type
+* Core Views
+    * List
+    * Detail
+    * Edit
+    * Add
+    * Delete
+
+
+### Design Patterns
+* Page Render Pattern
+* Template Render Pattern
+* Logging Pattern
+* Core Views Pattern
+* CRUD Pattern
+* Database Connection Pattern
+* MVC Pattern
+* Variable Injection Pattern
+* User Auth Pattern
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Project #13
+* [Project #13 - User Authentication](/unc/bacs350/project/13)
+* Add User Auth to every action that modifies data
+

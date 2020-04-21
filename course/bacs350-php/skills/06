@@ -1,0 +1,112 @@
+# Skill #6 - Create a Database
+
+### Bluehost Portal
+Select databases to view and create
+
+![](img/bluehost-portal.jpg)
+
+
+
+### Bluehost Databases
+* Find the Bluehost database page
+* Create a new database named "subscribers"
+* Note that my prefix is 'uncobacs', your will be different
+
+```
+    Database
+    Create New Database
+    uncobacs_subscribers
+```
+
+### Bluehost Databases
+This is where you create a new database
+
+![](img/bluehost-databases.png)
+
+
+### Database Users
+* Create a new database user
+
+```
+    MySQL Users
+    Add uncobacs_350
+    bluehost password
+```
+
+
+### Subscribers User Permissions
+* Grant database permissions to new user
+
+```
+    Add User
+    User: uncobacs_350
+    Database: uncobacs_subscribers
+```
+
+
+### Bluehost Database Users
+This is where you setup new database users with permissions
+
+![](img/bluehost-datausers.png)
+
+
+### View Databases
+* Make sure that everything looks good
+
+```
+    phpMyAdmin
+    view databases list
+    Databases
+    uncobacs_subscribers
+```
+
+
+### Bluehost phpMyAdmin
+This is where you work with your databases
+
+![](img/bluehost-phpMyAdmin.png)
+
+
+### Bluehost Select Your Database
+This is where you work with your database
+
+![](img/bluehost-db.png)
+
+
+### Select the "subscribers" database
+
+```
+    Structure
+    Create table
+    subscribers
+```
+
+
+### Database Structure
+View the rows and columns in your tables
+
+* Select subscribers table
+
+![](img/bluehost-structure.png)
+
+
+### SQL Commands
+Execute queries on your database
+
+![](img/bluehost-sql.png)
+
+
+## Demonstration 
+
+Each skill can be proved with a screen shot.
+
+
+### database.png
+
+This screen shot shows the location in the file system that contains the BACS 350 Demo code.
+
+<img src="{{ skills }}/database.png" width="100%">
+
+See [Instructor's Solution](https://unco-bacs.org/bacs350/skills/database.png) for an example
+
+

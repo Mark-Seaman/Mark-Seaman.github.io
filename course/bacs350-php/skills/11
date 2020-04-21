@@ -1,0 +1,41 @@
+# Skill #11 - MVC Design Pattern
+
+Skill Demonstration Challenge
+
+---
+
+## Objective
+
+Demonstrate that you can apply the MVC Pattern
+
+Show the following details
+
+* Apply the MVC example code from "demo/30" to "notes"
+* MVC Pattern applied to notes
+* Database CRUD
+* Single PHP file
+* Views: List, Detail, Add, Edit, Delete
+* Take a screen shot of the working app
+
+
+
+## Steps 
+* Go to your dashboard page and verify your screenshots in the skill section.
+
+
+## Demonstration
+
+Each skill can be proved with a screen shot.
+
+
+### mvc.png
+
+This screen shot shows the location in the file system that contains the BACS 350 Demo code.
+
+<a href="{{ skills }}/mvc.png">
+    Click Here to see full size
+    <img src="{{ skills }}/mvc.png" width="200" target="_blank">
+</a>
+
+See [Instructor's Solution](https://unco-bacs.org/bacs350/skills/mvc.png) for an example
+

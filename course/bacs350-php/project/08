@@ -1,0 +1,84 @@
+# Project #8 - Notes Database
+
+## Goals
+
+Build a database app to hold notes.
+
+
+## Steps
+
+### Step 1 - Demonstrate Skill #8
+* Complete [Skill #8 - Data Views](/unc/bacs350/skills/08)
+* Post screen shots for views
+    * List
+    * Add
+    * Edit
+
+
+## Design Patterns
+
+To complete this project you must use the following design patterns
+
+* Create MySQL database
+* Connect to database from PHP
+* List records in database
+* Add records to database
+
+
+## Milestones
+
+### Milestone 1 - Create Notes Database
+* Create "youruser_350" database at Bluehost
+* Set up "youruser_350" user to connect to "youruser_350" database
+* Create a notes database table
+* Export the database SQL to "notes.sql"
+* Commit your changes
+
+```sql
+CREATE TABLE notes (
+  id INT(3) NOT NULL AUTO_INCREMENT,
+  title VARCHAR(100)  NOT NULL,
+  body TEXT  NOT NULL,
+  date DATE NOT NULL,
+  PRIMARY KEY (id)
+);
+```
+
+
+### Milestone 2 - Connecting to Database
+* Build a page at the correct location (bacs350/notes/index.php)
+* Create attractive appearance with stylesheet 
+* Create a connection from the PHP page to the database at Bluehost
+* Database logic is in notes_db.php file
+* Commit your changes
+
+
+### Milestone 3 - List the Notes
+* List out all of the current notes
+* Use SQL to force some records into the database directly
+* Show each hero within a "card"
+* Commit your changes
+
+
+### Milestone 4 - Add New Notes
+* Use a form to collect info and create new record
+* Control the style of the form 
+* Automatically load the updated list of notes after new records are added
+* Commit your changes
+
+
+### Milestone 5 - Delete Notes
+* Add a link to each card to remove a notes
+* Invoke delete.php to remove the record 
+* Automatically load the updated list of notes after deletion
+* Commit your changes
+
+
+### Milestone 6 - Testing
+* Use the link from the class website to test your work
+* Test the operations (list, add, delete)
+* Review the style
+* Review the code structure (clean up and minimize the code)
+* Make sure the code is committed and push
+* Ensure a link on your home page allows me to get to your code
+

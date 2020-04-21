@@ -1,0 +1,50 @@
+BACS 350 - Lesson21
+
+* Pair Programming
+* Wednesday, Oct 10, 2018
+* by Mark Seaman
+
+![](img/Bear_Logo.png)
+
+
+
+### Review
+* Object Oriented Data Types
+* Building Apps
+
+
+### Next Steps
+* Application Look and Feel
+* Pair Programming
+
+
+## Pair Programming
+* Team up with a partner
+* Meet all Requirements
+
+
+### Team up with a partner
+* Clone project/19 as project/21
+* Work together on project/21 code
+* Combine best of both designs
+
+
+### Meet all Requirements
+* Project
+    * One click testing for Local and Remote
+    * Code commits for "Project, Data, Views, Test"
+* Data
+    * SQL table code "notes.sql"
+    * General DB connection
+    * Books CRUD functions in 'note_crud.php'
+    * Book data object in 'notes.php'
+* Views
+    * View to show add form in 'note_view.php'
+    * View to show list of notes in 'note_view.php'
+    * Button adds to list
+    * Redirect back to 'index.php'
+* Test
+    * Valid HTML from index.php
+    * Log each page load
+    * Link on index page to show page history
+

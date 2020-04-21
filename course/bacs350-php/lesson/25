@@ -1,0 +1,73 @@
+# Lesson 25 - Review Manager App
+
+
+* UNC - BACS 350 - Lesson 25
+* Wednesday, Oct 23
+* Mark Seaman
+ 
+---
+
+### Seaman's Rules
+* Rule #25 - New knowledge should change your plan
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+  
+---
+
+### Assignments
+* Reading - 14.5 Selecting Records
+* [Skill #9 - Logging](/unc/bacs350/skills/09)
+* [Project #9 - Review Manager App](/unc/bacs350/project/09)
+* [Demo #24 - Review Manager](https://unco-bacs.org/bacs350/demo/24)
+
+
+### Pull Demo Code
+* From Github Desktop
+* Select the Mark-Seaman/UNC-BACS350-Demo repo
+* Pull new code
+
+
+### View Mark's Demo Code
+* Run Brackets
+* Open Folder Documents/UNC-BACS350-Demo/bacs350
+* This will be a standard folder selection for later
+* Visit source code for "bacs350/demo/24"
+* Review Manager Demo Code (this code must be debugged)
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Workflow
+* Version Control tracks all of your changes
+* Transfer to server using Filezilla
+* Refresh in browser to test
+* One feature at a time
+* Commit at least hourly
+
+
+### Workflow Audit
+* I will visit with each person
+* Show me
+    * Filezilla connect
+    * Github history
+    * Milestone you are working on
+
+
+### Skill
+* [Skill #09](/unc/bacs350/skills/09)
+
+
+### Project 
+* [Project #09 - ](/unc/bacs350/project/09)
+

@@ -1,0 +1,62 @@
+# Skill #2 - FTP
+
+Skill Demonstration Challenge
+
+---
+
+## Objective
+
+Demonstrate that Filezilla is set up to connect to Bluehost
+
+* Site Manager entry connects to Bluehost
+* Local and remote directories set properly
+* Transfer files to correct place on server
+
+
+## Demonstration of Skill
+
+### Site Manager
+
+This screen shot is proof of skill.  It shows the following ...
+
+* Site Manager entry connects to Bluehost
+* Create a Site Manager entry named Bluehost
+* Credentials to connect to [Bluehost](http://bluehost.com) server account
+    * Host
+    * User
+    * Password
+
+<img src="{{ skills }}/ftp-site-manager.png" width="100%">
+
+See [Instructor's Solution](https://unco-bacs.org/bacs350/skills/ftp-site-manager.png) for an example
+
+
+### Default Directories
+
+* Local directory set properly
+* Remote directory set properly
+
+<img src="{{ skills }}/ftp-dirs.png" width="100%">
+
+See [Instructor's Solution](https://unco-bacs.org/bacs350/skills/ftp-dirs.png) for an example
+
+
+### FTP Files
+
+* Files after new connection with server (bacs350 directory)
+* Local directory contains proper files
+* Remote directory contain proper files
+* Transfer files to correct place on server
+
+<img src="{{ skills }}/ftp-files.png" width="100%">
+
+See [Instructor's Solution](https://unco-bacs.org/bacs350/skills/ftp-files.png) for an example
+
+
+### Test Your Work
+* Create a page for your skills "bacs350/skills/index.html" on your website
+* Include content from [Skills Index](https://unco-bacs.org/bacs350/skills/index.html)
+* Go to the [Sensei Page](/unc/bacs350)
+* Click on the link to the skills page
+* Create this page in your skills folder
+

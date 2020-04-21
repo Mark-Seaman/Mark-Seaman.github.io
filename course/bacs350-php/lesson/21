@@ -1,0 +1,122 @@
+# Lesson 21 - Data Form Views
+
+* UNC - BACS 350
+* Monday, Oct 14
+* Mark Seaman
+ 
+---
+
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+---
+
+### Review
+* Project #7 - Superhero Database - Finish this first!
+
+
+### Today
+* Reading - 14.1 Relational Databases
+* Standard Data Views
+    * List View
+    * Detail View
+    * Add View
+    * Update View
+    * Delete View
+    
+    
+---
+
+### Seaman's Rules
+* Rule #21 - Learn from Mistakes
+  
+---
+
+### Pull Demo Code
+* From Github Desktop
+* Select the Mark-Seaman/UNC-BACS350-Demo repo
+* Pull new code
+
+
+### View Mark's Demo Code
+* Run Brackets
+* Open Folder Documents/UNC-BACS350-Demo/bacs350
+* This will be a standard folder selection for later
+* Visit source code for "bacs350/demo/21"
+
+
+### Demo #21 - 
+* Run the code on [UNCO-BACS.org](https://unco-bacs.org/bacs350/demo/21)
+* Review the files
+    * index.php
+    * views.php
+    * style.css
+    * notes_db.php
+    * notes_views.php
+    * insert.php
+    * delete.php
+
+### Now you are ready to build your own!
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Skill #8 - Data Views
+* [Skill #8 - Data Views](/unc/bacs350/skills/08)
+
+
+### Create New Database (uncobacs_350)
+* Create a new Bluehost database using the control panel
+* We will be building several tables in the same database
+* One Database connect will serve many apps
+
+
+### Create New Table (uncobacs_350 - notes table)
+* Each note record should have
+    * title - Note title
+    * body - Text for body of note
+    * date - Date of last modification
+    
+    
+### Notes Database
+* SQL - Here is a shortcut for creating the table
+* Create a table
+* Execute SQL in phpMyAdmin view SQL tab
+
+```sql
+CREATE TABLE notes (
+  id INT(3) NOT NULL AUTO_INCREMENT,
+  title VARCHAR(100)  NOT NULL,
+  body TEXT  NOT NULL,
+  date DATE NOT NULL,
+  PRIMARY KEY (id)
+);
+```
+
+
+### Copy Code From Other Projects
+* Use a previous project as examples
+* Copy all the files and customize the code
+    * notes_db.php - Holds database code
+    * notes_views.php - Hold view rendering code
+    * style.css - Look of old project
+    * views.css - General view rendering
+    
+    
+### Debug each view one at a time
+* Create nice looking page
+* Connect to database
+* List the records
+* Add new records
+* Delete records
+

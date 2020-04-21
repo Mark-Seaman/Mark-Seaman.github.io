@@ -1,0 +1,92 @@
+# Lesson 8 - Development Skills
+
+* UNC - BACS 350
+* Friday, Sep 13
+* Mark Seaman
+
+---
+
+![](img/Bear_Logo.png)
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+---
+
+* Review
+    * XAMPP - Apache, MySQL, PHP
+    * Render Page Pattern
+    * Card View Pattern
+
+* Today
+    * Development Skills
+
+---
+
+### Seaman's Rules
+
+* Rule #8: Crawl, Walk, Run
+    * Do the simple version
+    * Add the features that are required
+    * Expand on the design
+
+---
+
+
+### Card View Pattern
+* [Sample Page](https://unco-bacs.org/bacs350/pattern/card_view)
+* [Sample Code in Github](https://github.com/Mark-Seaman/UNC-BACS350-Demo/tree/master/pattern/card_view)
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+## Development Skills
+* A lot of information
+* Some students are feeling overwhelmed
+* What you do this week is critical
+* Today we will focus on applying the skills
+
+
+### Skill #1 - Web Hosting
+* Sign Up for Bluehost
+* Register your domain with Sensei Server
+* Setup WordPress blog
+
+
+### Skill #2 - FTP
+* Configure Filezilla
+    * Login
+    * Directories
+    * Files
+
+
+### Demo Server
+* Visit the [Demo Server](https://unco-bacs.org/bacs350)
+* Tools, Web Developer, Page Source
+* Study the source code
+
+
+### Project Solution Examples
+* [Project #1](https://github.com/Mark-Seaman/UNC-BACS350-Demo/tree/master/project/01)
+* [Project #2](https://github.com/Mark-Seaman/UNC-BACS350-Demo/tree/master/project/02)
+* [Project #3](https://github.com/Mark-Seaman/UNC-BACS350-Demo/tree/master/project/03)
+
+
+### Visit the Sensei Classroom Website
+* Check out Week 3
+* Go to Project #3 - Superhero Gallery
+* Follow the Instructions
+
+
+### See you next time
+
+---
+
+![](img/Bear3.png)

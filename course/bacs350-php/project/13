@@ -1,0 +1,138 @@
+# Project #13 - User Authentication
+
+Brain App - BACS 350 Final project - User Authentication Milestone
+
+Milestones
+    
+* Integrated Brain App (project 12 - due 11-15)
+* User Auth (project 13 - due 11-22)
+* Final Release (project 14 - due 12-6)
+* Final Review (final exam - Wed, 12-11, 1:30-4:00pm)
+
+
+
+## Goals
+
+Build a PHP app that is host to the following functionality.
+
+* Documents
+* Notes
+* Slides
+* Planner
+* Reviewer
+* Subscribers
+* Superhero
+
+
+The application will use a single database to store information for all app modules. Each app will create its own table within the database.
+
+
+### Project Features
+
+* One integrated set of libraries is used by all apps (templates, views.php, db.php, css)
+* Data Views (list, detail, add, edit, delete)
+* Documents show project plan (Requirements.md, Design.md, Code.md, Test.md) 
+* Allow duplication in code
+
+
+### Software Process
+
+The application will be built with standard development best practices.
+
+1. All source code will be tracked with a git repo
+2. Code will be edited locally and tested on the remote server
+3. Each milestone will be visible in the git repo
+4. Incremental development will be used to eliminate debugging
+5. Design reviews will score the requirements that were met
+6. Code review will be done using the student Github repo
+
+
+### Key app features
+* Data Forms - list, add, edit, delete
+* Users - users login to edit
+* Logging - pages loaded, crud operations
+* MVC - every view type has a controller
+
+
+## Requirements Plan  (Requirements.md)
+* Prime Directive
+* Top 10
+* Functional Milestones
+* Customer Interaction
+
+
+### Create Requirements
+* You have already built code for many parts of the Brain App
+* Use your existing knowledge of goals to plan the requirements
+* Document your requirements in your Github repo (docs/Requirements.md)
+
+
+### Prime Directive
+* Projects must have a single primary objective and a number of supporting constraints
+* Build a modular app that contains seven components and no code duplication
+
+
+### Top 10
+* List the top 10 requirements that are critical to the project
+* Focus exclusively on these objectives when setting milestones
+
+
+### Functional Milestones
+* Create a list all all features to be implemented (product backlog)
+* Break this list into four equal sequential milestones
+
+
+### Customer Interaction
+* Use your review team as a proxy for the customer
+* Conduct a review for each milestone
+* Respond to feedback
+
+
+## Design Plan  (Design.md)
+
+### Documenting Design
+* Show essential details only
+* Keep it current (update weekly)
+* Keep it simple
+* Store it with your code
+
+
+### Data Models
+* List the data types (tables)
+* Show the data fields (columns)
+* Records of data (rows)
+* Relationships between data types
+
+
+### View List
+* Create table showing views for each data type
+* Core Views
+    * List
+    * Detail
+    * Edit
+    * Add
+    * Delete
+
+
+### Design Patterns
+* Page Render Pattern
+* Template Render Pattern
+* Logging Pattern
+* Core Views Pattern
+* CRUD Pattern
+* Database Connection Pattern
+* MVC Pattern
+* Variable Injection Pattern
+* User Auth Pattern
+
+
+
+## User Auth
+* Every action that modifies data requires users to be logged in
+
+
+## Requirements
+* Project #13 includes all requirements from Project #12
+* Add User Auth
+
+

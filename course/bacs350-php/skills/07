@@ -1,0 +1,66 @@
+# Skill #07 - Database CRUD
+
+Skill Demonstration Challenge
+
+---
+
+## Objective
+
+1. Establish effective workflow to build PHP code 
+
+2. Learn how to do the CRUD operations on your database
+
+* CREATE
+* READ
+* UPDATE
+* DELETE
+
+
+## Steps 
+
+### Step 1 - Open and Position Windows
+* Open Brackets so that shows your source code
+* Open Filezilla and connect to Bluehost account
+* Open Github Desktop and select your repo
+* Open Firefox and browse to your web page
+* Capture a screen shot of your development workflow
+
+
+### Step 2 - Copy the code
+* Copy the code from [Demo 18](https://unco-bacs.org/bacs350/demo/18) to your computer
+* Create subscribers "bacs350/subscriber/crud.php"
+* This code talks to Mark's Database
+* Customize this code to work for you
+* Debug this code until you get "crud.php" to load correctly
+
+
+### Step 3 - Create reusable CRUD code
+* Build a file "subscribers.php" that contains the database CRUD operations as functions
+* Create a page "index.php" that calls these functions to produce the same results as "crud.php"
+* Take a screen shot of the output 
+
+
+## Demonstration
+
+Each skill can be proved with a screen shot.
+
+
+### workflow.png
+
+* Show the app windows for Brackets, Github Desktop, Filezilla, Firefox
+* All windows tiled onto one display
+* Each app is showing the contents for your project
+
+<img src="{{ skills }}/workflow.png" width="100%">
+
+See [Instructor's Solution](https://unco-bacs.org/bacs350/skills/workflow.png) for an example
+
+
+### crud.png
+
+This screen shot shows the location in the file system that contains the BACS 350 Demo code.
+
+<img src="{{ skills }}/crud.png" width="100%">
+
+See [Instructor's Solution](https://unco-bacs.org/bacs350/skills/crud.png) for an example
+

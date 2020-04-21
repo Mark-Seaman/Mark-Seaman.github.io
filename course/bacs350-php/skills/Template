@@ -1,0 +1,31 @@
+# Skill # - 
+
+Skill Demonstration Challenge
+
+---
+
+## Objective
+
+...
+
+
+## Steps 
+* Go to your dashboard page and verify your screenshots in the skill section.
+
+
+## Demonstration
+
+Each skill can be proved with a screen shot.
+
+
+### xxx.png
+
+This screen shot shows the location in the file system that contains the BACS 350 Demo code.
+
+<a href="{{ skills }}/xxx.png">
+    Click Here to see full size
+    <img src="{{ skills }}/xxx.png" width="200" target="_blank">
+</a>
+
+See [Instructor's Solution](https://unco-bacs.org/bacs350/skills/xxx.png) for an example
+

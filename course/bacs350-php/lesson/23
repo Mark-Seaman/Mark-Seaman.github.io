@@ -1,0 +1,94 @@
+# Lesson 23 - Test and Debug
+
+
+* UNC - BACS 350
+* Friday, Oct 18
+* Mark Seaman
+ 
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+---
+
+### Assignments
+* Reading - 14.3 Tables
+* [Skill #8 - Form Views](/unc/bacs350/skills/08)
+* [Project #8 - Notes App](/unc/bacs350/project/08)
+
+---
+
+### Seaman's Rules
+* Rule #23 - Build the new one before breaking the old one
+  
+---
+
+### What is the difference between top and bottom programmer
+
+* Use the best process -- Always (10x difference)
+
+### Software Process
+* Debugging
+* Version control
+* Development workflow
+
+
+### Debug Process
+* When code fails remove all the bad code
+* When test is successful add more code
+* Tests should pass each minute
+
+
+### One feature at a time
+* Do not work on multiple features at once
+* Commit changes every 10 minutes        
+
+
+### Workflow Audit
+* Show me your workflow (make and test one small change)
+* Show me your Github history
+* How long has it been since you tested last
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Skill #08 - Data Views
+* [Skill #08](/unc/bacs350/skills/08)
+    * List View
+    * Detail View
+    * Add View
+    * Update View
+    * Delete View
+
+
+### Pull Demo Code
+* From Github Desktop
+* Select the Mark-Seaman/UNC-BACS350-Demo repo
+* Pull new code
+
+
+### View Mark's Demo Code
+* Run Brackets
+* Open Folder Documents/UNC-BACS350-Demo/bacs350
+* This will be a standard folder selection for later
+* Visit source code for "bacs350/demo/23"
+
+
+### Demo #23 - 
+* Run the code on [Demo 23 - Page Logging](https://unco-bacs.org/bacs350/demo/23)
+* Figure out how logging works
+
+   
+### [Project #8 - Notes App - Form Views](/unc/bacs350/project/08)
+    * Notes Record (date, title, text)
+    * Views - List, Detail, Edit, Add, Delete
+    * Optional - Log page hits
+    

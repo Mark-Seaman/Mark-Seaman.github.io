@@ -1,0 +1,96 @@
+# Lesson 26 - Design Reviews
+
+
+* UNC - BACS 350 - Lesson 26
+* Friday, Oct 25
+* Mark Seaman
+ 
+---
+
+### Seaman's Rules
+* Rule #26 - Every action affects technical debt
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+  
+---
+
+### Assignments
+* Reading - 14.6 SQL Functions
+* [Skill #9 - Logging](/unc/bacs350/skills/09)
+* [Project #9 - Review Manager App](/unc/bacs350/project/09)
+
+
+### Design Reviews
+* Simple way to share ideas
+* Cooperation is essential in every job
+* Brings accountability to all work
+* Raises the performance bar
+
+
+### Start with Basic Review
+* Visit the page
+* Decide which requirements are met
+* Complete the form
+* Provide useful feedback in the notes
+* Tell them how to fix the problems
+
+
+### BACS 350 Process
+* Check your dashboard [BACS 350 Page](/unc/bacs350)
+* You have reviews in your queue
+* Late reviews will not be accepted
+* 10 points for every round of reviews
+* Provide notes on all problems you find
+
+
+### Quality Reviews
+* Timely - no point for late reviews
+* Accurate - you must identify the problems 
+* Helpful - tell how to fix each problem
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Design Reviews
+* Complete a self-review of your home page
+* Practice for team reviews
+
+
+### Skill
+* [Skill #9 - Logging](/unc/bacs350/skills/09)
+    * Logging database CRUD
+    * Page logging
+    * Clear history
+    * Log History
+
+
+### Project 
+* [Project #9 - Review Manager App](/unc/bacs350/project/09)
+    * Add and modify reviews
+    * Design Review Checklist
+    * Logging
+    * Refactoring & Testing
+
+
+## Project #9 Milestones
+* Work in milestones
+    * Milestone 1 - Design for Review App
+    * Milestone 2 - Database for Review App
+    * Milestone 3 - Add Review
+    * Milestone 4 - Edit Review
+    * Milestone 5 - Delete Review
+    * Milestone 6 - Logging
+    * Milestone 7 - Conduct a Review
+* Commit code after each milestone
+

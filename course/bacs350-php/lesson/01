@@ -1,0 +1,236 @@
+# Lesson 1 - Intermediate Web Dev
+
+---
+
+* UNC - BACS 350
+* Monday, Aug 26
+* Mark Seaman
+
+![](img/Bear_Logo.png)
+
+---
+
+## LEARN
+
+---
+
+![](img/Bear_Logo.png)
+
+
+### Today
+* New literacy
+* How the class works
+* Sensei Digital Classroom
+* Bluehost Web Hosting
+* Zybooks
+
+
+### Seaman's Rules
+
+---
+
+Rule #1 - Do it simply; do it now.
+
+---
+
+
+### Literacy
+Our concept changes with technology
+
+
+### Literacy 50 years ago
+* Reading
+* Writing
+* Rithmetic
+
+
+### Literacy 30 years ago
+* Microsoft Word
+* Microsoft Excel
+* Microsoft Outlook
+* Microsoft Power Point
+
+
+### Literacy Today
+* Google
+* eCommerce
+* Social media
+* Crowd sourcing
+
+
+### Literacy
+* Technology has changed how we live.
+* To make a living you must bring value.
+* What value do you bring.
+* Much of the workforce is illiterate.
+
+
+### Opportunity
+* Your value with be understanding technology.
+* This is your key opportunity.
+* Literacy is always about sharing ideas.
+* You will be hired to help with technology.
+
+
+### Software Runs the World
+
+Retail, Transportation, Health care, Education, Government, Business, Research
+
+The business world runs on software.
+
+
+### Design and Development
+* Design is about deciding what problems to solve
+* Development is about building a solution
+* Small businesses live and die on software
+
+---
+
+### What is BACS 350?
+* New literacy (technology, and social implications)
+* Technology Skills (PHP, MySQL, jQuery)
+* Web Development Projects - hands-on creative problem solving
+
+
+### What will you learn?
+* Theory/Practice
+* Programming in PHP & MySQL
+* Web Apps driven by a Database
+
+
+### Costs
+* Zybooks $77
+* Bluehost $71 (1 year)
+* Class requires (9 hours/week)
+
+
+### Grading (graded deliverables every day)
+* 40 Readings  45%
+* 15 Projects  45%
+* Final Exam   10%
+
+
+### Sensei Digital Classroom
+* Canvas is your grade book
+* Class Website
+    * Lessons - Notes, Slides
+    * Personal Progress Report
+    * Projects
+    * Resource library
+
+
+### Rules for Success
+* Complete every project and reading
+* Come to class
+* Invest 9 hours/week for this class
+* You will each know how to create a web application
+* Not difficult - large number of small tricks
+* You can get any grade you like
+
+
+### Do Not Fall Behind
+* Every skill builds on others
+* Sensei has a personal dashboard that shows your progress
+* Late penalties can eat your grade
+
+---
+
+### Today's Lesson
+
+Limitations of HTML/CSS
+
+Basic Internet Concepts
+
+Class Details
+
+Setup Web Hosting
+
+
+### Web Development for Small Business
+Review of BACS 200
+
+* How the internet works
+* HTML for Structure
+* CSS for Style
+* JavaScript for programming logic
+
+
+### Internet - Clients and Servers
+Computers and phones request content from web servers
+
+![](img/Client-Server.png)
+
+
+### Web Servers and Web Browsers
+Web servers responds with the requested web pages
+
+![](img/WebServer.png)
+
+
+### Static Websites
+* Static server produces fixed information
+* Dynamic server produces information that is unique
+
+
+### Database Storage
+* Saved state
+* Pages affected by past activity
+
+
+### New Technologies
+* PHP - Server side scripting language
+* MySQL - Database engine uses SQL
+* JavaScript - Client-side scripting language
+
+
+---
+
+## BUILD
+
+---
+
+![](img/Bear_Logo.png)
+
+
+
+### Login to Sensei Digital Classroom
+* [BACS 350 Class Website](https://shrinking-world.com/unc/bacs350)
+* This server is linked into Canvas, Zybooks, Bluehost
+* Student Dashboard provides quick links to everything.
+
+
+### Buy Textbook
+
+[Register at ZyBooks](http://learn.zybooks.com)
+
+* Signup at Zybooks for **Web Publishing** interactive textbook
+    1. Create an account at Zybooks
+    2. Enter zyBook code: UNCOBACS350SeamanFall2019
+    3. Subscribe
+
+A student subscription is $77 and will last until Dec 2019.
+
+
+### ZyBooks Daily Readings
+* Daily reading and exercises to burn in knowledge
+* Graded each day (10 points * 40 lessons)
+* I get a report that shows which students did the reading
+* Do not rush through the reading
+
+
+### Project #1 - Bluehost Web Hosting
+* Sign up at Bluehost.com
+* Setup a web hosting account
+* Choose a domain name
+    * Pick a name that you will want to use
+    * Choose a short name (<15 characters)
+    * Easy to remember and communicate
+* Build a WordPress Blog
+* Detailed instructions are at [Project #1 - Bluehost Web Hosting](/unc/bacs350/project/01)
+
+
+### See you next time
+
+---
+
+![](img/Bear3.png)

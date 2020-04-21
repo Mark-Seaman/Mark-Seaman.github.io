@@ -1,0 +1,49 @@
+## Week 6 - SQL Database
+            
+* New Skills
+    * Create a new database
+    * Create a database table
+    * Insert data using phpMyAdmin
+    * Connect to database from PHP page
+    * List the rows in database
+    * List view with Table
+
+### Skill #6   - Create a Database - /unc/bacs350/skills/06
+
+### Project #6 - Superhero Database - /unc/bacs350/project/06
+
+---
+
+### Mon, 9-30 - Lesson 15 - SQL Tables
+
+    Zybooks - 13.5 - Database
+    Rule - Turn objectives into Milestones
+    Demo - Create a Database
+    Pattern - CREATE TABLE with SQL
+    Lesson
+        Intro to SQL Database
+        Creating a Bluehost database
+        phpMyAdmin & SQL
+
+
+### Wed, 10-2 - Lesson 16 - Database Connect
+
+    Zybooks - 13.6 - MySQL
+    Rule - Estimate the Learning Cost
+    Demo - Connect to Database
+    Lesson
+        Connection settings
+        PHP Code to connect
+        db.php
+
+
+### Fri, 10-4 - Lesson 17 - List Records
+
+    Zybooks - 13.7 - MYSQLi
+    Rule - Build your personal Dashboard
+    Demo 17 - List Records
+    Lesson
+        Rows and columns (Records, Fields)
+        Connection with db.php
+        Query records
+        Build a list

@@ -1,0 +1,75 @@
+## Week 12 - Brain App Integration
+    
+    
+[Skill #12 - User Admin](/unc/bacs350/skills/12)
+
+    Register Users
+    Login view
+    Require login
+    Storing Password
+
+[Project #12 - Integrated Brain App](/unc/bacs350/project/12)
+
+    MVC Pattern
+    Data Forms
+    Logging
+    
+    
+---
+
+Monday, Nov 11 - Lesson 33 - Documentation
+
+    Reading - 9.5 DOM
+    
+    Project #12 - Brain App Integration
+    
+    
+    Rule - Write the smallest amount of documents required
+    
+    Github Wiki
+        Create docs for Requirements.md, Design.md, Code.md, Test.md
+        Create a simple plan for each
+    
+    Github Issue tracking
+        One list to track progress
+        System manages notifications
+        Use design review groups
+        File at least three issues for each designer (9 total)
+    
+    Design Review
+        Ten point evaluation
+        Log defects
+        Show defect numbers in Review Summary
+   
+
+Wednesday, Nov 13 - Lesson 34 - Technical Debt
+
+    Reading - 9.6 Ajax
+    
+    Rule - Code duplication is evil
+    
+    Every piece of code should exist once
+    Code Duplication
+    Root libraries
+        Stylesheet
+        templates
+        views.php
+        db.php
+        View Inheritance
+        
+    
+Friday, Nov 15 - Lesson 36 - Users
+
+    (Friday was a sick day.
+    This content was actually taught on Wednesday, 11/20/2019)
+
+    
+    Rule - Create standard way to handle user authentication
+    
+    Skill #12 - User Admin
+    
+    User Authentication
+        Register Users
+        Login view
+        Require login
+        Storing Password

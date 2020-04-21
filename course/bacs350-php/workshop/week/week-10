@@ -1,0 +1,48 @@
+## Week 10 - Templates
+
+10,Monday,10/28/2019,27,Ajax,14.8 Modifying Rows,
+10,Wednesday,10/30/2019,28,Plugins,9.1 jQueryjQuery,
+10,Friday,11/01/2019,29,,,
+
+
+[Skill #10 - Using Templates](/unc/bacs350/skills/10)
+
+    * Create "card.html"
+    * $settings = array("site_title" => "UNC BACS 350","page_title" => "Page title");
+    * debug render_template ("card.html", $settings)
+    * debug render_page($settings)
+    * Screen shot of your skills and projects
+    
+Project #10
+
+    No project this week
+
+---
+
+Monday, Oct 28 - Lesson 27 - Page Caching
+
+    Rule - Always build the top 10 requirements
+    Reading - 14.7 Joining Tables
+    Review #2 - Design Review of Brain App (Publish your Github repo)
+    How to prevent page caching
+    [Demo 25 - Avoid Page Caching](https://unco-bacs.org/bacs350/demo/25)
+    Add skills and projects to home page
+
+
+Wednesday, Oct 30 - Lesson 28 - Page Template
+
+    Rule - Get feedback from customers
+    Reading - 14.8 Modifying Rows
+    Publish your Github repo
+    [Demo 26 - Page Template HTML](https://unco-bacs.org/bacs350/demo/26)
+    [Project #9 - Review App](/unc/bacs350/project/09) - due 11-1
+
+   
+Friday, Nov 1 - Lesson 29 - Component Views
+
+    Rule - Do the easy thing first
+    Reading - 9.1 jQuery
+    [Demo 29 - Component Views](https://unco-bacs.org/bacs200/demo/29)
+    [Project #9 - Review App](/unc/bacs350/project/09) - due 11-1
+
+    

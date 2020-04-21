@@ -1,0 +1,98 @@
+# Skill #3 - Version Control
+
+Skill Demonstration Challenge
+
+---
+
+## Objective
+
+Demonstrate that you can setup and use Github
+
+* Create a Github repository
+* Setup Github Desktop
+* Create a local repository
+* Clone your repo onto your computer
+* Clone the instructor repo to get sample code
+
+
+## Demonstration of Skill
+
+These screen shots are proof of skill. 
+
+### Create a Github repository
+* Visit [Github.com](https://github.com) and sign up for a free account
+* Create a repo
+* Setup the settings you want
+
+
+[New Repo screenshot](/static/images/unc/bacs350/git-new-repo.png)
+
+[Repo Settings screenshot](/static/images/unc/bacs350/git-repo-settings.png)
+
+
+### Clone your repo onto your computer
+* Clone Your repository
+* Setup Windows file location - Recommend "Documents/BACS350"
+
+[Github Desktop screenshot](/static/images/unc/bacs350/git-Github-Desktop.png)
+
+[Clone Repo screenshot](/static/images/unc/bacs350/git-changes.png)
+
+
+### Add your existing code
+* You have already created code for this class
+* Move the desired code into your new directory
+* Create file structure in your repository
+    * bacs350
+        * .git
+            * config
+            * objects ... lots of files
+        * index.php
+        * ReadMe.md
+        * images
+        * project
+            * 01
+            * 02
+            * 03
+        * skills
+        * superhero
+            * index.php
+            * views.php
+            * style.css
+* NOTE: You do not want to transfer the .git directory to Bluehost
+* Capture a screen shot
+
+<img src="{{ skills }}/git-files.png" width="100%">
+
+See [Instructor's Solution](https://unco-bacs.org/bacs350/skills/git-files.png) for an example
+
+
+### Commit Changes
+* From Start Menu launch Github Desktop
+* Pin to taskbar
+* View the changes to your files
+* Capture a screen shot of your pending changes
+* Commit the changes with a commit message
+* Push the code back to the Github server
+
+**Example**
+
+[Show me a screenshot](/static/images/unc/bacs350/git-changes.png)
+
+**My Changes before Commit**
+
+<img src="{{ skills }}/git-changes.png" width="100%">
+
+See [Instructor's Solution](https://unco-bacs.org/bacs350/skills/git-changes.png) for an example
+
+**Push Changes to Server**
+
+[Push Repo screenshot](/static/images/unc/bacs350/git-push.png)
+
+
+### View Change History
+
+[Commit Changes screenshot](/static/images/unc/bacs350/git-view-commits.png)
+
+[Commit History screenshot](/static/images/unc/bacs350/git-history.png)
+

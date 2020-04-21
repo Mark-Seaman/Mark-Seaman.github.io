@@ -1,0 +1,123 @@
+# Skill #5 - Setup Apache
+
+Skill Demonstration Challenge
+
+---
+
+## Objective
+
+Configure Apache web server for development on localhost.
+
+Install Apache on each computer that you wish to develop PHP code on.  This will
+allow you to run PHP code without having to go to Bluehost.  It makes for a 
+quicker development loop.
+
+
+## Demonstration (Optional)
+
+Each skill can be proved with a screen shot.
+
+
+### apache.png
+
+This screen shot shows the location in the file system that contains the BACS 350 Demo code.
+
+<img src="{{ skills }}/apache.png" width="100%">
+
+See [Instructor's Solution](https://unco-bacs.org/bacs350/skills/apache.png) for an example
+
+
+
+## Steps for Mac 
+* Tutorial for Mac - [Read article](https://tecadmin.net/install-apache-macos-homebrew/) for additional info
+* Mac Quick Start
+
+    * Step 1 - Setup Apache
+        * Remove the default Mac Apache (for Mojave OSX - 10.14)
+    
+        sudo apachectl stop
+        sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist
+
+        * Install Apache with Homebrew
+
+        brew install httpd
+        brew install php
+
+    * Step 2 - Start and stop web server
+        * Run terminal window
+        
+        brew services start httpd
+        brew services stop httpd
+        brew services restart httpd
+        
+        * Test Your Web Server
+            * Point browser to [http://localhost](http://localhost)
+            * Should show "Setup Web Server"
+
+    * Step 3 - Configure Apache for Github repo
+        * Setup Github repo  "/Users/seaman/Documents/BACS350"
+        * Edit the web server configuration  /usr/local/etc/httpd/httpd.conf
+        * Define location of Document Root
+        
+        DocumentRoot /Users/seaman/Documents/BACS350
+        <Directory /Users/seaman/Documents/BACS350> 
+            Options Indexes FollowSymLinks
+            AllowOverride All
+            Require all granted
+        </Directory>
+        
+        * Restart server
+        
+        brew services restart httpd
+        
+        * Browse to [http://localhost](http://localhost)
+        * Browse to [http://localhost/bacs350](http://localhost/bacs350)
+
+    * Step 4 - Edit and commit code changes
+        * Edit "Documents/BACS350/phpinfo.php"
+        * Display Web Server Info
+        
+        <?php phpinfo(); ?>
+        
+    * Step 5 - Show PHP settings
+        * Browse to [http://localhost/bacs350](http://localhost/bacs350/phpinfo.php)
+        * Should show "PHP info display"
+
+
+
+## Steps for Windows 
+* [Ben's Tutorial](https://benmcewen-se.com/wp/2019/09/15/install-and-configure-xampp-on-windows-10/) for Windows
+* Windows Quick Start
+    * Step 1 - Setup Apache
+        * Try Step 2 to see if Apache is already set up
+        * Google for XAMPP (Apache Friends)
+        * Download and install
+    * Step 2 - Start and stop web server
+        * Go to C:\xampp in Windows File Explorer
+        * Run xampp-control.exe
+        * Visit "localhost" in browser  (No Page)
+        * Start Apache
+        * Visit "localhost" in browser  (Apache Info Page)
+        * Stop Apache
+    * Step 3 - Configure Apache for Github repo
+        * Configure Apache on Windows
+        * Configure Apache (httpd.conf)
+        * Set up Document Root 
+        
+        DocumentRoot "C:/Users/mark.seaman/Documents/BACS350"
+        <Directory "C:/Users/mark.seaman/Documents/BACS350">
+            Options Indexes FollowSymLinks Includes ExecCGI
+            AllowOverride All
+            Require all granted
+        </Directory>
+    
+    * Step 4 - Edit and commit code changes
+        * Edit code
+        * Commit changes in Github Desktop
+        * Push changes to Github
+    * Step 5 - Show PHP settings
+        * Create "BACS350/bacs350/phpinfo.php"
+        * Copy code from [pattern/phpinfo](https://github.com/Mark-Seaman/UNC-BACS350-Demo/tree/master/bacs350/pattern/phpinfo)
+        * Run "localhost/bacs350/phpinfo.php"
+    
+

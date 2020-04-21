@@ -1,0 +1,123 @@
+# Lesson 7 - Card View
+
+* UNC - BACS 350
+* Wednesday, Sep 11
+* Mark Seaman
+
+---
+
+![](img/Bear_Logo.png)
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+---
+
+* Review
+    * Apache, MySQL, PHP
+    * Render Page Pattern
+
+* Today
+    * Card View Pattern
+    * Using Apache for Local Development
+
+---
+
+### Seaman's Rules
+
+* Rule #7: Solving problems involves learning and doing 
+    * Each time it gets easier
+    * One day to learn a trick
+    * One hour to apply a trick
+
+---
+
+### Development Skills
+* A lot of information
+* Some students are feeling overwhelmed
+* What you do this week is critical
+* Today we will focus on applying the skills
+
+
+### Skill #1 - Web Hosting
+* Sign Up for Bluehost
+* Register your domain with Sensei Server
+
+
+### Skill #2 - Windows Setup
+* Show file extensions
+* Create a folder (Documents/UNC_BACS_350/public_html)
+
+
+### Skill #3 - Editing Code
+* Run Brackets
+* Create File
+* Open File
+* Modify Code
+
+
+### Skill #4 - Test Code with Browser
+* Switch to Firefox
+* Double-click on HTML file
+* View HTML file in Browser
+* View Source Code for page
+* Copy source code to new file
+
+
+### Skill #5 - Setup Filezilla
+* Site Manager - Bluehost connection
+* Directories set properly
+* Transfer files to correct place on server
+
+
+### Skill #6 - Demo Server
+* Demos for each lesson
+* [unco-bacs.org](https://unco-bacs.org/bacs350)
+    * Demos
+    * Projects
+    * Design Patterns
+
+
+### Skill #7 - Git Repository
+* Contains all of the demo code
+* [UNC-BACS350](https://github.com/Mark-Seaman/UNC-BACS350-2019-Fall)
+* Will create a new repo to match Apache setup
+* Your repo is a Fork of my repo
+
+
+### Card View Pattern
+* [Demo Code](https://unco-bacs.org/bacs350/demo/07)
+
+
+### Card View Pattern
+* [Sample Page](https://unco-bacs.org/bacs350/pattern/card_view)
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Demo With Apache
+* Install Apache
+* Browse to "localhost"
+
+
+### Find the Docs
+* c:\\xampp\\httpdocs
+* Same as public_html
+
+
+### Modify c:\\xampp\\httpdocs\\index.php
+* Execute PHP command in page
+
+
+### See you next time
+
+---
+
+![](img/Bear3.png)

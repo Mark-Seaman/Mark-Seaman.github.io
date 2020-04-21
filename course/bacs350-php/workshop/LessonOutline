@@ -1,0 +1,112 @@
+350/01
+    learn
+        New Literacy
+        This class
+        Servers
+            Canvas
+            Sensei Digital Classroom
+            Bluehost
+            Zybooks
+        PHP is extended HTML
+            include
+            header
+            footer
+            content
+    build
+        Project #1
+            A - Web hosting
+            B - Word Press
+            C - Reusable header/footer
+        Documents/UNC-BACS-350/public_html
+            bacs350
+                bacs350.css
+                index.php
+                    canvas sensei solutions demo projects
+                demo
+                    index.php
+                    01
+                        index.php
+                        index.html
+
+350/02
+    learn
+        Seaman's Rule #2: Do not repeat yourself
+        Servers
+        PHP is extended HTML
+            include
+            header
+            footer
+            echo
+            $title
+    build
+        Setup Development Workflow
+            Windows Desktop - files, edit, browse, test
+            BACS 350 launch page
+        Setup code directory
+        Documents/UNC-BACS-350/public_html
+            bacs350
+                demo/02
+                    page.html
+                    header.html
+                    footer.html
+
+350/03
+    learn
+        Seaman's Rule #3: Bugs breed (act immediately)
+        Github (pair programming)
+            Github account
+            Github Link
+            Fork Mark-Seaman/UNC-BACS-350
+            Clone UNC-BACS-350    
+        PHP page functions
+            require 'views.php'
+            begin_page()
+            end_page()
+            page.php
+            $title
+    build
+        Documents/UNC-BACS-350/public_html
+            bacs350
+                demo/03
+                    views.php (begin_page, end_page)
+                    page.php
+
+350/04
+    learn
+        Seaman's Rule #4: Take small steps to move fast
+        PHP Page Functions
+            render_page($header, $footer, $content)
+            render_header($title) 
+            render_footer()
+            render_content($html)
+    build
+        Project #2
+            Github Repo
+            Directory structure
+            Rendered pages
+        Documents/UNC-BACS-350/public_html
+            bacs350
+                demo/04
+                    views.php (render_page, render_header, render_footer, render_content)
+
+350/05
+    learn
+        Seaman's Rule #5: Test everything you care about or remove it  (Testing is your primary concern)
+        PHP Page Templates
+            templates/page.html
+            templates/header.html
+            templates/footer.html
+            render_page($header, $footer, $content)
+            render_header($title) 
+            render_footer()
+            render_content($html)
+            page.php
+    build
+        Setup XAMPP (pair programming)
+        Documents/UNC-BACS-350/public_html
+            bacs350
+                demo/05
+                    views.php
+                    templates/page.html
+                    templates/header.html
+                    templates/footer.html

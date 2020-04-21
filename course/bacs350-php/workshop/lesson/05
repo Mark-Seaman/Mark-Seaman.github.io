@@ -1,0 +1,159 @@
+* Forms Input
+* Date: Wed, 08-29
+* by Mark Seaman
+
+![](img/Bear_Logo.png)
+
+
+### Intro
+
+### Review
+* Intro to databases
+* SQL statements
+* MySQL
+* phpMyAdmin
+
+### Today's Lesson
+* Processing Input from Forms
+
+### Schedule
+
+* 2:30 -  5:00 Intro
+* 2:35 - 10:00 Learn
+* 2:45 - 15:00 Plan
+* 3:00 - 15:00 Build
+* 3:15 -  5:00 Share
+* 3:20
+
+
+
+
+## Learn
+
+
+### Working with Forms
+* Form UI
+* Action Page
+* Reading Data
+
+
+### Form UI
+Define a target page for receiving data
+
+```
+<form action="send_email.php" method="POST">
+```
+
+
+
+### Input Fields
+Define controls to gather data
+
+```
+<input type="text" name="phone_number">
+```
+
+
+
+### Submit Button
+Define a button to send the form data
+
+```
+<input type="submit" value="Save">
+```
+
+
+
+### Pushing Submit Button
+* Invokes the "method" on the "action" page
+* eg. Do a POST operation on "send_email.php"
+
+
+### Collecting Data
+* filter_input - Extracts one value from the Request
+
+```
+$name = filter_input(INPUT_POST, 'my_name');
+```
+
+
+
+### Validating Email
+* Optional code can check for certain conditions
+
+
+
+```
+$name = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+```
+
+
+
+### Template for Post (send)
+* [Form Post - sender](templates/form_post_a.php)
+
+
+### Template for Post (receive)
+* [Form Post - receiver](templates/form_post_b.php)
+
+
+### Template for Get (send)
+* [Form Get - sender](templates/form_get_a.php)
+
+
+### Template for Get (receive)
+* [Form Get - receiver](templates/form_get_b.php)
+
+
+
+
+
+## Build
+
+
+### Create file "project/05/index.php"
+* Build page using header and footer for style
+
+
+### Deploy and test
+
+
+### Add form to page
+* Study code in [Form Post - sender](templates/form_post_a.php)
+* Copy the code from the template into your page
+* Customize to your needs
+
+
+### Add name and email
+* Collect information for subscribers
+* Use POST method and subscribe.php as the target page
+* Test before creating the subscribe.php page
+
+
+### Deploy and test
+
+
+### Create a page "project/05/subscribe.php"
+* Study code in [Form Post - receiver](templates/form_post_b.php)
+* Extract data for the two form variables
+* Display the data from the form
+
+
+### Validate the email address using the filter_input
+
+
+
+## Plan
+
+### Basics are covered in Exercise
+
+### Read PHP/MySQL book for details
+* Read Chapter 4: pages 126-146
+* Get & Post from Forms
+
+### See You Next Time
+* Read Chapter 4: pages 126-146
+* Get & Post from Forms
+
+
+![](img/Bear3.png)

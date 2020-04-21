@@ -1,0 +1,195 @@
+# Lesson 3 - Header/Footer Pattern
+
+---
+
+* UNC - BACS 350
+* Friday, Aug 30
+* Mark Seaman
+
+![](img/Bear_Logo.png)
+
+---
+
+
+## LEARN
+
+---
+
+
+### Review
+* Executing PHP code
+* Server-side includes
+* Reusable page structure
+
+
+### Today
+* Github - Sample Code
+* Variable Insertion into Views
+* Header and Footer with Variables
+* Reusable page structure
+
+---
+
+### Seaman's Rules
+
+---
+
+Rule #3: Take small steps to move fast
+
+---
+
+* three strikes and change what you are doing
+* constantly adjust scope
+* being stuck is a sign of bad process
+
+
+---
+
+### Github - Sample Code
+
+* [Mark's Sample Code](https://github.com/Mark-Seaman/UNC-BACS350-2019-Fall)
+* Download the zip file
+* Unpack the file into Documents
+* Instant directory structure !
+
+
+### Pair Programming Game
+* Two brains one keyboard
+* Rules of game
+    * Player 1 is active first
+    * Take a series of small steps
+        * Announce what will happen
+        * If correct then play continues
+        * If incorrect then switch players
+    * Players score one point for each active step
+    
+
+###  Variable Insertion into Views
+* Setup a variable to hold data 
+* Add that data into some HTML.
+
+```php
+<?php $title='My Title'?>
+<h1>
+    <?php 
+        echo $title;
+    ?>
+</h1>
+
+results in  <h1>MyTitle</h1>
+```
+
+
+###  Header and Footer with Variables
+* Set a variable for title
+* Include the header file
+
+page.html
+
+```php
+<?php 
+    $title='My Title';
+    include 'header.html';
+?>
+```
+
+
+###  Header and Footer with Variables
+* Header uses the variable
+
+header.html
+
+```php
+<h1>
+    <?php 
+        echo $title;
+    ?>
+</h1>
+
+results in  <h1>MyTitle</h1>
+```
+
+
+###  Reusable page structure
+* Create templates with variables for each customization
+* Set a bunch of variables and include the header/footer code
+* Can be extended to work with other components
+
+
+### Visit the Source Code
+* [BACS 350 Sample Code](https://github.com/Mark-Seaman/UNC-BACS350-2019-Fall)
+    * public_html/bacs350/demo/03
+* uncpage1.php - Inflated page with variable insertion
+* uncpage2.php - Header/Footer pattern
+
+
+### See it Run
+* [UNCO-BACS.org Header/Footer Demo](https://unco-bacs.org/bacs350/demo/03/uncpage2.php)
+
+
+---
+
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Create directory structure for code
+* Get copy of [BACS 350 Sample Code](https://github.com/Mark-Seaman/UNC-BACS350-2019-Fall)
+
+
+### Pair Programming Game
+* Count off pairs
+* Start on Player 1's computer
+* Repeat the full process on Player 2's computer
+* Announce your score
+
+
+### Step 1 - Get Mark's sample code
+* Visit github account
+* Download zip file
+* Unpack it into Documents
+* Run brackets and set directory to project 1
+
+
+### Step 2 - Setup Windows for Development
+* Show hidden file extensions
+* Make default browser Firefox
+* Create Windows Folder shortcut to Project 1
+* Setup Filezilla to connect with remote server
+* Copy files to remote server
+
+
+### Step 3 - Test remote page
+* Create browser bookmark on Bookmark bar
+* Test project 1 with one-click
+
+
+### Step 4 - Change the title of the page
+* Use the variable to set your actual name
+* Deploy and test
+
+
+### Step 5 - Create an index page for Project 1
+* Set a title of "BACS 350 Project 1"
+* Add hyperlinks to 
+    * Class website
+    * Canvas
+    * Your Personal Server
+    * Your WordPress blog
+
+
+### Step 6 - Change computers & Switch players
+* Repeat steps 1-5 without making any mistakes
+* Tally up your score
+
+---
+
+
+### See you next time
+
+---
+
+![](img/Bear3.png)

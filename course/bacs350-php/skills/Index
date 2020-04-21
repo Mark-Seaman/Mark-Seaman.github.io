@@ -1,0 +1,51 @@
+# Skill Demonstration Challenge
+
+
+This class requires you to master a number of different skills.
+
+Deliver proof by publishing a screen shot.
+
+---
+
+* [Skill #1 - Web Hosting](01)
+    * Bluehost setup
+    * Screenshot
+    * Publishing to a URL
+    
+* [Skill #2 - File Transfer](02)
+    * Filezilla
+    * Bluehost login
+    * Directory setup
+    * Create a folder and index file
+    * Publish to a URL
+    
+* [Skill #3 - Version Control](03)
+    * Sign up for Github
+    * Create a repo
+    * Clone using Github Desktop
+
+* [Skill #4 - Share Code From Others](04)
+    * Clone Demo code repo
+    * Clone git repo from partner
+    * Read only (no push allowed)
+    * Edit and commit code changes
+    * Pull new code
+    * Remove old code
+
+* [Skill #5 - Setup Apache](05)
+    * Setup Apache
+    * Start/Stop Apache
+    * Setup Github repo to match Apache
+    * Edit and commit code changes
+
+
+...
+
+
+* [Skill #11 - MVC Design Pattern](11)
+
+    * MVC Pattern applied to notes
+    * Database CRUD
+    * Single PHP file
+    * Views: List, Detail, Add, Edit, Delete
+

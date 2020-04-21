@@ -1,0 +1,84 @@
+# Lesson 12 - Document Manager
+
+* UNC - BACS 350
+* Monday, Sep 23
+* Mark Seaman
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+---
+
+### Review
+* Skill #3 - Version Control
+* Skill #4 - Shared Code
+* Project #4 - Project Planner
+* Document Display
+
+
+### Today
+* Version Control
+* Share Code from Others
+* Project #5 - Document Manager
+* Zybooks - 13.2 - Errors
+
+---
+
+### Seaman's Rules
+* Rule #12 - **Failure** is a perquisite to success
+    * if you will not fail then you will never succeed
+    * the pain of failure is washed away by success
+    * learn how not to do things
+    * experience is the lessons we learn
+  
+---
+
+### Document Display
+* Read the desired document from query parameter
+* Read the requested file
+* Convert from Markdown to HTML
+* Display the HTML text
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Version Control
+* Github - web service that manages your git repos
+* Gain access to code from multiple computers
+* Share your code with others
+* Skill #3 shows that you can manage your own code
+
+
+### Share Code from Others
+* Use the clone from URL to access someone elses repo
+* Eg.  https://github.com/Mark-Seaman/UNC-BACS350-Demo
+* Cloned repo allows pull (for fresh code)
+* Cloned repo prohibits push (no changes shared)
+* Need login permissions to repo
+
+
+### Project #4 - Project Planner
+* Simple set of pages
+* Viewer for Markdown documents
+* Document selection is sent in URL (query parameter)
+
+
+### Project #5 - Document Manager
+* HTML viewer for many documents
+* Automatic list of document files
+* Hyperlinks to view selected docs
+* Viewer that displays a Markdown document
+
+
+## See you next time
+
+

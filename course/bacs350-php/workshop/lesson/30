@@ -1,0 +1,125 @@
+BACS 350 - Lesson 30
+
+* Data Update
+* Friday, Nov 2, 2018
+* by Mark Seaman
+
+![](img/Bear_Logo.png)
+
+
+### Review
+* Build Music Manager application
+    * Albums records stored in database
+    * Create new albums using form
+    * Display all albums
+
+
+### Next Steps
+* Work incrementally - one feature at a time
+* Edit existing records
+* Object framework
+
+
+### Work Together
+* Both parties must turn in the same work
+* Teams that do not work together will only get 1/2 credit
+
+
+### Pairs
+* Allen Adams, Christina Ritchey
+* Nicholas Alm, Alexander Brems
+* Robert Carver, Noah Rolf
+* Garrett Hasch, Daniel Herrera
+* Jessica Herold, Evan Minor
+* Cosme Martinez, Eric Sova
+
+
+
+## Milestones
+
+### Milestones for Last Session
+* 1 - Page Template
+* 2 - Album Template
+* 3 - Logging
+* 4 - Data Insert & List
+* 5 - Controller
+* 6 - Testing
+
+
+### Milestone 7 - Edit Record
+* Review code for "templates/crud_update.php"
+* Use as model for edit view and update code
+* Commit to version control
+
+
+### Milestone 8 - Object Framework
+* Review code for "templates/subscriber-add-only.php"
+* Mimic the functions for your music manager
+* Convert your app to use the controller logic from the template
+* Commit to version control
+
+
+### Milestone 9 - Full App
+* Review code for "templates/subscriber.php"
+* Debug all operations for CREATE, READ, UPDATE, DELETE
+* Log database connect, page loading, and data operations
+* Commit to version control
+
+
+## Resources
+
+### Update Records
+To update existing records in the database you must solve several problems
+
+1. Select the record that you want to edit
+2. Get the record value from a DB query
+3. Show the edit form with the current values
+4. Respond to the POST operation
+5. Save the updated record
+
+
+### templates/crud_read.php
+* Shows how to display the data in a table
+* Creates links to edit and delete
+* Acts as the return page after editing
+
+
+### templates/crud_update.php
+* Presents the form
+* Fills the form with current values
+* Acts as the target page for the POST
+* Saves the data
+* Redirect back to crud_read.php
+
+
+### templates/crud_delete.php
+* Deletes the requested record
+* Redirect back to crud_read.php
+
+
+### templates/email_list.php
+* Single page app that does all data operations
+
+
+### templates/subscriber.php
+* Object-oriented data handler
+* Full CRUD setup
+* Implements full application
+
+
+### templates/subscriber-add-only.php
+* Object-oriented data handler
+* Only implements CREATE and READ operations
+* Stripped down for readability
+
+
+### solution/28
+* Stand-alone app to use as demo
+* CRUD implemented by different files
+* Pages sequence to each other
+
+
+### solution/29
+* Stand-alone app to use as demo
+* CRUD implemented by subscriber.php object file
+* Shows proper structure for apps

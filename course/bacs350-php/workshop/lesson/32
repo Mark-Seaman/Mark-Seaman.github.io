@@ -1,0 +1,130 @@
+BACS 350 - Lesson 32
+
+* User Authentication
+* Wednesday, Nov 7, 2018
+* by Mark Seaman
+
+![](img/Bear_Logo.png)
+
+
+### Review
+* Apps = Views + Data
+* Templates for Views
+* Data Encapsulation
+* Cookies
+
+
+### User Auth
+* Authentication - Who is the user?
+* Authorization - What are they allowed to do?
+
+
+### Overall Workflow
+* Create a password
+* Verify a password
+* Remember login session
+* Require login
+
+
+### Create a password
+* A hash is a one way computation to produce a unique code
+* Build a hash that matches this password
+
+```
+$hash = password_hash($password, PASSWORD_DEFAULT);
+```
+
+
+### Register User
+* Have a form to collect user id and password
+* Store the password hash for later comparisons
+* Associate the password with the user id
+
+```
+register_user($db, $email, $password);
+```
+
+
+### Verify a password
+* To authenticate a user lookup the hash
+* Compare the hash of the password to the stored hash for the user
+
+```
+$hash = lookup_password($user);
+return password_verify($password, $hash);
+```
+
+
+### Remember login session
+* Set a session variable to remember the login
+* Logout when the session closes or logout button is chosen
+
+```
+session_start ();
+$_SESSION['LOGGED_IN'] = 'TRUE';
+```
+
+
+### Require login
+* Check the session variable
+* If not set then redirect to login page
+* Pass a parameter to return to proper page after login
+
+```
+if (! isset($_SESSION['LOGGED_IN']) or $_SESSION['LOGGED_IN']!='TRUE') {
+    header('Location: login.php?next=this_page.php')
+}
+```
+
+
+### Auth.php
+* Use the template code to authenticate your pages
+
+```
+require_once 'auth.php';
+
+function my_view() {
+    $auth->require_login();
+    echo 'You are logged in';
+}
+```
+
+
+### Register User Form
+* Show the sign up form
+* Create database entries for new users
+
+
+## Application Security
+
+### Build a Set of Secure Pages
+* Create 'project/32/index.php'
+* Create standard page with template
+* Include auth.php file from templates
+
+
+### Create a User ID and Password
+* Call password_hash($password, PASSWORD_DEFAULT)
+* Call password_verify($password, $hash)
+* Debug password checking
+* Commit
+
+
+### Register the User in the Database
+* Call $auth->register_user to create a record
+* Call $auth->show_valid to verify a password
+
+
+### Build Login view
+* After logging in set the session cookie
+* Test for active login or redirect to login view
+
+
+### Implement logout
+* Unset the session cookie
+* Redirect to login.php
+
+
+### Create an unsecured page
+* Build a page that does not require a login
+

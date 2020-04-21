@@ -1,0 +1,128 @@
+# Lesson 11 - Document Viewer
+
+* UNC - BACS 350
+* Friday, Sep 20
+* Mark Seaman
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+---
+
+### Review
+* Development Skills
+
+### Today
+* Zybooks - 13.1 - Regex
+* Passing Data to View
+* Project #4 - Project Planner
+
+
+---
+
+### Seaman's Rules
+* Rule #11: You only have one Brain so use it wisely
+    * eliminate distractions
+    * single focus
+
+---
+
+### Markdown Document Display
+* Learn the Markdown Design Pattern
+* Use one PHP file to display different documents
+
+
+### Query Parameter
+* Data can be passed within the URL
+
+```
+index.php
+
+index.php?name=Mark
+
+index.php?name=Mark&doc=big_book
+```
+
+
+### Query Parameter
+* Data can be passed within the URL
+
+```
+<a href="index.php">Welcome no one</a><
+
+<a href="index.php?name=Mark.Seaman">Welcome Mark</a>
+```
+
+
+### Passing Data to View
+* filter_input gets values from variables
+* INPUT_GET is the variable for the URL
+* name is the parameter we want
+
+```php
+    $name = filter_input(INPUT_GET, 'name');
+```
+
+
+### Passing Data to View
+* Set a default value when no value passed
+
+```php
+    // Extract the name from the URL
+    $name = filter_input(INPUT_GET, 'name');
+    if (!$name) {
+        $name = 'No Name';
+    }
+```
+
+
+### Passing Data to View
+* Visit the [Markdown Doc Demo](https://unco-bacs.org/bacs350/demo/11)
+* [Sample Code in Github](https://github.com/Mark-Seaman/UNC-BACS350-Demo/tree/master/bacs350/demo/11)
+* Study the source code
+
+
+### Document Viewer
+* My planner solution uses this design pattern
+* [https://unco-bacs.org/bacs350/planner/doc.php?doc=ToDo.md](https://unco-bacs.org/bacs350/planner/doc.php?doc=ToDo.md)
+* [Sample Code in Github](https://github.com/Mark-Seaman/UNC-BACS350-Demo/tree/master/bacs350/planner/doc.php)
+
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Pull Sample Code
+* Run GithubDesktop
+* Select the Mark-Seaman/UNC-BACS350-Demo repo
+* Pull fresh code
+
+
+### Collaborative Development
+* Work in teams of two [Teams](https://unco-bacs.org/bacs350/planner/teams.php)
+* You both succeed together
+* Teams will be for Lessons 10, 11, 12
+
+
+### Work on Project #4
+* Visit the [Instructor Solution](https://unco-bacs.org/bacs350/planner)
+* [Sample Code in Github](https://github.com/Mark-Seaman/UNC-BACS350-Demo/tree/master/bacs350/planner)
+* Study the source code to learn the pattern
+
+
+### Create Your Own Code
+* Create "bacs350/planner"
+* Copy instructor code and debug it
+* Add customizations to make it work for you
+
+
+### See you next time
+

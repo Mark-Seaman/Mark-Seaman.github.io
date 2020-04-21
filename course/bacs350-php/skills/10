@@ -1,0 +1,49 @@
+# Skill #10 - Render Templates
+
+Skill Demonstration Challenge
+
+---
+
+## Objective
+
+Demonstrate the you can create HTML templates and use them to display 
+complex data within your web pages.
+
+    
+
+## Steps 
+* Create a "templates" directory
+* Create "page.html" and add all the general HTML code for all web pages
+* Create "card.html" in a templates directory
+* Create a settings array variable
+
+```php
+$settings = array("site_title" => "UNC BACS 350","page_title" => "Page title");
+```
+
+* Debug render_template ("card.html", $settings)
+* Debug render_page($settings)
+* Create "skills.html" template by copying the HTML code from  your dashboad
+* Create "projects.html" template by copying the HTML code from  your dashboad
+* Get your home page to show  skills and projects
+* Screen shot of your skills and projects
+* Go to your dashboard page and verify your screenshots in the skill section.
+
+
+## Demonstration
+
+Each skill can be proved with a screen shot.  Produce a screen shot that shows your
+home page displaying your skills and your projects.
+
+
+### home.png
+
+This screen shot shows the location in the file system that contains the BACS 350 Demo code.
+
+<a href="{{ skills }}/home.png">
+    Click Here to see full size
+    <img src="{{ skills }}/home.png" width="200" target="_blank">
+</a>
+
+See [Instructor's Solution](https://unco-bacs.org/bacs350/skills/home.png) for an example
+

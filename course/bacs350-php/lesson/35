@@ -1,0 +1,137 @@
+# Lesson 35 - Software Requirements
+
+
+* UNC - BACS 350
+* Monday, Nov 18
+* Mark Seaman
+ 
+---
+
+### Assignments
+* Reading - 9.8 Weather
+* Review - Complete the design review
+* [Project #13 - Integrated Brain App](/unc/bacs350/project/13)
+
+
+### Seaman's Rules
+* Rule #35 - Build components in isolation and then integrate 
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+  
+---
+
+### BACS 350 Overview
+* Week 1-3 Views
+* Week 4-5 Documents & Files
+* Week 6-10 Data
+* Week 11-12 Applications
+* Week 13-14 Engineering
+
+
+### Brain Application (house with many rooms)
+* Documents
+* Notes
+* Slides
+* Planner
+* Reviewer
+* Subscribers
+* Superhero
+
+
+### Project Management 
+* Setting and fulfilling expectations
+* Planning - project scope (Time, Resources, Function)
+* Tracking - matching the project progress and adjusting the plan
+
+
+### Software Lifecycle
+* Requirements
+* Design
+* Code
+* Test
+
+    
+### Agile Software
+* Context 2001 - Vapor-ware, .com Bust, 
+* Lack of best practice (Heavy-weight process vs. Zero process)
+* Competing methodologies
+* Meeting of software methodologists
+
+
+### Agile Software Manifesto
+* [https://agilemanifesto.org/](https://agilemanifesto.org/) 
+* Values
+* Principles
+* Practices
+
+    
+### Agile Software Values
+* Individuals and interactions over processes and tools
+* Working software over comprehensive documentation
+* Customer collaboration over contract negotiation
+* Responding to change over following a plan
+
+
+### Practices
+* Extreme Programming - Kent Beck
+* Test-Driven Development - Robert Martin
+* Scrum - Ken Schwaber
+* Refactoring - Martin Fowler
+
+
+### Software Requirements
+* Top 10 Requirements
+* Customer Feedback
+* Prototypes - incremental development
+* Respond to change
+        
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Create Requirements
+* You have already built code for many parts of the Brain App
+* Use your existing knowledge of goals to plan the requirements
+* Document your requirements in your Github repo (docs/Requirements.md)
+
+
+### Prime Directive
+* Projects must have a single primary objective and a number of supporting constraints
+* Build a modular app that contains seven components and no code duplication
+
+
+### Top 10
+* List the top 10 requirements that are critical to the project
+* Focus exclusively on these objectives when setting milestones
+
+
+### Functional Milestones
+* Create a list all all features to be implemented (product backlog)
+* Break this list into four equal sequential milestones
+
+
+### Customer Interaction
+* Use your review team as a proxy for the customer
+* Conduct a review for each milestone
+* Respond to feedback
+
+
+### Bob Martin Talk
+* Watch this video about the history of software development
+* "Uncle" Bob Martin - [The Future of Programming](https://www.youtube.com/watch?v=ecIWPzGEbFc)
+* 50% of all engineers have less than 5 years of experience
+
+
+### 10 Minute Scrum
+* How Scrum works
+* [Intro to Scrum in Under 10 Minutes](https://www.youtube.com/watch?v=XU0llRltyFM)
+

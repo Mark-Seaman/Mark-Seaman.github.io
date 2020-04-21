@@ -1,0 +1,131 @@
+# Project #6 - Subscriber Database
+
+## Goals
+
+Build a database to act as a Subscriber List.
+
+
+## Skills Demonstrated
+* [Skill #6 - Setup Database](/unc/bacs350/skills/06)
+
+
+## Design Patterns
+
+To complete this project you must use the following design patterns
+
+* Create MySQL database
+* Connect to database from PHP
+* List records in database
+* Add records to database
+
+
+## Steps to Complete Project
+
+Before you start on this project make sure that you have successfully completed 
+[Skill #6 - Setup Database](/unc/bacs350/skills/06).  You need to have a subscriber database set up
+with some data in it.
+
+
+
+### Step 1 - Create page
+* Create a page at "bacs350/subscriber/index.php"
+* Add a headline of "Subscriber List"
+* Push and test page
+
+
+### Step 2 - Connect to database
+* View the [solution](https://unco-bacs.org/bacs350/subscriber)
+* Copy code from [step1](https://unco-bacs.org/bacs350/subscriber/step1.php) into your page
+* Customize page with your settings
+* Debug "bacs350/subscriber/index.php" page
+
+
+### Step 3 - List the Records
+* View the [solution](https://unco-bacs.org/bacs350/subscriber)
+* Copy code from [subscriber.php](https://unco-bacs.org/bacs350/subscriber/step2.php) into your site
+* Copy code from [step2](https://unco-bacs.org/bacs350/subscriber/step2.php) into your page
+* Customize page with your settings
+* Debug "bacs350/subscriber/index.php" page
+
+
+### Solution
+* Create a table - Execute SQL in phpMyAdmin view SQL tab
+
+```
+CREATE TABLE subscribers (
+  id int(3) NOT NULL AUTO_INCREMENT,
+  name varchar(100)  NOT NULL,
+  email varchar(100) NOT NULL,
+  PRIMARY KEY (id)
+);
+```
+
+* Add records - Execute SQL in phpMyAdmin view SQL tab
+
+```
+INSERT INTO subscribers (name, email)
+VALUES
+('George Washington', 'geowash@us.gov'),
+('Abe Lincoln', 'abe@us.gov'),
+('Andrew Jackson', 'andyjax@us.gov'),
+('Theodore Roosevelt', 'teddy@us.gov');
+```
+
+* Code for listing subscribers
+
+```php
+// Connect to the subscribers database at Bluehost
+require 'subscriber.php';
+
+// Get a list of subscribers records
+$subscribers = query_subscribers($db);
+
+// Build a list of subscribers in HTML
+$list = render_subscriber_list($subscribers);
+
+// Output the HTML
+echo $list;
+```
+
+* Page style
+
+```php
+// Access render_page from library
+require 'views.php';
+
+// Display the HTML with Style
+echo render_page('UNC BACS 350', "Subscriber List", $list);
+
+```
+
+
+## Milestones
+
+### Milestone 1 - Connect to Database
+* Create database
+* Use [Lesson 15](/unc/bacs350/lesson/15)
+* Connect to database from PHP
+* Use [Lesson 16](/unc/bacs350/lesson/16)
+* Commit all changes to git repo
+
+
+### Milestone 2 - Add Records
+* Add record to database
+* Use SQL statements directly to INSERT data into database or use the graphical interface to build new records
+
+
+### Milestone 3 - List Records
+* Create list in **bacs350/subscriber/index.php**
+* Use [Lesson 17](/unc/bacs350/lesson/17)
+* Commit all changes to git repo
+
+
+### Milestone 4 - Style the Page
+* Use the Render Page design pattern to add styles to the page
+* Commit all changes to git repo
+
+
+### Milestone 5 - Validate the HTML
+* Use [https://validator.w3.org/](https://validator.w3.org/) to ensure good HTML
+
+

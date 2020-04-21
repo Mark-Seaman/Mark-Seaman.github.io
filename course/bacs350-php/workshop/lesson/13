@@ -1,0 +1,85 @@
+# BACS 350 - Lesson 13
+* Building Apps
+* Wednesday, Sep 19, 2018
+* by Mark Seaman
+
+![](img/Bear_Logo.png)
+
+
+### Review
+* Testing
+* Event Logging
+* Setup Apache
+
+
+### Next Steps
+* Exam on Friday
+* Building Apps
+
+
+
+## Apps
+
+### Start with the assets you have
+* Use your last project
+* Leverage code from others
+* Build a checklist
+* Consult [App Checklist](http://unco-bacs.org/bacs_350/templates/todo.html) for ideas
+* Think about the assembly line
+
+### Milestones
+* Define 4-5 Major Goals
+* Work them in sequence
+* Test, deploy, commit before moving on
+
+### App Milestones
+* Project Setup
+* Create database
+* List records
+* Add records
+* Test
+
+
+## Exam
+
+### Practice for Exam
+* Use exact steps from today
+* Practice the patterns
+
+### App Requirements
+* Build an app that manages _____
+* Database for ______
+* List of ______
+* Add record of _______
+* Test - page exists, valid HTML, works as designed
+
+### Use code from before
+* Figure out what is the same and different
+* Identify new tricks needed
+* Build core features first
+* Handle errors last
+
+### Practical suggestions for Exam
+* Work on the remote server database
+* Edit, FTP, Test
+* Work in small steps (5 Milestones)
+* Practice the workflow (this is what is being tested)
+
+
+
+## Build
+
+### Build an app that manages books
+* Table contains books - author, title, summary
+* Show books as table
+* Add book to list with a form
+
+### App Requirements
+* Page project/13/index.php has branding
+* Database/Table/Records: books/books/author, title, summary
+* List of book on project/13/index.php
+* Add record by going to insert.php
+* Test - page exists, valid HTML, works as designed
+
+
+![](img/Bear3.png)
