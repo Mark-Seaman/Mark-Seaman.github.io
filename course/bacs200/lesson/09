@@ -1,0 +1,164 @@
+# Lesson 9 - Images and Links
+
+* UNC - BACS 200
+* Monday, Jan 3
+* Mark Seaman
+
+---
+
+## LEARN
+
+Seaman's Rule #9 - Use appropriate URLs
+
+![](img/Bear_Logo.png)
+
+---
+
+### Review
+* Basic Page HTML
+* Basic Elements
+* Development Skills & Tools
+
+
+### Today
+* Images and Links
+* Forming URLs
+
+
+### Hyperlink
+* Anchor is used to add a hyperlink to a page
+* Requires two parts
+    * Link text
+    * Page URL
+* When clicked the web browser is reset to the new page
+
+```
+<a href="new_page.html">Link Text</a>
+```
+
+
+### a
+* "a" is for anchor
+
+```
+<a href="new_page.html">Link Text</a>
+```
+
+
+### Anchor href
+* The URL is set by the href attribute
+
+```
+<a href="new_page.html">Link Text</a>
+```
+
+
+### Anchor Inner Text (link text)
+* The Link Text is inside the a tag
+* Study this example
+
+```
+<a href="new_page.html">Link Text</a>
+```
+
+
+### Anchor target
+* The target attribute can bring up a new tab
+
+```
+<a href="new_page.html" target="_new">Link Text</a>
+```
+
+
+### Image
+* Images can be embedded in a page
+* When the page is loaded in the browser the images are all fetched from the server
+
+### img
+* Images are added with the "img" element
+
+```
+<img src="logo.png" alt="Logo">
+```
+
+
+### Image src
+* Images are added with the "img" element
+
+```
+<img src="logo.png" alt="Logo">
+```
+
+### Image alt
+* Images are added with the "img" element
+
+```
+<img src="logo.png" alt="Logo">
+```
+
+### Image width
+* Images can be display at a specific size
+* This image takes 80% of the view width
+
+```
+<img src="logo.png" alt="Logo" width="80%">
+```
+
+* This image takes 500 pixels of the view width
+
+```
+<img src="logo.png" alt="Logo" width="500">
+```
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Demo Server
+* Visit the [Demo Server](https://unco-bacs.org/bacs200/04)
+* Tools, Web Developer, Page Source
+* Study the source code
+
+
+### Project Solution Examples
+
+Study these files
+
+* [Project #1](https://unco-bacs.org)
+* [Project #2](https://unco-bacs.org/bacs200/02)
+* [Project #3](https://unco-bacs.org/bacs200/03)
+* [Project #4](https://unco-bacs.org/bacs200/04)
+
+
+### Update your Home page
+* Home - bacs200/index.html
+* Update to include project links
+    * Bullet list
+    * a (href, link text, target)
+    
+
+### Project 4
+* Link to home page
+* Table of skills
+    * Label
+    * Screenshot
+* Each screenshot uses Thumbnail/Full Size Pattern
+
+
+
+
+### Skill Demonstration Challenge
+* Create screen shots for Skills #1 & #2
+* Create "bacs200/skills/index.html" with links to screen shots
+* Check to make sure that images show in your dashboard
+
+
+### Start on Project #4
+* Update your home page at "bacs200/index.html"
+* Build project page at "bacs200/04/index.html"
+

@@ -1,0 +1,145 @@
+# Lesson 13 - Adobe Illustrator
+
+* UNC - BACS 200
+* Wednesday, Feb 12
+* Mark Seaman
+
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+Seaman's Rule #13 - Vector images scale to any size
+
+---
+
+
+### Review
+* Native Tools
+    * Brackets, Firefox, Filezilla, Github Desktop
+* Web Services
+    * Bluehost, Github, Validator
+* Images
+    * Photoshop, Illustrator, Screen Capture
+* HTML
+    * Basic HTML template
+    * Headings, Lists, Tables, Links, Images
+    * h1, p, a, img, ul, table
+* URLs
+    * Absolute, Server, Relative
+
+
+### Today
+* Use Adobe Illustrator to create vector images
+
+
+### Types of Images
+* Raster Images - Abobe Photoshop
+* Vector Images - Adobe Illustrator
+
+
+### Raster Images
+* Raster images contain a grid of pixels
+* Each pixel is an RGB value
+* Raster images get the "Blockies" when scaled
+* Cameras capture raster images
+
+
+### Vector Images
+* Vector Images are a set of shapes
+* They scale to any size
+* Artwork is designed by hand on the computer
+
+
+### Adobe Illustrator
+* Vector Graphics Tools
+* Scalable to any desire size
+* Often rendered as raster images
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Using Illustrator
+* Create artwork in Adobe Illustrator
+* New document with a web profile
+* Size 640x480 pixels
+* Set the Color mode to RGB
+* Set Raster effects to Screen (72 dpi)
+
+
+### Play with these tools
+
+* shape tool (defaults to "Rectangle Tool")
+* fill and stroke color
+* paintbrush tool
+* line segment tool
+* pen tool
+
+
+### Other Edits
+* Change the fill and stroke color the shapes
+* Experiment with different colors and gradients
+
+
+### Paintbrush tool
+- Try different colors
+- Weights
+- Arrowheads
+- Profiles
+
+
+### Line segment tool
+* Try different line types
+* Try  grids
+
+
+### Pen tool
+* Draw straight lines (click)
+* Draw curved lines (click and drag)
+* Add and remove anchor points
+
+
+### Save your Masterpiece
+* Save work using "File", "Export", "Save for the web (legacy)"
+* PNG file as Logo.png
+
+
+### Favicon
+* Create a new document with a web profile
+* Size of 64x64 pixels
+* Set the color mode to RGB and the Raster effects to Screen (72 dpi)
+* Using vector shapes, create a Favicon for your website.
+* "Save for the web" as a 16x16 pixel PNG file
+
+
+### Display the Art
+* Create page "logo.html"
+* Set the Favicon on your page
+* Add the logo to your header
+
+
+### Add Icon to Page
+* Add the icon to your HTML head section.
+
+```html
+<link rel="icon" href="myfavicon.ico">
+```
+
+
+### Display Logo in Header
+* Hook the image to your index.html page.
+
+```
+<img src="Logo.png" alt="Logo.png" width="50%">
+```
+
+Experiment with sizing your image.
+

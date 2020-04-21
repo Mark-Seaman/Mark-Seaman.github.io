@@ -1,0 +1,184 @@
+# Lesson 4 - Using Version Control
+
+* UNC - BACS 200
+* Wed, Jan 22
+* Mark Seaman
+
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+* Seaman's Rule #4: Learn by doing
+
+---
+
+### Review
+* You have setup web hosting at Bluehost
+* You have created a WordPress blog
+* You have registered a Github account and modified files
+
+
+### Accident with Domains Reset
+* Adding new student caused domain settings to reset
+* Please register your domains and your Github accounts
+* Test your links
+
+
+### Getting Help
+* Office Hours posted on Canvas
+* Our class tutor Alex
+
+
+### Today
+* Clone your Github repo
+* Create a workflow on your local computer
+* Create local web pages
+* Test with a local browser
+* Push changes to Github
+
+
+### Github
+* Github is a web service that manages your repositories
+* Code repos are replicated on multiple machines
+* Code changes are synched back to the base repo
+* Learn by doing - practice makes perfect
+
+
+### Github Repos
+* Master copy of BACS-200 repo at Github
+* Kepner copy of BACS-200 repo
+* Laptop copy of BACS-200 repo
+* All versions will pull code from Github
+* All versions will push code to Github
+
+
+### Github Edit
+* Files can be modified directly at Github
+* Changes must be committed immediately to be saved
+
+
+### Browse Files
+* Browse to your repository at Github
+* Browse through the files in your repository
+
+
+### Edit File
+* Click on the pencil to edit a file
+* Type text in edit field
+
+
+### Commit
+* Commit changes with a commit message
+* These changes are already pushed to the Github repo
+
+
+### Firefox
+* Make sure Firefox is your default browser
+* Turn on bookmark toolbar and bookmark your Sensei dashboard
+
+
+### Register Your Repo on Sensei
+* Go to your dashboard view
+* Set the Github field to your "GITHUB_USER/GITHUB_REPO"
+* Test the hyperlink for your repo
+* You should see your code at Github
+
+
+### Demo Server
+* Browse to [Demo Server](https://unco-bacs.org/bacs200/index.html)
+* Or click the "Demo Server" link on the dashboard
+
+
+### View Source - Ctrl-U
+* Find View Source in the Firefox menu
+* Or type - Ctrl-U
+* This shows you the HTML code for the URL you browsed 
+
+
+### Visit - View - Copy
+* Copy Source - Ctrl-A, Ctrl-C
+* Edit a file on Github "bacs200/index.html"
+* Paste the text - Ctrl-V
+* Commit the change
+
+
+### Run Github Desktop
+* Register your Github account
+* Clone Your Repo
+* Select BACS-200
+* Set the local directory to Documents/BACS-200
+
+
+### Edit Your Files
+* Run Brackets
+* Open Folder (set to "Documents/BACS-200")
+* Open File "Documents/BACS-200/bacs200/index.html"
+* Make a change to the file
+* Save the file
+
+
+### Commit Pending Changes
+* Run Github Desktop
+* Your changes should appear
+* Look at the changes (are they correct?)
+* Commit your changes with a message
+* Push your changes to Github
+
+
+### Local Workflow
+* Edit files locally
+* Test using live preview
+* Commit changes
+* Push changes
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Repeat the steps from the LEARN section 
+* Walk through every step
+* Setup and install the required software
+* You now should have a copy of Mark's home page
+
+
+### Home page - bacs200 landing page
+* Your home page should be at "Documents/bacs200/index.html"
+* Customize the content using Brackets
+* Commit and push changes using Github Desktop
+* This the default landing page for all other projects
+
+
+### Test Your Page
+* Run the browser on your file "Documents/bacs200/index.html"
+* You should have 
+    * a photo of you
+    * a link to your WordPress blog page
+    * a link to your Github account
+    * your name set in the headline
+    * your name set in the title
+
+
+### View in Windows File Explorer
+* Visit your files in Windows
+
+
+### File Names
+* Beware: Case Sensitive Files
+    * Windows sees "Bacs" and "bacs" and "BACS" as the same file
+    * Bluehost sees "Bacs" and "bacs" and "BACS" as different files
+* No files that go on the web server can have spaces
+* All files that go on the web server should be all lowercase
+
+
+### [Project 2](/unc/bacs200/project/02)
+* Master today's lesson before starting on Project 2
+* Today's build will get you ready
+

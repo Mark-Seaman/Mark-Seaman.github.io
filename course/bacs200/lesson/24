@@ -1,0 +1,63 @@
+# Lesson 24 - Bootstrap Components
+* UNC - BACS 200
+* Wednesday, March 11
+* Mark Seaman
+
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+Rule #24 - Use bootstrap components to get high quality results quickly.
+
+---
+
+
+### Bootstrap Getting Started
+* Visit the [Bootstrap website](https://getbootstrap.com)
+* Look at Icons, Themes, Expo
+
+
+### Bootstrap Documentation
+* Visit the [Bootstrap Documentation](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
+* Read through the Getting Started page
+
+
+### Bootstrap Components
+* Visit the [Bootstrap Components](https://getbootstrap.com/docs/4.4/components)
+* Review the list of 24 Components
+* Select 5 components from the list
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Build Page with Bootstrap Components
+* Create a page "bacs200/09/bootstrap.html"
+* Add your five favorite components to this page
+* Demonstrate how to use each of the components
+* This page is practice for learning to use bootstrap components
+
+
+### Demo Code
+* [Demo Using Bootstrap](https://unco-bacs.org/bacs200/09)
+
+
+### Build your own page template
+* Use some of your new components in your page template
+* Create new pages based on your page template
+
+
+### Non-profit Website Project
+* [Project 9 - Non-profit](/unc/bacs200/project/09)
+* Publish your non-profit page
+* Test your work
+* Connect with organization
+

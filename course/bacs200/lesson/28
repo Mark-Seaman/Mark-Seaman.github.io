@@ -1,0 +1,105 @@
+# Lesson 26 - Testing
+* UNC - BACS 200
+* Friday, March 27
+* Mark Seaman
+
+
+## LEARN
+
+### Testing is verifying the requirements
+
+### Types of testing
+* Test the pages are at correct URL
+* Verify the HTML & CSS
+* Verify the links
+* Verify the business requirements
+* Test on different browsers
+
+### Automated Testing
+* Tools that visit your website
+* Analyze each page to look for specific HTML elements
+* Automatic design rules verify the page
+
+### Selenium
+* Automatic testing software
+* Remote control of a browser (eg. Chrome, Firefox)
+* Allows scripting of testing process
+
+
+## BUILD
+
+### Complete Reviews - Round 2 (bacs200/08/index.html)
+* Go to your Review Queue
+* Log issues
+* Test pages using links on Review page
+
+### Read Your Review Feedback
+* Fix all issues listed
+* Ask for help from your teammates
+* Offer to help your team 
+* Collaborate professionally
+
+
+## Project 10 - Design Reviews - due Friday, March 27
+
+### GOALS
+* Design Reviews are Important
+    * Have other people review your work
+    * Use a checklist of ten requirements
+    * Every review gets a score (10 points possible)
+    * Add comments to tell what must be fixed
+    * You will be scored as a reviewer and designer
+    * You must be accurate
+* Reviews Must be 
+    * Timely - done within 24 hours of requested
+    * Accurate - use the checklist of requirements
+    * Helpful - be specific about what is needed
+
+### STEPS
+* Design Review Form
+    * 10 Requirements
+    * Links to pages
+    * Links to validators
+* Design Reviews Assigned
+    * Your review team (4 other students)
+    * Complete all reviews in your queue
+    * Make sure that they are accurate
+    * Log an issue for each review
+* Issue Logging
+    * Visit the Github repo for your partner
+    * ![](img/issues.png)
+    * Create an issue for each review
+    * Do not create an issue for a perfect page
+* Designer Review Feedback
+    * View your review feedback on your web page
+    * Read the issues logged by others
+    * Fix the problems
+    * Request a new review by contacting the reviewer
+* Professional Collaboration is a skill
+    * Be Timely, Accurate, and Helpful
+    * Use this process in your professional job
+    * Build your feedback around the top ten requirements
+* Complete Reviews - Round 1 (bacs200/index.html)
+    * Go to your Review Queue
+    * Log issues
+    * Test pages using links on Review page
+* Read Your Review Feedback
+    * Fix all issues listed
+    * Ask for help from your teammates
+    * Offer to help your team 
+    * Collaborate professionally
+
+### REQUIREMENTS
+* Grading of reviews
+    * 30 points for Design
+    * 30 points for Review
+* Reviewer Score
+    * Each week a review grade will be calculated
+    * Reviews will be worth 30 points total (all rounds)
+    * Your score will be based on the percentage of your reviews that are done correctly
+* Design Team Score
+    * Designs will be worth 30 points total (all rounds)
+    * Each week a design grade will be calculated
+    * Your score will be based on the team review scores
+    * Collaborate to boost the design score
+    

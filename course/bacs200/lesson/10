@@ -1,0 +1,154 @@
+# Lesson 10 - Lists & Tables
+
+* UNC - BACS 200
+* Wednesday, Feb 5
+* Mark Seaman
+
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+Seaman's Rules #10 - Take baby steps to move fast
+
+---
+
+
+### Review
+* Tools
+    * Brackets, Firefox, Filezilla, Github, Validator
+* HTML
+    * h1, h2, p, a, img
+    * HTML Page Template
+
+
+### Today
+* Brackets Beautify
+* Bullet List
+* Numbered List
+* Table
+
+
+### Bullet List (ul)
+* Bullet Lists are added with the "ul" element (Unordered List)
+* Each list item is added with the "li" element (List Item)
+
+```
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+</ul>
+```
+
+
+### Numbered List (ol)
+* Bullet Lists are added with the "ol" element (Ordered List)
+* Each list item is added with the "li" element (List Item)
+
+```
+<ol>
+    <li>Item 1</li>
+    <li>Item 2</li>
+</ol>
+```
+
+
+### Table (table)
+* Tables are added with the "table" element
+
+```
+<table>
+    ...
+</table>
+```
+
+
+### Table Row (tr)
+* Table rows are added with the "tr" element
+
+```
+<table>
+    <tr>
+        ...
+    </tr>
+</table>
+```
+
+
+### Table Column (td)
+* Table columns are added with the "td" element (Table Data)
+
+```
+<table>
+    <tr>
+        <td>This is some data</td>
+    </tr>
+</table>
+```
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+### Project #4 Update
+* The requirements for project 4 have been simplified
+* Please review the new version of the instructions
+* Be sure to test your work from the Sensei links
+
+
+### Home Page Testing
+* I created a page to show all student Bluehost servers
+* Find your name
+* Test to make sure that your WordPress and Home pages both load properly
+* Check your Github repository link
+* Postponed grading Project #3
+* Run the HTML Validator
+
+
+### Brackets Beautify
+* Brackets File, Extension Manager
+* Search for Beautify
+* Install Beautify
+
+
+### Using Beautify
+* Mess up the indents in an HTML file
+* Use menu Edit, Beautify
+* See how indents are fixed
+* Turn on "Beautify on Save" to do it automatically
+
+
+### Practice Lists & Tables
+* Visit the [Demo Server](https://unco-bacs.org/bacs200/04)
+* View source code for 
+    * Bear logo
+    * Thumbnail/Full Size Image
+    * List of Page links
+    * Superhero Table
+
+
+### Firefox 
+* View Source Code
+    * Find the menu to display the HTML code
+    * Use the keyboard short cut
+* Developer Tools
+    * Find developer tools in Firefox
+    * Explore the views
+    * Use the keyboard short cut
+* Inspect Element
+    * Right click on logo
+    * Choose Inspect Element
+
+
+### Superheroes Table
+* Rearrange order of columns
+* Columns - Hero, Photo, Name
+* Add Hulk and Gamora to table
+

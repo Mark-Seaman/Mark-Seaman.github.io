@@ -1,0 +1,108 @@
+# Lesson 25 - Tabs, Accordion, and Carousel
+
+* UNC - BACS 200
+* Friday, March 13
+* Mark Seaman
+
+
+---
+
+## LEARN
+
+![](img/Bear_Logo.png)
+
+Rule #25 - Use bootstrap Tabs, Accordion, and Carousel to organize info on your site.
+
+---
+
+### Changes in Class Delivery
+* The following changes will apply to the remainder of this class
+* All lectures will be done remotely
+* Lectures will be recorded and posted on the website
+* You can view lectures from anywhere
+* Office hours will be conducted with Zoom
+
+
+### Class Canceled - March 23
+* We will resume at the regular time on Wed, March 25
+* Log into the Zoom meeting or watch the recording later
+
+
+### Class Projects
+* Complete the project by the due date
+* Respond to all messages about your work as quickly as possible
+* If you need help ask a specific question
+
+
+### View Lecture
+* Mark Seaman is inviting you to a scheduled Zoom meeting.
+* Time: Mar 13, 2020 01:30 PM Mountain Time (US and Canada)
+* [Join Zoom Meeting](https://unco.zoom.us/j/938447320)
+* Meeting ID: 938 447 320
+
+
+### Demo Code
+* [Demo Using Bootstrap](https://unco-bacs.org/bacs200/09)
+* Study this code
+
+
+### Bootstrap Tabs
+* Visit the [Bootstrap website](https://getbootstrap.com)
+* Look at Documentation page
+* Select Components, Navs
+* Scroll to Tabs
+
+
+### Bootstrap Accordion
+* Visit the [Bootstrap website](https://getbootstrap.com)
+* Look at Documentation page
+* Select Components, Collapse
+* Scroll to Accordion
+
+
+
+---
+
+## BUILD
+
+![](img/Bear_Logo.png)
+
+---
+
+
+### Visit your Project 5 Page
+* Visit "bacs200/05/edutain.html"
+* Your page should contain 3 "TED Talks" and 3 "RSA Animate" videos
+    * [RSA animations](https://www.youtube.com/playlist?list=PL39BF9545D740ECFF)
+    * [TED Talks](https://www.ted.com/)
+    
+
+### Create New Page
+* Build a page using your "bacs200/template.html"
+* Name your page "bacs200/09/bootstrap2.html"
+
+
+### Use Tabs Control
+* Add a set of two tabs ("TED Talks", "RSA Animate", "My Vlog")
+* Add video content from your Project 5 page to "TED Talks", "RSA Animate" tabs
+* Add video content from Project 6 page to "My Vlog"
+* Debug and Deploy and Test
+
+   
+### Use Accordion Control
+* Edit your page "bacs200/09/bootstrap2.html"
+* Add an accordion to "TED Talks", "RSA Animate" tabs
+
+
+### Build A Template Page with tabs or accordion
+* Use some of your new components in your page template
+* Create two tabs or sections in your template
+* Use this whenever you create new pages to structure data
+
+
+### Non-profit Website Project
+* [Project 9 - Non-profit](/unc/bacs200/project/09)
+* Publish your non-profit page
+* Test your work
+* Connect with organization
+
