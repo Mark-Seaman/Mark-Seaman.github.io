@@ -45,9 +45,16 @@
 * [Project 08](project/08)
 * [Project 09](project/09)
 * [Project 10](project/10)
-* [Project 11](project/11)
-* [Project 12](project/12)
-* [Project 13](project/13)
-* [Project 14](project/14)
-* [Project final](project/final)
-* [Project teams](project/teams)
+* [Final Project](project/final)
+    * [Milestone 1](project/11)
+    * [Milestone 2](project/12)
+    * [Milestone 3](project/13)
+    * [Milestone 4](project/14)
+
+
+## Demo Code
+
+* [Source Files](demo)
+* [Demo Server](https://unco-bacs.org/bacs200)
+
+
