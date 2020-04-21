@@ -80,7 +80,7 @@
 
 ## Demo Code
 
-* [Source Files](UNC-BACS350-Demo) - Github Pages Server (PHP server does not run here!)
-* [Demo Server](https://unco-bacs.org/bacs200) - Bluehost Server
+* [Source Files](UNC-BACS350-Demo/index.php) - Github Pages Server (PHP server does not run here!)
+* [Demo Server](https://unco-bacs.org/bacs350) - Bluehost Server
 
 
