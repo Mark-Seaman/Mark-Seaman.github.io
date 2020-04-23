@@ -1,13 +1,41 @@
-# Milestone #4 - Functionality Complete
+# Task Contract
 
-## Designer - Design
+Milestone: 4
 
-### Task - Refactoring and code structure 
+Role: design
 
-### Details
+
+## Goals
+
+Primary Goal: Refactoring and code structure
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+## Requirements
+
+To meet the goal for this task you must complete the following minor tasks.
+
 
 * Create code analysis tools
 * Draw diagram of code structure
-* Refine key APIs
+* Refine key APIs 
 
-    
+
+## Scoring
+
+The grade you will get for this task will be determined by the number of 
+key requirements that you meet.
+
+The score will be calculated as...
+
+10 points total for Refactoring and code structure
+
+* 2 points for Create code analysis tools
+* 2 points for Draw diagram of code structure
+* 2 points for Refine key APIs 
+
+Two points will be given for each minor deliverable.  If you partially meet the
+requirement you will be given 1 point for trying.  Work must be completed by the
+deadline.  No late work will be graded.
+

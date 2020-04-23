@@ -1,13 +1,41 @@
-# Milestone #7 - First Upgrade
+# Task Contract
 
-## Programmer - Code
+Milestone: 7
 
-### Task - Write code - fix issues 
+Role: code
 
-### Details
+
+## Goals
+
+Primary Goal: Write code - fix issues
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+## Requirements
+
+To meet the goal for this task you must complete the following minor tasks.
+
 
 * Close all remaining issues
 * Complete all missing tests
-* Release checklist
+* Release checklist 
 
-    
+
+## Scoring
+
+The grade you will get for this task will be determined by the number of 
+key requirements that you meet.
+
+The score will be calculated as...
+
+10 points total for Write code - fix issues
+
+* 2 points for Close all remaining issues
+* 2 points for Complete all missing tests
+* 2 points for Release checklist 
+
+Two points will be given for each minor deliverable.  If you partially meet the
+requirement you will be given 1 point for trying.  Work must be completed by the
+deadline.  No late work will be graded.
+

@@ -1,14 +1,43 @@
-# Milestone #3 - Core Features Implemented
+# Task Contract
 
-## Designer - Design
+Milestone: 3
 
-### Task - Component Design - API 
+Role: design
 
-### Details
+
+## Goals
+
+Primary Goal: Component Design - API
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+## Requirements
+
+To meet the goal for this task you must complete the following minor tasks.
+
 
 * Prototype - development spike of core functionality
 * Implement data models
 * Implement views
-* Implement URL routes
+* Implement URL routes 
 
-    
+
+## Scoring
+
+The grade you will get for this task will be determined by the number of 
+key requirements that you meet.
+
+The score will be calculated as...
+
+10 points total for Component Design - API
+
+* 2 points for Prototype - development spike of core functionality
+* 2 points for Implement data models
+* 2 points for Implement views
+* 2 points for Implement URL routes 
+
+Two points will be given for each minor deliverable.  If you partially meet the
+requirement you will be given 1 point for trying.  Work must be completed by the
+deadline.  No late work will be graded.
+

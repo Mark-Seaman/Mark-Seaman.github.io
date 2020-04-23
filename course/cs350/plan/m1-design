@@ -1,15 +1,45 @@
-# Milestone #1 - Project Plan Complete
+# Task Contract
 
-## Designer - Design
+Milestone: 1
 
-### Task - Technology selection 
+Role: design
 
-### Details
+
+## Goals
+
+Primary Goal: Technology selection
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+## Requirements
+
+To meet the goal for this task you must complete the following minor tasks.
+
 
 * Select Development Tools
-* Infrastructure - Frameworks & Tools
+* Infrastructure - Frameworks &amp; Tools
 * Setup Guide
-* Create "Hello World"
-* Decide on App deployment
+* Create &quot;Hello World&quot;
+* Decide on App deployment 
 
-    
+
+## Scoring
+
+The grade you will get for this task will be determined by the number of 
+key requirements that you meet.
+
+The score will be calculated as...
+
+10 points total for Technology selection
+
+* 2 points for Select Development Tools
+* 2 points for Infrastructure - Frameworks &amp; Tools
+* 2 points for Setup Guide
+* 2 points for Create &quot;Hello World&quot;
+* 2 points for Decide on App deployment 
+
+Two points will be given for each minor deliverable.  If you partially meet the
+requirement you will be given 1 point for trying.  Work must be completed by the
+deadline.  No late work will be graded.
+

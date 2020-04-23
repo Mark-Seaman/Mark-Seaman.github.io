@@ -1,13 +1,41 @@
-# Milestone #5 - Test Complete
+# Task Contract
 
-## Designer - Design
+Milestone: 5
 
-### Task - Help with Code 
+Role: design
 
-### Details
+
+## Goals
+
+Primary Goal: Help with Code
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+## Requirements
+
+To meet the goal for this task you must complete the following minor tasks.
+
 
 * Implement all required features
 * Improve code structure
-* Ensure test quality
+* Ensure test quality 
 
-    
+
+## Scoring
+
+The grade you will get for this task will be determined by the number of 
+key requirements that you meet.
+
+The score will be calculated as...
+
+10 points total for Help with Code
+
+* 2 points for Implement all required features
+* 2 points for Improve code structure
+* 2 points for Ensure test quality 
+
+Two points will be given for each minor deliverable.  If you partially meet the
+requirement you will be given 1 point for trying.  Work must be completed by the
+deadline.  No late work will be graded.
+

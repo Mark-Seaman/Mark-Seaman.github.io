@@ -1,14 +1,43 @@
-# Milestone #6 - Release
+# Task Contract
 
-## QA Engineer - Test
+Milestone: 6
 
-### Task - Issue tracking 
+Role: test
 
-### Details
+
+## Goals
+
+Primary Goal: Issue tracking
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+## Requirements
+
+To meet the goal for this task you must complete the following minor tasks.
+
 
 * Issues management workflow
 * Track metrics for issue found, fixed, outstanding
 * Test resolved issue
-* Close issues that pass test
+* Close issues that pass test 
 
-    
+
+## Scoring
+
+The grade you will get for this task will be determined by the number of 
+key requirements that you meet.
+
+The score will be calculated as...
+
+10 points total for Issue tracking
+
+* 2 points for Issues management workflow
+* 2 points for Track metrics for issue found, fixed, outstanding
+* 2 points for Test resolved issue
+* 2 points for Close issues that pass test 
+
+Two points will be given for each minor deliverable.  If you partially meet the
+requirement you will be given 1 point for trying.  Work must be completed by the
+deadline.  No late work will be graded.
+

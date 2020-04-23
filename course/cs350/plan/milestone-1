@@ -1,13 +1,20 @@
+# Milestone 1 - Project Plan Complete
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+## Requirements
+
 # Task Contract
 
 Milestone: 1
 
-Role: test
+Role: requirements
 
 
 ## Goals
 
-Primary Goal: Test Plan
+Primary Goal: Project Charter
 
 This milestone is for some unknown purpose.  Just do it anyway!
 
@@ -17,10 +24,10 @@ This milestone is for some unknown purpose.  Just do it anyway!
 To meet the goal for this task you must complete the following minor tasks.
 
 
-* Outline of testing that will be used
-* Setup structure for testing
-* Log issues
-* Document how to log issues 
+* Business proposition
+* Project scope &amp;amp; budget
+* Client communication
+* Sprint Planning meetings 
 
 
 ## Scoring
@@ -30,14 +37,31 @@ key requirements that you meet.
 
 The score will be calculated as...
 
-10 points total for Test Plan
+10 points total for Project Charter
 
-* 2 points for Outline of testing that will be used
-* 2 points for Setup structure for testing
-* 2 points for Log issues
-* 2 points for Document how to log issues 
+* 2 points for Business proposition
+* 2 points for Project scope &amp;amp; budget
+* 2 points for Client communication
+* 2 points for Sprint Planning meetings 
 
 Two points will be given for each minor deliverable.  If you partially meet the
 requirement you will be given 1 point for trying.  Work must be completed by the
 deadline.  No late work will be graded.
+
+
+
+
+## Design
+
+no requirements
+
+
+## Code
+
+no requirements
+
+
+## Test
+
+no requirements
 

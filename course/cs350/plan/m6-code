@@ -1,13 +1,41 @@
-# Milestone #6 - Release
+# Task Contract
 
-## Programmer - Code
+Milestone: 6
 
-### Task - Write code - debug 
+Role: code
 
-### Details
+
+## Goals
+
+Primary Goal: Write code - debug
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+## Requirements
+
+To meet the goal for this task you must complete the following minor tasks.
+
 
 * Extend test cases
 * Work with burn-down graph
-* Implement regression test cases
+* Implement regression test cases 
 
-    
+
+## Scoring
+
+The grade you will get for this task will be determined by the number of 
+key requirements that you meet.
+
+The score will be calculated as...
+
+10 points total for Write code - debug
+
+* 2 points for Extend test cases
+* 2 points for Work with burn-down graph
+* 2 points for Implement regression test cases 
+
+Two points will be given for each minor deliverable.  If you partially meet the
+requirement you will be given 1 point for trying.  Work must be completed by the
+deadline.  No late work will be graded.
+
