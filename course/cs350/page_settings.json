@@ -7,7 +7,7 @@
     "document": "course/Index.md",
     "css": "/static/css/unc.css",
     "home": [
-        "CS 350 - Software Engineering",
+        "Development Plan",
         "/course/cs350/Index.md"
     ],
     "settings": "course/cs350/page_settings.json"
