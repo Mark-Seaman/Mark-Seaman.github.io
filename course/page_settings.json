@@ -5,7 +5,7 @@
     "logo": "/static/images/SWS_Logo_200.jpg",
     "icon": "/static/favicon.ico",
     "document": "course/Index",
-    "css": "/static/css/buide.css",
+    "css": "/static/css/guide.css",
     "home": [
         "Practical Engineering Courses",
         "/course/Index"
