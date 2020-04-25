@@ -1,6 +1,6 @@
-## Task Contract
+## Role: test
 
-### Milestone: 6  Role: test
+### Milestone: 6  - Release
 
 
 ### Requirements
@@ -17,5 +17,3 @@ To meet the goal for this task you must complete the following minor tasks.
 * Track metrics for issue found, fixed, outstanding
 * Test resolved issue
 * Close issues that pass test 
-
-

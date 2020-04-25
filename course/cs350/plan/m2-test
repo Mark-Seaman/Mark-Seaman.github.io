@@ -1,6 +1,6 @@
-## Task Contract
+## Role: test
 
-### Milestone: 2  Role: test
+### Milestone: 2  - Technology Proven
 
 
 ### Requirements
@@ -16,5 +16,3 @@ To meet the goal for this task you must complete the following minor tasks.
 * Unit test framework
 * System testing framework
 * Regression testing 
-
-

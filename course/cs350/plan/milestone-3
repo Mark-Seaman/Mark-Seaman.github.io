@@ -5,9 +5,9 @@ This milestone is for some unknown purpose.  Just do it anyway!
 
 ## Requirements
 
-## Task Contract
+## Role: requirements
 
-### Milestone: 3  Role: requirements
+### Milestone: 3  - Core Features Implemented
 
 
 ### Requirements
@@ -25,13 +25,11 @@ To meet the goal for this task you must complete the following minor tasks.
 
 
 
-
-
 ## Design
 
-## Task Contract
+## Role: design
 
-### Milestone: 3  Role: design
+### Milestone: 3  - Core Features Implemented
 
 
 ### Requirements
@@ -51,13 +49,11 @@ To meet the goal for this task you must complete the following minor tasks.
 
 
 
-
-
 ## Code
 
-## Task Contract
+## Role: code
 
-### Milestone: 3  Role: code
+### Milestone: 3  - Core Features Implemented
 
 
 ### Requirements
@@ -77,13 +73,11 @@ To meet the goal for this task you must complete the following minor tasks.
 
 
 
-
-
 ## Test
 
-## Task Contract
+## Role: test
 
-### Milestone: 3  Role: test
+### Milestone: 3  - Core Features Implemented
 
 
 ### Requirements
@@ -99,7 +93,5 @@ To meet the goal for this task you must complete the following minor tasks.
 * Unit testing
 * System testing
 * Code coverage of tests 
-
-
 
 

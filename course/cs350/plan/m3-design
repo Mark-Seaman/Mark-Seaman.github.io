@@ -1,6 +1,6 @@
-## Task Contract
+## Role: design
 
-### Milestone: 3  Role: design
+### Milestone: 3  - Core Features Implemented
 
 
 ### Requirements
@@ -17,5 +17,3 @@ To meet the goal for this task you must complete the following minor tasks.
 * Implement data models
 * Implement views
 * Implement URL routes 
-
-

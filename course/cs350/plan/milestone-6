@@ -5,9 +5,9 @@ This milestone is for some unknown purpose.  Just do it anyway!
 
 ## Requirements
 
-## Task Contract
+## Role: requirements
 
-### Milestone: 6  Role: requirements
+### Milestone: 6  - Release
 
 
 ### Requirements
@@ -25,13 +25,11 @@ To meet the goal for this task you must complete the following minor tasks.
 
 
 
-
-
 ## Design
 
-## Task Contract
+## Role: design
 
-### Milestone: 6  Role: design
+### Milestone: 6  - Release
 
 
 ### Requirements
@@ -50,13 +48,11 @@ To meet the goal for this task you must complete the following minor tasks.
 
 
 
-
-
 ## Code
 
-## Task Contract
+## Role: code
 
-### Milestone: 6  Role: code
+### Milestone: 6  - Release
 
 
 ### Requirements
@@ -75,13 +71,11 @@ To meet the goal for this task you must complete the following minor tasks.
 
 
 
-
-
 ## Test
 
-## Task Contract
+## Role: test
 
-### Milestone: 6  Role: test
+### Milestone: 6  - Release
 
 
 ### Requirements
@@ -98,7 +92,5 @@ To meet the goal for this task you must complete the following minor tasks.
 * Track metrics for issue found, fixed, outstanding
 * Test resolved issue
 * Close issues that pass test 
-
-
 
 

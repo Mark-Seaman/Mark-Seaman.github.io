@@ -1,6 +1,6 @@
-## Task Contract
+## Role: code
 
-### Milestone: 4  Role: code
+### Milestone: 4  - Functionality Complete
 
 
 ### Requirements
@@ -17,5 +17,3 @@ To meet the goal for this task you must complete the following minor tasks.
 * Test-driven workflow
 * Implementation Cycle - Test, Fix, Extend, Improve
 * Implement all core features 
-
-

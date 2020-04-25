@@ -1,6 +1,6 @@
-## Task Contract
+## Role: test
 
-### Milestone: 4  Role: test
+### Milestone: 4  - Functionality Complete
 
 
 ### Requirements
@@ -15,5 +15,3 @@ To meet the goal for this task you must complete the following minor tasks.
 
 * Build and test with every push
 * Implement Travis (CI tool) 
-
-
