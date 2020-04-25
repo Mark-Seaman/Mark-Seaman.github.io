@@ -7,12 +7,12 @@ This milestone is for some unknown purpose.  Just do it anyway!
 
 ## Task Contract
 
-### Milestone: 1  Role: requirements
+### Milestone: 7  Role: requirements
 
 
 ### Requirements
 
-Primary Goal: Project Charter
+Primary Goal: First maintenance roll
 
 This milestone is for some unknown purpose.  Just do it anyway!
 
@@ -20,10 +20,9 @@ This milestone is for some unknown purpose.  Just do it anyway!
 To meet the goal for this task you must complete the following minor tasks.
 
 
-* Business proposition
-* Project scope &amp;amp; budget
-* Client communication
-* Sprint Planning meetings 
+* Downtime management
+* Maintenace plan
+* Upgrade strategy 
 
 
 
@@ -31,15 +30,75 @@ To meet the goal for this task you must complete the following minor tasks.
 
 ## Design
 
-no requirements
+## Task Contract
+
+### Milestone: 7  Role: design
+
+
+### Requirements
+
+Primary Goal: Design future enhancements
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+To meet the goal for this task you must complete the following minor tasks.
+
+
+* Create plan for product upgrade
+* Archive the finish design
+* Update design documents 
+
+
+
 
 
 ## Code
 
-no requirements
+## Task Contract
+
+### Milestone: 7  Role: code
+
+
+### Requirements
+
+Primary Goal: Write code - fix issues
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+To meet the goal for this task you must complete the following minor tasks.
+
+
+* Close all remaining issues
+* Complete all missing tests
+* Release checklist 
+
+
+
 
 
 ## Test
 
-no requirements
+## Task Contract
+
+### Milestone: 7  Role: test
+
+
+### Requirements
+
+Primary Goal: Software Release
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+To meet the goal for this task you must complete the following minor tasks.
+
+
+* Release criteria
+* Maintenance plan
+* Server management 
+
+
+
 

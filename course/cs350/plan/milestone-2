@@ -7,12 +7,12 @@ This milestone is for some unknown purpose.  Just do it anyway!
 
 ## Task Contract
 
-### Milestone: 1  Role: requirements
+### Milestone: 2  Role: requirements
 
 
 ### Requirements
 
-Primary Goal: Project Charter
+Primary Goal: Setup communications
 
 This milestone is for some unknown purpose.  Just do it anyway!
 
@@ -20,10 +20,9 @@ This milestone is for some unknown purpose.  Just do it anyway!
 To meet the goal for this task you must complete the following minor tasks.
 
 
-* Business proposition
-* Project scope &amp;amp; budget
-* Client communication
-* Sprint Planning meetings 
+* Configure communication tools
+* Team communication
+* Plan daily meetings 
 
 
 
@@ -31,15 +30,75 @@ To meet the goal for this task you must complete the following minor tasks.
 
 ## Design
 
-no requirements
+## Task Contract
+
+### Milestone: 2  Role: design
+
+
+### Requirements
+
+Primary Goal: Software Architecture
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+To meet the goal for this task you must complete the following minor tasks.
+
+
+* Apps = Data + Views
+* Data models
+* Views and wireframes 
+
+
+
 
 
 ## Code
 
-no requirements
+## Task Contract
+
+### Milestone: 2  Role: code
+
+
+### Requirements
+
+Primary Goal: Test-driven development workflow
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+To meet the goal for this task you must complete the following minor tasks.
+
+
+* Build simple app
+* Build simple test
+* Document workflow built around tests 
+
+
+
 
 
 ## Test
 
-no requirements
+## Task Contract
+
+### Milestone: 2  Role: test
+
+
+### Requirements
+
+Primary Goal: Test Infrastructure
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+To meet the goal for this task you must complete the following minor tasks.
+
+
+* Unit test framework
+* System testing framework
+* Regression testing 
+
+
+
 

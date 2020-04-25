@@ -7,12 +7,12 @@ This milestone is for some unknown purpose.  Just do it anyway!
 
 ## Task Contract
 
-### Milestone: 1  Role: requirements
+### Milestone: 4  Role: requirements
 
 
 ### Requirements
 
-Primary Goal: Project Charter
+Primary Goal: Team coordinator
 
 This milestone is for some unknown purpose.  Just do it anyway!
 
@@ -20,10 +20,9 @@ This milestone is for some unknown purpose.  Just do it anyway!
 To meet the goal for this task you must complete the following minor tasks.
 
 
-* Business proposition
-* Project scope &amp;amp; budget
-* Client communication
-* Sprint Planning meetings 
+* Task Kanban
+* Prioritize feature requests
+* Sprint planning 
 
 
 
@@ -31,15 +30,75 @@ To meet the goal for this task you must complete the following minor tasks.
 
 ## Design
 
-no requirements
+## Task Contract
+
+### Milestone: 4  Role: design
+
+
+### Requirements
+
+Primary Goal: Refactoring and code structure
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+To meet the goal for this task you must complete the following minor tasks.
+
+
+* Create code analysis tools
+* Draw diagram of code structure
+* Refine key APIs 
+
+
+
 
 
 ## Code
 
-no requirements
+## Task Contract
+
+### Milestone: 4  Role: code
+
+
+### Requirements
+
+Primary Goal: Write code - core features
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+To meet the goal for this task you must complete the following minor tasks.
+
+
+* Implement User Stories
+* Test-driven workflow
+* Implementation Cycle - Test, Fix, Extend, Improve
+* Implement all core features 
+
+
+
 
 
 ## Test
 
-no requirements
+## Task Contract
+
+### Milestone: 4  Role: test
+
+
+### Requirements
+
+Primary Goal: Continuous integration
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+To meet the goal for this task you must complete the following minor tasks.
+
+
+* Build and test with every push
+* Implement Travis (CI tool) 
+
+
+
 

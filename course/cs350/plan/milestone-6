@@ -7,12 +7,12 @@ This milestone is for some unknown purpose.  Just do it anyway!
 
 ## Task Contract
 
-### Milestone: 1  Role: requirements
+### Milestone: 6  Role: requirements
 
 
 ### Requirements
 
-Primary Goal: Project Charter
+Primary Goal: Issues Review
 
 This milestone is for some unknown purpose.  Just do it anyway!
 
@@ -20,10 +20,8 @@ This milestone is for some unknown purpose.  Just do it anyway!
 To meet the goal for this task you must complete the following minor tasks.
 
 
-* Business proposition
-* Project scope &amp;amp; budget
-* Client communication
-* Sprint Planning meetings 
+* Acceptance criteria
+* Release checkpoint 
 
 
 
@@ -31,15 +29,76 @@ To meet the goal for this task you must complete the following minor tasks.
 
 ## Design
 
-no requirements
+## Task Contract
+
+### Milestone: 6  Role: design
+
+
+### Requirements
+
+Primary Goal: Resolve open design issues
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+To meet the goal for this task you must complete the following minor tasks.
+
+
+* Assist with defect fixing
+* Assist with completion of tests
+* Ensure test quality 
+
+
+
 
 
 ## Code
 
-no requirements
+## Task Contract
+
+### Milestone: 6  Role: code
+
+
+### Requirements
+
+Primary Goal: Write code - debug
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+To meet the goal for this task you must complete the following minor tasks.
+
+
+* Extend test cases
+* Work with burn-down graph
+* Implement regression test cases 
+
+
+
 
 
 ## Test
 
-no requirements
+## Task Contract
+
+### Milestone: 6  Role: test
+
+
+### Requirements
+
+Primary Goal: Issue tracking
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+To meet the goal for this task you must complete the following minor tasks.
+
+
+* Issues management workflow
+* Track metrics for issue found, fixed, outstanding
+* Test resolved issue
+* Close issues that pass test 
+
+
+
 

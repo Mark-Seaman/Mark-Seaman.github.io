@@ -7,12 +7,12 @@ This milestone is for some unknown purpose.  Just do it anyway!
 
 ## Task Contract
 
-### Milestone: 1  Role: requirements
+### Milestone: 5  Role: requirements
 
 
 ### Requirements
 
-Primary Goal: Project Charter
+Primary Goal: Project progress
 
 This milestone is for some unknown purpose.  Just do it anyway!
 
@@ -20,10 +20,9 @@ This milestone is for some unknown purpose.  Just do it anyway!
 To meet the goal for this task you must complete the following minor tasks.
 
 
-* Business proposition
-* Project scope &amp;amp; budget
-* Client communication
-* Sprint Planning meetings 
+* Burn down graph
+* Prioritize Features
+* Product backlog 
 
 
 
@@ -31,15 +30,75 @@ To meet the goal for this task you must complete the following minor tasks.
 
 ## Design
 
-no requirements
+## Task Contract
+
+### Milestone: 5  Role: design
+
+
+### Requirements
+
+Primary Goal: Help with Code
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+To meet the goal for this task you must complete the following minor tasks.
+
+
+* Implement all required features
+* Improve code structure
+* Ensure test quality 
+
+
+
 
 
 ## Code
 
-no requirements
+## Task Contract
+
+### Milestone: 5  Role: code
+
+
+### Requirements
+
+Primary Goal: Write code - functional complete
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+To meet the goal for this task you must complete the following minor tasks.
+
+
+* Implement all features
+* Test-driven workflow
+* Implementation Cycle - Test, Fix, Extend, Improve 
+
+
+
 
 
 ## Test
 
-no requirements
+## Task Contract
+
+### Milestone: 5  Role: test
+
+
+### Requirements
+
+Primary Goal: Acceptance testing
+
+This milestone is for some unknown purpose.  Just do it anyway!
+
+
+To meet the goal for this task you must complete the following minor tasks.
+
+
+* Work with Requirements specialist
+* Identify unmet customer needs
+* Develop client acceptance test 
+
+
+
 
