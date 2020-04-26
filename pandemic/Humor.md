@@ -27,9 +27,9 @@
 
 ### Armchair Epidemiology
 
-[Armchair Epidemiologist - Comedy](https://basic.facebook.com/abcnews.au/videos/253287289136013)
+[Armchair Epidemiologist - Comedy](https://www.facebook.com/abcnews.au/videos/253287289136013)
 
-<iframe width="738" height="390" src="https://basic.facebook.com/abcnews.au/videos/253287289136013" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="1000" height="1000" src="https://www.facebook.com/abcnews.au/videos/253287289136013" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 [Flatten the Curve](https://medium.com/@noahhaber/flatten-the-curve-of-armchair-epidemiology-9aa8cf92d652)
 
