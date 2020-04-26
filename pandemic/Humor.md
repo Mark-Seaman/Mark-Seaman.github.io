@@ -7,7 +7,7 @@
 
 ---
 
-### No so funny now!
+### In like a Lion
 
 ![](img/lion.jpg)
 
@@ -20,16 +20,17 @@
 [Nurse Humor](https://www.facebook.com/ZDoggMD/videos/3018292194859296/)
 
 
-### Replacement Park Rangers
-
-[Bears at Yellowstone](https://www.facebook.com/tedkim1/videos/10157040847205060/)
-
-
 ### Armchair Epidemiology
+
+<iframe width="750" height="422" src="https://www.youtube.com/embed/FDhyjgPetQE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 [Armchair Epidemiologist - Comedy](https://www.facebook.com/abcnews.au/videos/253287289136013)
 
-<iframe width="1000" height="1000" src="https://www.facebook.com/abcnews.au/videos/253287289136013" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 [Flatten the Curve](https://medium.com/@noahhaber/flatten-the-curve-of-armchair-epidemiology-9aa8cf92d652)
+
+
+### Replacement Park Rangers
+
+<iframe width="750" height="550" src="https://www.youtube.com/embed/Eus0b54Wbdk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
