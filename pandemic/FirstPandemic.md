@@ -4,6 +4,8 @@ by Mark Seaman
 
 ![](img/coronavirus.png)
 
+[Pandemic Blues Journal](./)
+
 ---
 
 I'll never forget my first global pandemic.  For me it happened on March 9, 2020.

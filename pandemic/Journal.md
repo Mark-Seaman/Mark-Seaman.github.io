@@ -4,6 +4,8 @@ by Mark Seaman
 
 ![](img/coronavirus.png)
 
+[Pandemic Blues Journal](./)
+
 ---
 
 These are crazy times. We are experiencing the greatest global turmoil since World War II.
