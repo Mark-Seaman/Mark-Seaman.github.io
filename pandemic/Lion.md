@@ -1,10 +1,13 @@
 # Like a Lion
 
-![](img/lion.jpg)
 
-[Pandemic Blues Journal](./)
+![](img/coronavirus.png)
+
+[Pandemic Blues Journal](Index)
 
 ---
 
 No so funny now!
+
+![](img/lion.jpg)
 

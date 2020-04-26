@@ -4,7 +4,7 @@ Australia and New Zealand Aim to Show the Way
 
 ![](img/coronavirus.png)
 
-[Pandemic Blues Journal](./)
+[Pandemic Blues Journal](Index)
 
 ---
 

@@ -6,7 +6,7 @@ by Mark Seaman
 
 ![](img/coronavirus.png)
 
-[Pandemic Blues Journal](./)
+[Pandemic Blues Journal](Index)
 
 ---
 
