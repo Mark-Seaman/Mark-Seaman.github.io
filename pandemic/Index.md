@@ -20,3 +20,5 @@ A fresh look at the strange times we are now experiencing.
 * [In like a Lion](Lion)
 * [What We Remember](WhatWeRemember)
 * [Pantograph COVID-19 Interview](PantographInterview)
+* [Church Gone Viral](ViralChurch)
+
