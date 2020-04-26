@@ -2,6 +2,14 @@
 
 What ... Too Soon?
 
+by Mark Seaman
+
+![](img/coronavirus.png)
+
+[Pandemic Blues Journal](Index)
+
+---
+
 When the pandemic hits, life does not stop it just morphs into something else.
 
 We have moved all our meeting online. 

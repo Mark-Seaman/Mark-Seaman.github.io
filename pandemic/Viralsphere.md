@@ -1,5 +1,13 @@
 # Whose in your Viralsphere?
 
+by Mark Seaman
+
+![](img/coronavirus.png)
+
+[Pandemic Blues Journal](Index)
+
+---
+
 This is a question that I never used to ponder.  But that was in a different age.
 Epidemics were a thing of books and movies, the simple figments of a dark imagination.
 

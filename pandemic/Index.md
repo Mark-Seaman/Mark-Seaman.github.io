@@ -32,5 +32,5 @@ Pantograph Project
 Encouragement
 
 * [What We Remember](WhatWeRemember)
-* [In like a Lion](Lion)
+* [Harmless Humor](Humor)
 
