@@ -1,4 +1,6 @@
-# Course Schedule - bacs350-php
+# Course Schedule - BACS 350 using PHP/MySQL
+
+UNC Fall 2019
 
 * 08/26/2019 - Week 1 - [Lesson 1 - Web Hosting](01.md)
 * 08/28/2019 - Week 1 - [Lesson 2 - Includes](02.md)
