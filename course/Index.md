@@ -4,10 +4,10 @@
 
 At Shrinking World Solutions, we believe that learning about technology should
 lead to  skills that can be immediately applied to real-world projects.
-Therefore the techniques that are used in the learning process must be  updated
-to match the needs of modern students.
+Therefore teaching techniques must be constantly updated
+to meet the needs of modern students.
 
-Our vision is to produce high impact training that will give you the
+Our vision is to produce high-impact training that will give you the
 maximum capability for the hours invested.
 There are several aspects that define our approach to learning and are a radical
 departure from other training that is available.
