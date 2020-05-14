@@ -14,13 +14,18 @@ Personal Experiences
 * [Pandemic Blues Journal](Journal)
 * [Family News](FamilyNews)
 * [My First Pandemic](FirstPandemic)
-* [Pandemic Homeschool](Homeschool)
+
+Healthy Living
+
+* [Are you suffering from CTSD?](CTSD)
 * [Whose in your Viralsphere?](Viralsphere)
 * [Church Gone Viral](ViralChurch)
+* [Dr. Henry Cloud](https://www.facebook.com/142718314570/videos/2561055133999253)
+* [How to Grow from Your Pain](https://markmanson.net/how-to-grow-from-your-pain)
+* [Coronavirus Grieving The World We Lost](https://www.youtube.com/watch?v=oz6R20pdAIQ)
 
 Information
 
-* [Are you suffering from CTSD?](CTSD)
 * [Symptoms of COVID-19](Symptoms)
 * [The Optimist](Optimist)
 * [Australia and New Zealand Aim to Show the Way](VanquishVirus)
@@ -31,6 +36,6 @@ Pantograph Project
 
 Encouragement
 
-* [What We Remember](WhatWeRemember)
 * [Harmless Humor](Humor)
+* [Pandemic Homeschool](Homeschool)
 
