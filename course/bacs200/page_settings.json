@@ -6,7 +6,7 @@
     "icon": "https://shrinking-world.com/static/favicon.ico",
     "document": "course/Index",
     "image_path": "/course/images",
-    "css": "unc.css",
+    "css": "/static/css/unc.css",
     "home": [
         "Practical Engineering Courses",
         "/course/Index"
