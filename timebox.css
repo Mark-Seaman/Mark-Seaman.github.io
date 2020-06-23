@@ -1,0 +1,48 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+/*
+h1 {
+    color: green;
+}
+*/
+
+.box {
+    border: 1px solid green;
+    /*    margin: 10px;*/
+    text-align: center;
+}
+
+.public {
+    /*    padding: 10px;*/
+    /*    border: 3px solid gray;*/
+    float: left;
+}
+
+.private {
+    /*    padding: 10px;*/
+    /*    border: 3px solid gray;*/
+    float: left;
+}
+
+.green {
+    color: green;
+    border: 1px solid green;
+}
+
+.red {
+    color: red;
+    border: 1px solid red;
+}
+
+.orange {
+    color: orange;
+    border: 1px solid orange;
+}
+
+.blue {
+    color: blue;
+    border: 1px solid blue;
+}
