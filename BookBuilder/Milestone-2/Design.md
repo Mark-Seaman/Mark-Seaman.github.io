@@ -14,11 +14,11 @@
 
 * File: Milestone-2/Design.md
 
-* URL: https://github.com/Mark-Seaman/BookBuilder/tree/master/Milestone-2/Design.md
+* URL: https://github.com/Mark-Seaman/Mark-Seaman.github.io/blob/master/BookBuilder/Milestone-2/Design.md
 
 * Documents: Documents/swplan/BookBuilder
 
-* Git Repo: Mark-Seaman/BookBuilder
+* Git Repo: Mark-Seaman.github.io
 
 
 
