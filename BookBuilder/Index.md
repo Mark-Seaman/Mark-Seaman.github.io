@@ -2,7 +2,7 @@
 
 
 ## PROJECT INFO
-* File: https://github.com/Mark-Seaman/Mark-Seaman.github.io/BookBuilder/tree/master/Index.md
+* File: https://github.com/Mark-Seaman/Mark-Seaman.github.io/blob/master/BookBuilder/Index.md
 * Documents: Documents/swplan/BookBuilder
 * Git Repo: Mark-Seaman/BookBuilder
 
