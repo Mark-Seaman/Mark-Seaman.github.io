@@ -1,0 +1,50 @@
+# Milestone 7. First Upgrade - Code
+
+
+## PROJECT INFO
+
+* [Software Project Plan - Book Builder](../Index.md)
+
+* Other Roles - [Requirements.md](Requirements.md)
+, [Design.md](Design.md)
+, [Code.md](Code.md)
+, [Test.md](Test.md)
+
+
+
+* File: Milestone-7/Code.md
+
+* URL: https://github.com/Mark-Seaman/BookBuilder/tree/master/Milestone-7/Code.md
+
+* Documents: Documents/swplan/BookBuilder
+
+* Git Repo: Mark-Seaman/BookBuilder
+
+
+
+
+### Milestone 7. First Upgrade
+
+
+
+Role: Programmer - Code
+
+Goal: Write code - fix issues
+
+* Close all remaining issues
+* Complete all missing tests
+* Release checklist
+
+
+
+## Book Builder - Write code - fix issues
+
+
+
+### Close all remaining issues
+
+
+### Complete all missing tests
+
+
+### Release checklist
