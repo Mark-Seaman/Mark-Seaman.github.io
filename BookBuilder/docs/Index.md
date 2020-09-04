@@ -30,3 +30,8 @@
 * Create a Web App
 * Configure the Web App
 
+## Testing
+
+* [Milestone-1/Test](../Milestone-1/Test.md)
+* [Test Docs](TestDocs)
+
