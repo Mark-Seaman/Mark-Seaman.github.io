@@ -25,10 +25,11 @@
 
 ## Web Hosting at Python Anywhere
 
-* Register at Python Anywhere
-* Running the Console
-* Create a Web App
-* Configure the Web App
+* [Setup Python Anywhere](PythonAnywhere.md)
+    * Register at Python Anywhere
+    * Running the Console
+    * Create a Web App
+    * Configure the Web App
 
 ## Testing
 
