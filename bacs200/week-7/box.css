@@ -1,25 +1,28 @@
 * {
-    border: dashed 1px blue;
-    padding: 10px;
-    margin: 50px;
+/*    border: dashed 1px blue;*/
+    padding: 0px;
+    margin: 0px;
+    border: dashed 1px gray;
 }
 
 body {
-    border: solid 3px black;
-    background-color: gray;
+/*    border: solid 3px black;*/
+/*    background-color: gray;*/
+    padding: 50px;
 }
 
 header {
-    border: solid 3px blue;
-    background-color: lightblue;
+/*    border: solid 3px blue;*/
+/*    background-color: lightblue;*/
+    padding: 100px;
 }
 
 footer {
-    border: solid 3px green;
-    background-color: lightgreen;
+/*    border: solid 3px green;*/
+/*    background-color: lightgreen;*/
 }
 
 main {
-    border: solid 3px yellow;
+/*    border: solid 3px yellow;*/
     background-color: white;
 }
