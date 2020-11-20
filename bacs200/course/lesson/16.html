@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson 16</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+
+        <div class="container">
+
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <a href="https://shrinking-world.com" class="navbar-brand">Shrinking World</a>
+
+                <ul class="navbar-nav ml-auto">
+
+                    
+                        <li class="nav-item ">
+                            <a href="https://markseaman.org" class="nav-link">Mark Seaman</a>
+                        </li>
+                    
+                        <li class="nav-item ">
+                            <a href="https://seamanslog.com" class="nav-link">Blog</a>
+                        </li>
+                    
+                        <li class="nav-item active">
+                            <a href="https://shrinking-world.com/course" class="nav-link">Courses</a>
+                        </li>
+                    
+                        <li class="nav-item ">
+                            <a href="https://shrinking-world.com/book" class="nav-link">Books</a>
+                        </li>
+                    
+
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+    
+        <li
+                
+                    class="nav-item mr-3"
+                
+        >
+            <a class="nav-link" href="/course//register">
+                <i class="fas fa-user-plus"></i> Register</a>
+        </li>
+        <li
+                
+                    class="nav-item mr-3"
+                
+        >
+            <a class="nav-link" href="/course//login">
+                <i class="fas fa-sign-in-alt"></i>
+
+                Login</a>
+        </li>
+    
+</ul>
+
+            </div>
+        </div>
+
+    </nav>
+
+
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../lesson/02.html">UNC BACS 200</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Dev Intro</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../lesson/img/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-16---testing">Lesson 16 - Testing</h1>
+<h2 id="learn">LEARN</h2>
+<h3 id="reading-for-today">Reading for Today</h3>
+<ul>
+<li><a href="https://learn.zybooks.com/zybook/UNCOBACS200SeamanFall2020/chapter/2/section/9">2.9 Band web page</a></li>
+<li>Follow <a href="/course/bacs200/docs/ZybooksReading">Reading Schedule</a></li>
+</ul>
+<h3 id="office-hours">Office Hours</h3>
+<ul>
+<li>If you need help please attend office hours</li>
+<li>Check the Canvas page for details</li>
+<li>Syllabus had an issue and is now fixed</li>
+</ul>
+<h3 id="zoom-recordings">Zoom Recordings</h3>
+<p><a href="/course/bacs200/docs/ZoomLectures" class="unc-button">Lecture</a></p>
+<ul>
+<li>Each session will be recorded for your education</li>
+<li>Use this page to see how to get to the live sessions and office hours</li>
+</ul>
+<h3 id="embedded-video">Embedded Video</h3>
+<ul>
+<li>Some videos do not load properly</li>
+<li>Some pages do not allow videos to be embedded</li>
+<li>Find images at YouTube (with &quot;Copy Embed Code&quot;)</li>
+</ul>
+<h3 id="testing-practices">Testing Practices</h3>
+<ul>
+<li>Trick 1 - Setup a good workflow</li>
+<li>Trick 2 - Browser bookmarks</li>
+<li>Trick 3 - Create a project page</li>
+<li>Trick 4 - Run the validator on a page</li>
+<li>Trick 5 - Create a table of links</li>
+<li>Trick 6 - Link to your key resources</li>
+</ul>
+<h3 id="trick-1---setup-a-good-workflow">Trick 1 - Setup a good workflow</h3>
+<ul>
+<li>Arrange Windows - Browser, Editor, Github Desktop</li>
+<li>Learn the shortcuts</li>
+<li>Free your mind for thinking</li>
+<li>Use Emmet</li>
+<li>Commit often</li>
+<li>Make a small change to process every day</li>
+</ul>
+<h3 id="trick-2---browser-bookmarks">Trick 2 - Browser bookmarks</h3>
+<ul>
+<li>Turn on bookmark toolbar</li>
+<li>Local test for current page</li>
+<li>Remote test for current page</li>
+<li>Github website</li>
+<li>Sensei Dashboard</li>
+</ul>
+<h3 id="trick-3---create-a-project-page">Trick 3 - Create a project page</h3>
+<ul>
+<li>Build a page for links to speed up development</li>
+<li>Use name &quot;test.html&quot;</li>
+<li>Remove it when project is totally done</li>
+<li>Gradually add useful content</li>
+</ul>
+<h3 id="trick-4---run-the-validator-on-a-page">Trick 4 - Run the validator on a page</h3>
+<ul>
+<li>Go to validator</li>
+<li>Validate your desired page</li>
+<li>Copy URL of validation page to your test page</li>
+</ul>
+<p>https://validator.w3.org/nu/?doc=https://shrinking-world.com/course/bacs200</p>
+<p>Create a hyperlink</p>
+<p><a href="https://validator.w3.org/nu/?doc=https://shrinking-world.com/course/bacs200">Validate Me</a></p>
+<h3 id="trick-5---create-a-table-of-links">Trick 5 - Create a table of links</h3>
+<ul>
+<li><a href="https://mark-seaman.github.io/bacs200/test.html">Mark's Test Page</a></li>
+<li>Check out my page for ideas</li>
+<li>Build your own content over time</li>
+</ul>
+<h3 id="trick-6---link-to-your-key-resources">Trick 6 - Link to your key resources</h3>
+<ul>
+<li>You will use the same resources repeatedly</li>
+<li>Get to any resource within 3 seconds</li>
+</ul>
+<h3 id="trick-7---use-iframes-to-fetch-pages">Trick 7 - Use iframes to fetch pages</h3>
+<ul>
+<li><a href="https://mark-seaman.github.io/bacs200/test.html">Mark's Test Page</a></li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;iframe</span><span class="ot"> src=</span><span class="st">&quot;https://mark-seaman.github.io/bacs200/index.html&quot;</span><span class="ot"> frameborder=</span><span class="st">&quot;1&quot;</span><span class="ot"> height=</span><span class="st">&quot;500px&quot;</span><span class="ot"> width=</span><span class="st">&quot;100%&quot;</span><span class="kw">&gt;&lt;/iframe&gt;</span></code></pre>
+<h2 id="build">BUILD</h2>
+<ul>
+<li>Part 1 - URL Game</li>
+<li>Part 2 - Log an Issue</li>
+<li>Part 3 - Build a test page with links</li>
+<li>No more design reviews (postponed to next week)</li>
+</ul>
+<h3 id="project-6">Project 6</h3>
+<ul>
+<li><a href="../project/06">Project Instructions</a></li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

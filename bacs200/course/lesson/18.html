@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson 18</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+
+        <div class="container">
+
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <a href="https://shrinking-world.com" class="navbar-brand">Shrinking World</a>
+
+                <ul class="navbar-nav ml-auto">
+
+                    
+                        <li class="nav-item ">
+                            <a href="https://markseaman.org" class="nav-link">Mark Seaman</a>
+                        </li>
+                    
+                        <li class="nav-item ">
+                            <a href="https://seamanslog.com" class="nav-link">Blog</a>
+                        </li>
+                    
+                        <li class="nav-item active">
+                            <a href="https://shrinking-world.com/course" class="nav-link">Courses</a>
+                        </li>
+                    
+                        <li class="nav-item ">
+                            <a href="https://shrinking-world.com/book" class="nav-link">Books</a>
+                        </li>
+                    
+
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+    
+        <li
+                
+                    class="nav-item mr-3"
+                
+        >
+            <a class="nav-link" href="/course//register">
+                <i class="fas fa-user-plus"></i> Register</a>
+        </li>
+        <li
+                
+                    class="nav-item mr-3"
+                
+        >
+            <a class="nav-link" href="/course//login">
+                <i class="fas fa-sign-in-alt"></i>
+
+                Login</a>
+        </li>
+    
+</ul>
+
+            </div>
+        </div>
+
+    </nav>
+
+
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../lesson/02.html">UNC BACS 200</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Dev Intro</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../lesson/img/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-18---text-color">Lesson 18 - Text &amp; Color</h1>
+<h2 id="learn">LEARN</h2>
+<h3 id="reading-for-today">Reading for Today</h3>
+<ul>
+<li><a href="https://learn.zybooks.com/zybook/UNCOBACS200SeamanFall2020/chapter/3/section/2">3.2 Basic selectors</a></li>
+<li>Follow <a href="/course/bacs200/docs/ZybooksReading">Reading Schedule</a></li>
+</ul>
+<h3 id="office-hours">Office Hours</h3>
+<ul>
+<li>If you need help please attend office hours</li>
+<li>Check the Canvas page for details</li>
+<li>Syllabus had an issue and is now fixed</li>
+</ul>
+<h3 id="zoom-recordings">Zoom Recordings</h3>
+<p><a href="/course/bacs200/docs/ZoomLectures" class="unc-button">Lecture</a></p>
+<ul>
+<li>Each session will be recorded for your education</li>
+<li>Use this page to see how to get to the live sessions and office hours</li>
+</ul>
+<h3 id="css-rule-set">CSS Rule Set</h3>
+<ul>
+<li>Example Rule Set</li>
+</ul>
+<pre class="sourceCode css"><code class="sourceCode css">h1 <span class="kw">{</span>
+    <span class="kw">font-family:</span> <span class="dt">serif</span><span class="kw">;</span>
+    <span class="kw">font-size:</span> <span class="dt">120%</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<h3 id="css-rule-set-1">CSS Rule Set</h3>
+<ul>
+<li>CSS syntax</li>
+</ul>
+<pre class="sourceCode css"><code class="sourceCode css">selector <span class="kw">{</span>
+    <span class="kw">property:</span> value<span class="kw">;</span>   <span class="co">/* one rule */</span>
+    <span class="kw">property:</span> value<span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<h3 id="hooking-up-css">Hooking up CSS</h3>
+<ul>
+<li>Link the Stylesheet to each HTML page</li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;styles.css&quot;</span><span class="kw">&gt;</span>
+<span class="kw">&lt;/head&gt;</span></code></pre>
+<h3 id="css-property-groups">CSS Property Groups</h3>
+<ul>
+<li>Text</li>
+<li>Color</li>
+<li>Spacing</li>
+<li>Borders</li>
+</ul>
+<h3 id="text-properties">Text Properties</h3>
+<ul>
+<li>font-family</li>
+<li>font-size</li>
+<li>font-weight</li>
+<li>text-align</li>
+<li>text-shadow</li>
+</ul>
+<h3 id="font-family">font-family</h3>
+<ul>
+<li>Inherited by all descendants</li>
+</ul>
+<pre class="sourceCode css"><code class="sourceCode css">body <span class="kw">{</span>
+    <span class="kw">font-family:</span> Arial, Helvetica, <span class="dt">sans-serif</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+p <span class="kw">{</span>
+    <span class="kw">font-family:</span> <span class="st">&quot;Times New Roman&quot;</span>, Times, <span class="dt">serif</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<h3 id="size-units">Size Units</h3>
+<ul>
+<li>Units of size for values</li>
+</ul>
+<pre><code>20px - 20 pixels
+10pt - 10 points
+2em - twice the line height (M)
+50% - half the size</code></pre>
+<h3 id="font-size">font-size</h3>
+<ul>
+<li>Multiple units</li>
+</ul>
+<pre class="sourceCode css"><code class="sourceCode css">p <span class="kw">{</span>
+    <span class="kw">font-size:</span> <span class="dt">20px</span><span class="kw">;</span>  <span class="co">/* in pixels */</span>
+    <span class="kw">font-size:</span> <span class="dt">12pt</span><span class="kw">;</span>  <span class="co">/* in points */</span>
+    <span class="kw">font-size:</span> <span class="dt">150%</span><span class="kw">;</span>  <span class="co">/* parent element */</span>
+    <span class="kw">font-size:</span> <span class="dt">1.5em</span><span class="kw">;</span>  <span class="co">/* M is line height */</span>
+<span class="kw">}</span></code></pre>
+<h3 id="font-weight">font-weight</h3>
+<ul>
+<li>Special font treatment</li>
+</ul>
+<pre class="sourceCode css"><code class="sourceCode css">p <span class="kw">{</span>
+    <span class="kw">font-weight:</span> <span class="dt">400</span><span class="kw">;</span>  <span class="co">/* normal */</span>
+    <span class="kw">font-weight:</span> <span class="dt">normal</span><span class="kw">;</span>  <span class="co">/* 400 */</span>
+
+    <span class="kw">font-weight:</span> <span class="dt">700</span><span class="kw">;</span>  <span class="co">/* bold */</span>
+    <span class="kw">font-weight:</span> <span class="dt">bold</span><span class="kw">;</span>  <span class="co">/* 700 */</span>
+
+    <span class="kw">font-weight:</span> <span class="dt">lighter</span><span class="kw">;</span>  <span class="co">/* parent element */</span>
+<span class="kw">}</span></code></pre>
+<h3 id="text-align">text-align</h3>
+<ul>
+<li>Where does the space go?</li>
+</ul>
+<pre class="sourceCode css"><code class="sourceCode css">p <span class="kw">{</span>
+    <span class="kw">text-align:</span> <span class="dt">left</span><span class="kw">;</span>
+    <span class="kw">text-align:</span> <span class="dt">center</span><span class="kw">;</span>
+    <span class="kw">text-align:</span> <span class="dt">right</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<h3 id="text-shadow">text-shadow</h3>
+<ul>
+<li>Give a 3D look</li>
+</ul>
+<pre class="sourceCode css"><code class="sourceCode css">h1 <span class="kw">{</span>
+    <span class="kw">text-shadow:</span> <span class="dt">2px</span> <span class="dt">2px</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+h2 <span class="kw">{</span>
+    <span class="kw">text-shadow:</span> <span class="dt">-2px</span> <span class="dt">-2px</span> <span class="dt">4px</span> <span class="dt">yellow</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<h3 id="font">font</h3>
+<ul>
+<li>Shorthand font property</li>
+</ul>
+<pre class="sourceCode css"><code class="sourceCode css">p <span class="kw">{</span>
+    <span class="kw">font:</span> <span class="dt">italic</span> <span class="dt">bold</span> <span class="dt">16px</span> Arial, <span class="dt">sans-serif</span><span class="kw">;</span>
+    <span class="kw">font:</span> <span class="dt">120%</span> Times<span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<h3 id="color-properties">Color Properties</h3>
+<ul>
+<li>color</li>
+<li>background-color</li>
+</ul>
+<h3 id="color-values">Color Values</h3>
+<ul>
+<li>By Name</li>
+<li>By RGB</li>
+<li>By Hexidecimal</li>
+</ul>
+<pre class="sourceCode css"><code class="sourceCode css">h1 <span class="kw">{</span>
+    <span class="kw">color:</span> <span class="dt">rgb(20%</span>, <span class="dt">20%</span>, <span class="dt">20%)</span><span class="kw">;</span>  <span class="co">/* Red Green Blue */</span>
+    
+    <span class="kw">color:</span> <span class="dt">silver</span><span class="kw">;</span>              <span class="co">/* Named color */</span>
+    
+    <span class="kw">color:</span> <span class="dt">#0a0a0a</span><span class="kw">;</span>             <span class="co">/* Hex - Red Green Blue */</span>
+<span class="kw">}</span></code></pre>
+<h3 id="hexidecimal-values">Hexidecimal Values</h3>
+<pre><code>#01ffa5   -- Hex value
+
+R -- 01 (1)
+G -- ff (255)
+B -- a5 (165)</code></pre>
+<h3 id="hexidecimal-colors">Hexidecimal Colors</h3>
+<pre><code>#ffffff  -- white
+#000000  -- black
+#080808  -- gray
+
+#ff0000  -- red
+#00ff00  -- green
+#0000ff  -- blue</code></pre>
+<h2 id="build">BUILD</h2>
+<h3 id="css-demo">CSS Demo</h3>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/Mark-Seaman.github.io/tree/master/bacs200/week-7">Demo Code</a></li>
+<li>Study code so that you can reproduce these results</li>
+<li><a href="https://Mark-Seaman.github.io/bacs200/week-7/index.html">See Demo on Server</a></li>
+</ul>
+<h3 id="validator">Validator</h3>
+<ul>
+<li><a href="https://validator.w3.org/">Validate the HTML</a></li>
+<li><a href="http://jigsaw.w3.org/css-validator/">Validate the CSS</a></li>
+</ul>
+<h3 id="w3schools">W3Schools</h3>
+<ul>
+<li><a href="https://www.w3schools.com/css/default.asp">W3Schools - CSS</a></li>
+</ul>
+<h3 id="project-7---wanted-poster">Project 7 - Wanted Poster</h3>
+<ul>
+<li><a href="../project/07">Project Instructions</a></li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

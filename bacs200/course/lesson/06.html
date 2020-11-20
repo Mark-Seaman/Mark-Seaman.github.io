@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson 06</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+
+        <div class="container">
+
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <a href="https://shrinking-world.com" class="navbar-brand">Shrinking World</a>
+
+                <ul class="navbar-nav ml-auto">
+
+                    
+                        <li class="nav-item ">
+                            <a href="https://markseaman.org" class="nav-link">Mark Seaman</a>
+                        </li>
+                    
+                        <li class="nav-item ">
+                            <a href="https://seamanslog.com" class="nav-link">Blog</a>
+                        </li>
+                    
+                        <li class="nav-item active">
+                            <a href="https://shrinking-world.com/course" class="nav-link">Courses</a>
+                        </li>
+                    
+                        <li class="nav-item ">
+                            <a href="https://shrinking-world.com/book" class="nav-link">Books</a>
+                        </li>
+                    
+
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+    
+        <li
+                
+                    class="nav-item mr-3"
+                
+        >
+            <a class="nav-link" href="/course//register">
+                <i class="fas fa-user-plus"></i> Register</a>
+        </li>
+        <li
+                
+                    class="nav-item mr-3"
+                
+        >
+            <a class="nav-link" href="/course//login">
+                <i class="fas fa-sign-in-alt"></i>
+
+                Login</a>
+        </li>
+    
+</ul>
+
+            </div>
+        </div>
+
+    </nav>
+
+
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../lesson/02.html">UNC BACS 200</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Dev Intro</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../lesson/img/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-6---development-workflow">Lesson 6 - Development Workflow</h1>
+<h2 id="learn">LEARN</h2>
+<h3 id="please-enable-your-camera">Please enable your camera</h3>
+<ul>
+<li>Professional interactions</li>
+<li>I need to see your reactions</li>
+<li>We want to have a rich learning experience</li>
+</ul>
+<h3 id="read-lesson-6">Read lesson 6</h3>
+<ul>
+<li>Read Lesson 6 - Today, Wed, Sep 4</li>
+<li>Follow <a href="/course/bacs200/docs/ZybooksReading">Reading Schedule</a></li>
+<li><a href="https://learn.zybooks.com/zybook/UNCOBACS200SeamanFall2020/chapter/1/section/6">1.6 Introduction to CSS</a></li>
+</ul>
+<h3 id="zoom-recordings">Zoom Recordings</h3>
+<p><a href="/course/bacs200/docs/ZoomLectures" class="unc-button">Lecture</a></p>
+<ul>
+<li>Each session will be recorded for your education</li>
+<li>Use this page to see how to get to the live sessions and office hours</li>
+</ul>
+<h3 id="computer-tools">Computer Tools</h3>
+<ul>
+<li>You need a computer to complete this class</li>
+<li>Someone research a cheap laptop</li>
+<li>Send me what you find</li>
+</ul>
+<h3 id="todays-agenda">Today's Agenda</h3>
+<ul>
+<li>Project 2</li>
+<li>Development Tools (Brackets, Github Desktop, Firefox)</li>
+<li>Building a webpage</li>
+</ul>
+<h3 id="web-servers-and-web-browsers">Web Servers and Web Browsers</h3>
+<ul>
+<li>Web clients make HTTP Requests - phone, and laptop</li>
+<li>Web servers create HTTP Responses - your Github Pages site</li>
+</ul>
+<div class="figure">
+<img src="img/WebServer.png" />
+
+</div>
+<h3 id="dev-tools">Dev Tools</h3>
+<ul>
+<li>Install and test each tool
+<ul>
+<li><a href="https://brackets.io">Brackets</a></li>
+<li><a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a></li>
+<li><a href="https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/installing-github-desktop">Github Desktop</a></li>
+</ul></li>
+</ul>
+<h3 id="clone-your-repo">Clone Your Repo</h3>
+<ul>
+<li>Make a copy of your repo on your local computer</li>
+<li>Default location is &quot;Documents/Github/YOUR-NAME.github.io&quot;</li>
+<li>Only one copy of code</li>
+</ul>
+<h3 id="create-a-web-page">Create a Web Page</h3>
+<ul>
+<li>Key HTML Elements</li>
+<li>h1, h2, h3</li>
+<li>p, img, a</li>
+<li>Copy code from webpages</li>
+</ul>
+<h3 id="building-web-pages">Building Web Pages</h3>
+<ul>
+<li>Edit files locally</li>
+<li>Test files locally</li>
+<li>Send files to server</li>
+<li>Test files remotely</li>
+</ul>
+<h3 id="html-template">HTML Template</h3>
+<ul>
+<li>HTML Doctype</li>
+<li>HTML root element</li>
+<li>HTML head &amp; body</li>
+<li>HTML body</li>
+<li>HTML Head</li>
+</ul>
+<h3 id="basic-html-elements">Basic HTML Elements</h3>
+<ul>
+<li>h1, h2, h3</li>
+<li>p</li>
+<li>a</li>
+<li>img</li>
+<li>ul, li</li>
+</ul>
+<h3 id="basic-html-elements-1">Basic HTML Elements</h3>
+<ul>
+<li>h1, h2, h3 - Headlines</li>
+<li>p - Paragraph breaks</li>
+<li>a - Anchor (hyperlinks)</li>
+<li>img - Image</li>
+<li>ul, li - Bullet List</li>
+</ul>
+<h3 id="html-template-1">HTML Template</h3>
+<ul>
+<li>Doc Type</li>
+<li>Head</li>
+<li>Body</li>
+</ul>
+<h3 id="html-doctype">HTML Doctype</h3>
+<ul>
+<li>Start with a document type tag that tells that this is an HTML file.</li>
+</ul>
+<pre><code>        &lt;!DOCTYPE html&gt;</code></pre>
+<h3 id="html-root-element">HTML root element</h3>
+<ul>
+<li>The top level element in HTML is
+<html>
+. Add both the open and close.</li>
+</ul>
+<pre><code>        &lt;html lang=&quot;en&quot;&gt;
+        &lt;/html&gt;</code></pre>
+<h3 id="html-head-body">HTML head &amp; body</h3>
+<ul>
+<li>Add the head and body elements</li>
+<li>Add both the open and close tags for all elements</li>
+<li><strong>head</strong> holds invisible settings for the page</li>
+<li><strong>body</strong> holds the visible content for the page</li>
+</ul>
+<pre><code>        &lt;!DOCTYPE html&gt;
+        &lt;html lang=&quot;en&quot;&gt;
+          &lt;head&gt;
+          &lt;/head&gt;
+          &lt;body&gt;
+          &lt;/body&gt;
+        &lt;/html&gt;</code></pre>
+<h3 id="html-body">HTML body</h3>
+<ul>
+<li>Add some content to the body.</li>
+<li>Add a headline <strong>h1</strong> and a paragraph with <strong>p</strong></li>
+</ul>
+<pre><code>        &lt;h1&gt;Simple HTML Page&lt;/h1&gt;
+        &lt;p&gt;This demo shows how to create a page that contains a single headline and two paragraphs of text.&lt;/p&gt;
+        &lt;p&gt;HTML is not really that hard.  There are just a lot of details.&lt;/p&gt;</code></pre>
+<h3 id="html-head">HTML Head</h3>
+<p>Within the <strong>head</strong> we will define the invisible settings that the browser will read.</p>
+<p>These settings must be defined</p>
+<ul>
+<li>characters that are used within the page</li>
+<li>size of the display area</li>
+<li>title used for the browser tab label and bookmarks</li>
+</ul>
+<p>We will add more items later. For now we have</p>
+<pre><code>        &lt;head&gt;
+            &lt;meta charset=&quot;utf-8&quot;&gt;
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
+            &lt;title&gt;Page Title&lt;/title&gt;
+        &lt;/head&gt;</code></pre>
+<h3 id="all-together-now">All together now!</h3>
+<pre><code>        &lt;!DOCTYPE html&gt;
+        &lt;html lang=&quot;en&quot;&gt;
+          &lt;head&gt;
+            &lt;meta charset=&quot;utf-8&quot;&gt;
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
+            &lt;title&gt;BACS 200 - Simple Page&lt;/title&gt;
+          &lt;/head&gt;
+          &lt;body&gt;
+            &lt;h1&gt;Simple HTML Page&lt;/h1&gt;
+            &lt;p&gt;This demo shows how to create a page that contains a single headline and two paragraphs of text.&lt;/p&gt;
+            &lt;p&gt;HTML is not really that hard.  There are just a lot of details.&lt;/p&gt;
+          &lt;/body&gt;
+        &lt;/html&gt;</code></pre>
+<h3 id="home">Home</h3>
+<ul>
+<li>View a code sample</li>
+<li><a href="https://mark-seaman.github.io/bacs200/week-2/index.html">Sample Page Template</a></li>
+</ul>
+<h3 id="page-template">Page Template</h3>
+<ul>
+<li>View a code sample</li>
+<li><a href="https://mark-seaman.github.io/bacs200/week-2/template.html">Sample Page Template</a></li>
+</ul>
+<h3 id="home-page-example">Home Page Example</h3>
+<ul>
+<li>View a code sample</li>
+<li><a href="https://mark-seaman.github.io/bacs200/week-2/profile.html">Sample Page Template</a></li>
+<li>View source code and study it</li>
+</ul>
+<h3 id="inspire-page-example">Inspire Page Example</h3>
+<ul>
+<li>View a code sample</li>
+<li><a href="https://mark-seaman.github.io/bacs200/week-2/inspire.html">Sample Page Template</a></li>
+<li>View source code and study it</li>
+</ul>
+<h2 id="build">BUILD</h2>
+<h3 id="build-home-page">Build Home Page</h3>
+<ul>
+<li>Create page &quot;bacs200/index.html&quot;</li>
+<li>Add text from <a href="https://mark-seaman.github.io/bacs200/week-2/index.html">Sample Page Template</a></li>
+<li>Customize this page for you</li>
+</ul>
+<h3 id="build-template-page">Build Template Page</h3>
+<ul>
+<li>Create page &quot;bacs200/template.html&quot;</li>
+<li>Add text from <a href="https://mark-seaman.github.io/bacs200/week-2/template.html">Page Template</a></li>
+<li>Customize this page for you</li>
+</ul>
+<h3 id="build-profile-page">Build Profile Page</h3>
+<ul>
+<li>Create page &quot;bacs200/profile.html&quot;</li>
+<li>Add text from <a href="https://mark-seaman.github.io/bacs200/week-2/profile.html">Profile Page</a></li>
+<li>Customize this page for you</li>
+</ul>
+<h3 id="build-inspire-page">Build Inspire Page</h3>
+<ul>
+<li>Create page &quot;bacs200/inspire.html&quot;</li>
+<li>Add text from <a href="https://mark-seaman.github.io/bacs200/week-2/inspire.html">Sample Page Template</a></li>
+<li>Write an article on your hero</li>
+<li>Include a link to an online image</li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>
