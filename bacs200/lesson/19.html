@@ -107,7 +107,118 @@
     <main>
         <div class="container">
             
-                <h1>Missing Document</h1><p>We are sorry, but the document you were looking for could not be found.</p>
+                <h1 id="lesson-19---spacing-borders">Lesson 19 - Spacing &amp; Borders</h1>
+<h2 id="learn">LEARN</h2>
+<h3 id="reading-for-today">Reading for Today</h3>
+<ul>
+<li><a href="https://learn.zybooks.com/zybook/UNCOBACS200SeamanFall2020/chapter/3/section/3">3.3 Advanced selectors</a></li>
+<li>Follow <a href="/course/bacs200/docs/ZybooksReading">Reading Schedule</a></li>
+</ul>
+<h3 id="office-hours">Office Hours</h3>
+<ul>
+<li>If you need help please attend office hours</li>
+<li>Check the Canvas page for details</li>
+<li>Syllabus had an issue and is now fixed</li>
+</ul>
+<h3 id="zoom-recordings">Zoom Recordings</h3>
+<p><a href="/course/bacs200/docs/ZoomLectures" class="unc-button">Lecture</a></p>
+<ul>
+<li>Each session will be recorded for your education</li>
+<li>Use this page to see how to get to the live sessions and office hours</li>
+</ul>
+<h3 id="css-rule-set">CSS Rule Set</h3>
+<ul>
+<li>Example Rule Set</li>
+</ul>
+<pre class="sourceCode css"><code class="sourceCode css">h1 <span class="kw">{</span>
+    <span class="kw">font-family:</span> <span class="dt">serif</span><span class="kw">;</span>
+    <span class="kw">font-size:</span> <span class="dt">120%</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<h3 id="hooking-up-css">Hooking up CSS</h3>
+<ul>
+<li>Link the Stylesheet to each HTML page</li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;styles.css&quot;</span><span class="kw">&gt;</span>
+<span class="kw">&lt;/head&gt;</span></code></pre>
+<h3 id="css-property-groups">CSS Property Groups</h3>
+<ul>
+<li>Text</li>
+<li>Color</li>
+<li>Spacing</li>
+<li>Borders</li>
+</ul>
+<h3 id="spacing-properties">Spacing Properties</h3>
+<ul>
+<li>margin</li>
+<li>padding</li>
+<li>width</li>
+<li>height</li>
+</ul>
+<h3 id="size-of-elements">Size of Elements</h3>
+<ul>
+<li>width</li>
+<li>height</li>
+</ul>
+<pre class="sourceCode css"><code class="sourceCode css">h1 <span class="kw">{</span>
+    <span class="kw">width:</span> <span class="dt">500px</span><span class="kw">;</span>
+    <span class="kw">height:</span> <span class="dt">100px</span><span class="kw">;</span>
+    <span class="kw">border:</span> <span class="dt">solid</span> <span class="dt">1px</span> <span class="dt">gray</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<h3 id="box-model">Box Model</h3>
+<ul>
+<li>Margin is outside</li>
+<li>Padding is inside</li>
+</ul>
+<pre class="sourceCode css"><code class="sourceCode css">body <span class="kw">{</span>
+    <span class="kw">padding:</span> <span class="dt">50px</span><span class="kw">;</span>
+    <span class="kw">margin:</span> <span class="dt">10px</span><span class="kw">;</span>
+    <span class="kw">border:</span> <span class="dt">solid</span> <span class="dt">1px</span> <span class="dt">gray</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<h3 id="example-rule-set">Example Rule Set</h3>
+<pre class="sourceCode css"><code class="sourceCode css">h1 <span class="kw">{</span>
+    <span class="kw">margin:</span> <span class="dt">100px</span><span class="kw">;</span>
+    <span class="kw">background-color:</span> <span class="dt">rgb(20%</span>, <span class="dt">20%</span>, <span class="dt">20%)</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+
+body <span class="kw">{</span>
+    <span class="kw">padding:</span> <span class="dt">200px</span><span class="kw">;</span>
+    <span class="kw">border:</span> <span class="dt">solid</span> <span class="dt">2px</span> <span class="dt">yellow</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<h3 id="borders-properties">Borders Properties</h3>
+<ul>
+<li>border</li>
+<li>border-radius</li>
+<li>box-shadow</li>
+</ul>
+<p>Examples</p>
+<pre class="sourceCode css"><code class="sourceCode css">h1 <span class="kw">{</span>
+    <span class="kw">border:</span> <span class="dt">solid</span> <span class="dt">1px</span> <span class="dt">gray</span><span class="kw">;</span>
+    <span class="kw">border-radius:</span> <span class="dt">20px</span><span class="kw">;</span>
+    <span class="kw">box-shadow:</span> <span class="dt">2px</span> <span class="dt">2px</span> <span class="dt">5px</span> <span class="dt">gray</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<h2 id="build">BUILD</h2>
+<h3 id="css-demo">CSS Demo</h3>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/Mark-Seaman.github.io/tree/master/bacs200/week-7/index.html">Demo Code</a></li>
+<li>Study code so that you can reproduce these results</li>
+<li><a href="https://Mark-Seaman.github.io/bacs200/week-7/index.html">See Demo on Server</a></li>
+</ul>
+<h3 id="w3schools">W3Schools</h3>
+<ul>
+<li><a href="https://www.w3schools.com/css/default.asp">W3Schools - CSS</a></li>
+</ul>
+<h3 id="validator">Validator</h3>
+<ul>
+<li><a href="https://validator.w3.org/">Validate the HTML</a></li>
+<li><a href="http://jigsaw.w3.org/css-validator/">Validate the CSS</a></li>
+</ul>
+<h3 id="project-7---wanted-poster">Project 7 - Wanted Poster</h3>
+<ul>
+<li><a href="../project/07">Project Instructions</a></li>
+</ul>
+
             
         </div>
     </main>

@@ -107,7 +107,168 @@
     <main>
         <div class="container">
             
-                <h1>Missing Document</h1><p>We are sorry, but the document you were looking for could not be found.</p>
+                <h1 id="lesson-24---grid-system">Lesson 24 - Grid System</h1>
+<h2 id="learn">LEARN</h2>
+<h3 id="reading-for-today">Reading for Today</h3>
+<ul>
+<li><a href="https://learn.zybooks.com/zybook/UNCOBACS200SeamanFall2020/chapter/4/section/1">4.1 HTML containers</a></li>
+<li>Follow <a href="/course/bacs200/docs/ZybooksReading">Reading Schedule</a></li>
+</ul>
+<h3 id="office-hours">Office Hours</h3>
+<ul>
+<li>If you need help please attend office hours</li>
+<li>Check the Canvas page for details</li>
+<li>Syllabus had an issue and is now fixed</li>
+</ul>
+<h3 id="zoom-recordings">Zoom Recordings</h3>
+<p><a href="/course/bacs200/docs/ZoomLectures" class="unc-button">Lecture</a></p>
+<ul>
+<li>Each session will be recorded for your education</li>
+<li>Use this page to see how to get to the live sessions and office hours</li>
+</ul>
+<h3 id="using-bootstrap">Using Bootstrap</h3>
+<ul>
+<li>Link the CSS into the head element</li>
+</ul>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; 
+    href=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css&quot;&gt;
+</code></pre>
+<h3 id="bootstrap-typography">Bootstrap Typography</h3>
+<ul>
+<li>Headings and type</li>
+<li>Colors</li>
+<li>Text alignment</li>
+<li>Spacing</li>
+<li>Floats &amp; Fixed Position</li>
+</ul>
+<h3 id="bootstrap-components">Bootstrap Components</h3>
+<ul>
+<li>Buttons</li>
+<li>Lists</li>
+<li>Forms</li>
+<li>Alerts</li>
+<li>Tables</li>
+<li>Cards</li>
+<li>Media Objects</li>
+<li>Jumbotron</li>
+</ul>
+<h3 id="bootstrap-navs">Bootstrap Navs</h3>
+<ul>
+<li>Use class &quot;nav&quot; on list</li>
+<li>Use class &quot;nav-item&quot; on each list item</li>
+<li>Use class &quot;nav-link&quot; on each link element</li>
+</ul>
+<h3 id="containers">Containers</h3>
+<ul>
+<li><a href="https://www.w3schools.com/bootstrap4/bootstrap_containers.asp">Bootstrap Containers</a></li>
+<li>Use class &quot;container&quot;</li>
+<li>A container builds space on your page</li>
+</ul>
+<pre><code>&lt;div class=&quot;container bg-success text-light&quot;&gt;
+    &lt;h3&gt;My First Bootstrap Page&lt;/h3&gt;
+    &lt;p&gt;This is some text.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+<h3 id="container-fluid">Container Fluid</h3>
+<ul>
+<li>Allocate full display width</li>
+<li>Use class &quot;container-fluid&quot;</li>
+</ul>
+<pre><code>&lt;div class=&quot;container-fluid bg-primary text-light&quot;&gt;
+    &lt;h3&gt;My First Bootstrap Page&lt;/h3&gt;
+    &lt;p&gt;This is some text.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+<h3 id="flex-box">Flex Box</h3>
+<ul>
+<li><a href="https://www.w3schools.com/bootstrap4/bootstrap_flex.asp">Bootstrap Flex Box</a></li>
+<li>Use class &quot;d-flex&quot;</li>
+<li>A container builds space on your page</li>
+</ul>
+<pre><code>&lt;div class=&quot;d-flex p-3 bg-secondary text-white&quot;&gt;
+  &lt;div class=&quot;p-2 bg-info&quot;&gt;Flex item 1&lt;/div&gt;
+  &lt;div class=&quot;p-2 bg-warning&quot;&gt;Flex item 2&lt;/div&gt;
+  &lt;div class=&quot;p-2 bg-primary&quot;&gt;Flex item 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<h3 id="grid-system">Grid System</h3>
+<ul>
+<li><a href="https://www.w3schools.com/bootstrap4/bootstrap_grid_system.asp">Bootstrap Grid</a></li>
+<li>Use class &quot;row&quot; to pack items horizontally</li>
+<li>Use class &quot;col&quot; to size the columns</li>
+</ul>
+<pre><code> &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col&quot;&gt;.col&lt;/div&gt;
+      &lt;div class=&quot;col&quot;&gt;.col&lt;/div&gt;
+      &lt;div class=&quot;col&quot;&gt;.col&lt;/div&gt;
+&lt;/div&gt; </code></pre>
+<h3 id="column-layout">12-Column Layout</h3>
+<ul>
+<li>Allocate width of columns to hold content</li>
+<li>Wraps at 12</li>
+<li>Example: 2, 6, 4</li>
+</ul>
+<pre><code>&lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-2 border&quot;&gt;.col-2&lt;/div&gt;
+      &lt;div class=&quot;col-6 border&quot;&gt;.col-6&lt;/div&gt;
+      &lt;div class=&quot;col-4 border&quot;&gt;.col-4&lt;/div&gt;
+&lt;/div&gt; </code></pre>
+<h3 id="mixed-sizing">Mixed sizing</h3>
+<ul>
+<li>Some numbers with spacing</li>
+<li>Some without</li>
+<li>Extra space in allocate evenly</li>
+</ul>
+<pre><code>&lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col border&quot;&gt;.col&lt;/div&gt;
+      &lt;div class=&quot;col-6 border&quot;&gt;.col-6&lt;/div&gt;
+      &lt;div class=&quot;col border&quot;&gt;.col&lt;/div&gt;
+&lt;/div&gt; </code></pre>
+<h3 id="sizing-breakpoints">Sizing Breakpoints</h3>
+<ul>
+<li>sm, md, lg, xl</li>
+<li><a href="https://www.w3schools.com/bootstrap4/bootstrap_grid_system.asp">Bootstrap Grid</a></li>
+</ul>
+<pre><code>&lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-md-3 border&quot;&gt;.col-md-3&lt;/div&gt;
+      &lt;div class=&quot;col-md-6 border&quot;&gt;.col-md-6&lt;/div&gt;
+      &lt;div class=&quot;col-md border&quot;&gt;.col-md&lt;/div&gt;
+&lt;/div&gt; </code></pre>
+<h3 id="flex-column">Flex Column</h3>
+<ul>
+<li>Arrange vertically</li>
+<li>Use &quot;flex-column&quot; class</li>
+</ul>
+<pre><code>&lt;div class=&quot;row flex-column&quot;&gt;
+      &lt;div class=&quot;col-md-3 border&quot;&gt;.col-md-3&lt;/div&gt;
+      &lt;div class=&quot;col-md-6 border&quot;&gt;.col-md-6&lt;/div&gt;
+      &lt;div class=&quot;col-md border&quot;&gt;.col-md&lt;/div&gt;
+&lt;/div&gt; </code></pre>
+<h3 id="center-the-content">Center the content</h3>
+<ul>
+<li>Arrange the content alignment</li>
+<li>Use &quot;justify-content-center&quot; class</li>
+</ul>
+<pre><code>&lt;div class=&quot;row justify-content-center&quot;&gt;
+      &lt;div class=&quot;col-md-3 border&quot;&gt;.col-md-3&lt;/div&gt;
+      &lt;div class=&quot;col-md-4 border&quot;&gt;.col-md-4&lt;/div&gt;
+&lt;/div&gt; </code></pre>
+<h2 id="build">BUILD</h2>
+<h3 id="css-demo">CSS Demo</h3>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/Mark-Seaman.github.io/tree/master/bacs200/week-8">Demo Code</a></li>
+<li>Study code so that you can reproduce these results</li>
+<li><a href="https://Mark-Seaman.github.io/bacs200/week-8/index.html">See Demo on Server</a></li>
+</ul>
+<h3 id="resources-for-learning">Resources for Learning</h3>
+<ul>
+<li><a href="https://www.w3schools.com/bootstrap4/default.asp">W3Schools - Bootstrap</a></li>
+<li><a href="https://getbootstrap.com">Bootstrap website</a></li>
+<li><a href="https://validator.w3.org/">Validate the HTML</a></li>
+<li><a href="http://jigsaw.w3.org/css-validator/">Validate the CSS</a></li>
+</ul>
+<h3 id="project-9---non-profit-blog">Project 9 - Non-profit Blog</h3>
+<ul>
+<li><a href="../project/09">Project Instructions</a></li>
+</ul>
+
             
         </div>
     </main>
