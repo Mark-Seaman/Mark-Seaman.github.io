@@ -1,0 +1,15 @@
+{
+  "title": "UNC Course Slides",
+  "event": "BACS 200 Slides",
+  "course": "bacs200",
+  "author": "Mark Seaman - Fall 2020",
+  "organization": "University of Northern Colorado",
+  "cover": "autumn-leaves.jpg",
+  "logo": "Bear.png",
+  "theme": "beige.css",
+  "stylesheet": "slides.css",
+  "images": "../lesson/img",
+  "divider": "peaking.800.jpg",
+  "background": "paper.png",
+  "intro": false
+}
