@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #17</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-17---custom-views">Lesson 17 - Custom Views</h1>
+<h2 id="learn">LEARN</h2>
+<h3 id="project-6---superhero-database">Project 6 - Superhero Database</h3>
+<ul>
+<li>Deadline Extended to Oct 9</li>
+<li>Additional requirements added</li>
+<li>You must push for closure</li>
+</ul>
+<h3 id="complete-your-projects">Complete Your Projects</h3>
+<ul>
+<li>Project 1 - Setup development tools</li>
+<li>Project 2 - Build a simple app</li>
+<li>Project 3 - Application Hosting</li>
+<li>Project 4 - TemplateView</li>
+<li>Project 5 - Data Models</li>
+<li>Project 6 - Data Model Views</li>
+</ul>
+<h3 id="working-the-project-in-class">Working the Project in Class</h3>
+<ul>
+<li>Live demo of solving the problems</li>
+<li>You must apply this knowledge</li>
+<li>You must invest 9 hours weekly</li>
+</ul>
+<h3 id="add-data-to-django-views">Add Data to Django Views</h3>
+<p>templates/page.html</p>
+<pre><code>&lt;h1&gt;{{ title }}&lt;/h1&gt;
+&lt;p&gt;
+    {{ body}}
+&lt;/p&gt;</code></pre>
+<h3 id="data-as-dictionary">Data as dictionary</h3>
+<p>Define what goes in the variable slots</p>
+<pre><code>{
+    &#39;title&#39;: &#39;My Home Page&#39;, 
+    &#39;body&#39;: &#39;This page is boring ...&#39;,
+}</code></pre>
+<h3 id="setting-view-context">Setting View Context</h3>
+<p>pages/views.py</p>
+<pre><code> class HomeView(TemplateView):
+    template_name = &quot;page.html&quot;
+    
+    def get_context_data(self, **kwargs):
+        return {
+            &#39;title&#39;: &#39;My Home Page&#39;, 
+            &#39;body&#39;: &#39;This page is boring ...&#39;,
+        }
+        
+        </code></pre>
+<h3 id="changes-to-the-database">Changes to the Database</h3>
+<ul>
+<li>Databases can be modified</li>
+<li>Old data must be migrated to the new structure</li>
+</ul>
+<h2 id="build">BUILD</h2>
+<h3 id="development-demo">Development Demo</h3>
+<ul>
+<li>Project 4 - TemplateView</li>
+<li>Project 5 - Data Models</li>
+<li>Demo 17</li>
+</ul>
+<h3 id="to-do-list">To Do List</h3>
+<ul>
+<li>Create an app</li>
+<li>Enable templates</li>
+<li>Build template</li>
+<li>Build view</li>
+<li>Add data to view</li>
+<li>Build model</li>
+</ul>
+<h3 id="use-this-demo">Use This Demo</h3>
+<ul>
+<li>Study this code</li>
+<li>Work the demo for yourself</li>
+<li>Complete Project 5</li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

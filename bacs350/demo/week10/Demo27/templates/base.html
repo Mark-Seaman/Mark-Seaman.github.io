@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BACS 350 Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  
+   {% block content %}
+   
+       <header>
+            {% block header %}
+                <h1 class="bg-primary text-light p-5">BACS 350 Demo</h1>
+            {% endblock header %}
+
+
+            {% block navbar %}
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Profile</a>
+                    </li>
+
+                    {% block user %}
+                        {% if user.is_authenticated %}
+                            <li class="nav-item active">
+                                <span class="nav-link">Welcome {{ user.username }}</span>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'logout' %}" class=" nav-link btn btn-success">
+                                    Log out
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <span class="nav-link">You are not logged in.</span>
+                            </li>
+
+                            <li class="nav-item active">
+                                <a href="{% url 'login' %}" class="nav-link btn btn-primary">
+                                    Log In
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endblock user %}
+                </ul>
+            {% endblock navbar %}
+
+       </header>
+
+
+       <main>
+           {% block main %}
+                <h2>No Main Defined</h2>
+            {% endblock main %}
+
+       </main>
+
+
+       <footer>
+           {% block footer %}
+                <h2>No Footer</h2>
+            {% endblock footer %}
+       </footer>
+
+    {% endblock content %}
+</body>
+
+</html>

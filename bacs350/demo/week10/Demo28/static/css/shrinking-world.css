@@ -1,0 +1,47 @@
+main {
+    padding: 3rem;
+    background-image: url(/static/paper.png);
+}
+
+header {
+    background-image: url(/static/shrinking-world.png);
+}
+
+header h1, header h2, header a {
+    color: yellow;
+    text-shadow: 2px 2px 5px black;
+}
+
+header a:hover {
+    color: white;
+}
+
+.card-header a {
+    color: white;
+}
+
+.bg-light-gray {
+    background-color: #ddd;
+    opacity: 50%;
+    border: 1px solid black;
+}
+
+.bg-light-gray a:hover {
+    color: black;
+    font-weight: bold;
+}
+
+.card {
+    border: 1px solid gray;
+    box-shadow: 2px 2px 5px gray;
+    margin: 2rem;
+}
+
+.card-header {
+    background-color: green;
+    font-size: 24px;
+    color: yellow;
+    text-align: center;
+    padding: 0.5rem 3rem;
+    /*margin: 0;*/
+}

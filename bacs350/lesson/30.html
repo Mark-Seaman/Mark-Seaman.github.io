@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #30</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-30---document-view">Lesson 30 - Document View</h1>
+<h2 id="learn-build">LEARN &amp; BUILD</h2>
+<h3 id="workshop-views">Workshop Views</h3>
+<ul>
+<li>Theme View</li>
+<li>Workshop View</li>
+<li>Home View</li>
+<li>Card View</li>
+<li>Cards View</li>
+</ul>
+<h3 id="markdown-view">Markdown View</h3>
+<ul>
+<li>Use Markdown Converter to produce HTML</li>
+<li>Display Markdown Document</li>
+<li>Display File and Database records</li>
+</ul>
+<h3 id="convert-markdown">Convert Markdown</h3>
+<ul>
+<li>Import converter</li>
+<li>Take Markdown and make HTML</li>
+</ul>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> markdown <span class="ch">import</span> markdown
+
+markdown_text = <span class="st">&#39;# Headline&#39;</span>
+html_text = markdown(markdown_text)</code></pre>
+<h3 id="add-markdown-to-view">Add Markdown to View</h3>
+<ul>
+<li>Convert Markdown to HTML</li>
+<li>Add variable to view</li>
+<li>Use autoescape in template</li>
+</ul>
+<p>views.py</p>
+<pre class="sourceCode python"><code class="sourceCode python">markdown_text = <span class="st">&#39;&#39;&#39;</span>
+<span class="st"># Headline</span>
+<span class="st">## Subheadline</span>
+
+<span class="st">* Bullet 1</span>
+<span class="st">* Bullet 2</span>
+<span class="st">&#39;&#39;&#39;</span>
+
+<span class="kw">class</span> DocumentView(TemplateView):
+    template_name = <span class="st">&#39;doc.html&#39;</span>
+
+    <span class="kw">def</span> get_context_data(<span class="ot">self</span>, **kwargs):
+        <span class="kw">return</span> <span class="dt">dict</span>(doc=markdown(markdown_text))</code></pre>
+<p>templates/doc.html</p>
+<pre class="sourceCode html"><code class="sourceCode html">{% extends &#39;workshop.html&#39; %}
+
+{% block main %}
+    {% autoescape off %}
+        {{ doc }}
+    {% endautoescape %}
+{% endblock main %}</code></pre>
+<h3 id="document-file-view">Document File View</h3>
+<ul>
+<li>Pass in path name</li>
+<li>Read Markdown from file</li>
+<li>Pass HTML to View</li>
+</ul>
+<p>views.py</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> DocumentFileView(TemplateView):
+    template_name = <span class="st">&#39;doc.html&#39;</span>
+
+    <span class="kw">def</span> get_context_data(<span class="ot">self</span>, **kwargs):
+        text = <span class="dt">open</span>(<span class="st">&#39;README.md&#39;</span>).read()
+        <span class="kw">return</span> <span class="dt">dict</span>(doc=markdown(text))</code></pre>
+<p>templates/doc.html</p>
+<pre class="sourceCode html"><code class="sourceCode html">{% extends &#39;workshop.html&#39; %}
+
+{% block main %}
+    <span class="kw">&lt;h1&gt;</span>Markdown Doc - README.txt<span class="kw">&lt;/h1&gt;</span>
+    {% autoescape off %}
+        {{ doc }}
+    {% endautoescape %}
+{% endblock main %}</code></pre>
+<h3 id="improve-layout">Improve Layout</h3>
+<ul>
+<li>Use a container</li>
+<li>Use a card</li>
+</ul>
+<h3 id="use-a-partial-template">Use a partial template</h3>
+<ul>
+<li>Define _document.html</li>
+<li>Use in page template</li>
+</ul>
+<p>templates/_document.html</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;h1&gt;</span>Markdown Doc - {{ title }}<span class="kw">&lt;/h1&gt;</span>
+{% autoescape off %}
+    {{ doc }}
+{% endautoescape %}</code></pre>
+<p>templates/doc.html</p>
+<pre class="sourceCode html"><code class="sourceCode html">{% extends &#39;workshop.html&#39; %}
+
+{% block main %}
+    {% include &#39;_document.html&#39; %}
+{% endblock main %}</code></pre>
+<h3 id="nested-views">Nested Views</h3>
+<ul>
+<li>Theme Page</li>
+<li>Workshop Page</li>
+<li>Document Page</li>
+<li>Card</li>
+<li>Document</li>
+</ul>
+<h2 id="build">BUILD</h2>
+<h3 id="demo-code">Demo Code</h3>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week11/Demo30">Copy Demo 30</a></li>
+<li>Reconstruct these views
+<ul>
+<li>Superhero Theme Page</li>
+<li>Document Page</li>
+<li>Card</li>
+<li>Document</li>
+</ul></li>
+</ul>
+<h3 id="project-10---composite-views">Project 10 - Composite Views</h3>
+<ul>
+<li>Composite Views</li>
+<li>Style with Bootstrap</li>
+<li>View Inheritance</li>
+<li>Dynamic Menu</li>
+<li>Responsive Design</li>
+<li>Data Fields - strengths, weakness, image</li>
+</ul>
+<h3 id="project-10---instructions">Project 10 - Instructions</h3>
+<ul>
+<li><a href="../project/10">Project 10 - Instructions</a></li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

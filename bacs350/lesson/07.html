@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #7</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-7---python-anywhere">Lesson 7 - Python Anywhere</h1>
+<h2 id="learn">LEARN</h2>
+<h3 id="tutorial-documents">Tutorial Documents</h3>
+<ul>
+<li>Visit the <a href="../docs/Index">doc library</a> regularly</li>
+</ul>
+<h3 id="office-hours">Office Hours</h3>
+<ul>
+<li>I am teaching 90 students and building content for 3 classes</li>
+<li>If you need help please attend office hours</li>
+<li>Check the Canvas page for details</li>
+</ul>
+<h3 id="zoom-recordings">Zoom Recordings</h3>
+<p><a href="/course/bacs350/docs/ZoomLectures" class="unc-button">Lecture</a></p>
+<ul>
+<li>Each session will be recorded for your education</li>
+<li>Use this page to see how to get to the live sessions and office hours</li>
+</ul>
+<h3 id="web-hosting-with-python-anywhere">Web Hosting with Python Anywhere</h3>
+<ul>
+<li>Free accounts for Django Hosting</li>
+<li>Register your account on Student Dashboard</li>
+</ul>
+<h3 id="why-use-python-anywhere">Why use Python Anywhere</h3>
+<ul>
+<li>Suitable for Simple &amp; Intermediate sites</li>
+<li>Automates many complex tasks</li>
+<li>Great for beginners</li>
+<li><a href="https://www.pythonanywhere.com">Python Anywhere</a></li>
+</ul>
+<h3 id="how-to-set-up-django-hosting-at-python-anywhere">How to set up Django Hosting at Python Anywhere</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=Y4c4ickks2A">Watch video tutorial</a> (7 steps)</li>
+</ul>
+<h3 id="sign-up-for-account">Sign up for Account</h3>
+<ul>
+<li><a href="https://www.pythonanywhere.com/pricing/">Plans &amp; Pricing</a></li>
+<li>Sign up for free account</li>
+</ul>
+<h2 id="build">BUILD</h2>
+<h3 id="create-a-web-app">Create a Web App</h3>
+<ul>
+<li>Steps to deploy your app
+<ul>
+<li>Create a virtual environment at Python Anywhere</li>
+<li>Install Django</li>
+<li>Git Clone</li>
+<li>Create Web App</li>
+<li>Debug and Test</li>
+</ul></li>
+</ul>
+<h3 id="learn-linux-commands">Learn Linux Commands</h3>
+<ul>
+<li>Master a few command line basics</li>
+<li>Read <a href="CommandLine">Command Line</a></li>
+<li>Essential Linux commands: pwd, cd, ls</li>
+</ul>
+<h3 id="run-terminal-window">Run Terminal Window</h3>
+<ul>
+<li>Select &quot;Consoles, New console, Bash&quot;
+<ul>
+<li>pwd</li>
+<li>cd</li>
+<li>ls -al</li>
+</ul></li>
+</ul>
+<h3 id="clone-your-git-repository">Clone your git repository</h3>
+<ul>
+<li>Visit your <a href="https://github.com/Mark-Seaman/UNC-BACS-350.git">Github Repo</a></li>
+<li><p>Clone your repo (this is mine)</p>
+<p>git clone https://github.com/Mark-Seaman/UNC-BACS-350.git</p></li>
+</ul>
+<h3 id="create-virtual-environment">Create Virtual Environment</h3>
+<ul>
+<li>Create an isolated python environment
+<ul>
+<li>mkvirtualenv --python=/usr/bin/python3.8 .venv</li>
+</ul></li>
+<li>Activate the environment
+<ul>
+<li>source .venv/bin/activate</li>
+</ul></li>
+<li>Install Django in the environment
+<ul>
+<li>pip install django</li>
+</ul></li>
+</ul>
+<h3 id="create-web-app">Create Web App</h3>
+<ul>
+<li>Visit your main page</li>
+<li>Login to <a href="https://www.pythonanywhere.com">Python Anywhere account</a></li>
+<li>Bookmark this page on your bookmark toolbar</li>
+<li>Select Web tab in top menu</li>
+</ul>
+<h3 id="configure-your-web-app">Configure Your Web App</h3>
+<ul>
+<li>Your Python Anywhere account supports one free Web App</li>
+<li>Free accounts must be enabled every three months</li>
+<li>Click on &quot;Run until 3 months from today&quot; button</li>
+<li>This is not a problem for when you are actively developing code</li>
+</ul>
+<h3 id="configure-web-app">Configure Web App</h3>
+<ul>
+<li>Find your source code</li>
+<li>Modify your code for Python Anywhere
+<ul>
+<li>Create WSGI connection</li>
+<li>Allow host at &quot;markseaman.pythonanywhere.com&quot;</li>
+</ul></li>
+<li>Setup static server</li>
+<li>Run the server</li>
+<li>Load the page</li>
+<li>Debug</li>
+</ul>
+<h3 id="python-anywhere-server">Python Anywhere Server</h3>
+<div class="figure">
+<img src="../images/pa-server.png" />
+
+</div>
+<h3 id="configure-code-settings">Configure Code Settings</h3>
+<ul>
+<li>Edit WSGI Python File</li>
+</ul>
+<div class="figure">
+<img src="../images/pa-code.png" />
+
+</div>
+<h3 id="python-anywhere-static-files">Python Anywhere Static Files</h3>
+<div class="figure">
+<img src="../images/pa-static.png" />
+
+</div>
+<h3 id="python-anywhere-database">Python Anywhere Database</h3>
+<ul>
+<li>Start with MySQL, switch to PostGres if needed</li>
+</ul>
+<div class="figure">
+<img src="../images/pa-db.png" />
+
+</div>
+<h3 id="startup-the-server">Startup the Server</h3>
+<ul>
+<li>Reload http://markseaman.pythonanywhere.com/</li>
+<li>Browse to http://markseaman.pythonanywhere.com/</li>
+</ul>
+<h3 id="read-the-log">Read the Log</h3>
+<ul>
+<li><a href="https://www.pythonanywhere.com/user/markseaman/files/var/log/markseaman.pythonanywhere.com.error.log">Error Log</a></li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

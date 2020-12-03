@@ -1,0 +1,23 @@
+{% extends 'theme.html' %}
+
+
+{% block user %}
+{% endblock user %}
+
+
+{% block main %}
+
+    <h2>Log In</h2>
+
+    <form method="post">{% csrf_token %}
+          {{ form.as_p }}
+          
+          <button type="submit" class="btn btn-primary text-light p-3 m-3">
+              Log In
+          </button>
+          <a href="{% url 'signup' %}" class="btn btn-primary text-light p-3 m-3">
+              Sign Up
+          </a>
+    </form>
+
+{% endblock main %}

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Selenium</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="selenium">Selenium</h1>
+<p>Selenium is a tool that uses a browser to fetch web pages and then a code library that extract content from the pages.</p>
+<h2 id="setup">Setup</h2>
+<p>Install the selenium package in Python</p>
+<pre><code>pip install selenium</code></pre>
+<p>Install the webdriver (Mac)</p>
+<pre><code># Attempted commands
+brew install chromedriver
+brew cask install chromedriver
+brew cask reinstall chromedriver
+
+==&gt; Downloading https://chromedriver.storage.googleapis.com/84.0.4147.30/chromedriver_mac64.zip
+Already downloaded: /Users/seaman/Library/Caches/Homebrew/downloads/798661a7f1489c5d4cd35edaac0a06a20f62196e7cef7832b841378d476f6386--chromedriver_mac64.zip
+==&gt; Verifying SHA-256 checksum for Cask &#39;chromedriver&#39;.
+==&gt; Uninstalling Cask chromedriver
+==&gt; Unlinking Binary &#39;/usr/local/bin/chromedriver&#39;.
+==&gt; Purging files for version 84.0.4147.30 of Cask chromedriver
+==&gt; Installing Cask chromedriver
+==&gt; Linking Binary &#39;chromedriver&#39; to &#39;/usr/local/bin/chromedriver&#39;.
+🍺  chromedriver was successfully installed!
+
+Quick Test Fails
+    Traceback (most recent call last):
+      File &quot;/Users/seaman/Sensei-2020/tool/management/commands/tst.py&quot;, line 22, in handle
+        tst_command(self, options[&#39;command&#39;])
+      File &quot;/Users/seaman/Sensei-2020/tool/management/commands/tst.py&quot;, line 48, in tst_command
+        quick_test()
+      File &quot;/Users/seaman/Sensei-2020/tool/quick_test.py&quot;, line 18, in quick_test
+        test_selenium_setup()
+      File &quot;/Users/seaman/Sensei-2020/tool/page.py&quot;, line 178, in test_selenium_setup
+        driver = open_browser_dom()
+      File &quot;/Users/seaman/Sensei-2020/tool/page.py&quot;, line 108, in open_browser_dom
+        return webdriver.Chrome(options=options)
+      File &quot;/Users/seaman/Sensei-2020/.venv/lib/python3.7/site-packages/selenium/webdriver/chrome/webdriver.py&quot;, line 73, in __init__
+        self.service.start()
+      File &quot;/Users/seaman/Sensei-2020/.venv/lib/python3.7/site-packages/selenium/webdriver/common/service.py&quot;, line 98, in start
+        self.assert_process_still_running()
+      File &quot;/Users/seaman/Sensei-2020/.venv/lib/python3.7/site-packages/selenium/webdriver/common/service.py&quot;, line 111, in assert_process_still_running
+        % (self.path, return_code)
+    selenium.common.exceptions.WebDriverException: Message: Service chromedriver unexpectedly exited. Status code was: -9
+
+
+cd /usr/local/bin
+cd /usr/local/Caskroom/chromedriver/84.0.4147.30/
+
+spctl --add --label &#39;Approved&#39; chromedriver
+
+chromedriver --version
+
+    ChromeDriver 84.0.4147.30 (48b3e868b4cc0aa7e8149519690b6f6949e110a8-refs/branch-heads/4147@{#310})</code></pre>
+<p>Implement a quick test in Python</p>
+<pre><code>from selenium import webdriver
+
+# Open the webdriver
+driver = webdriver.Chrome()
+
+# Get a page
+driver.get(&#39;http://shrinking-world.com&#39;)
+print(driver.page_source)
+
+# Close the webdriver
+driver.quit()</code></pre>
+<p>Running headless on Mac</p>
+<pre><code>from selenium import webdriver
+
+# Open the webdriver in headless mode
+options = webdriver.ChromeOptions()
+options.add_argument(&#39;--no-sandbox&#39;)
+options.add_argument(&#39;window-size=800x600&#39;)
+options.add_argument(&#39;headless&#39;)
+driver = webdriver.Chrome(options=options)
+
+# Get a page
+driver.get(&#39;http://shrinking-world.com&#39;)
+
+# Extract the text from the page
+print(driver.find_element_by_tag_name(&#39;body&#39;).text)
+
+# Close the webdriver
+driver.quit()</code></pre>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

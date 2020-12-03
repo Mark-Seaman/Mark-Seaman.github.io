@@ -1,0 +1,31 @@
+{% extends 'page.html' %}
+
+
+{% block main %}
+
+<div class="container border">
+
+    <h2>My Home Page</h2>
+
+    <p>
+        This page shows several simple web pages. These views can be replicated and customized to build your
+        applications.
+    </p>
+
+    <ul>
+        <li><a href=".">Default page</a> - with only the directory on the URL</li>
+        <li> <a href="theme">Theme page</a></li>
+        <li> <a href="page">Template page</a></li>
+        <li><a href="home">Home page</a></li>
+        <li><a href="styled">Styled page</a></li>
+        <!--
+        <li> <a href="cards">Card Layout page</a></li>
+        <li> <a href="markdown">Markdown page</a></li>
+-->
+    </ul>
+
+    <p>These pages validate with the <a href="https://validator.w3.org/">HTML validator</a></p>
+
+</div>
+
+{% endblock main %}

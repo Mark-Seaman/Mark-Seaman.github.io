@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Project #6</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="project-6---superhero-data-views">Project 6 - Superhero Data Views</h1>
+<h2 id="goals">Goals</h2>
+<ul>
+<li>Deploy a web app at Python Anywhere</li>
+<li>Understand how to create views in Django
+<ul>
+<li>Build a database using the Django ORM</li>
+<li>Create templates for HTML</li>
+<li>Create custom views using TemplateView</li>
+<li>Hook URL routes to views</li>
+<li>Use one route to load many views</li>
+<li>Serving static media</li>
+</ul></li>
+</ul>
+<h2 id="steps">Steps</h2>
+<h3 id="create-a-new-django-project">Create a new Django project</h3>
+<ul>
+<li>startproject Superhero</li>
+<li>startapp hero</li>
+<li>Build HTML template &quot;index.html&quot;</li>
+<li>Set a title &quot;Superhero News&quot;</li>
+<li>Debug URL route for '/'</li>
+<li>Commit to your Github repo</li>
+<li>Deploy at Python Anywhere</li>
+</ul>
+<h3 id="define-python-class">Define Python class</h3>
+<ul>
+<li>Superhero (name, identity)</li>
+</ul>
+<p>hero/models.py</p>
+<pre><code>class Superhero(models.Model):
+    name = models.CharField(max_length=20)
+    identity = models.CharField(max_length=20)</code></pre>
+<h3 id="data-migrations">Data Migrations</h3>
+<ul>
+<li>Create the scripts to update the database</li>
+<li><p>Apply the migrations</p>
+<p>python manage.py makemigrations hero</p>
+<p>python manage.py migrate</p></li>
+</ul>
+<h3 id="enable-django-tests">Enable Django Tests</h3>
+<ul>
+<li>Use the Django infrastructure to run tests</li>
+<li>Perform Test Driven Development
+<ul>
+<li>Views</li>
+<li>Data</li>
+<li>Business logic</li>
+</ul></li>
+</ul>
+<h3 id="add-heroes">Add Heroes</h3>
+<ul>
+<li>Use the Admin views to
+<ul>
+<li>Add records</li>
+<li>Modify records</li>
+<li>Delete records</li>
+</ul></li>
+</ul>
+<h3 id="add-five-superhero-records">Add five Superhero records</h3>
+<h3 id="create-superhero-pages">Create Superhero Pages</h3>
+<ul>
+<li>Build a view that takes a &quot;hero&quot; argument and displays the name</li>
+<li>Build a URL route that matches &quot;hero/<str:hero>&quot; and calls your view</li>
+</ul>
+<h3 id="superhero-index">Superhero Index</h3>
+<ul>
+<li>Add a list of links to invoke your hero page</li>
+<li>Create links from the database records</li>
+</ul>
+<h3 id="create-images">Create Images</h3>
+<ul>
+<li>Create images that match your five selected heroes</li>
+<li>Add an image to your view to display the superhero image</li>
+<li>Debug your application code until photos display</li>
+<li>Commit to your Github repo</li>
+<li>Deploy at Python Anywhere</li>
+</ul>
+<h3 id="create-superhero-theme">Create Superhero Theme</h3>
+<ul>
+<li>Create a HTML template &quot;superhero_theme.html&quot;</li>
+<li>Add a bootstrap CSS and custom CSS to this template</li>
+<li>Add a &quot;{% block content %}&quot; section to the template</li>
+<li>Make index.html and hero.html use &quot;{% extends 'superhero_theme.html' %}&quot;</li>
+<li>Debug the view inheritance</li>
+<li>Give you pages some cool style</li>
+</ul>
+<h3 id="test-the-pages">Test the pages</h3>
+<ul>
+<li>Browse to <a href="http://YOUR_USER.pythonanywhere.com/" class="uri">http://YOUR_USER.pythonanywhere.com/</a> for Your Site</li>
+<li>Make sure this address is set in Sensei</li>
+</ul>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Your page must be available at <a href="http://YOUR_USER.pythonanywhere.com/" class="uri">http://YOUR_USER.pythonanywhere.com/</a></li>
+<li>It must contain info about superheroes</li>
+<li>You must use a &quot;superhero_theme.html&quot; base template for all pages</li>
+<li>You will get partial credit if you build your app but cannot get it deployed</li>
+<li>All heroes must come from database records</li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

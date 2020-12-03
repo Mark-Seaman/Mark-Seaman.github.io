@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #12</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-12---data-models">Lesson 12 - Data Models</h1>
+<h2 id="learn">LEARN</h2>
+<h3 id="visit-the-django-website">Visit the Django website</h3>
+<ul>
+<li><a href="https://www.djangoproject.com/">Django Website</a></li>
+<li><a href="https://www.djangoproject.com/start">Django Start</a></li>
+<li>Select the &quot;Object-relational Mapper&quot; expansion link</li>
+</ul>
+<h3 id="applications-data-views">Applications = Data + Views</h3>
+<ul>
+<li>Static Websites are views without data</li>
+<li>Data is saved state on the server</li>
+</ul>
+<h3 id="database">Database</h3>
+<ul>
+<li>Rows and Columns</li>
+<li>Items and Attributes</li>
+</ul>
+<h3 id="table-display">Table Display</h3>
+<p>Superheroes</p>
+<pre><code>ID  Hero    Identity  Image
+1   hulk    Banner    hulk.jpg
+2   ironman Stark     iron_man.jpg</code></pre>
+<h3 id="table-display-1">Table Display</h3>
+<p>Addresses</p>
+<pre><code>ID    Appt  Street  City
+402   1600  Pen.    Wash.
+666   40    Baker   LA</code></pre>
+<h3 id="table-display-2">Table Display</h3>
+<p>Relational Database</p>
+<p>Superheroes with Addresses</p>
+<pre><code>ID  Hero    Identity  Address
+1   hulk    Banner    402
+2   ironman Stark     666</code></pre>
+<h3 id="two-views-of-data">Two Views of Data</h3>
+<ul>
+<li>Objects in Memory</li>
+<li>Database Rows</li>
+</ul>
+<h3 id="orm---object-relational-mapper">ORM - Object Relational Mapper</h3>
+<ul>
+<li>Create Python Classes</li>
+<li>Automatically create Database Tables</li>
+</ul>
+<h3 id="superhero">Superhero</h3>
+<ul>
+<li>Superhero
+<ul>
+<li>Name</li>
+<li>Identity</li>
+<li>Image</li>
+<li>Address</li>
+<li>Power</li>
+<li>Weakness</li>
+</ul></li>
+</ul>
+<h3 id="data-migration">Data Migration</h3>
+<ul>
+<li>Examine Python Data Models</li>
+<li>Create scripts to migrate the database tables</li>
+</ul>
+<h3 id="crud">CRUD</h3>
+<ul>
+<li>Create</li>
+<li>Read</li>
+<li>Update</li>
+<li>Delete</li>
+</ul>
+<h3 id="operations-on-every-model">Operations on Every Model</h3>
+<ul>
+<li>Create Superhero</li>
+<li>Read Superhero</li>
+<li>Update Superhero</li>
+<li>Delete Superhero</li>
+<li>Create Address</li>
+<li>Read Address</li>
+<li>Update Address</li>
+<li>Delete Address</li>
+</ul>
+<h3 id="django-admin-view">Django Admin View</h3>
+<ul>
+<li>Build a UI to manipulate data</li>
+<li>Free and easy</li>
+<li>Create new table in five minutes</li>
+</ul>
+<h2 id="build">BUILD</h2>
+<h3 id="start-demo12">Start &quot;demo12&quot;</h3>
+<ul>
+<li>startproject Demo12</li>
+<li>startapp hero</li>
+<li>INSTALLED_APPS = [... 'hero' ...]</li>
+<li>edit &quot;hero/models.py&quot;</li>
+</ul>
+<h3 id="define-python-class">Define Python class</h3>
+<p>Superhero (name, identity)</p>
+<p>hero/models.py</p>
+<pre><code>class Superhero(models.Model):
+    name = models.CharField(max_length=20)
+    identity = models.CharField(max_length=20)</code></pre>
+<h3 id="data-migrations">Data Migrations</h3>
+<p>Create the scripts to update the database</p>
+<p>Apply the migrations</p>
+<pre><code>python manage.py makemigrations hero
+
+python manage.py migrate</code></pre>
+<h3 id="enable-the-admin-ui">Enable the Admin UI</h3>
+<p>Setup Django Admin</p>
+<p>hero/admin.py</p>
+<pre><code>from django.contrib import admin
+
+from .models import Superhero
+
+admin.site.register(Superhero)</code></pre>
+<h3 id="admin-routes">Admin Routes</h3>
+<p>URL Routes to Admin pages</p>
+<p>hero/urls.py</p>
+<pre><code>from django.contrib.admin import site
+
+urlpatterns = [
+    path(r&#39;admin/&#39;, site.urls),
+]</code></pre>
+<h3 id="create-objects">Create Objects</h3>
+<ul>
+<li>Browse to Admin &quot;http://127.0.0.1:8000/admin/&quot;</li>
+</ul>
+<h3 id="add-heroes">Add Heroes</h3>
+<ul>
+<li>Use the Admin views to
+<ul>
+<li>Add records</li>
+<li>Modify records</li>
+<li>Delete records</li>
+</ul></li>
+</ul>
+<h3 id="add-five-superheroes">Add five Superheroes</h3>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

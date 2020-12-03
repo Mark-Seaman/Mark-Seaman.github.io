@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>List Note</title>
+    </head>
+    <body>
+        <h1>Notes</h1>
+        <a href="add">Add Note</a>
+        <ul>
+            {% for note in object_list %}
+                <li><a href="{{ note.pk }}">{{ note.name }}</a></li>
+            {% empty %}
+                <li>No notes yet.</li>
+            {% endfor %}
+        </ul>
+
+    </body>
+</html>

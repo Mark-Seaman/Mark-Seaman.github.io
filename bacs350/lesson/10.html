@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #10</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-10---view-inheritance">Lesson 10 - View Inheritance</h1>
+<h2 id="learn">LEARN</h2>
+<h3 id="templatesbase.html">templates/base.html</h3>
+<p>Define a template that can be loaded like any other. Notice the &quot;{% block content %}&quot;.</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;BACS 350 Page&lt;/title&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+    &lt;/head&gt;
+    
+    &lt;body&gt;
+        &lt;h1&gt;BACS 350 Page&lt;/h1&gt;
+        {% block content %}
+            &lt;h2&gt;No Block Defined&lt;/h2&gt;
+        {% endblock content %}
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h3 id="templatesabout.html">templates/about.html</h3>
+<p>The template can be extended to replace the &quot;{% block content %}&quot;.</p>
+<pre><code>{% extends &#39;base.html&#39; %}
+
+{% block content %}
+    &lt;h2&gt;About Us&lt;/h2&gt;
+    &lt;p&gt;This is all about us!&lt;/p&gt;
+{% endblock content %}</code></pre>
+<h3 id="templatesprofile.html">templates/profile.html</h3>
+<p>The template can be extended to replace the &quot;{% block content %}&quot;.</p>
+<pre><code>{% extends &#39;base.html&#39; %}
+
+{% block content %}
+    &lt;h2&gt;Profile Page&lt;/h2&gt;
+    &lt;p&gt;This is my profile&lt;/p&gt;
+{% endblock content %}</code></pre>
+<h3 id="templatespage_theme.html">templates/page_theme.html</h3>
+<ul>
+<li>View a more realistic example with several components</li>
+<li>The theme load both CSS and JavaScript</li>
+<li>A header, footer, and main are defined</li>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/blob/master/demo/week04/demo10/templates/page_theme.html">Page Theme</a></li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

@@ -1,0 +1,572 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>UNC Course Slides</title>
+
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reset.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reveal.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/theme/beige.css" id="theme">
+
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+        <link rel="stylesheet" href="slides.css">
+    </head>
+
+    <body>
+
+        <div class="reveal">
+            <div class="slides">
+
+                <section class="section"
+                         data-background-image="../images/autumn-leaves.jpg">
+                    <h1>bacs350 - Lesson 16</h1>
+                    <p><img class="logo" src="../images/Bear.png" alt="../images/Bear.png"></p>
+                    <p class="title">Mark Seaman</p>
+                    <p class="title">University of Northern Colorado</p>
+                </section>
+
+                
+                    <section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>Blog Demo Code</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Blog Demo
+* Simple app that shows the Data View Design Pattern
+* Copy this code and debug it
+* Make changes to make it match your problem
+* [Blog App](https://github.com/Mark-Seaman/Book-Builder/tree/master/BlogApp)
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Setup for Workflow
+* Build Blog project
+* Setup automatic tests
+* Setup development workflow
+* Create one view
+* Define TO DO LIST
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Create view test
+* Test that the URL loads
+
+tests.py
+
+    from django.test import SimpleTestCase
+
+    class ViewTests(SimpleTestCase):
+    
+        def test_page_exists(self):
+            response = self.client.get('/')
+            self.assertEqual(response.status_code, 200)
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Create the view
+* Make the missing view to display template
+    
+templates/index.html
+
+    <h1>To Do List</h1>
+    
+blog/views.py
+        
+    class IndexView(TemplateView):
+        template_name = 'index.html'
+        
+blog/urls.py
+
+    from django.urls import path
+    from .views import IndexView
+    
+    urlpatterns = [
+        path('', IndexView.as_view(), name='index'),
+    ]
+    
+    
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Test the Template
+* Make sure the correct template is used
+
+tests.py
+
+    from django.test import SimpleTestCase
+
+    class ViewTests(SimpleTestCase):
+    
+        def test_template(self):
+            response = self.client.get('/')
+            self.assertTemplateUsed(response, template_name='index.html')
+    
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Test the Title
+* Look for HTML within the page
+
+tests.py
+
+    from django.test import SimpleTestCase
+
+    class ViewTests(SimpleTestCase):
+    
+        def test_title(self):
+            response = self.client.get('/')
+            self.assertContains(response, '<title>To Do List</title>')
+
+add title to pass test
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Look for list items
+* Look for HTML within the page
+
+tests.py
+
+    from django.test import SimpleTestCase
+
+    class ViewTests(SimpleTestCase):
+    
+        def test_title(self):
+            response = self.client.get('/')
+            self.assertContains(response, '<li>', count=1)
+
+add title to pass test
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Assertions
+* [Django Test Assertions](https://docs.djangoproject.com/en/3.1/topics/testing/tools/#assertions)
+* Most useful assertions
+    * assertTemplateUsed, assertTemplateNotUsed
+    * assertContains, assertContains
+    * assertEqual, assertNotEqual
+    * assertTrue, assertFalse
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Basic tests
+* Check status code
+* Check missing pages
+* Check page content
+* Check the URL
+* Check for redirect
+* Ensure bad content not present
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Data Model Design Pattern 
+
+blog/models.py
+
+    from django.db import models
+    
+    class Post(models.Model):
+        title = models.CharField(max_length=200)
+        author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+        body = models.TextField()
+    
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### CreateView Design Pattern 
+
+templates/post_new.html
+
+```
+
+    <form action="" method="post">{% csrf_token %}
+       {{ form.as_p }}
+       <input type="submit" value="Save">
+    </form>
+```
+
+
+blog/urls.py
+
+    from django.urls import path
+    from .views import BlogCreateView
+    
+    urlpatterns = [
+        path('new/', BlogCreateView.as_view(), name='post_new'),
+    ]
+
+blog/views.py
+        
+    class BlogCreateView(CreateView):
+        model = Post
+        template_name = 'post_new.html'
+        fields = ['title', 'author', 'body']
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Test the Create 
+* Test the object in memory
+
+
+    from django.contrib.auth import get_user_model
+    from django.test import TestCase
+    from django.urls import reverse
+    
+    from .models import Post
+    
+    
+    class BlogTests(TestCase):
+    
+        def setUp(self):
+            self.user = get_user_model().objects.create_user(
+                username='testuser',
+                email='test@email.com',
+                password='secret'
+            )
+    
+            self.post = Post.objects.create(
+                title='A good title',
+                body='Nice body content',
+                author=self.user,
+            )
+    
+        def test_post_content(self):
+            self.assertEqual(f'{self.post.title}', 'A good title')
+            self.assertEqual(f'{self.post.author}', 'testuser')
+            self.assertEqual(f'{self.post.body}', 'Nice body content')   
+            
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Test the Database Records
+* Get the ListView
+* Look for the content we added
+
+
+        def test_post_list_view(self):
+            response = self.client.get(reverse('post_list'))
+            self.assertEqual(response.status_code, 200)
+            self.assertContains(response, 'Nice body content')
+            self.assertTemplateUsed(response, 'post_list.html')
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### ListView Design Pattern 
+
+templates/post_list.html
+
+```
+    {% for post in object_list %}
+        <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
+        <p>{{ post.body }}</p>
+    {% endfor %}
+```   
+
+blog/urls.py
+
+    urlpatterns = [
+        path('', BlogListView.as_view(), name='post_list'),
+    ]
+    
+blog/views.py
+
+    class BlogListView(ListView):
+        model = Post
+        template_name = 'post_list.html'
+    
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### DetailView Design Pattern 
+
+templates/post_detail.html
+
+```   
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.body }}</p>
+    
+    <a href="{% url 'post_edit' post.pk %}">Edit Blog Post</a>
+    <a href="{% url 'post_delete' post.pk %}">Delete Blog Post</a>
+``` 
+
+blog/urls.py
+
+    urlpatterns = [
+        path('<int:pk>/', BlogDetailView.as_view(), name='post_detail'),
+    ]
+
+blog/views.py
+
+    class BlogDetailView(DetailView):
+        model = Post
+        template_name = 'post_detail.html'
+    
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### UpdateView Design Pattern
+
+templates/post_edit.html
+
+```
+    <form action="" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update">
+    </form>
+```
+
+blog/urls.py
+
+    urlpatterns = [
+        path('<int:pk>/edit/', BlogUpdateView.as_view(), name='post_edit'),
+    ]
+
+blog/views.py
+
+    class BlogUpdateView(UpdateView):
+        model = Post
+        template_name = 'post_edit.html'
+        fields = ['title', 'body']
+    
+    
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### DeleteView Design Pattern
+
+templates/post_delete.html
+
+```
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.body }}</p>
+    
+    <a href="{% url 'post_edit' post.pk %}">Edit Blog Post</a>
+    <a href="{% url 'post_delete' post.pk %}">Delete Blog Post</a>
+```
+
+blog/urls.py
+
+    urlpatterns = [
+        path('<int:pk>/delete/', BlogDeleteView.as_view(), name='post_delete'),
+    ]
+
+blog/views.py
+
+    from django.urls import reverse_lazy
+
+    class BlogDeleteView(DeleteView):
+        model = Post
+        template_name = 'post_delete.html'
+        success_url = reverse_lazy('post_list')
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Full Test Suite
+* Test code from "Django for Beginners" - William Vincent
+
+
+    from django.contrib.auth import get_user_model
+    from django.test import TestCase
+    from django.urls import reverse
+    
+    from .models import Post
+    
+    
+    class BlogTests(TestCase):
+    
+        def setUp(self):
+            self.user = get_user_model().objects.create_user(
+                username='testuser',
+                email='test@email.com',
+                password='secret'
+            )
+    
+            self.post = Post.objects.create(
+                title='A good title',
+                body='Nice body content',
+                author=self.user,
+            )
+    
+        def test_string_representation(self):
+            post = Post(title='A sample title')
+            self.assertEqual(str(post), post.title)
+    
+        def test_get_absolute_url(self): 
+            self.assertEqual(self.post.get_absolute_url(), '/post/1/')
+    
+        def test_post_content(self):
+            self.assertEqual(f'{self.post.title}', 'A good title')
+            self.assertEqual(f'{self.post.author}', 'testuser')
+            self.assertEqual(f'{self.post.body}', 'Nice body content')
+    
+        def test_post_list_view(self):
+            response = self.client.get(reverse('home'))
+            self.assertEqual(response.status_code, 200)
+            self.assertContains(response, 'Nice body content')
+            self.assertTemplateUsed(response, 'home.html')
+    
+        def test_post_detail_view(self):
+            response = self.client.get('/post/1/')
+            no_response = self.client.get('/post/100000/')
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(no_response.status_code, 404)
+            self.assertContains(response, 'A good title')
+            self.assertTemplateUsed(response, 'post_detail.html')
+    
+        def test_post_create_view(self):
+            response = self.client.post(reverse('post_new'), {
+                'title': 'New title',
+                'body': 'New text',
+                'author': self.user.id,
+            })
+            self.assertEqual(response.status_code, 302)
+            self.assertEqual(Post.objects.last().title, 'New title')
+            self.assertEqual(Post.objects.last().body, 'New text')
+    
+        def test_post_update_view(self):
+            response = self.client.post(reverse('post_edit', args='1'), {
+                'title': 'Updated title',
+                'body': 'Updated text',
+            })
+            self.assertEqual(response.status_code, 302)
+    
+        def test_post_delete_view(self): 
+            response = self.client.post(
+                reverse('post_delete', args='1'))
+            self.assertEqual(response.status_code, 302)
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+                
+
+            </div>
+        </div>
+
+        <script src="https://shrinking-world.com/static/revealjs/dist/reveal.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/notes/notes.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/markdown/markdown.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/highlight/highlight.js"></script>
+        <script>
+            // More info about initialization & config:
+            // - https://revealjs.com/initialization/
+            // - https://revealjs.com/config/
+            Reveal.initialize({
+                hash: true,
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+            });
+
+        </script>
+    </body>
+
+</html>

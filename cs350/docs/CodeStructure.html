@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>CodeStructure</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC CS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Software Engineering Skills</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="code-structure">Code Structure</h1>
+<h2 id="app-settings">App Settings</h2>
+<p>tree bookbuilder</p>
+<pre><code>.
+├── book
+│   ├── admin.py
+│   ├── apps.py
+│   ├── migrations
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── bookbuilder
+│   ├── asgi.py
+│   ├── settings.py
+│   └── wsgi.py
+├── templates
+├── db.sqlite3
+└── manage.py</code></pre>
+<p>The <a href="../bookbuilder/bookbuilder/settings.py">settings.py</a> file runs the app startup.</p>
+<p>This is in the &quot;bookbuilder&quot; app folder.</p>
+<p>Startup files are &quot;asgi.py&quot; and &quot;wsgi.py&quot; and &quot;manage.py&quot;.</p>
+<p>Data migrations folder contains all the database migration history.</p>
+<h2 id="book-app">Book App</h2>
+<p>The Django Book Builder project has one Django app called &quot;book&quot;.</p>
+<p>&quot;book&quot; holds</p>
+<ul>
+<li>the data models (<a href="../bookbuilder/book/models.py">models.py</a>)</li>
+<li>the views for books and users (<a href="../bookbuilder/book/views.py">views.py</a>)</li>
+<li>the URL routes (<a href="../bookbuilder/book/urls.py">urls.py</a>)</li>
+</ul>
+<h2 id="html-templates">HTML Templates</h2>
+<ul>
+<li>All HTML template files are located in &quot;templates&quot; folder</li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

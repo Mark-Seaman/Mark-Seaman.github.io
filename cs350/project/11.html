@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Project #11</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC CS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Software Engineering Skills</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-11---test-driven-development">Lesson 11 - Test Driven Development</h1>
+<p>Using TDD for Book Builder Views and Data</p>
+<h2 id="learn">LEARN</h2>
+<h3 id="milestone-1---project-plan-complete">Milestone #1 - Project Plan Complete</h3>
+<ul>
+<li>Create a Project Charter</li>
+<li>Select technology</li>
+<li>Setup version control</li>
+<li>Create a test plan</li>
+</ul>
+<h3 id="milestone-1-regrade">Milestone #1 Regrade</h3>
+<ul>
+<li>If you would like me to take another look at Milestone #1 send me email</li>
+<li>Let me know what you did</li>
+<li>Building Team webpages for teamwork survey</li>
+</ul>
+<h3 id="milestone-2---technology-proven---goal">Milestone #2 - Technology Proven - Goal</h3>
+<ul>
+<li>Prove that the project is doable</li>
+<li>Demonstrate the basic capability required</li>
+<li>Create a hosted application</li>
+<li>Show the core user story</li>
+<li>Create the working relationship</li>
+<li>High-level design</li>
+</ul>
+<h3 id="milestone-2---test">Milestone #2 - Test</h3>
+<ul>
+<li>Setup for Test-driven development</li>
+<li>Test the views</li>
+<li>Test data models</li>
+<li>Build simple test infrastructure</li>
+<li>Document workflow built around tests</li>
+</ul>
+<h3 id="test-driven-development-setup">Test-driven Development Setup</h3>
+<ul>
+<li>Developer tools setup</li>
+<li>Github Desktop
+<ul>
+<li>View changes</li>
+<li>Commit and changes</li>
+<li>Pull new code</li>
+</ul></li>
+<li>Run Editor
+<ul>
+<li>Use Open Folder in Brackets to remember code location</li>
+<li>Remember last change made</li>
+</ul></li>
+<li>Run a terminal window
+<ul>
+<li>Verify the virtual environment</li>
+<li>Run the server</li>
+<li>Test the code</li>
+<li>Fix any errors</li>
+</ul></li>
+</ul>
+<h3 id="workflow-for-development">Workflow for Development</h3>
+<ul>
+<li>Pull code</li>
+<li>Feature Loop (focus on one feature)
+<ul>
+<li>Create a failing test</li>
+<li>Create the code to pass the test</li>
+<li>Save the test code for later</li>
+<li>Commit and push changes</li>
+<li>Select next feature</li>
+</ul></li>
+<li>Run all tests</li>
+<li>Fix all defects</li>
+<li>Push code</li>
+</ul>
+<h2 id="book-builder-data">Book Builder Data</h2>
+<p>Data Classes and database tables</p>
+<ul>
+<li>Reader
+<ul>
+<li>user*</li>
+</ul></li>
+<li>Author
+<ul>
+<li>user*</li>
+<li>name</li>
+</ul></li>
+<li>Book
+<ul>
+<li>author*</li>
+<li>title</li>
+</ul></li>
+<li>Chapter
+<ul>
+<li>book*</li>
+<li>title</li>
+<li>order</li>
+</ul></li>
+<li>Paragraph
+<ul>
+<li>chapter*</li>
+<li>text</li>
+<li>order</li>
+</ul></li>
+<li>Image
+<ul>
+<li>chapter*</li>
+<li>src</li>
+<li>alt</li>
+<li>order</li>
+</ul></li>
+</ul>
+<p>“*” makes a link to another table. This is implemented by a foreign key relationship between the two tables.</p>
+<p>Example: Books have Authors so the Book data model has a ForeignKeyField that points to the Author Model class.</p>
+<h2 id="build">BUILD</h2>
+<h3 id="bookmodels.py">book/models.py</h3>
+<p>bookbuilder/settings.py</p>
+<pre><code>INSTALLED_APPS = [
+    ...
+    &#39;book&#39;,
+]</code></pre>
+<p>book/models.py</p>
+<pre><code>from django.db import models
+from django.contrib.auth.models import User
+
+class Author(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+
+class Book(models.Model):
+    user = models.ForeignKey(Author, on_delete=models.CASCADE)
+    title = models.CharField(max_length=100)</code></pre>
+<p>Migrate the database</p>
+<pre><code>python manage.py makemigrations
+
+python manage.py migrate</code></pre>
+<p>book/tests.py</p>
+<pre><code>class AuthorTests(TestCase):
+
+    def test_author_model(self):
+        self.assertEqual(len(Author.objects.all()), 0)</code></pre>
+<h3 id="test-iterations">Test iterations</h3>
+<p>Test 1 - No Authors</p>
+<pre><code>self.assertEqual(len(Author.objects.all()), 0)</code></pre>
+<p>Test 2 - Create One Author</p>
+<pre><code>def test_create_author(self):
+    user = get_user_model().objects.create_user(username=&#39;TEST_DUDE&#39;, email=&#39;me@here.com&#39;, password=&#39;secret&#39;)
+    author = Author.objects.create(user=self.user, name=&#39;Charles Dickens&#39;)
+    self.assertEqual(len(Author.objects.all()), 1)</code></pre>
+<p>Test 3 - Check Author Name</p>
+<pre><code>def setUp(self):
+    self.user = get_user_model().objects.create_user(username=&#39;TEST_DUDE&#39;, email=&#39;me@here.com&#39;, password=&#39;secret&#39;)
+    self.author = Author.objects.create(user=self.user, name=&#39;Charles Dickens&#39;)
+
+def test_author_model(self):
+    self.assertEqual(self.author.name, &#39;Charles Dickens&#39;)
+    self.assertEqual(self.author.user.username, &#39;TEST_DUDE&#39;)</code></pre>
+<p>Test 4 - Add Author</p>
+<pre><code>    def test_create_author(self):
+        self.assertEqual(len(Author.objects.all()), 1)
+        a = Author.objects.create(user=self.user, name=&#39;Jack London&#39;)
+        self.assertEqual(len(Author.objects.all()), 2)
+        self.assertEqual(a.name, &#39;Jack London&#39;)
+        self.assertEqual(a.user.username, &#39;TEST_DUDE&#39;)</code></pre>
+<p>Test 5 - List Authors</p>
+<pre><code>    def test_list_authors(self):
+        self.assertEqual(len(Author.objects.all()), 1)
+        self.assertEqual(Author.objects.get(name=&#39;Charles Dickens&#39;).name, &#39;Charles Dickens&#39;)</code></pre>
+<p>Test 6 - Update Author</p>
+<pre><code>    def test_update_author(self):
+        a = Author.objects.get(pk=1)
+        self.assertEqual(a.name, &#39;Charles Dickens&#39;)
+        a.name = &#39;George Orwell&#39;
+        a.save()
+        a = Author.objects.get(pk=1)
+        self.assertEqual(a.name, &#39;George Orwell&#39;)</code></pre>
+<p>Test 7 - Delete Author</p>
+<pre><code>    def test_delete_author(self):
+        a = Author.objects.get(pk=1)
+        a.delete()
+        self.assertEqual(len(Author.objects.all()), 0)</code></pre>
+<h3 id="refactor">Refactor</h3>
+<p>book/author.py</p>
+<pre><code>def add_author(user, name):
+    return Author.objects.create(user=user, name=name)
+    
+def list_authors():
+    return Author.objects.all()
+    
+def get_author(name):
+    return Author.objects.get(name=name)
+    
+def delete_author(name):
+    Author.objects.get(name=name).delete()</code></pre>
+<p>book/tests.py</p>
+<pre><code>def check_author_name(self, pk, name):
+    a = Author.objects.get(pk=pk)
+    self.assertEqual(a.name, name)
+    
+def check_author_user(self, pk, username):
+    a = Author.objects.get(pk=pk)
+    self.assertEqual(a.user.username, username)
+    
+def check_num_authors(self, num):
+    self.assertEqual(len(list_authors()), num)
+   
+def create_test_user(self):
+     self.user = get_user_model().objects.create_user(
+        username=&#39;TEST_DUDE&#39;, 
+        email=&#39;me@here.com&#39;, 
+        password=&#39;secret&#39;
+     )
+    </code></pre>
+<h3 id="refactored-tests">Refactored Tests</h3>
+<pre><code>def create_test_user():
+    return get_user_model().objects.create_user(username=&#39;TEST_DUDE&#39;, email=&#39;me@here.com&#39;, password=&#39;secret&#39;)
+
+class AuthorTests(TestCase):
+
+    def check_author_name(self, pk, name):
+        a = Author.objects.get(pk=pk)
+        self.assertEqual(a.name, name)
+
+    def check_author_user(self, pk, username):
+        a = Author.objects.get(pk=pk)
+        self.assertEqual(a.user.username, username)
+
+    def check_num_authors(self, num):
+        self.assertEqual(len(list_authors()), num)
+
+    def setUp(self):
+        self.user = create_test_user()
+        self.author = add_author(self.user, &#39;Charles Dickens&#39;)
+
+    def test_author_model(self):
+        self.check_num_authors(1)
+        self.check_author_name(1, &#39;Charles Dickens&#39;)
+        self.check_author_user(1, &#39;TEST_DUDE&#39;)
+
+    def test_create_author(self):
+        self.check_num_authors(1)
+        add_author(self.user, &#39;Jack London&#39;)
+        self.check_author_name(2, &#39;Jack London&#39;)
+        self.check_author_user(2, &#39;TEST_DUDE&#39;)
+        self.check_num_authors(2)
+
+    def test_list_authors(self):
+        self.check_num_authors(1)
+        self.assertEqual(get_author(&#39;Charles Dickens&#39;).pk, 1)
+
+    def test_update_author(self):
+        self.check_num_authors(1)
+        a = get_author(&#39;Charles Dickens&#39;)
+        a.name = &#39;George Orwell&#39;
+        a.save()
+        self.check_author_name(1, &#39;George Orwell&#39;)
+
+    def test_delete_author(self):
+        delete_author(&#39;Charles Dickens&#39;)
+        self.check_num_authors(0)</code></pre>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

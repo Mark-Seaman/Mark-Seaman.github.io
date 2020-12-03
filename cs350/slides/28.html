@@ -1,0 +1,326 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>UNC Course Slides</title>
+
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reset.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reveal.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/theme/beige.css" id="theme">
+
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+        <link rel="stylesheet" href="slides.css">
+    </head>
+
+    <body>
+
+        <div class="reveal">
+            <div class="slides">
+
+                <section class="section"
+                         data-background-image="../images/autumn-leaves.jpg">
+                    <h1>cs350 - Lesson 28</h1>
+                    <p><img class="logo" src="../images/Bear.png" alt="../images/Bear.png"></p>
+                    <p class="title">Mark Seaman</p>
+                    <p class="title">University of Northern Colorado</p>
+                </section>
+
+                
+                    <section>
+    <section class="section" data-background-image="../images/crystalball.800.jpg">
+        <h2>LEARN & BUILD</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Daily Stand-up Meeting
+* Each person answers three questions
+    * What did you do?
+    * What will you do next?
+    * What challenges are you working on?
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Development Log
+* Document your daily progress
+* Be methodical about your engineering
+* Leave documents to show what you learned
+* [Development Log](https://github.com/Mark-Seaman/Book-Builder/blob/master/docs/DevelopmentLog.md)
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Book Builder - 10-25
+* Rebuild Virtual Env  (Installed Python 3.8.6)
+* Add user administration
+* Update Data Models (Author, Book, Chapter)
+* Testing
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Rebuild Virtual Env
+* [Rebuild Virtual Env](https://github.com/Mark-Seaman/Book-Builder/blob/master/docs/RebuildVenv.md)
+    
+ 
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Add user administration
+* [Users accounts](https://github.com/Mark-Seaman/Book-Builder/blob/master/docs/UserAccounts.md)
+* Register
+* Login/logout
+* Require login
+* Show login info
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Update Data Models
+* Testing
+    * dj test
+    * Basic user tests
+* Known Problems
+    * Author
+        * Authors are currently hard code to Author 1
+        * Need to create views to add and edit new authors
+        * Tie author to logged in user
+    *  Book
+        * Works correctly
+    *  Chapter
+        * Tie add chapter to a specific book
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Book Builder - 10-27
+* Setup Dev Context
+* Rename app settings folder
+* Deploy & test code
+* Use View Inheritance
+* Known Problems
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Setup Dev Context
+* Define a script that sets up the dev environment and tools
+* [start development script](https://github.com/Mark-Seaman/Book-Builder/blob/master/start)
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Rename app settings folder
+* mv bookbuilder config
+* Edit files (manage, asgi, wsgi, settings)
+* dj test
+* dj runserver
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Deploy & test code
+
+* Test locally (auto, manual)
+* Commit and push
+* Pull and bounce server 
+* Test remotely
+* [Update Server](https://github.com/Mark-Seaman/Book-Builder/blob/master/docs/UpdateServer.md)
+
+    
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Use View Inheritance
+
+Create a series of templates
+    
+    book_theme.html
+    _header.html
+    _footer.html
+    _navbar.html
+    _user.html
+    
+[View Templates](https://github.com/Mark-Seaman/Book-Builder/blob/master/docs/ViewInheritance.md)
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Improve Appearance
+* Use logic from Shrinking World website
+    * Header with globe banner art
+    * CSS stylesheet (static/shrinking-world.css)
+    * Body background (static/paper.png)
+    * Set text color to dark
+    
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### What Next?
+* Remaining Tasks
+* **TEST**  (current state)
+    - Create tests find problems and log issues
+* **FIX**  (known problems)
+    - Fix known issues
+* **EXTEND**  (new features)
+    - Create features with tests
+* **IMPROVE**  (simplify)
+    - Refactor to eliminate duplication
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Testing
+* Measure code coverage
+* Test Book views, data
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Known Problems
+* Fix Chapter edit
+* Fix Book edit
+* Add Book Description
+* Fix favicon
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### New Features
+* Author
+    * Authors are currently hard code to Author 1
+    * Need to create views to add and edit new authors
+    * Tie author to logged in user
+*  Book
+    * Works correctly
+*  Chapter
+    * Tie add chapter to a specific book
+* Theme
+    * Favicon - Setup book icon
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Fix Structure
+* Separate out different tests
+
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+                
+
+            </div>
+        </div>
+
+        <script src="https://shrinking-world.com/static/revealjs/dist/reveal.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/notes/notes.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/markdown/markdown.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/highlight/highlight.js"></script>
+        <script>
+            // More info about initialization & config:
+            // - https://revealjs.com/initialization/
+            // - https://revealjs.com/config/
+            Reveal.initialize({
+                hash: true,
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+            });
+
+        </script>
+    </body>
+
+</html>

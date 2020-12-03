@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #32</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-32---tabs-accordion-views">Lesson 32 - Tabs &amp; Accordion Views</h1>
+<h2 id="learn-build">LEARN &amp; BUILD</h2>
+<h3 id="workshop-views">Workshop Views</h3>
+<ul>
+<li>Theme View</li>
+<li>Workshop View</li>
+<li>Home View</li>
+<li>Card View</li>
+<li>Cards View</li>
+<li>Document View</li>
+</ul>
+<h3 id="document-view">Document View</h3>
+<ul>
+<li>Use Markdown Converter to produce HTML</li>
+<li>Display Markdown Document</li>
+<li>Display File and Database records</li>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week11/Demo30/workshop/views.py">views.py</a></li>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week11/Demo30/workshop/workshop.py">workshop.py</a></li>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week11/Demo30/templates/markdown.html">templates/markdown.html</a></li>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week11/Demo30/templates/_card.html">templates/_card.html</a></li>
+</ul>
+<h3 id="table-view">Table View</h3>
+<ul>
+<li>Use CSV reader to get table data</li>
+<li>Display records as rows and columns</li>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week11/Demo31/workshop/views.py">views.py</a></li>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week11/Demo31/workshop/workshop.py">workshop.py</a></li>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week11/Demo31/templates/table.html">templates/table.html</a></li>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week11/Demo31/templates/_table.html">templates/_table.html</a></li>
+</ul>
+<h3 id="partial-templates">Partial Templates</h3>
+<ul>
+<li>_user.html</li>
+<li>_header.html</li>
+<li>_footer.html</li>
+<li>_card.html</li>
+<li>_cards.html</li>
+<li>_table.html</li>
+</ul>
+<h3 id="accordion">Accordion</h3>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week11/Demo32/workshop/views.py">views.py</a></li>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week11/Demo32/workshop/workshop.py">workshop.py</a></li>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week11/Demo32/templates/accordion.html">templates/accordion.html</a></li>
+</ul>
+<h3 id="tabs">Tabs</h3>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week11/Demo32/workshop/views.py">views.py</a></li>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week11/Demo32/workshop/workshop.py">workshop.py</a></li>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week11/Demo32/templates/tabs.html">templates/tabs.html</a></li>
+</ul>
+<h3 id="debug-accordion">Debug Accordion</h3>
+<ul>
+<li>Start with Bootstrap demo (all data hard-coded)</li>
+<li>Create dictionary of card data</li>
+<li>Inject cards data into template</li>
+<li>Create _accordion.html partial template</li>
+<li>Convert page view to use partial</li>
+</ul>
+<h3 id="debug-tabs">Debug Tabs</h3>
+<ul>
+<li>Start with Bootstrap demo (all data hard-coded)</li>
+<li>Create dictionary of card data</li>
+<li>Inject cards data into template</li>
+<li>Create _tabs.html partial template</li>
+<li>Convert page view to use partial</li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

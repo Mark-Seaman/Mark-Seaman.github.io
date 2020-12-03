@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #31</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-31---table-view">Lesson 31 - Table View</h1>
+<h2 id="learn-build">LEARN &amp; BUILD</h2>
+<h3 id="workshop-views">Workshop Views</h3>
+<ul>
+<li>Theme View</li>
+<li>Workshop View</li>
+<li>Home View</li>
+<li>Card View</li>
+<li>Cards View</li>
+<li>Document View</li>
+</ul>
+<h3 id="document-view">Document View</h3>
+<ul>
+<li>Use Markdown Converter to produce HTML</li>
+<li>Display Markdown Document</li>
+<li>Display File and Database records</li>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week11/Demo30/workshop/views.py">views.py</a></li>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week11/Demo30/workshop/workshop.py">workshop.py</a></li>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week11/Demo30/templates/markdown.html">templates/markdown.html</a></li>
+</ul>
+<h3 id="partial-templates">Partial Templates</h3>
+<ul>
+<li>_navbar.html</li>
+<li>_user.html</li>
+<li>_header.html</li>
+<li>_footer.html</li>
+<li>_card.html</li>
+<li>_cards.html</li>
+<li>_doc.html</li>
+</ul>
+<h3 id="tables">Tables</h3>
+<ul>
+<li>Handle spreadsheet data or database records</li>
+<li>Rows and columns</li>
+<li><p>Save tabular data as CSV file</p>
+<p>bacs350,27,2020-10-26,10,Base Template bacs350,28,2020-10-28,10,Template Includes bacs350,29,2020-10-30,10,Card Views bacs350,30,2020-11-02,11,Markdown View bacs350,31,2020-11-04,11,Table View</p></li>
+</ul>
+<h3 id="python-csv-reader">Python CSV Reader</h3>
+<ul>
+<li>Read a CSV file</li>
+<li>Print each row</li>
+</ul>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> csv <span class="ch">import</span> reader
+
+<span class="kw">with</span> <span class="dt">open</span>(<span class="st">&#39;lessons.csv&#39;</span>) <span class="ch">as</span> f:
+    <span class="kw">for</span> row in reader(f):
+        <span class="dt">print</span>(row)</code></pre>
+<h3 id="python-csv-writer">Python CSV Writer</h3>
+<ul>
+<li>Take in a table (rows, columns)</li>
+<li>Write a CSV file</li>
+</ul>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> csv
+<span class="kw">with</span> <span class="dt">open</span>(<span class="st">&#39;lessons.csv&#39;</span>, <span class="st">&#39;w&#39;</span>, newline=<span class="st">&#39;&#39;</span>) <span class="ch">as</span> f:
+    writer = csv.writer(f)
+    writer.writerows(table)</code></pre>
+<h3 id="read-from-string">Read from String</h3>
+<ul>
+<li>Read a CSV file</li>
+<li>Print each row</li>
+</ul>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> csv <span class="ch">import</span> reader
+
+csv_string = <span class="st">&#39;&#39;&#39;bacs350,27,2020-10-26,10,Base Template</span>
+<span class="st">bacs350,28,2020-10-28,10,Template Includes</span>
+<span class="st">bacs350,29,2020-10-30,10,Card Views</span>
+<span class="st">bacs350,30,2020-11-02,11,Markdown View</span>
+<span class="st">bacs350,31,2020-11-04,11,Table View</span>
+<span class="st">&#39;&#39;&#39;</span>
+
+rows = csv_string.split(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)
+
+<span class="kw">for</span> row in reader(rows):
+    <span class="dt">print</span>(row)</code></pre>
+<h3 id="view-logic">View Logic</h3>
+<ul>
+<li>Read the CSV file</li>
+<li>Pass the table to the template</li>
+</ul>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> TableView(TemplateView):
+    
+    <span class="kw">def</span> get_context_data(<span class="ot">self</span>, **kwargs):
+        <span class="kw">return</span> <span class="dt">dict</span>(table=read_lesson_table(<span class="st">&#39;lessons.csv&#39;</span>))
+    
+<span class="kw">def</span> read_lesson_table(path):
+    <span class="kw">return</span> reader(<span class="dt">open</span>(path))</code></pre>
+<h3 id="table-template">Table Template</h3>
+<ul>
+<li>Create templates to display the data</li>
+<li>Iterate over rows and columns</li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;table&gt;</span>
+    {% for row in table %}
+        <span class="kw">&lt;tr&gt;</span>
+            {% for column in row %}
+                <span class="kw">&lt;td&gt;</span>
+                    {{ column }}
+                <span class="kw">&lt;/td&gt;</span>
+            {% endfor %}
+        <span class="kw">&lt;/tr&gt;</span>
+    {% endfor %}
+<span class="kw">&lt;/table&gt;</span></code></pre>
+<h3 id="consolidate-document-files">Consolidate Document Files</h3>
+<ul>
+<li>Create Documents directory</li>
+<li>Move all documents into folder
+<ul>
+<li>README.md</li>
+<li>lessons.csv</li>
+<li>lorem.txt</li>
+</ul></li>
+</ul>
+<h3 id="add-document-selector">Add Document Selector</h3>
+<ul>
+<li>Add document path to URL route</li>
+<li>Pass doc name to view</li>
+<li>Show error when file is missing</li>
+</ul>
+<h3 id="create-pages">Create Pages</h3>
+<ul>
+<li>Pages should inherit theme</li>
+<li>Pages should use the correct partial template</li>
+<li>Style should come from theme</li>
+</ul>
+<h2 id="build">BUILD</h2>
+<h3 id="demo-code">Demo Code</h3>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week11/Demo31">Demo 31</a></li>
+</ul>
+<h3 id="project-10---cards-tables-docs">Project 10 - Cards &amp; Tables &amp; Docs</h3>
+<ul>
+<li>Composite Views</li>
+<li>Style with Bootstrap</li>
+<li>View Inheritance</li>
+<li>Dynamic Menu</li>
+<li>Responsive Design</li>
+<li>Data Fields - strengths, weakness, image</li>
+<li><a href="../project/10">Project 10 - Instructions</a></li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

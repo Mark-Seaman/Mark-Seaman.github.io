@@ -1,0 +1,19 @@
+{% extends 'theme.html' %}
+
+{% block main %}
+ 
+  <div class="post-entry">
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.body }}</p>
+  </div>
+
+  <p>
+      <a href="{% url 'post_edit' post.pk %}" class="btn btn-primary text-light p-3 m-3">
+          Edit Article
+      </a>
+      <a href="{% url 'post_delete' post.pk %}" class="btn btn-primary text-light p-3 m-3">
+          Delete Article
+      </a>
+  </p>
+  
+{% endblock main %}

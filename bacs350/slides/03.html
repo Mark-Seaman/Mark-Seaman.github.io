@@ -1,0 +1,256 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>UNC Course Slides</title>
+
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reset.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reveal.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/theme/beige.css" id="theme">
+
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+        <link rel="stylesheet" href="slides.css">
+    </head>
+
+    <body>
+
+        <div class="reveal">
+            <div class="slides">
+
+                <section class="section"
+                         data-background-image="../images/autumn-leaves.jpg">
+                    <h1>bacs350 - Lesson 03</h1>
+                    <p><img class="logo" src="../images/Bear.png" alt="../images/Bear.png"></p>
+                    <p class="title">Mark Seaman</p>
+                    <p class="title">University of Northern Colorado</p>
+                </section>
+
+                
+                    <section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>LEARN</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Classroom Interactions
+* Use your camera so that I can see you react
+* Otherwise I'm teaching blind
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Reading - Django for Beginners
+* Chapter 2 - Hello World App
+* Reading uses "pipenv" - I use "pip"
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Zoom Recordings
+
+<a href="/course/bacs350/docs/ZoomLectures" class="unc-button">Lecture</a>
+
+* Each session will be recorded for your education
+* Use this page to see how to get to the live sessions and office hours
+* Lesson 2 failed to record
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Today's Agenda
+* Explain how Django apps are structured
+* Demonstrate project workflow
+* Introduce Views, Routes, Templates
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Pages have four items to create
+* URL Routes - which pages are handled
+* Views - format the response for the request
+* Templates - HTML content in the page
+* Data Models (if using a database)
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### HTML Templates
+* Templates can be defined to hold all the HTML content
+* The Template Loader must be defined in settings.py
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Pages may Contain Images
+* Django serves pages expected to be processed
+* Static content is passed directly through without processing
+* Django contains a static server that can be enabled
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### settings.py
+* STATIC_URL = '/static/'
+* STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Images, CSS, Javascript
+* < img src='/static/img/treetops.200.jpg' >
+* < link rel='stylesheet' href='/static/unc.css' >
+* < script href='/static/wow.js' >
+
+
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+<section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>BUILD</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Demo Code in Github
+* [Mark-Seaman/UNC-BACS-350](https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week01/app3)
+* Look at my code after you create your own
+* You learn by doing - practice makes perfect
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Practice Exercise
+* I showed you how to serve static files
+* You learn by doing
+* Add images and stylesheets to each page template
+* Home, About, Our Vision, Our Strategy
+* Add some simple text and hyperlinks
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Go Through the README Files
+* Do the steps in each file
+* You learn by doing - practice makes perfect
+* App 1 - Check your development setup
+* App 2 - Create hello world app
+* App 3 - Static Media
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Project 1 - Home Page
+* Build an application with commands (startproject, startapp)
+* Edit files to add a page (home)
+* Add one image
+* Commit code to Github repo
+* Include a screen shot of your browser window
+
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+                
+
+            </div>
+        </div>
+
+        <script src="https://shrinking-world.com/static/revealjs/dist/reveal.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/notes/notes.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/markdown/markdown.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/highlight/highlight.js"></script>
+        <script>
+            // More info about initialization & config:
+            // - https://revealjs.com/initialization/
+            // - https://revealjs.com/config/
+            Reveal.initialize({
+                hash: true,
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+            });
+
+        </script>
+    </body>
+
+</html>

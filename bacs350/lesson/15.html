@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #15</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-15---data-model-views">Lesson 15 - Data Model Views</h1>
+<h2 id="learn">LEARN</h2>
+<h3 id="design-pattern">Design Pattern</h3>
+<ul>
+<li>Create reusable knowledge and code</li>
+<li>Solve each type of problem only once</li>
+<li>Use the solution everywhere you can</li>
+</ul>
+<h3 id="design-patterns">Design Patterns</h3>
+<ul>
+<li>Data Models</li>
+<li>Data CRUD</li>
+<li>View Prototype</li>
+<li>Data Views</li>
+</ul>
+<h3 id="design-pattern-simple-solution">Design Pattern Simple Solution</h3>
+<ul>
+<li>Simplest Solution - Quick win</li>
+<li>Fewest lines of code possible</li>
+<li>Documented running example</li>
+<li>Recreate running code in less that five minutes</li>
+<li><a href="https://www.w3schools.com/python/trypython.asp?filename=demo_json">W3Schools Tutorials</a></li>
+</ul>
+<h3 id="reading-and-writing">Reading and Writing</h3>
+<ul>
+<li>You must learn how to read first</li>
+<li>Then you can learn to write</li>
+<li>Writing takes 10 times the effort</li>
+</ul>
+<h3 id="using-a-design-pattern">Using a Design Pattern</h3>
+<ul>
+<li>Using a well-designed pattern should take 1-2 hours</li>
+<li>Copy the code</li>
+<li>Run the demo and debug any issues you find</li>
+<li>Make a series of incremental changes using test driven development</li>
+</ul>
+<h3 id="creating-your-own-pattern">Creating Your Own Pattern</h3>
+<ul>
+<li>You must have 100 hours of experience to create a pattern</li>
+<li>Requires applying the pattern at least 10 times</li>
+<li>Collect patterns from others</li>
+<li>Build a library of design patterns</li>
+</ul>
+<h3 id="data-model-views-pattern">Data Model Views Pattern</h3>
+<ul>
+<li>Build views for all CRUD operations</li>
+<li>Supports CREATE using CreateView</li>
+<li>Supports READ using ListView</li>
+<li>Supports READ using DetailView</li>
+<li>Supports UPDATE using UpdateView</li>
+<li>Supports DELETE using DeleteView</li>
+</ul>
+<h3 id="data-model-views-pattern-solution">Data Model Views Pattern Solution</h3>
+<ul>
+<li>Collection of specific patterns
+<ul>
+<li>Data Model Design Pattern</li>
+<li>CreateView Design Pattern</li>
+<li>ListView Design Pattern</li>
+<li>DetailView Design Pattern</li>
+<li>UpdateView Design Pattern</li>
+<li>DeleteView Design Pattern</li>
+</ul></li>
+</ul>
+<h2 id="build">BUILD</h2>
+<h3 id="blog-demo">Blog Demo</h3>
+<ul>
+<li>Simple app that shows the Data View Design Pattern</li>
+<li>Copy this code and debug it</li>
+<li>Make changes to make it match your problem</li>
+<li><a href="https://github.com/Mark-Seaman/Book-Builder/tree/master/BlogApp">Blog App</a></li>
+</ul>
+<h3 id="data-model-design-pattern">Data Model Design Pattern</h3>
+<p>blog/models.py</p>
+<pre><code>from django.db import models
+
+class Post(models.Model):
+    title = models.CharField(max_length=200)
+    author = models.ForeignKey(&#39;auth.User&#39;, on_delete=models.CASCADE)
+    body = models.TextField()</code></pre>
+<h3 id="createview-design-pattern">CreateView Design Pattern</h3>
+<p>templates/post_new.html</p>
+<pre><code>
+    &lt;form action=&quot;&quot; method=&quot;post&quot;&gt;{% csrf_token %}
+       {{ form.as_p }}
+       &lt;input type=&quot;submit&quot; value=&quot;Save&quot;&gt;
+    &lt;/form&gt;</code></pre>
+<p>blog/urls.py</p>
+<pre><code>from django.urls import path
+from .views import BlogCreateView
+
+urlpatterns = [
+    path(&#39;new/&#39;, BlogCreateView.as_view(), name=&#39;post_new&#39;),
+]</code></pre>
+<p>blog/views.py</p>
+<pre><code>class BlogCreateView(CreateView):
+    model = Post
+    template_name = &#39;post_new.html&#39;
+    fields = [&#39;title&#39;, &#39;author&#39;, &#39;body&#39;]</code></pre>
+<h3 id="listview-design-pattern">ListView Design Pattern</h3>
+<p>templates/post_list.html</p>
+<pre><code>    {% for post in object_list %}
+        &lt;h3&gt;&lt;a href=&quot;{% url &#39;post_detail&#39; post.pk %}&quot;&gt;{{ post.title }}&lt;/a&gt;&lt;/h3&gt;
+        &lt;p&gt;{{ post.body }}&lt;/p&gt;
+    {% endfor %}</code></pre>
+<p>blog/urls.py</p>
+<pre><code>urlpatterns = [
+    path(&#39;&#39;, BlogListView.as_view(), name=&#39;post_list&#39;),
+]</code></pre>
+<p>blog/views.py</p>
+<pre><code>class BlogListView(ListView):
+    model = Post
+    template_name = &#39;post_list.html&#39;</code></pre>
+<h3 id="detailview-design-pattern">DetailView Design Pattern</h3>
+<p>templates/post_detail.html</p>
+<pre><code>    &lt;h2&gt;{{ post.title }}&lt;/h2&gt;
+    &lt;p&gt;{{ post.body }}&lt;/p&gt;
+    
+    &lt;a href=&quot;{% url &#39;post_edit&#39; post.pk %}&quot;&gt;Edit Blog Post&lt;/a&gt;
+    &lt;a href=&quot;{% url &#39;post_delete&#39; post.pk %}&quot;&gt;Delete Blog Post&lt;/a&gt;</code></pre>
+<p>blog/urls.py</p>
+<pre><code>urlpatterns = [
+    path(&#39;&lt;int:pk&gt;/&#39;, BlogDetailView.as_view(), name=&#39;post_detail&#39;),
+]</code></pre>
+<p>blog/views.py</p>
+<pre><code>class BlogDetailView(DetailView):
+    model = Post
+    template_name = &#39;post_detail.html&#39;</code></pre>
+<h3 id="updateview-design-pattern">UpdateView Design Pattern</h3>
+<p>templates/post_edit.html</p>
+<pre><code>    &lt;form action=&quot;&quot; method=&quot;post&quot;&gt;{% csrf_token %}
+        {{ form.as_p }}
+        &lt;input type=&quot;submit&quot; value=&quot;Update&quot;&gt;
+    &lt;/form&gt;</code></pre>
+<p>blog/urls.py</p>
+<pre><code>urlpatterns = [
+    path(&#39;&lt;int:pk&gt;/edit/&#39;, BlogUpdateView.as_view(), name=&#39;post_edit&#39;),
+]</code></pre>
+<p>blog/views.py</p>
+<pre><code>class BlogUpdateView(UpdateView):
+    model = Post
+    template_name = &#39;post_edit.html&#39;
+    fields = [&#39;title&#39;, &#39;body&#39;]</code></pre>
+<h3 id="deleteview-design-pattern">DeleteView Design Pattern</h3>
+<p>templates/post_delete.html</p>
+<pre><code>    &lt;h2&gt;{{ post.title }}&lt;/h2&gt;
+    &lt;p&gt;{{ post.body }}&lt;/p&gt;
+    
+    &lt;a href=&quot;{% url &#39;post_edit&#39; post.pk %}&quot;&gt;Edit Blog Post&lt;/a&gt;
+    &lt;a href=&quot;{% url &#39;post_delete&#39; post.pk %}&quot;&gt;Delete Blog Post&lt;/a&gt;</code></pre>
+<p>blog/urls.py</p>
+<pre><code>urlpatterns = [
+    path(&#39;&lt;int:pk&gt;/delete/&#39;, BlogDeleteView.as_view(), name=&#39;post_delete&#39;),
+]</code></pre>
+<p>blog/views.py</p>
+<pre><code>from django.urls import reverse_lazy
+
+class BlogDeleteView(DeleteView):
+    model = Post
+    template_name = &#39;post_delete.html&#39;
+    success_url = reverse_lazy(&#39;post_list&#39;)</code></pre>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

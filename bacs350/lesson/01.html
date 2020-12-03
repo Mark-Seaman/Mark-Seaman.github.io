@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #1</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-1---setup-django">Lesson 1 - Setup Django</h1>
+<h2 id="learn">LEARN</h2>
+<h3 id="agenda">Agenda</h3>
+<ul>
+<li>Pivotal moment in history</li>
+<li>Context for BACS 350</li>
+<li>About this class</li>
+</ul>
+<h3 id="time-of-crisis">Time of Crisis</h3>
+<ul>
+<li>Simultaneous crisis in many dimensions</li>
+<li>No historical precedent</li>
+<li>We will get through it, we will rise strong!</li>
+<li>This class may be a bright spot</li>
+<li>Crisis produces leaders</li>
+</ul>
+<h3 id="personal-history">Personal History</h3>
+<ul>
+<li>Professional software developer since I was 20</li>
+<li>Web development since the beginning of WWW</li>
+<li>Built between 20-30 web apps</li>
+</ul>
+<h3 id="pages-vs.-apps">Pages vs. Apps</h3>
+<ul>
+<li>Static web pages show fixed information</li>
+<li>Static pages do not need a server</li>
+<li>Dynamic pages are created for each request</li>
+<li>Need a web server to create pages</li>
+</ul>
+<h3 id="common-web-app">Common Web App</h3>
+<ul>
+<li>Mobile device app</li>
+<li>Front-end (user experience)</li>
+<li>Business logic</li>
+<li>Database</li>
+</ul>
+<h3 id="full-stack-development">Full-stack development</h3>
+<ul>
+<li>Stack of development technologies</li>
+<li>Mobile, Front-end, Back-end</li>
+<li>Frameworks for each level: mobile, front, back</li>
+</ul>
+<h3 id="web-frameworks">Web Frameworks</h3>
+<ul>
+<li>Reusable code that quickly lets you build an app</li>
+<li>Solves all the common problems</li>
+<li>You write 10% of the code needed</li>
+<li>Leverage tens-of-thousands of hours of effort</li>
+</ul>
+<h3 id="frameworks-and-languages">Frameworks and Languages</h3>
+<ul>
+<li>.Net - C#</li>
+<li>Rails - Ruby</li>
+<li>Laravel - PHP</li>
+<li>Django - Python</li>
+</ul>
+<h3 id="what-is-django">What is Django?</h3>
+<ul>
+<li>Read the doc <a href="/course/bacs350/docs/WhatIsDjango">What is Django?</a></li>
+</ul>
+<h3 id="web-apps-with-python">Web Apps with Python</h3>
+<ul>
+<li>Python - programming language</li>
+<li>Django - web development framework</li>
+<li>Postgres Database</li>
+</ul>
+<h3 id="web-hosting-with-python-anywhere">Web Hosting with Python Anywhere</h3>
+<ul>
+<li>Free accounts for Django Hosting</li>
+<li>Register your account on Student Dashboard</li>
+</ul>
+<h3 id="welcome-to-bacs-350">Welcome to BACS 350</h3>
+<ul>
+<li>Class is fully online</li>
+<li>Each session teaches a new skill</li>
+<li>Demo code and video for every session</li>
+<li>Weekly projects</li>
+<li>Scheduled class time - Zoom meeting to help students with projects</li>
+</ul>
+<h3 id="how-this-class-works">How this class works</h3>
+<ul>
+<li>14 Projects + 42 Skills</li>
+<li>Flat letter grades</li>
+<li>10% late penalty (20% for 2 weeks late)</li>
+<li>9 hours of effort required weekly</li>
+</ul>
+<h3 id="keys-to-success">Keys to success</h3>
+<ul>
+<li>Diligence</li>
+<li>Persistence</li>
+</ul>
+<h3 id="textbook">Textbook</h3>
+<ul>
+<li>Django for Beginners - William Vincent</li>
+<li>Does not assume any previous knowledge</li>
+<li>From novice to competent</li>
+<li>Uses projects to teach</li>
+</ul>
+<h3 id="reading">Reading</h3>
+<ul>
+<li>Django for Beginners</li>
+<li>Chapter 1 - Initial Set Up
+<ul>
+<li>Command Line</li>
+<li>Install Python 3</li>
+<li>Virtual Environments</li>
+<li>Install Django</li>
+<li>Install Git</li>
+<li>Text Editors</li>
+</ul></li>
+</ul>
+<h3 id="sensei-server">Sensei Server</h3>
+<ul>
+<li>Complete rewrite of software</li>
+<li>All class material available
+<ul>
+<li>Notes</li>
+<li>Slides</li>
+<li>Projects</li>
+<li>Documents</li>
+<li>Skills</li>
+<li>Lecture Videos</li>
+</ul></li>
+</ul>
+<h3 id="homework">Homework</h3>
+<ul>
+<li>Register your Github repo - version control</li>
+<li>Register your Python Anywhere - application server</li>
+<li>All homework will be graded through these URLs</li>
+</ul>
+<h2 id="build">BUILD</h2>
+<h3 id="version-control-with-github">Version Control with Github</h3>
+<ul>
+<li>Sign up for free account</li>
+<li>Register your account on <a href="/course/bacs350">Student Dashboard</a></li>
+</ul>
+<h3 id="setup-python-environment">Setup Python Environment</h3>
+<ul>
+<li>Read and do <a href="/course/bacs350/docs/SetupPython">Setup Development Environment</a>
+<ul>
+<li>Install Python 3</li>
+<li>Setup Virtual Environment</li>
+<li>Install Django</li>
+<li>Verify setup</li>
+</ul></li>
+</ul>
+<h3 id="build-demo-app01">Build demo app01</h3>
+<ul>
+<li>mkdir demo</li>
+<li>startproject app01</li>
+<li>Run web server</li>
+<li>Browse web page</li>
+</ul>
+<h3 id="create-view">Create View</h3>
+<ul>
+<li>edit app01/urls.py</li>
+<li>define function to return HttpResponse</li>
+<li>define route</li>
+</ul>
+<h3 id="demo-code-in-github">Demo Code in Github</h3>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week01/app1">Mark-Seaman/UNC-BACS-350</a></li>
+<li>Look at my code after you create your own</li>
+<li>You learn by doing - practice makes perfect</li>
+</ul>
+<h3 id="screenshots">Screenshots</h3>
+<ul>
+<li>Show your server log</li>
+<li>Show your browser window</li>
+<li>commit your images to Github repo</li>
+</ul>
+<h3 id="commit-all-of-your-code-and-push">Commit all of your code and push</h3>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

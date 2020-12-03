@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>UNC Course Slides</title>
+
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reset.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reveal.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/theme/beige.css" id="theme">
+
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+        <link rel="stylesheet" href="slides.css">
+    </head>
+
+    <body>
+
+        <div class="reveal">
+            <div class="slides">
+
+                <section class="section"
+                         data-background-image="../images/autumn-leaves.jpg">
+                    <h1>bacs350 - Lesson 19</h1>
+                    <p><img class="logo" src="../images/Bear.png" alt="../images/Bear.png"></p>
+                    <p class="title">Mark Seaman</p>
+                    <p class="title">University of Northern Colorado</p>
+                </section>
+
+                
+                    <section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>LEARN</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Project 6 - Superhero Database
+* Deadline Extended to Oct 9
+* Create Form interface for records
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Project 7 - Superhero Data Views
+* Deadline Extended to Oct 16
+* View Inheritance
+* Django Generic Views
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Complete Your Projects
+* Project 1 - Setup development tools
+* Project 2 - Build a simple app
+* Project 3 - Application Hosting
+* Project 4 - TemplateView
+* Project 5 - Data Models
+* Project 6 - Custom Template View
+* Project 7 - Data Model Views
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Working the Project in Class
+* Live demo of solving the problems
+* You must apply this knowledge
+* You must invest 9 hours weekly
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Live Demo
+* Create a project
+* Add an app
+* Define Templates
+* Define Views
+* Define Routes
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Django View Classes
+* TemplateView
+* ListView
+* DetailView
+* CreateView
+* UpdateView
+* DeleteView
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Create a new Django project
+* The default view should contain a list of link to superheroes
+* An add button will let users add a new record
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### ListView
+* Create a table or divs that show a list of records
+* Each hero should have a link that goes to the details page
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### DetailView
+* Display all info from the Database records
+* Show the image as a thumbnail with a link to the large image
+* Add a button to Edit the record
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### CreateView
+* Create new records with a view
+* You can cheat by loading the image file into a directory
+* Add the image as a URL pointing to this file
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### UpdateView
+* Make sure that you can edit the records
+* Make sure that the page is redirected after save
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### DeleteView
+* Delete the records after confirmation
+* Go to the list after a delete
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### View Inheritance
+* Create a base page template
+* Style all pages without duplicating any code
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+                
+
+            </div>
+        </div>
+
+        <script src="https://shrinking-world.com/static/revealjs/dist/reveal.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/notes/notes.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/markdown/markdown.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/highlight/highlight.js"></script>
+        <script>
+            // More info about initialization & config:
+            // - https://revealjs.com/initialization/
+            // - https://revealjs.com/config/
+            Reveal.initialize({
+                hash: true,
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+            });
+
+        </script>
+    </body>
+
+</html>

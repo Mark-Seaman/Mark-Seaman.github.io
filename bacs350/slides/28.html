@@ -1,0 +1,550 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>UNC Course Slides</title>
+
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reset.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reveal.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/theme/beige.css" id="theme">
+
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+        <link rel="stylesheet" href="slides.css">
+    </head>
+
+    <body>
+
+        <div class="reveal">
+            <div class="slides">
+
+                <section class="section"
+                         data-background-image="../images/autumn-leaves.jpg">
+                    <h1>bacs350 - Lesson 28</h1>
+                    <p><img class="logo" src="../images/Bear.png" alt="../images/Bear.png"></p>
+                    <p class="title">Mark Seaman</p>
+                    <p class="title">University of Northern Colorado</p>
+                </section>
+
+                
+                    <section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>LEARN</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Today
+* Template Includes
+* Partial templates
+* _header, _main, _footer
+* Responsive design
+* Grid layout (container, row, col)
+* Custom width columns
+ 
+ 
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Include Other Templates
+* Add HTML text from another file
+* Allows templates to be simpler
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Header Template
+* Define reusable templates
+* templates/_header.html
+
+```html
+   <div class="row">
+       <div class="col">
+           <h1>BACS 350</h1>
+           <h2>Intermediate Web Dev</h2>
+       </div>
+       <div class="col">
+           <img src="Bear.png">
+       </div>
+   </div>
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Base Template
+* Include in other templates
+* templates/base.html
+
+```html
+< !DOCTYPE html>
+< html lang="en">
+    < head>
+        <meta charset="UTF-8">
+        <title>BACS 350 Page</title>
+        <link rel="stylesheet" href="styles.css">
+    < /head>
+    < body>
+        {% include _header.html %}            
+        {% include _main.html %}
+        {% include _footer.html %}
+    < /body>
+< /html>
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Use blocks
+* Blocks let you customize 
+* Give a good default answer
+* Replace the default components in the base page
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Header Template
+* Define reusable templates
+* Add block definition to override the default
+* templates/_header.html
+
+```html
+{% block header %}
+   <div class="row">
+       <div class="col">
+           <h1>BACS 350</h1>
+           <h2>Intermediate Web Dev</h2>
+       </div>
+       <div class="col">
+           <img src="Bear.png">
+       </div>
+   </div>
+{% endblock header %}
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Base Template
+* Add block definition to override the default
+* templates/base.html
+
+```html
+< !DOCTYPE html >
+< html lang="en" >
+    < head >
+        <meta charset="UTF-8">
+        <title>BACS 350 Page</title>
+        <link rel="stylesheet" href="styles.css">
+    < /head >
+
+    < body >
+        {% block content %}
+            {% include _header.html %}
+            {% include _main.html %}
+            {% include _footer.html %}
+        {% endblock content %}
+    < /body >
+< /html >
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Page layout
+* container, row, col
+* Responsive design
+* Custom width columns
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### View Inheritance
+* [View Inheritance Design Pattern](../docs/ViewInheritance)
+* Apply to your Superhero Project
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Containers
+* [Bootstrap Containers](https://www.w3schools.com/bootstrap4/bootstrap_containers.asp)
+* Use class "container"
+* A container builds space on your page
+
+```html
+<div class="container bg-success text-light">
+    <h3>My First Bootstrap Page</h3>
+    <p>This is some text.</p>
+</div>
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Container Fluid
+* Allocate full display width
+* Use class "container-fluid"
+
+```html
+<div class="container-fluid bg-primary text-light">
+    <h3>My First Bootstrap Page</h3>
+    <p>This is some text.</p>
+</div>
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Flex Box
+* [Bootstrap Flex Box](https://www.w3schools.com/bootstrap4/bootstrap_flex.asp)
+* Use class "d-flex"
+* A container builds space on your page
+
+
+```html
+<div class="d-flex p-3 bg-secondary text-white">
+  <div class="p-2 bg-info">Flex item 1</div>
+  <div class="p-2 bg-warning">Flex item 2</div>
+  <div class="p-2 bg-primary">Flex item 3</div>
+</div>
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Grid System
+* [Bootstrap Grid](https://www.w3schools.com/bootstrap4/bootstrap_grid_system.asp)
+* Use class "row"  to pack items horizontally
+* Use class "col"  to size the columns
+
+```html
+ <div class="row">
+      <div class="col">.col</div>
+      <div class="col">.col</div>
+      <div class="col">.col</div>
+</div> 
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### 12-Column Layout
+* Allocate width of columns to hold content
+* Wraps at 12
+* Example: 2, 6, 4
+
+```html
+<div class="row">
+      <div class="col-2 border">.col-2</div>
+      <div class="col-6 border">.col-6</div>
+      <div class="col-4 border">.col-4</div>
+</div> 
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Mixed sizing
+* Some numbers with spacing
+* Some without
+* Extra space in allocate evenly
+
+```html
+<div class="row">
+      <div class="col border">.col</div>
+      <div class="col-6 border">.col-6</div>
+      <div class="col border">.col</div>
+</div> 
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Sizing Breakpoints
+* sm, md, lg, xl
+* [Bootstrap Grid](https://www.w3schools.com/bootstrap4/bootstrap_grid_system.asp)
+
+
+```html
+<div class="row">
+      <div class="col-md-3 border">.col-md-3</div>
+      <div class="col-md-6 border">.col-md-6</div>
+      <div class="col-md border">.col-md</div>
+</div> 
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Flex Column
+* Arrange vertically
+* Use "flex-column" class
+
+```html
+<div class="row flex-column">
+      <div class="col-md-3 border">.col-md-3</div>
+      <div class="col-md-6 border">.col-md-6</div>
+      <div class="col-md border">.col-md</div>
+</div> 
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Center the content
+* Arrange the content alignment
+* Use "justify-content-center" class
+
+```html
+<div class="row justify-content-center">
+      <div class="col-md-3 border">.col-md-3</div>
+      <div class="col-md-4 border">.col-md-4</div>
+</div> 
+```
+
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+<section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>BUILD</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Demo Code
+* [Copy Demo 27](https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week10/Demo28)
+* Views
+    * Inheritance
+    * Semantic Elements
+    * Bootstrap
+    * Menu
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Container
+* Add container to center the content
+
+```html
+<div class="container">
+    <h1>Superhero Gallery</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, eos?</p>
+</div>
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Row
+* A row will fit items horizontally
+* Start with equal width
+
+```html
+<div class="container">
+   <div class="row">
+       <div class="col"> Column 1</div>
+       <div class="col"> Column 2</div>
+       <div class="col"> Column 3</div>
+   </div>
+</div>
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Smaller Space for Photo
+* Setup variable width columns
+* Stack when below large
+
+```html
+<div class="container">
+   <div class="row">
+       <div class="col-lg-10">
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, amet.
+       </div>
+       <div class="col-lg-2"> 
+           <img src="happy.jpg" alt="Smiley">
+       </div>
+   </div>
+</div>
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Project 9 - Superhero Styled Views
+* Style with Bootstrap
+* View Inheritance
+* Header, Main, Footer
+* Dynamic Menu
+* Responsive Design
+* Data Fields - description, strengths, weakness, image
+* User Auth
+* Two column layout 
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Project 9 - Instructions
+* [Project 9 - Instructions](../project/09)
+
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+                
+
+            </div>
+        </div>
+
+        <script src="https://shrinking-world.com/static/revealjs/dist/reveal.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/notes/notes.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/markdown/markdown.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/highlight/highlight.js"></script>
+        <script>
+            // More info about initialization & config:
+            // - https://revealjs.com/initialization/
+            // - https://revealjs.com/config/
+            Reveal.initialize({
+                hash: true,
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+            });
+
+        </script>
+    </body>
+
+</html>

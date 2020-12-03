@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #9</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC CS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Software Engineering Skills</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-9---design">Lesson 9 - Design</h1>
+<h2 id="milestone-2">Milestone #2</h2>
+<h3 id="milestone-2-roles">Milestone #2 Roles</h3>
+<ul>
+<li>Rotate responsibilities</li>
+<li>Visit <a href="../docs/AppTeamRoles.md">App Teams</a> Page</li>
+<li>Roles for Milestone 1 and 2</li>
+<li>Work as a team</li>
+<li>Due Fri, Sep 18</li>
+</ul>
+<h3 id="milestone-2---technology-proven---goal">Milestone #2 - Technology Proven - Goal</h3>
+<ul>
+<li>Prove that the project is doable</li>
+<li>Demonstrate the basic capability required</li>
+<li>Create a hosted application</li>
+<li>Show the core user story</li>
+<li>Create the working relationship</li>
+<li>High-level design</li>
+</ul>
+<h3 id="milestone-2---design">Milestone #2 - Design</h3>
+<ul>
+<li>Software Architecture</li>
+<li>Data Design</li>
+<li>View Design</li>
+<li>User Stories</li>
+</ul>
+<h3 id="milestone-2---software-architecture">Milestone #2 - Software Architecture</h3>
+<ul>
+<li>App = Data + Views</li>
+<li>Data Design</li>
+<li>View Design</li>
+<li>User Stories</li>
+</ul>
+<h3 id="design-architecture">Design Architecture</h3>
+<ul>
+<li>Apps = Data + Views</li>
+<li>The design for the app requires designing the data models and the Views that will be implemented.</li>
+</ul>
+<h3 id="software-architecture">Software Architecture</h3>
+<ul>
+<li>Focus on the core ideas</li>
+<li>Create simple diagrams</li>
+<li>Learn about UML</li>
+</ul>
+<h3 id="unified-modeling-language">Unified Modeling Language</h3>
+<ul>
+<li>Diagrams for design</li>
+<li>Designers: publish a doc about UML for your team</li>
+<li>Tell about different diagrams and which you will use</li>
+</ul>
+<h3 id="unified-modeling-language-1">Unified Modeling Language</h3>
+<div class="figure">
+<img src="../images/wrong_uml.png" />
+
+</div>
+<h3 id="unified-modeling-language-2">Unified Modeling Language</h3>
+<div class="figure">
+<img src="../images/ok_uml.png" />
+
+</div>
+<h3 id="book-builder-data-models">Book Builder Data Models</h3>
+<div class="figure">
+<img src="../images/Book_Data.png" />
+
+</div>
+<h3 id="gliffy">Gliffy</h3>
+<ul>
+<li>Draw diagram of data models</li>
+<li>Focus on dependencies</li>
+<li>Consider using <a href="https://gliffy.com">Gliffy</a></li>
+<li>Keep it simple</li>
+</ul>
+<h3 id="design-around-user-stories">Design Around User Stories</h3>
+<ul>
+<li>Start with the User Stories</li>
+<li>Build simple data that supports the stories</li>
+<li>Define the smallest number of views</li>
+<li>Imagine the Views in a table</li>
+</ul>
+<h3 id="user-story-views">User Story Views</h3>
+<ul>
+<li><p>Select the views you will support</p>
+<ul>
+<li>Reader - C R U</li>
+<li>Author - C R U</li>
+<li>Book - C R U</li>
+<li>Chapter - C R U D</li>
+<li>Paragraph - C R U D</li>
+<li>Image - C R U D</li>
+</ul></li>
+</ul>
+<p>NOTE: Readers, Authors, and Book can be modified but not deleted.</p>
+<p>Example: Author support operations for Create, Read, Update. This means the the list of available authors can be created and modified. The arrow from Book to Author means that every book has an Author.</p>
+<h3 id="data-schema">Data Schema</h3>
+<ul>
+<li>This diagram shows the key data models and how they fit together.</li>
+<li>The boxes represent data classes and database tables</li>
+<li>The arrows represent object references and database joins</li>
+</ul>
+<div class="figure">
+<img src="../images/Book_Data.png" />
+
+</div>
+<h3 id="data-models">Data models</h3>
+<p>Data Classes and database tables</p>
+<ul>
+<li>Reader
+<ul>
+<li>user*</li>
+</ul></li>
+<li>Author
+<ul>
+<li>user*</li>
+<li>name</li>
+</ul></li>
+<li>Book
+<ul>
+<li>author*</li>
+<li>title</li>
+</ul></li>
+<li>Chapter
+<ul>
+<li>book*</li>
+<li>title</li>
+<li>order</li>
+</ul></li>
+<li>Paragraph
+<ul>
+<li>chapter*</li>
+<li>text</li>
+<li>order</li>
+</ul></li>
+<li>Image
+<ul>
+<li>chapter*</li>
+<li>src</li>
+<li>alt</li>
+<li>order</li>
+</ul></li>
+</ul>
+<p>“*” makes a link to another table. This is implemented by a foreign key relationship between the two tables.</p>
+<p>Example: Books have Authors so the Book data model has a ForeignKeyField that points to the Author Model class.</p>
+<h3 id="app-views">App Views</h3>
+<ul>
+<li>Users
+<ul>
+<li>Register Author</li>
+<li>Register Reader</li>
+<li>User Admin</li>
+</ul></li>
+<li>Books
+<ul>
+<li>Create Book</li>
+<li>List Books</li>
+<li>Edit Book</li>
+<li>Read Book</li>
+</ul></li>
+<li>Chapters
+<ul>
+<li>New Chapter</li>
+<li>Edit Chapter</li>
+<li>Read Chapter</li>
+</ul></li>
+</ul>
+<h3 id="phases-of-implementation">Phases Of Implementation</h3>
+<ul>
+<li>1 - Proof of concept
+<ul>
+<li>Milestone 2</li>
+<li>Define the Data Models</li>
+<li>Use admin views to simulate user stories</li>
+</ul></li>
+<li>2 - Prototype
+<ul>
+<li>Milestone 3</li>
+<li>Implement Custom View for User Stories</li>
+<li>Users
+<ul>
+<li>Register Author</li>
+<li>Register Reader</li>
+</ul></li>
+<li>Books
+<ul>
+<li>Create Book</li>
+<li>List Books</li>
+<li>Edit Book</li>
+<li>Read Book</li>
+</ul></li>
+<li>Chapters
+<ul>
+<li>New Chapter</li>
+<li>Edit Chapter</li>
+<li>Read Chapter</li>
+</ul></li>
+</ul></li>
+<li>3 - Core features
+<ul>
+<li>Streamline and improve UX</li>
+<li>Deal with Errors</li>
+</ul></li>
+<li>4 - Functionality complete
+<ul>
+<li>Build out logging</li>
+<li>Fix errors</li>
+<li>Performance</li>
+<li>Usability testing and improvements</li>
+</ul></li>
+<li>5 - Code Complete
+<ul>
+<li>Fix all defects</li>
+<li>Implement 100% test coverage</li>
+</ul></li>
+</ul>
+<h2 id="build">BUILD</h2>
+<h3 id="book-builder-design">Book Builder Design</h3>
+<ul>
+<li>Follow link on side menu &quot;Book Builder&quot;</li>
+<li>Link to <a href="https://github.com/Mark-Seaman/Book-Builder/tree/master/docs/plan/Milestone-2/Design.md">Design for Book Builder</a></li>
+</ul>
+<h3 id="your-project-architecture">Your Project Architecture</h3>
+<ul>
+<li>Document the following
+<ul>
+<li>User Stories supported</li>
+<li>UML or other diagrams used</li>
+<li>Data Model Diagram</li>
+<li>Data Model class definitions showing fields</li>
+<li>Table of views</li>
+<li>Phased Implementation plan</li>
+</ul></li>
+</ul>
+<h3 id="design-review-of-elbow-space-project">Design Review of ElBow Space Project</h3>
+<ul>
+<li><a href="https://github.com/ElBowSpace/ElBowSpaceProject">Github - ElBow Space</a></li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

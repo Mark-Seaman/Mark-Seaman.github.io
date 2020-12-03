@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #5</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-5---simple-template-view">Lesson 5 - Simple Template View</h1>
+<h2 id="learn">LEARN</h2>
+<h3 id="sensei-login">Sensei Login</h3>
+<ul>
+<li>Reworked the user registrations to extend the capability</li>
+<li>I may have broken some user logins</li>
+<li>If you cannot login then email me</li>
+<li>Send your email and desired password</li>
+<li>I will configure and test your specific user</li>
+</ul>
+<h3 id="class-based-views">Class-based views</h3>
+<ul>
+<li>Defines all of the view logic as a Python object class</li>
+<li>Override any behavior you wish</li>
+<li>TemplateView shows an HTML template as a view</li>
+<li>Design patterns for custom Django views</li>
+</ul>
+<h2 id="build">BUILD</h2>
+<h3 id="template-view-in-urls">Template View in URLs</h3>
+<p>urls.py</p>
+<pre><code>from django.urls import path
+from django.views.generic import TemplateView
+
+urlpatterns = [
+    path(&#39;about&#39;, TemplateView.as_view(template_name=&quot;about.html&quot;)),
+    path(&#39;home&#39;, TemplateView.as_view(template_name=&quot;home.html&quot;)),
+]</code></pre>
+<p>templates/about.html</p>
+<pre><code>&lt;h1&gt;About&lt;/h1&gt;
+&lt;a href=&quot;home&quot;&gt;GO HOME&lt;/a&gt;</code></pre>
+<h3 id="add-a-new-app">Add a new app</h3>
+<pre><code>python manage.py startapp pages</code></pre>
+<h3 id="add-custom-django-views">Add Custom Django Views</h3>
+<p>pages/views.py</p>
+<pre><code>from django.views.generic import TemplateView
+
+class AboutView(TemplateView):
+    template_name = &#39;about.html&#39;
+
+class HomeView(TemplateView):
+    template_name = &quot;home.html&quot;
+    
+    </code></pre>
+<p>urls.py</p>
+<pre><code>from django.urls import path
+from django.views.generic import AboutView, HomeView
+
+urlpatterns = [
+    path(&#39;about&#39;, AboutView.as_view()),
+    path(&#39;home&#39;, HomeView.as_view()),
+]</code></pre>
+<h3 id="add-data-to-django-views">Add Data to Django Views</h3>
+<p>templates/page.html</p>
+<pre><code>&lt;h1&gt;{{ title }}&lt;/h1&gt;
+&lt;p&gt;
+    {{ body}}
+&lt;/p&gt;</code></pre>
+<h3 id="data-as-dictionary">Data as dictionary</h3>
+<p>Define what goes in the variable slots</p>
+<pre><code>{
+    &#39;title&#39;: &#39;My Home Page&#39;, 
+    &#39;body&#39;: &#39;This page is boring ...&#39;,
+}</code></pre>
+<h3 id="setting-view-context">Setting View Context</h3>
+<p>pages/views.py</p>
+<pre><code> class AboutView(TemplateView):
+    template_name = &#39;page.html&#39;
+    
+    def get_context_data(self, **kwargs):
+        return {
+            &#39;title&#39;: &#39;About this Class&#39;, 
+            &#39;body&#39;: &#39;Once upon a time ...&#39;,
+        }
+ 
+ class HomeView(TemplateView):
+    template_name = &quot;page.html&quot;
+    
+    def get_context_data(self, **kwargs):
+        return {
+            &#39;title&#39;: &#39;My Home Page&#39;, 
+            &#39;body&#39;: &#39;This page is boring ...&#39;,
+        }
+ 
+ </code></pre>
+<h3 id="demo-code-in-github">Demo Code in Github</h3>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week02/demo4">Mark-Seaman/UNC-BACS-350</a></li>
+<li>Look at my code after you create your own</li>
+<li>You learn by doing - practice makes perfect</li>
+</ul>
+<h3 id="exercise">Exercise</h3>
+<ul>
+<li>Start with my code</li>
+<li>Build a new view template, &quot;profile.html&quot;</li>
+<li>Create a URL route, &quot;profile&quot; that shows the view</li>
+<li>Add a home link to the page template</li>
+<li>Define the context for all pages to take you home</li>
+<li>Create template with HTML that validates</li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

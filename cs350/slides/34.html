@@ -1,0 +1,585 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>UNC Course Slides</title>
+
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reset.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reveal.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/theme/beige.css" id="theme">
+
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+        <link rel="stylesheet" href="slides.css">
+    </head>
+
+    <body>
+
+        <div class="reveal">
+            <div class="slides">
+
+                <section class="section"
+                         data-background-image="../images/autumn-leaves.jpg">
+                    <h1>cs350 - Lesson 34</h1>
+                    <p><img class="logo" src="../images/Bear.png" alt="../images/Bear.png"></p>
+                    <p class="title">Mark Seaman</p>
+                    <p class="title">University of Northern Colorado</p>
+                </section>
+
+                
+                    <section>
+    <section class="section" data-background-image="../images/crystalball.800.jpg">
+        <h2>PROJECT</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Milestone 6 - First Code Release
+* Every team member get the same grade
+* Grading based on functionality and usability
+* What is the user experience?  Defects and missing features
+* User Guide & Landing Page
+* Code and document quality
+    * Clean
+    * Simple
+    * Well-documented
+    * Project Metrics
+* Grading will be very critical
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Milestone 7 Demos
+* Each team will demonstrate the app in class
+* Students will work with the application and give feedback
+* Developers will respond to the feedback
+* Grading will be done based on the Issue Log
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Project Team Demos
+* Nov 16 - SMS Twitter
+* Nov 18 - Capture Webapp
+* Nov 20 - ElBow Space
+* Nov 30 - ShopLocal
+* Dec 2 - Easel
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Milestone 7 Grading
+* Functionality and quality
+* Review of other teams
+* Response to feedback
+* Clean, Simple, Documented
+
+
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+<section>
+    <section class="section" data-background-image="../images/crystalball.800.jpg">
+        <h2>LEARN    </h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Advanced Test Skills
+* Quick Test for Dev Loop
+* Django tests
+* Standalone tests
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Quick Test for Dev Loop
+* Default Django Commands
+
+```
+[django]
+    makemigrations
+    migrate
+    shell
+    startapp
+    startproject
+    test
+
+[page_muncher]
+    qt
+
+[staticfiles]
+    collectstatic
+    runserver
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Custom Django Commands
+* Add a directory "bookbuilder/page_muncher/management/commands/"
+
+```
+bookbuilder/
+    config/
+        settings.py
+    book/
+        urls.py
+        view.py
+        models.py
+    page_muncher/
+        __init__.py
+        quick_test.py
+        management/
+            commands/
+                qt.py
+
+INSTALLED_APPS = [... 'page_muncher', ...]
+```
+    
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Custom Django Commands
+* [Add new Django Command](https://docs.djangoproject.com/en/3.1/howto/custom-management-commands/)
+* Run Quick test
+* [page_muncher/management/commands/qt.py](https://github.com/Mark-Seaman/Book-Builder/tree/master/bookbuilder/page_muncher)
+
+```
+from django.core.management.base import BaseCommand
+from page_muncher.quick_test import test_quick
+
+class Command(BaseCommand):
+    def handle(self, *args, **options):
+        test_quick()
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Run Quick test
+* Create a test for a specific minor detail
+* Debug code in isolation
+* Then integrate into the product
+* Move quick test into automatic tests
+* Be Careful with Database
+
+```
+from book.models import Book
+
+def quick_test():
+    print('List Books')
+    for book in Book.objects.all():
+        print(book.title, book.author)
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Quick Test for Dev Loop
+* Select a feature
+* Write one line of code that fails in quick test
+* Write one line of product code that passes
+* Refactor without breaking tests
+* Integrate quick test into Django test
+* Commit all code
+* Repeat on next feature
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Code Coverage
+* [Measure Code Coverage](https://coverage.readthedocs.io/en/coverage-5.3/)
+* [Use Coverage tool](https://docs.djangoproject.com/en/3.1/topics/testing/advanced/#topics-testing-code-coverage)
+* Report of code tested
+
+```
+pip install coverage
+
+coverage run --source='book' manage.py test
+
+coverage report
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Coverage report
+
+```
+Name                                              Stmts   Miss  Cover
+---------------------------------------------------------------------
+book/author.py                                        9      0   100%
+book/book.py                                         13      2    85%
+book/chapter.py                                      25      4    84%
+book/models.py                                       25      3    88%
+book/tests.py                                        38      3    92%
+book/tests_author.py                                 38      0   100%
+book/tests_book.py                                  111      0   100%
+book/tests_chapter.py                                41      0   100%
+book/text.py                                         20     20     0%
+book/urls.py                                          4      0   100%
+book/views.py                                        58     10    83%
+---------------------------------------------------------------------
+TOTAL                                               419     45    89%
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Advanced Test Tools
+* Pytest
+* Requests
+* Django tests
+* Selenium
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Pytest
+* [Pytest Website](https://docs.pytest.org/en/stable/index.html)
+* Great for organizing all functional tests
+* Outside of Django context
+
+```
+def test_quick():
+    test_pytest()
+
+def test_pytest():
+    assert True
+    assert 1 == 1
+```
+    
+    
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Requests 
+* Use "requests" to get web pages
+* Simple test to request pages from any server
+* Great for building functional tests
+* Use Live database
+
+```
+from requests import get
+
+def test_request():
+    response = get('https://shrinking-world.com')
+    assert response.status_code == 200
+    text = response.content.decode('utf-8')
+    assert '<a href="">Shrinking World Training</a>' in text
+    print(text)
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Test Client 
+* Use test client to get web pages
+* Simple test to request pages from any server
+* Use Live database
+
+```
+from django.test import Client
+
+def test_client():
+    response = Client().get('/book/1')
+    assert response.status_code == 200
+    print(response.content)
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Django tests
+* SimpleTestCase - no database
+* TestCase - test database
+* LiveServerTestCase - run server with live data
+* [Django Advanced Testing](https://docs.djangoproject.com/en/3.1/topics/testing/tools/)
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### SimpleTestCase 
+* Can not use the database
+* [Book Builder View Tests](https://github.com/Mark-Seaman/Book-Builder/blob/master/bookbuilder/book/tests.py)
+
+```
+from django.test import SimpleTestCase
+
+class ViewsTests(SimpleTestCase):
+
+    def test_page_exists(self):
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, template_name='book_theme.html')
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### TestCase 
+* Create and deletes a test database
+* Must create all data from scratch in test
+* [Book Builder Book Tests](https://github.com/Mark-Seaman/Book-Builder/blob/master/bookbuilder/book/tests_book.py)
+* Run all tests
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### LiveServerTestCase 
+* Run server with live data
+* [Live Server Test Case](https://docs.djangoproject.com/en/3.1/topics/testing/tools/#liveservertestcase)
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Selenium
+* Remote control a browser
+* Create tests that get web pages
+* Library of code to decompose the page under test
+* Works with Browser JavaScript engine
+* Needed for testing JavaScript code
+* [Selenium Website](https://selenium-python.readthedocs.io/installation.html)
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Page Muncher - Test Page
+* Test to examine web page content
+* Open the browser and get a page
+* Test features on the page
+
+```
+def test_selenium_text():
+    browser = open_browser()
+    url = 'http://shrinking-world.com/course/cs350/lesson/Index'
+    browser.get(url)
+    ...
+    browser.quit()
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Page Muncher - Test Text
+* Test to text in the body tag of the web page
+* Measure the number of characters
+
+```
+def test_text(browser):
+    body_text = browser.find_element_by_tag_name('body').text
+    assert len(body_text) == 682
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Page Muncher - Test HTML
+* Test to HTML in the page source of the web page
+* Measure the number of characters
+
+```
+def test_html(browser):
+    assert len(browser.page_source) == 59478
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Page Muncher - Test Header
+* Test to content of the page header
+* Match the text of the hyperlink
+
+```  
+def test_page_header(browser):
+    header_title = browser.find_element_by_css_selector('header h1')
+    header_title = header_title.get_attribute("innerHTML")
+    expected = '<a href="/course/cs350">UNC CS 350</a>'
+    assert expected in header_title
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Page Muncher - Test Links
+* Test to content of the page header
+* Count the matching hyperlinks
+
+```
+def test_links(browser):
+    links = browser.find_elements_by_css_selector('li a[href]')
+    links = [link.get_attribute("innerHTML") for link in links]
+    # print(links)
+    assert len(links) == 12
+```
+
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+                
+
+            </div>
+        </div>
+
+        <script src="https://shrinking-world.com/static/revealjs/dist/reveal.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/notes/notes.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/markdown/markdown.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/highlight/highlight.js"></script>
+        <script>
+            // More info about initialization & config:
+            // - https://revealjs.com/initialization/
+            // - https://revealjs.com/config/
+            Reveal.initialize({
+                hash: true,
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+            });
+
+        </script>
+    </body>
+
+</html>

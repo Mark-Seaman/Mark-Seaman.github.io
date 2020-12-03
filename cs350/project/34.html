@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Project #34</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC CS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Software Engineering Skills</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-34---test">Lesson 34 - Test</h1>
+<h2 id="project">PROJECT</h2>
+<h3 id="milestone-6---first-code-release">Milestone 6 - First Code Release</h3>
+<ul>
+<li>Every team member get the same grade</li>
+<li>Grading based on functionality and usability</li>
+<li>What is the user experience? Defects and missing features</li>
+<li>User Guide &amp; Landing Page</li>
+<li>Code and document quality
+<ul>
+<li>Clean</li>
+<li>Simple</li>
+<li>Well-documented</li>
+<li>Project Metrics</li>
+</ul></li>
+<li>Grading will be very critical</li>
+</ul>
+<h3 id="milestone-7-demos">Milestone 7 Demos</h3>
+<ul>
+<li>Each team will demonstrate the app in class</li>
+<li>Students will work with the application and give feedback</li>
+<li>Developers will respond to the feedback</li>
+<li>Grading will be done based on the Issue Log</li>
+</ul>
+<h3 id="project-team-demos">Project Team Demos</h3>
+<ul>
+<li>Nov 16 - SMS Twitter</li>
+<li>Nov 18 - Capture Webapp</li>
+<li>Nov 20 - ElBow Space</li>
+<li>Nov 30 - ShopLocal</li>
+<li>Dec 2 - Easel</li>
+</ul>
+<h3 id="milestone-7-grading">Milestone 7 Grading</h3>
+<ul>
+<li>Functionality and quality</li>
+<li>Review of other teams</li>
+<li>Response to feedback</li>
+<li>Clean, Simple, Documented</li>
+</ul>
+<h2 id="learn">LEARN</h2>
+<h3 id="advanced-test-skills">Advanced Test Skills</h3>
+<ul>
+<li>Quick Test for Dev Loop</li>
+<li>Django tests</li>
+<li>Standalone tests</li>
+</ul>
+<h3 id="quick-test-for-dev-loop">Quick Test for Dev Loop</h3>
+<ul>
+<li>Default Django Commands</li>
+</ul>
+<pre><code>[django]
+    makemigrations
+    migrate
+    shell
+    startapp
+    startproject
+    test
+
+[page_muncher]
+    qt
+
+[staticfiles]
+    collectstatic
+    runserver</code></pre>
+<h3 id="custom-django-commands">Custom Django Commands</h3>
+<ul>
+<li>Add a directory &quot;bookbuilder/page_muncher/management/commands/&quot;</li>
+</ul>
+<pre><code>bookbuilder/
+    config/
+        settings.py
+    book/
+        urls.py
+        view.py
+        models.py
+    page_muncher/
+        __init__.py
+        quick_test.py
+        management/
+            commands/
+                qt.py
+
+INSTALLED_APPS = [... &#39;page_muncher&#39;, ...]</code></pre>
+<h3 id="custom-django-commands-1">Custom Django Commands</h3>
+<ul>
+<li><a href="https://docs.djangoproject.com/en/3.1/howto/custom-management-commands/">Add new Django Command</a></li>
+<li>Run Quick test</li>
+<li><a href="https://github.com/Mark-Seaman/Book-Builder/tree/master/bookbuilder/page_muncher">page_muncher/management/commands/qt.py</a></li>
+</ul>
+<pre><code>from django.core.management.base import BaseCommand
+from page_muncher.quick_test import test_quick
+
+class Command(BaseCommand):
+    def handle(self, *args, **options):
+        test_quick()</code></pre>
+<h3 id="run-quick-test">Run Quick test</h3>
+<ul>
+<li>Create a test for a specific minor detail</li>
+<li>Debug code in isolation</li>
+<li>Then integrate into the product</li>
+<li>Move quick test into automatic tests</li>
+<li>Be Careful with Database</li>
+</ul>
+<pre><code>from book.models import Book
+
+def quick_test():
+    print(&#39;List Books&#39;)
+    for book in Book.objects.all():
+        print(book.title, book.author)</code></pre>
+<h3 id="quick-test-for-dev-loop-1">Quick Test for Dev Loop</h3>
+<ul>
+<li>Select a feature</li>
+<li>Write one line of code that fails in quick test</li>
+<li>Write one line of product code that passes</li>
+<li>Refactor without breaking tests</li>
+<li>Integrate quick test into Django test</li>
+<li>Commit all code</li>
+<li>Repeat on next feature</li>
+</ul>
+<h3 id="code-coverage">Code Coverage</h3>
+<ul>
+<li><a href="https://coverage.readthedocs.io/en/coverage-5.3/">Measure Code Coverage</a></li>
+<li><a href="https://docs.djangoproject.com/en/3.1/topics/testing/advanced/#topics-testing-code-coverage">Use Coverage tool</a></li>
+<li>Report of code tested</li>
+</ul>
+<pre><code>pip install coverage
+
+coverage run --source=&#39;book&#39; manage.py test
+
+coverage report</code></pre>
+<h3 id="coverage-report">Coverage report</h3>
+<pre><code>Name                                              Stmts   Miss  Cover
+---------------------------------------------------------------------
+book/author.py                                        9      0   100%
+book/book.py                                         13      2    85%
+book/chapter.py                                      25      4    84%
+book/models.py                                       25      3    88%
+book/tests.py                                        38      3    92%
+book/tests_author.py                                 38      0   100%
+book/tests_book.py                                  111      0   100%
+book/tests_chapter.py                                41      0   100%
+book/text.py                                         20     20     0%
+book/urls.py                                          4      0   100%
+book/views.py                                        58     10    83%
+---------------------------------------------------------------------
+TOTAL                                               419     45    89%</code></pre>
+<h3 id="advanced-test-tools">Advanced Test Tools</h3>
+<ul>
+<li>Pytest</li>
+<li>Requests</li>
+<li>Django tests</li>
+<li>Selenium</li>
+</ul>
+<h3 id="pytest">Pytest</h3>
+<ul>
+<li><a href="https://docs.pytest.org/en/stable/index.html">Pytest Website</a></li>
+<li>Great for organizing all functional tests</li>
+<li>Outside of Django context</li>
+</ul>
+<pre><code>def test_quick():
+    test_pytest()
+
+def test_pytest():
+    assert True
+    assert 1 == 1</code></pre>
+<h3 id="requests">Requests</h3>
+<ul>
+<li>Use &quot;requests&quot; to get web pages</li>
+<li>Simple test to request pages from any server</li>
+<li>Great for building functional tests</li>
+<li>Use Live database</li>
+</ul>
+<pre><code>from requests import get
+
+def test_request():
+    response = get(&#39;https://shrinking-world.com&#39;)
+    assert response.status_code == 200
+    text = response.content.decode(&#39;utf-8&#39;)
+    assert &#39;&lt;a href=&quot;&quot;&gt;Shrinking World Training&lt;/a&gt;&#39; in text
+    print(text)</code></pre>
+<h3 id="test-client">Test Client</h3>
+<ul>
+<li>Use test client to get web pages</li>
+<li>Simple test to request pages from any server</li>
+<li>Use Live database</li>
+</ul>
+<pre><code>from django.test import Client
+
+def test_client():
+    response = Client().get(&#39;/book/1&#39;)
+    assert response.status_code == 200
+    print(response.content)</code></pre>
+<h3 id="django-tests">Django tests</h3>
+<ul>
+<li>SimpleTestCase - no database</li>
+<li>TestCase - test database</li>
+<li>LiveServerTestCase - run server with live data</li>
+<li><a href="https://docs.djangoproject.com/en/3.1/topics/testing/tools/">Django Advanced Testing</a></li>
+</ul>
+<h3 id="simpletestcase">SimpleTestCase</h3>
+<ul>
+<li>Can not use the database</li>
+<li><a href="https://github.com/Mark-Seaman/Book-Builder/blob/master/bookbuilder/book/tests.py">Book Builder View Tests</a></li>
+</ul>
+<pre><code>from django.test import SimpleTestCase
+
+class ViewsTests(SimpleTestCase):
+
+    def test_page_exists(self):
+        response = self.client.get(&#39;/&#39;)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, template_name=&#39;book_theme.html&#39;)</code></pre>
+<h3 id="testcase">TestCase</h3>
+<ul>
+<li>Create and deletes a test database</li>
+<li>Must create all data from scratch in test</li>
+<li><a href="https://github.com/Mark-Seaman/Book-Builder/blob/master/bookbuilder/book/tests_book.py">Book Builder Book Tests</a></li>
+<li>Run all tests</li>
+</ul>
+<h3 id="liveservertestcase">LiveServerTestCase</h3>
+<ul>
+<li>Run server with live data</li>
+<li><a href="https://docs.djangoproject.com/en/3.1/topics/testing/tools/#liveservertestcase">Live Server Test Case</a></li>
+</ul>
+<h3 id="selenium">Selenium</h3>
+<ul>
+<li>Remote control a browser</li>
+<li>Create tests that get web pages</li>
+<li>Library of code to decompose the page under test</li>
+<li>Works with Browser JavaScript engine</li>
+<li>Needed for testing JavaScript code</li>
+<li><a href="https://selenium-python.readthedocs.io/installation.html">Selenium Website</a></li>
+</ul>
+<h3 id="page-muncher---test-page">Page Muncher - Test Page</h3>
+<ul>
+<li>Test to examine web page content</li>
+<li>Open the browser and get a page</li>
+<li>Test features on the page</li>
+</ul>
+<pre><code>def test_selenium_text():
+    browser = open_browser()
+    url = &#39;http://shrinking-world.com/course/cs350/lesson/Index&#39;
+    browser.get(url)
+    ...
+    browser.quit()</code></pre>
+<h3 id="page-muncher---test-text">Page Muncher - Test Text</h3>
+<ul>
+<li>Test to text in the body tag of the web page</li>
+<li>Measure the number of characters</li>
+</ul>
+<pre><code>def test_text(browser):
+    body_text = browser.find_element_by_tag_name(&#39;body&#39;).text
+    assert len(body_text) == 682</code></pre>
+<h3 id="page-muncher---test-html">Page Muncher - Test HTML</h3>
+<ul>
+<li>Test to HTML in the page source of the web page</li>
+<li>Measure the number of characters</li>
+</ul>
+<pre><code>def test_html(browser):
+    assert len(browser.page_source) == 59478</code></pre>
+<h3 id="page-muncher---test-header">Page Muncher - Test Header</h3>
+<ul>
+<li>Test to content of the page header</li>
+<li>Match the text of the hyperlink</li>
+</ul>
+<pre><code>def test_page_header(browser):
+    header_title = browser.find_element_by_css_selector(&#39;header h1&#39;)
+    header_title = header_title.get_attribute(&quot;innerHTML&quot;)
+    expected = &#39;&lt;a href=&quot;/course/cs350&quot;&gt;UNC CS 350&lt;/a&gt;&#39;
+    assert expected in header_title</code></pre>
+<h3 id="page-muncher---test-links">Page Muncher - Test Links</h3>
+<ul>
+<li>Test to content of the page header</li>
+<li>Count the matching hyperlinks</li>
+</ul>
+<pre><code>def test_links(browser):
+    links = browser.find_elements_by_css_selector(&#39;li a[href]&#39;)
+    links = [link.get_attribute(&quot;innerHTML&quot;) for link in links]
+    # print(links)
+    assert len(links) == 12</code></pre>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

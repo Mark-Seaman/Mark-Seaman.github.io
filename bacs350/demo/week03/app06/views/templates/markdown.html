@@ -1,0 +1,12 @@
+{% extends 'page_theme.html' %}
+
+{% block main %}
+
+    <h1>{{ title }}</h1>
+    <p>Here is the markdown content</p>
+
+    {% autoescape off %}
+    {{ html }}
+    {% endautoescape %}
+
+{% endblock main %}

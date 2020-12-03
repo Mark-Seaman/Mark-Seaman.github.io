@@ -1,0 +1,369 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>UNC Course Slides</title>
+
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reset.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reveal.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/theme/beige.css" id="theme">
+
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+        <link rel="stylesheet" href="slides.css">
+    </head>
+
+    <body>
+
+        <div class="reveal">
+            <div class="slides">
+
+                <section class="section"
+                         data-background-image="../images/autumn-leaves.jpg">
+                    <h1>bacs350 - Lesson 02</h1>
+                    <p><img class="logo" src="../images/Bear.png" alt="../images/Bear.png"></p>
+                    <p class="title">Mark Seaman</p>
+                    <p class="title">University of Northern Colorado</p>
+                </section>
+
+                
+                    <section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>LEARN</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Class Interactions
+* Face to face is not possible
+* Use the richest communication channel you can
+* Message 7%, Tone of voice 38%, Non-verbal queues 55%
+* Turn on your camera if you have one
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Reading - Django for Beginners
+* Chapter 2 - Hello World App
+* Reading uses "pipenv" - I use "pip"
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Zoom Recordings
+
+<a href="/course/bacs350/docs/ZoomLectures" class="unc-button">Lecture</a>
+
+* Each session will be recorded for your education
+* Use this page to see how to get to the live sessions and office hours
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Github
+* Github is the best version control service available
+* It is a web service that hosts thousands of users and millions of projects
+* By January 2020 - 40 million users, over 100 million repositories
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Git
+* Invented by the creator of Linux
+* Save every version of every file
+* Work individually or with thousands of developers
+* Put everything under version control
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Using Github
+* All assignments will be completed using Github
+* Github Pages can be used as a web server for static pages
+* All pages you create will be published automatically from your Github repository
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Github Desktop
+* Github Desktop is the software app that you will use to help you work with local files.
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Virtual Environments
+* You may need many different Python environments for different packages
+* Each environment may use different packages
+* Python provide Virtual Environments to isolate projects from each other
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Activate Virtual Environment
+* All work in Python should be done in a VENV
+* Each work session starts by activating the environment
+* See [Setup Development Environment](/course/bacs350/docs/SetupPython) for details
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Install Django
+* pip list --- should have django 3.1
+* pip install django==3.1
+
+
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+<section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>BUILD</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Development Workflow
+* Edit - make a small (1-3 lines) change to your code
+* Test - run the server and browse to page
+* Commit - commit changes every hour
+* Repeat - work in small iteration, don't ignore bugs
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Tiled Windows
+* Editor - Brackets
+* Terminal - Run Django Server and file commands
+* Browser - Instructions, Test Page, Github, BACS 350
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Tiled Windows
+
+![](../images/tiled-windows.png)
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Create New Project
+* cd your-github-repo
+* cd bacs350
+* mkdir 02
+* cd 02
+* django-admin startproject app2
+* tree --- show all files
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Run Development Server
+* python manage.py runserver
+* Don't worry about the warning for "unapplied migrations"
+* Browse web page (http://127.0.0.1:8000)
+* Use Ctrl-C to kill the server
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Create app pages
+* startapp pages
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Create simple views
+* views.py
+* View functions
+* Class view
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Create URL route
+* urls.py
+* Run web server
+* Browse web page
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Screenshots
+* Show your server log
+* Show your browser window
+* commit your images to Github repo
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Demo Code in Github
+* Mark-Seaman/UNC-BACS-350
+* Look at my code after you create your own
+* You learn by doing - practice makes perfect
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Practice Exercise
+* I showed you how to build a simple page
+* You learn by doing
+* Create multiple pages with templates
+* Home, About, Our Vision, Our Strategy
+* Add some simple text and hyperlinks
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Help With Setup
+* Help student one at a time
+* Turn on your camera
+* Share your screen
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+                
+
+            </div>
+        </div>
+
+        <script src="https://shrinking-world.com/static/revealjs/dist/reveal.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/notes/notes.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/markdown/markdown.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/highlight/highlight.js"></script>
+        <script>
+            // More info about initialization & config:
+            // - https://revealjs.com/initialization/
+            // - https://revealjs.com/config/
+            Reveal.initialize({
+                hash: true,
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+            });
+
+        </script>
+    </body>
+
+</html>

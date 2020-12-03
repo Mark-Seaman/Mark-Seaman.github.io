@@ -1,0 +1,16 @@
+{% if card %}
+
+    <div class="{{ card.width }} my-3">
+        <div class="card">
+            <div class="card-header {{ card.color }}  text-light">
+                <h2>{{ card.title }}</h2>
+            </div>
+            <div class="card-body text-dark">
+                {% autoescape off %}
+                    {{ card.body }}
+                {% endautoescape %}
+            </div>
+        </div>
+    </div>
+
+{% endif %}

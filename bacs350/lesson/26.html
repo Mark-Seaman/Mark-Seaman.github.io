@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #26</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-26---user-management-encapsulation">Lesson 26 - User Management Encapsulation</h1>
+<h2 id="learn-build">LEARN &amp; BUILD</h2>
+<h3 id="goals">Goals</h3>
+<ul>
+<li>Create a reusable solution for user management</li>
+<li>Provide customization options</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li>Register new users</li>
+<li>Login</li>
+<li>Logout</li>
+<li>Check for login</li>
+<li>Feedback for user login</li>
+</ul>
+<h3 id="register-new-users">Register new users</h3>
+<ul>
+<li><p>Sign up form</p>
+<p>templates/registration/signup.html</p>
+<p>path('accounts/', SignUp.as_view(), name='signup')</p></li>
+</ul>
+<h3 id="login">Login</h3>
+<ul>
+<li>Allow user to login</li>
+<li>Use Django code to handle login</li>
+<li><p>LOGIN_REDIRECT_URL</p>
+<p>templates/registration/login.html</p>
+<p>path('accounts/', include('django.contrib.auth.urls')), path('accounts/', include('accounts.urls')),</p></li>
+</ul>
+<h3 id="logout">Logout</h3>
+<ul>
+<li>Allow user to logout</li>
+<li>Use Django code to handle logout</li>
+<li><p>LOGOUT_REDIRECT_URL</p>
+<p>path('accounts/', include('django.contrib.auth.urls')), path('accounts/', include('accounts.urls')),</p></li>
+</ul>
+<h3 id="check-for-login">Check for login</h3>
+<ul>
+<li><p>Use LoginRequiredMixin to check for login</p>
+<p>from django.contrib.auth.mixins import LoginRequiredMixin</p>
+<p>class BlogListView(ListView): class BlogDetailView(DetailView): class BlogCreateView(LoginRequiredMixin, CreateView): class BlogUpdateView(LoginRequiredMixin, UpdateView): class BlogDeleteView(LoginRequiredMixin, DeleteView):</p></li>
+</ul>
+<h3 id="show-login-status">Show Login Status</h3>
+<ul>
+<li>Create a menu bar in base template</li>
+<li>Add user info to menu bar</li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;navbar navbar-expand-sm navbar-dark bg-dark&quot;</span><span class="kw">&gt;</span>
+
+    <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;navbar-brand&quot;</span><span class="ot"> href=</span><span class="st">&quot;{{ menu.url }}&quot;</span><span class="kw">&gt;</span>Blog App<span class="kw">&lt;/a&gt;</span>
+
+    <span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;navbar-nav ml-auto&quot;</span><span class="kw">&gt;</span>
+
+        {% block menu_items %} ... {% endblock menu_items %}
+        
+        {% block user %} ... {% endblock user %}
+    <span class="kw">&lt;/ul&gt;</span>
+
+<span class="kw">&lt;/nav&gt;</span></code></pre>
+<h3 id="add-user-info">Add User Info</h3>
+<ul>
+<li>Add as a block so that it can be replaced</li>
+<li>Handle both logged in and not logged in</li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html">{% block user %}
+   
+    {% if user.is_authenticated %}
+       ...
+    {% else %}
+        ...
+    {% endif %}
+    
+{% endblock user %}</code></pre>
+<h3 id="logged-in">Logged In</h3>
+<ul>
+<li>Add as a block so that it can be replaced</li>
+<li>Echo to the user info</li>
+<li>Provide logout button</li>
+</ul>
+```html {% if user.is_authenticated %}
+<li class="nav-item active">
+<pre><code>    &lt;span class=&quot;nav-link p-2 m-2&quot;&gt;Welcome {{ user.username }}&lt;/span&gt;
+&lt;/li&gt;
+&lt;li class=&quot;nav-item&quot;&gt;
+    &lt;a href=&quot;{% url &#39;logout&#39; %}&quot; class=&quot; nav-link text-light p-2 m-2&quot;&gt;
+        &lt;i class=&quot;fas fa-sign-out-alt&quot;&gt;&lt;/i&gt; Log out
+    &lt;/a&gt;
+&lt;/li&gt;</code></pre>
+<p>{% endif %}</p>
+<pre><code>
+
+### Not Logged In
+* Show that user is not currently logged in
+* Provide a login link
+* Sign up available from login page
+
+
+ ```html
+{% if not user.is_authenticated %}
+   
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;span class=&quot;nav-link p-2 m-2&quot;&gt;You are not logged in.&lt;/span&gt;
+    &lt;/li&gt;
+
+    &lt;li class=&quot;nav-item active&quot;&gt;
+        &lt;a href=&quot;{% url &#39;login&#39; %}&quot; class=&quot;nav-link text-light p-2 m-2&quot;&gt;
+            &lt;i class=&quot;fas fa-sign-in-alt&quot;&gt;&lt;/i&gt; Log In
+        &lt;/a&gt;
+    &lt;/li&gt;
+    
+{% endif %}</code></pre>
+<h3 id="apply-user-management">Apply User Management</h3>
+<ul>
+<li>Duplicate code from Demo 26</li>
+<li>Templates</li>
+<li>URLs</li>
+<li>Views</li>
+</ul>
+<h3 id="user-registration">User Registration</h3>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week09/Demo26">Demo 26</a></li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

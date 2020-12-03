@@ -1,0 +1,49 @@
+{% extends 'workshop.html' %}
+
+{% block main %}
+ 
+    <h2>Tab View</h2>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+       
+        {% for t in tabs %}
+           
+            <li class="nav-item" role="presentation">
+                <a class="nav-link {{ t.active }} text-bold" 
+                   id="{{ t.name }}-tab" 
+                   data-toggle="tab" 
+                   href="#{{ t.name }}" 
+                   role="tab" 
+                   aria-controls="{{ t.name }}" 
+                   aria-selected="{{ t.selected }}" 
+                   href="#{{ t.name }}">
+                   
+                    {{ t.header }}
+                </a>
+            </li>
+            
+        {% endfor %}
+        
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+
+        {% for t in tabs %}
+
+            <div class="tab-pane {{ t.active }} {{ t.show }} fade" 
+                 id="{{ t.name }}" 
+                 role="tabpanel" 
+                 aria-labelledby="{{ t.name }}-tab">
+
+                <div class="bg-light text-dark p-5">
+                    <h2>{{ t.header }}</h2>
+
+                    {{ t.body }}
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+{% endblock main %}

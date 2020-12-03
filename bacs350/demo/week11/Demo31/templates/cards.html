@@ -1,0 +1,19 @@
+{% extends 'workshop.html' %}
+
+{% block main %}
+ 
+    
+    <div class="container">
+        <h2> Cards Layout View</h2>
+        
+        <div class="row">
+
+            {% for card in cards %}
+                {% include '_card.html' %}
+            {% endfor %}
+            
+        </div>
+    </div>
+
+{% endblock main %}
+

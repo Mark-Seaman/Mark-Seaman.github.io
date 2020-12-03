@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #22</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-22---better-style">Lesson 22 - Better Style</h1>
+<h2 id="learn-build">LEARN &amp; BUILD</h2>
+<h3 id="project-7---superhero-data-views">Project 7 - Superhero Data Views</h3>
+<ul>
+<li>Deadline Extended to Oct 16</li>
+<li>Django Generic Views</li>
+<li>View Inheritance</li>
+</ul>
+<h3 id="complete-your-projects">Complete Your Projects</h3>
+<ul>
+<li>Project 1 - Setup development tools</li>
+<li>Project 2 - Build a simple app</li>
+<li>Project 3 - Application Hosting</li>
+<li>Project 4 - TemplateView</li>
+<li>Project 5 - Data Models</li>
+<li>Project 6 - Custom Template View</li>
+<li>Project 7 - Data Model Views</li>
+</ul>
+<h3 id="working-the-project-in-class">Working the Project in Class</h3>
+<ul>
+<li>Live demo of solving the problems</li>
+<li>You must apply this knowledge</li>
+<li>Publish your work in Github and Python Anywhere</li>
+</ul>
+<h3 id="django-view-classes">Django View Classes</h3>
+<ul>
+<li>TemplateView</li>
+<li>ListView</li>
+<li>DetailView</li>
+<li>CreateView</li>
+<li>UpdateView</li>
+<li>DeleteView</li>
+</ul>
+<h3 id="live-demo">Live Demo</h3>
+<ul>
+<li>Build project &quot;Superhero&quot; app &quot;hero&quot;</li>
+<li>For each view
+<ul>
+<li>Define Template</li>
+<li>Define View</li>
+<li>Define Route</li>
+</ul></li>
+</ul>
+<h3 id="updateview">UpdateView</h3>
+<ul>
+<li>Make sure that you can edit the records</li>
+<li>Make sure that the page is redirected after save</li>
+</ul>
+<p>templates/hero_edit.html</p>
+<pre><code>{% extends &#39;page_theme.html&#39; %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+     &lt;form action=&quot;&quot; method=&quot;post&quot;&gt;{% csrf_token %}
+        {{ form|crispy }}
+        &lt;button class=&quot;btn btn-success&quot; type=&quot;submit&quot;&gt;Save&lt;/button&gt;
+     &lt;/form&gt;
+ {% endblock content %}</code></pre>
+<p>hero/views.py</p>
+<pre><code>from django.views.generic.edit import CreateView
+from .models import Superhero
+
+class HeroEditView(CreateView):
+    template_name = &quot;hero_edit.html&quot;
+    model = Superhero
+    fields = &#39;__all__&#39;</code></pre>
+<p>hero/urls.py</p>
+<pre><code>from django.urls import path
+from .views import HeroAddView, HeroEditView
+
+urlpatterns = [
+    path(&#39;&lt;int:pk&gt;&#39;,  HeroAddView.as_view(),    name=&#39;hero_add&#39;),        
+    path(&#39;&lt;int:pk&gt;/&#39;, HeroUpdateView.as_view(), name=&#39;hero_edit&#39;),
+]</code></pre>
+<h3 id="base-template">Base Template</h3>
+<ul>
+<li>Add header, main, footer</li>
+<li>Add Bootstrap Library</li>
+<li>Style each component</li>
+</ul>
+<h3 id="show-selected-image">Show selected image</h3>
+<ul>
+<li>Use the image field in view</li>
+<li>Show default image</li>
+</ul>
+<h3 id="default-user">Default User</h3>
+<ul>
+<li>Include Font Awesome</li>
+<li>Add icon to view</li>
+</ul>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; 
+    href=&quot;https://use.fontawesome.com/releases/v5.0.13/css/all.css&quot;&gt;
+              
+&lt;i class=&quot;fa fa-user fa-6x&quot;&gt;&lt;/icon&gt;</code></pre>
+<h3 id="bootstrap-cards">Bootstrap Cards</h3>
+<ul>
+<li>card, card-header, card-body</li>
+</ul>
+<h3 id="image-thumbnail">Image Thumbnail</h3>
+<ul>
+<li>Show small image</li>
+<li>Link to full size image</li>
+<li>Set target for browser tab</li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

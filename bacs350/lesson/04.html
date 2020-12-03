@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #4</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-4---apps-urls-views-templates">Lesson 4 - apps, urls, views, templates</h1>
+<h2 id="learn">LEARN</h2>
+<h3 id="slower-pace">Slower pace</h3>
+<ul>
+<li>Lots of new material</li>
+<li>Moving too fast for many</li>
+<li>We will slow down (Project 1 and Project 2 on Friday)</li>
+<li>Use this week to catch up</li>
+</ul>
+<h3 id="priorities---5-skills-to-master">Priorities - 5 Skills to Master</h3>
+<ul>
+<li>Get the tools setup - Python, Venv, Django</li>
+<li>Create a Github repo</li>
+<li>Build an app from scratch</li>
+<li>Test your app with the dev server</li>
+<li>Set up the static server</li>
+</ul>
+<h3 id="command-line">Command line</h3>
+<ul>
+<li>Windows powershell</li>
+<li>Mac linux</li>
+<li><a href="../docs/CommandLine">Command Line</a></li>
+</ul>
+<h3 id="tools">Tools</h3>
+<ul>
+<li>Python 3
+<ul>
+<li>python3 --version</li>
+</ul></li>
+<li>Virtual Environment
+<ul>
+<li>python3 -m venv .venv</li>
+<li>source .venv/bin/activate # On mac</li>
+<li>.venv/Scripts/activate.bat # On windows</li>
+<li>deactivate</li>
+</ul></li>
+<li>Django
+<ul>
+<li>pip freeze</li>
+<li>pip install django</li>
+</ul></li>
+</ul>
+<h3 id="activate-the-virtual-environment">Activate the Virtual Environment</h3>
+<ul>
+<li>source .venv/bin/activate # On mac</li>
+<li>.venv/Scripts/activate.bat # On windows</li>
+<li>pip freeze # should see Django</li>
+</ul>
+<h3 id="create-a-new-project">Create a new project</h3>
+<ul>
+<li>django-admin startproject demo</li>
+<li>cd demo</li>
+<li>ls or dir</li>
+<li>python manage.py # Get a list of commands</li>
+</ul>
+<h3 id="run-the-test-server">Run the test server</h3>
+<ul>
+<li>python manage.py runserver</li>
+<li>browse to &quot;127.0.0.1:8000&quot;</li>
+</ul>
+<h3 id="templates">templates</h3>
+<ul>
+<li>define HTML for pages</li>
+<li>template loader to lookup templates</li>
+</ul>
+<h3 id="views.py">views.py</h3>
+<ul>
+<li>logic to convert a request into a response</li>
+<li>written in Python</li>
+<li>calls hidden logic that does a lot of work</li>
+</ul>
+<h3 id="urls.py">urls.py</h3>
+<ul>
+<li>listens for specific requests</li>
+<li>define URL routes to pages</li>
+<li>maps the request onto a view</li>
+</ul>
+<h2 id="build">BUILD</h2>
+<h3 id="setup-workflow">Setup workflow</h3>
+<ul>
+<li>new terminal window</li>
+<li>activate virtual environment</li>
+<li>edit window</li>
+<li>browser</li>
+</ul>
+<h3 id="create-a-new-project-1">Create a new project</h3>
+<ul>
+<li>django-admin startproject demo</li>
+<li>cd demo</li>
+<li>ls or dir</li>
+<li>python manage.py # Get a list of commands</li>
+</ul>
+<h3 id="run-the-test-server-1">Run the test server</h3>
+<ul>
+<li>python manage.py runserver</li>
+<li>browse to &quot;127.0.0.1:8000&quot;</li>
+</ul>
+<h3 id="create-a-template">Create a template</h3>
+<p>templates/about.html</p>
+<pre><code>&lt;h1&gt;My Name is Inigo Montoya&lt;/h1&gt;
+&lt;p&gt;Prepare to die&lt;/p&gt;</code></pre>
+<h3 id="create-a-route">Create a route</h3>
+<p>urls.py</p>
+<pre><code>from django.urls import path
+from django.views.generic import TemplateView
+
+urlpatterns = [
+    path(&#39;about&#39;, TemplateView.as_view(template_name=&quot;about.html&quot;)),
+    path(&#39;home&#39;, TemplateView.as_view(template_name=&quot;home.html&quot;)),
+]</code></pre>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

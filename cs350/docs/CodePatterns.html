@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>CodePatterns</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC CS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Software Engineering Skills</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="code-design-pattern-catalog">Code Design Pattern Catalog</h1>
+<p>Design Patterns are the key to great engineering</p>
+<p>Every Web App requires 50 Tricks</p>
+<h3 id="app-structure">App Structure</h3>
+<p>A new Django project is created by running a script that builds code for the project.</p>
+<pre><code>django-admin startproject Book-Builder</code></pre>
+<p>Application modules are created for unique functional areas of the program.</p>
+<pre><code>python manage.py startapp book</code></pre>
+<h3 id="template-views">Template Views</h3>
+<p>The base view class in Django is TemplateView. This displays HTML code for the required template. The settings file must contain the location of the template.</p>
+<p>Template View Example</p>
+<pre><code>class HeroEditView(TemplateView):
+    template_name = &quot;hero.html&quot;</code></pre>
+<h3 id="view-inheritance">View Inheritance</h3>
+<p>Define a base page template. Then extend the template by replacing the desired blocks of HTML text.</p>
+<p>templates/theme.html</p>
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        {% block content %}
+        {% endblock content %}
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>templates/home.html</p>
+<pre><code>{% extends &#39;theme.html&#39; %}
+
+{% block content %}
+    &lt;h1&gt;Home Page&lt;/h1&gt;
+    &lt;p&gt;This is the page.&lt;/p&gt;
+{% endblock content %}</code></pre>
+<h3 id="data-view">Data View</h3>
+<p>Django defines several generic view types that automatically present data records from a database. The developer must define the operation to be done, the HTML template, and the data model.</p>
+<p>Edit View Example</p>
+<pre><code>class HeroEditView(CreateView):
+    template_name = &quot;hero_edit.html&quot;
+    model = Superhero
+    fields = &#39;__all__&#39;</code></pre>
+<p>Django View Classes</p>
+<ul>
+<li>TemplateView</li>
+<li>ListView</li>
+<li>DetailView</li>
+<li>CreateView</li>
+<li>UpdateView</li>
+<li>DeleteView</li>
+</ul>
+<h3 id="data-models">Data Models</h3>
+<p>The ORM takes a python class and automatically builds database tables that match the database model. As the model changes the database tables are altered using a migrate process.</p>
+<p>hero/models.py</p>
+<pre><code>class Superhero(models.Model):
+    name = models.CharField(max_length=20)
+    identity = models.CharField(max_length=20)</code></pre>
+<p>Migrating the Database</p>
+<pre><code>python manage.py makemigrations
+
+python manage.py migrate</code></pre>
+<h3 id="data-functions">Data Functions</h3>
+<p>Encapsulate database access functions with friendly names that can be easily remembered. Create functions for the most common queries needed.</p>
+<p>book/book.py</p>
+<pre><code>from .models import Book
+
+def add_book(title, author):
+    return Book.objects.create(author=author, title=title)
+
+def list_books(author=None):
+    return Book.objects.all()
+
+def get_book(title):
+    return Book.objects.get(title=title)
+
+def get_book_id(pk):
+    return Book.objects.get(pk=pk)
+
+def delete_book(title):
+    Book.objects.get(title=title).delete()</code></pre>
+<h3 id="app-hosting">App Hosting</h3>
+<p>Use Python Anywhere to host Django apps. Signup for the free version of the service.</p>
+<p>Follow the <a href="PythonAnywhere">Python Anywhere setup guide</a> to configure server.</p>
+<h3 id="markdown-content">Markdown Content</h3>
+<p>Display document content written in markdown as HTML text. Include a markdown formatter from the Python package (markdown).</p>
+<p>See <a href="Markdown.md">Markdown Design Pattern</a></p>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

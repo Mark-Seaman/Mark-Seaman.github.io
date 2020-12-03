@@ -1,0 +1,26 @@
+{% if cards %}
+
+    <div class="container">
+        <div class="row">
+
+            {% for card in cards %}
+
+                <div class="col-lg-6">
+
+                    <div class="card">
+                        <div class="card-header card-padding {{ card.style }}">
+                            <h4>{{ card.header }}</h4>
+                        </div>
+                        <div class="card-body card-padding">
+                            {{ card.body }}
+                        </div>
+                    </div>
+
+                </div>
+
+            {% endfor cards %}
+
+        </div>
+    </div>
+
+{% endif %}

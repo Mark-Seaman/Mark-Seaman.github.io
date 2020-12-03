@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>UNC Course Slides</title>
+
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reset.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reveal.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/theme/beige.css" id="theme">
+
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+        <link rel="stylesheet" href="slides.css">
+    </head>
+
+    <body>
+
+        <div class="reveal">
+            <div class="slides">
+
+                <section class="section"
+                         data-background-image="../images/autumn-leaves.jpg">
+                    <h1>bacs350 - Lesson 33</h1>
+                    <p><img class="logo" src="../images/Bear.png" alt="../images/Bear.png"></p>
+                    <p class="title">Mark Seaman</p>
+                    <p class="title">University of Northern Colorado</p>
+                </section>
+
+                
+                    <section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>LEARN</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Carousel
+* Copy code from Bootstrap demo
+* Add images to Carousel
+
+```python
+class CarouselView(TemplateView):
+    template_name = 'carousel.html'
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Carousel Page
+* Create a template to display the data
+
+templates/carousel.html
+
+```html
+{% extends 'workshop.html' %}
+
+{% block main %}
+    {% include '_carousel.html' %}
+{% endblock main %}
+
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Carousel Template
+* Define the partial template
+
+templates/_carousel.html
+
+```html
+<div id="slider2" class="carousel slide" data-ride="carousel">
+           
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block img-fluid" src="https://source.unsplash.com/random/1200x800?bear" alt="Bear">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block img-fluid" src="https://source.unsplash.com/random/1200x800?forest" alt="Forest">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block img-fluid" src="https://source.unsplash.com/random/1200x800?ocean" alt="Ocean">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block img-fluid" src="https://source.unsplash.com/random/1200x800?flower" alt="Flower">
+        </div>
+    </div>
+
+    <!-- CONTROLS -->
+    <a href="#slider2" class="carousel-control-prev" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+
+    <a href="#slider2" class="carousel-control-next" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div>
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Carousel JavaScript
+* Logic to run the carousel
+
+```
+<script>
+    $('.carousel').carousel({
+        interval: 2000,
+        keyboard: true,
+        pause: 'hover',
+        wrap: true
+    });
+</script>
+```
+ 
+ 
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Unsplash
+* Visit [Unsplash.com](https://Unsplash.com)
+* Select a category of photos
+* [Specific Image](https://images.unsplash.com/photo-1604890574377-b1830f2e48e6) - https://images.unsplash.com/photo-1604890574377-b1830f2e48e6
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Size
+* [https://source.unsplash.com/random/1200x800](https://source.unsplash.com/random/1200x800)
+* [https://source.unsplash.com/random/600x100](https://source.unsplash.com/random/600x100)
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Category
+* [https://source.unsplash.com/random?ocean](https://source.unsplash.com/random/600x400?ocean)
+* [https://source.unsplash.com/random?people](https://source.unsplash.com/random/600x400?people)
+
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+                
+
+            </div>
+        </div>
+
+        <script src="https://shrinking-world.com/static/revealjs/dist/reveal.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/notes/notes.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/markdown/markdown.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/highlight/highlight.js"></script>
+        <script>
+            // More info about initialization & config:
+            // - https://revealjs.com/initialization/
+            // - https://revealjs.com/config/
+            Reveal.initialize({
+                hash: true,
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+            });
+
+        </script>
+    </body>
+
+</html>

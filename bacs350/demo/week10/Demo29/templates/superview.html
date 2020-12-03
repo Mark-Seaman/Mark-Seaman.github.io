@@ -1,0 +1,31 @@
+{% extends 'workshop.html' %}
+
+{% block main %}
+
+    {% if cards %}
+        <h2> Cards View</h2>
+        {% include '_cards.html' %}
+    {% endif %}
+
+
+    {% if accordion %}
+        <h2> Accordion View</h2>
+        {% include '_accordion.html' %}
+    {% endif %}
+
+        
+    {% if markdown %}
+        <h2> Markdown Document View</h2>
+        {% include '_markdown.html' %}
+    {% endif %}
+    
+    
+    {% if tabs %}
+        <h2> Tab View</h2>
+        {% include '_tabs.html' %}
+    {% endif %}
+ 
+    
+{% endblock main %}
+
+

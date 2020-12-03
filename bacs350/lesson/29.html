@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #29</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-29---view-workshop">Lesson 29 - View Workshop</h1>
+<h2 id="learn-build">LEARN &amp; BUILD</h2>
+<h3 id="demo-29---view-workshop">Demo 29 - View Workshop</h3>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/blob/master/demo/week10/Demo29/templates/workshop.html">View Workshop</a></li>
+</ul>
+<h3 id="view-inheritance">View Inheritance</h3>
+<ul>
+<li><a href="../docs/ViewInheritance">View Inheritance</a></li>
+<li>Build a <a href="https://github.com/Mark-Seaman/UNC-BACS-350/blob/master/demo/week10/Demo29/templates/theme.html">base template</a></li>
+<li>Build <a href="https://github.com/Mark-Seaman/UNC-BACS-350/blob/master/demo/week10/Demo29/templates/workshop.html">pages that extend the template</a></li>
+<li>Enable to part of the page you want</li>
+</ul>
+<h3 id="workshop-view">Workshop View</h3>
+<ul>
+<li>Define a view for the default page</li>
+</ul>
+<p>templates/workshop.html</p>
+<pre class="sourceCode html"><code class="sourceCode html">{% extends &#39;theme.html&#39; %}
+
+{% block main %}
+    <span class="kw">&lt;main&gt;</span>
+        <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;container&quot;</span><span class="kw">&gt;</span>
+
+            <span class="kw">&lt;h1&gt;</span> View Workshop<span class="kw">&lt;/h1&gt;</span>
+            <span class="kw">&lt;p&gt;</span>
+                This page is to demonstrate how to build complex views with many layers.
+                Django makes it easy to composite view that are driven by data.
+                
+                <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;cards&quot;</span><span class="ot"> class=</span><span class="st">&quot;text-warning&quot;</span><span class="kw">&gt;</span>Cards Layout View<span class="kw">&lt;/a&gt;</span>
+            <span class="kw">&lt;/p&gt;</span>
+
+        <span class="kw">&lt;/div&gt;</span>
+    <span class="kw">&lt;/main&gt;</span>
+{% endblock main %}   </code></pre>
+<p>workshop/views.py</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> HomeView(TemplateView):
+    template_name = <span class="st">&#39;workshop.html&#39;</span></code></pre>
+<p>workshop/urls.py</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> django.urls <span class="ch">import</span> path
+<span class="ch">from</span> .views <span class="ch">import</span>  HomeView
+
+
+urlpatterns = [
+    
+    path(<span class="st">&#39;&#39;</span>,  HomeView.as_view(), name=<span class="st">&#39;workshop&#39;</span>),
+    
+]</code></pre>
+<h3 id="card-view">Card View</h3>
+<ul>
+<li>Template</li>
+<li>View</li>
+<li>URL</li>
+</ul>
+<p>templates/workshop.html</p>
+<pre class="sourceCode html"><code class="sourceCode html">{% extends &#39;workshop.html&#39; %}
+
+{% block main %}
+
+    <span class="kw">&lt;h2&gt;</span> Card Layout View<span class="kw">&lt;/h2&gt;</span>
+
+    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;container&quot;</span><span class="kw">&gt;</span>
+
+        <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;card&quot;</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;card-header bg-primary text-light&quot;</span><span class="kw">&gt;</span>
+                <span class="kw">&lt;h2&gt;</span>{{ card.title}}<span class="kw">&lt;/h2&gt;</span>
+            <span class="kw">&lt;/div&gt;</span>
+            <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;card-body&quot;</span><span class="kw">&gt;</span>
+                <span class="kw">&lt;p&gt;</span>{{ card.body }}<span class="kw">&lt;/p&gt;</span>
+            <span class="kw">&lt;/div&gt;</span>
+        <span class="kw">&lt;/div&gt;</span>
+
+    <span class="kw">&lt;/div&gt;</span>
+
+{% endblock main %}</code></pre>
+<p>workshop/views.py</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> django.views.generic <span class="ch">import</span> TemplateView
+
+text = <span class="st">&#39;&#39;&#39;Lorem ipsum dolor sit amet, ...&#39;&#39;&#39;</span>
+
+<span class="kw">class</span> CardView(TemplateView):
+    template_name = <span class="st">&#39;card.html&#39;</span>
+
+    <span class="kw">def</span> get_context_data(<span class="ot">self</span>, **kwargs):
+        data = <span class="dt">dict</span>(title=<span class="st">&quot;Life is Great&quot;</span>, body=text)
+        <span class="kw">return</span> <span class="dt">dict</span>(card=data)</code></pre>
+<p>workshop/urls.py</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> django.urls <span class="ch">import</span> path
+<span class="ch">from</span> .views <span class="ch">import</span>  CardView
+
+urlpatterns = [
+    path(<span class="st">&#39;card&#39;</span>,  CardView.as_view(), name=<span class="st">&#39;card&#39;</span>),
+]</code></pre>
+<h3 id="cards-view">Cards View</h3>
+<ul>
+<li>Template</li>
+<li>View</li>
+<li>URL</li>
+</ul>
+<p>templates/workshop.html</p>
+<pre class="sourceCode html"><code class="sourceCode html">{% extends &#39;workshop.html&#39; %}
+
+{% block main %}
+ 
+    <span class="kw">&lt;h2&gt;</span> Cards Layout View<span class="kw">&lt;/h2&gt;</span>
+    
+    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;container&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;row&quot;</span><span class="kw">&gt;</span>
+
+            {% for card in cards %}
+
+                <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col-lg-6 my-3&quot;</span><span class="kw">&gt;</span>
+                    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;card&quot;</span><span class="kw">&gt;</span>
+                        <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;card-header bg-primary text-light&quot;</span><span class="kw">&gt;</span>
+                            <span class="kw">&lt;h2&gt;</span>{{ card.title }}<span class="kw">&lt;/h2&gt;</span>
+                        <span class="kw">&lt;/div&gt;</span>
+                        <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;card-body text-dark&quot;</span><span class="kw">&gt;</span>
+                            <span class="kw">&lt;p&gt;</span>{{ card.body }}<span class="kw">&lt;/p&gt;</span>
+                        <span class="kw">&lt;/div&gt;</span>
+                    <span class="kw">&lt;/div&gt;</span>
+                <span class="kw">&lt;/div&gt;</span>
+
+            {% endfor %}
+            
+        <span class="kw">&lt;/div&gt;</span>
+    <span class="kw">&lt;/div&gt;</span>
+
+{% endblock main %}</code></pre>
+<p>workshop/views.py</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> django.views.generic <span class="ch">import</span> TemplateView
+
+text = <span class="st">&#39;&#39;&#39;Lorem ipsum dolor sit amet, ...&#39;&#39;&#39;</span>
+
+<span class="kw">class</span> CardView(TemplateView):
+    template_name = <span class="st">&#39;cards.html&#39;</span>
+
+    <span class="kw">def</span> get_context_data(<span class="ot">self</span>, **kwargs):
+        <span class="kw">return</span> <span class="dt">dict</span>(cards=cards_data())</code></pre>
+<p>workshop/urls.py</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> django.urls <span class="ch">import</span> path
+<span class="ch">from</span> .views <span class="ch">import</span>  CardView
+
+urlpatterns = [
+    path(<span class="st">&#39;cards&#39;</span>,  CardsView.as_view(), name=<span class="st">&#39;cards&#39;</span>),
+    
+]</code></pre>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

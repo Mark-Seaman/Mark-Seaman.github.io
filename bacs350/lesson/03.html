@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #3</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-3---static-media">Lesson 3 - Static Media</h1>
+<h2 id="learn">LEARN</h2>
+<h3 id="classroom-interactions">Classroom Interactions</h3>
+<ul>
+<li>Use your camera so that I can see you react</li>
+<li>Otherwise I'm teaching blind</li>
+</ul>
+<h3 id="reading---django-for-beginners">Reading - Django for Beginners</h3>
+<ul>
+<li>Chapter 2 - Hello World App</li>
+<li>Reading uses &quot;pipenv&quot; - I use &quot;pip&quot;</li>
+</ul>
+<h3 id="zoom-recordings">Zoom Recordings</h3>
+<p><a href="/course/bacs350/docs/ZoomLectures" class="unc-button">Lecture</a></p>
+<ul>
+<li>Each session will be recorded for your education</li>
+<li>Use this page to see how to get to the live sessions and office hours</li>
+<li>Lesson 2 failed to record</li>
+</ul>
+<h3 id="todays-agenda">Today's Agenda</h3>
+<ul>
+<li>Explain how Django apps are structured</li>
+<li>Demonstrate project workflow</li>
+<li>Introduce Views, Routes, Templates</li>
+</ul>
+<h3 id="pages-have-four-items-to-create">Pages have four items to create</h3>
+<ul>
+<li>URL Routes - which pages are handled</li>
+<li>Views - format the response for the request</li>
+<li>Templates - HTML content in the page</li>
+<li>Data Models (if using a database)</li>
+</ul>
+<h3 id="html-templates">HTML Templates</h3>
+<ul>
+<li>Templates can be defined to hold all the HTML content</li>
+<li>The Template Loader must be defined in settings.py</li>
+</ul>
+<h3 id="pages-may-contain-images">Pages may Contain Images</h3>
+<ul>
+<li>Django serves pages expected to be processed</li>
+<li>Static content is passed directly through without processing</li>
+<li>Django contains a static server that can be enabled</li>
+</ul>
+<h3 id="settings.py">settings.py</h3>
+<ul>
+<li>STATIC_URL = '/static/'</li>
+<li>STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]</li>
+</ul>
+<h3 id="images-css-javascript">Images, CSS, Javascript</h3>
+<ul>
+<li>&lt; img src='/static/img/treetops.200.jpg' &gt;</li>
+<li>&lt; link rel='stylesheet' href='/static/unc.css' &gt;</li>
+<li>&lt; script href='/static/wow.js' &gt;</li>
+</ul>
+<h2 id="build">BUILD</h2>
+<h3 id="demo-code-in-github">Demo Code in Github</h3>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week01/app3">Mark-Seaman/UNC-BACS-350</a></li>
+<li>Look at my code after you create your own</li>
+<li>You learn by doing - practice makes perfect</li>
+</ul>
+<h3 id="practice-exercise">Practice Exercise</h3>
+<ul>
+<li>I showed you how to serve static files</li>
+<li>You learn by doing</li>
+<li>Add images and stylesheets to each page template</li>
+<li>Home, About, Our Vision, Our Strategy</li>
+<li>Add some simple text and hyperlinks</li>
+</ul>
+<h3 id="go-through-the-readme-files">Go Through the README Files</h3>
+<ul>
+<li>Do the steps in each file</li>
+<li>You learn by doing - practice makes perfect</li>
+<li>App 1 - Check your development setup</li>
+<li>App 2 - Create hello world app</li>
+<li>App 3 - Static Media</li>
+</ul>
+<h3 id="project-1---home-page">Project 1 - Home Page</h3>
+<ul>
+<li>Build an application with commands (startproject, startapp)</li>
+<li>Edit files to add a page (home)</li>
+<li>Add one image</li>
+<li>Commit code to Github repo</li>
+<li>Include a screen shot of your browser window</li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

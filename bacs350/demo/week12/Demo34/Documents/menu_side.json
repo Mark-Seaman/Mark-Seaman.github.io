@@ -1,0 +1,21 @@
+{
+    "url": "/MarkSeaman",
+    "label": "Mark Seaman",
+    "menu_items": [
+        {
+            "url": "/seamanslog/random",
+            "label": "Blog",
+            "page": "seamanslog"
+        },
+        {
+            "url": "/book/Index",
+            "label": "Seaman's Guide",
+            "page": "book"
+        },
+        {
+            "url": "/spiritual/Index",
+            "label": "Daily Inspiration",
+            "page": "spiritual"
+        }
+    ]
+}

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Project #2</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="project-2---super-hero-views">Project 2 - Super Hero Views</h1>
+<h2 id="goals">Goals</h2>
+<ul>
+<li>Understand how to create views in Django</li>
+<li>Create templates for HTML</li>
+<li>Create class-based generic views</li>
+<li>Hook URL routes to views</li>
+<li>Eliminate code duplication</li>
+<li>Serving static media</li>
+</ul>
+<h2 id="steps">Steps</h2>
+<h3 id="create-the-project">Create the project</h3>
+<ul>
+<li>Build a project with &quot;django-admin startproject app2&quot;</li>
+<li>Build an app with &quot;startapp hero&quot;</li>
+<li>Test the blank app</li>
+</ul>
+<h3 id="create-view-with-an-html-template">Create view with an HTML template</h3>
+<ul>
+<li>Write the template</li>
+<li>Write the view</li>
+<li>Write the url</li>
+<li>Test that the page displays</li>
+</ul>
+<h3 id="create-two-hero-templates">Create two hero templates</h3>
+<ul>
+<li>Build the HTML</li>
+<li>Build the views</li>
+<li>Hook up the URLs</li>
+<li>Test</li>
+</ul>
+<h3 id="add-images">Add images</h3>
+<ul>
+<li>Find images and put them in &quot;static/images&quot;</li>
+<li>Configure static server</li>
+</ul>
+<h3 id="pass-data-from-views-to-template">Pass data from views to template</h3>
+<ul>
+<li>Pass in the name of each hero</li>
+<li>Test</li>
+</ul>
+<h3 id="make-single-template">Make single template</h3>
+<ul>
+<li>Combine both templates</li>
+<li>Test</li>
+</ul>
+<h3 id="make-single-view">Make single view</h3>
+<ul>
+<li>Combine both views</li>
+<li>Test</li>
+</ul>
+<h3 id="test-the-pages">Test the pages</h3>
+<ul>
+<li>runserver</li>
+<li><p>browse to localhost:8000</p>
+<p>Works</p>
+<pre><code>http://127.0.0.1:8000/hero/hulk
+
+http://127.0.0.1:8000/hero/black_widow</code></pre>
+<p>Doesn't Work</p>
+<pre><code>http://127.0.0.1:8000/hero/iron_man
+
+http://127.0.0.1:8000/hero
+
+http://127.0.0.1:8000</code></pre></li>
+</ul>
+<h3 id="create-screenshots-of-your-success">Create Screenshots of your success</h3>
+<ul>
+<li>Show your browser views</li>
+<li>Put your screenshots in &quot;bacs350/app2/screenshots&quot;</li>
+<li>Commit and push</li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

@@ -1,0 +1,462 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>UNC Course Slides</title>
+
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reset.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reveal.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/theme/beige.css" id="theme">
+
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+        <link rel="stylesheet" href="slides.css">
+    </head>
+
+    <body>
+
+        <div class="reveal">
+            <div class="slides">
+
+                <section class="section"
+                         data-background-image="../images/autumn-leaves.jpg">
+                    <h1>bacs350 - Lesson 27</h1>
+                    <p><img class="logo" src="../images/Bear.png" alt="../images/Bear.png"></p>
+                    <p class="title">Mark Seaman</p>
+                    <p class="title">University of Northern Colorado</p>
+                </section>
+
+                
+                    <section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>LEARN</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Watch the Videos
+* If you missed any content see the video
+* Watch the video and write the code
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Django for Beginners
+* 6 - Forms
+* 7 - Users
+* 9 - User Auth
+* 10 - Bootstrap
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Week 10 - Building Views
+* M, Lesson 27 - Base Template Page
+* W, Lesson 28 - Templates Includes
+* F, Lesson 29 - Document View
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Today
+* Base Template Page
+* Bootstrap (CSS, JavaScript)
+* Page structure & blocks (visual inheritance)
+* Content, Header, Main, Footer
+* Navbar (main menu, user info)
+* Card (title, body)
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Views - Look and feel
+* View Inheritance
+* Content, Header, Main, Footer
+* Menu
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### View Inheritance
+* Define a base view
+* Extend other views using the base view
+* Don't duplicate (DRY - don't repeat yourself)
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Live Coding
+* Start with previous demo
+* [Demo 27](https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week10/Demo27)
+* Create workshop, base.html, about.html
+* Base Template
+* Derived Template
+* Header, Main, Footer
+* Navbar
+* User info
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Base Template
+* Add Bootstrap Library
+* Add block for Content
+* templates/page_theme.html
+
+```html
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>BACS 350 Page</title>
+            <link rel="stylesheet" href="styles.css">
+        </head>
+        
+        <body>
+            <h1>BACS 350 Page</h1>
+            {% block content %}
+                <h2>No Block Defined</h2>
+            {% endblock content %}
+        </body>
+    </html>
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Page Template
+* The template can be extended to replace the "{% block content %}".
+
+```html
+{% extends 'page_theme.html' %}
+
+{% block content %}
+    <h2>About Us</h2>
+    <p>This is all about us!</p>
+{% endblock content %}
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Header, Main, Footer
+* Add header, main, footer
+* Use blocks to override
+
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Blocks
+* Define blocks - Header, Main, Footer
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>BACS 350 Page</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        {% block content %}
+
+            {% block header %}
+                <h2>No Header</h2>
+            {% endblock header %}
+
+            {% block main %}
+                <h2>No Main Defined</h2>
+            {% endblock main %}
+
+
+            {% block footer %}
+                <h2>No Footer</h2>
+            {% endblock footer %}
+
+        {% endblock content %}
+
+    </body>
+</html>
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Menu
+* Extend base template
+* Add block Navbar
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>BACS 350 Page</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        {% block content %}
+
+            {% block navbar %}
+                <h2>No Menu</h2>
+            {% endblock navbar %}
+
+            {% block header %}
+                <h2>No Header</h2>
+            {% endblock header %}
+
+            {% block main %}
+                <h2>No Main Defined</h2>
+            {% endblock main %}
+
+            {% block footer %}
+                <h2>No Footer</h2>
+            {% endblock footer %}
+
+        {% endblock content %}
+
+    </body>
+</html>
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Bootstrap Navs
+* Use class "nav" on list
+* Use class "nav-item" on each list item
+* Use class "nav-link" on each link element
+
+```html
+<ul class="nav">
+    <li class="nav-item">
+        <a class="nav-link active" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Profile</a>
+    </li>
+</ul>
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Data in Menu
+* Pass in variables for menu items
+
+```html
+<ul class="navbar-nav ml-auto">
+
+    {% for i in menu.menu_items %}
+        <li class="nav-item {{ i.active }}">
+            <a href="{{ i.url }}" class="nav-link">{{ i.label }}</a>
+        </li>
+    {% endfor %}
+
+</ul>
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### User Info
+* Show login status
+* Links to login/logout
+
+```html
+{% block user %}
+    {% if user.is_authenticated %}
+        <li class="nav-item active">
+            <span class="nav-link">Welcome {{ user.username }}</span>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'logout' %}" class=" nav-link">
+                Log out
+            </a>
+        </li>
+    {% else %}
+        <li class="nav-item">
+            <span class="nav-link">You are not logged in.</span>
+        </li>
+
+        <li class="nav-item active">
+            <a href="{% url 'login' %}" class="nav-link">
+                Log In
+            </a>
+        </li>
+    {% endif %}
+{% endblock user %}
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Demo Code
+* [Demo 27](https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week10/Demo27)
+* Views
+    * Base Template
+    * Derived Template
+    * Header, Main, Footer
+    * Navbar
+    * User info
+
+
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+<section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>BUILD</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Project 9 - Superhero Styled Views
+* Style with Bootstrap
+* View Inheritance
+* Dynamic Menu
+* Responsive Design
+* Data Fields - strengths, weakness, image
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Project 9 - Instructions
+* [Project 9 - Instructions](../project/09)
+
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+                
+
+            </div>
+        </div>
+
+        <script src="https://shrinking-world.com/static/revealjs/dist/reveal.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/notes/notes.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/markdown/markdown.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/highlight/highlight.js"></script>
+        <script>
+            // More info about initialization & config:
+            // - https://revealjs.com/initialization/
+            // - https://revealjs.com/config/
+            Reveal.initialize({
+                hash: true,
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+            });
+
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,21 @@
+{% extends 'page_theme.html' %}
+
+
+{% block main %}
+
+    <h1>Heroes Gallery</h1>
+    
+    {% for hero in heroes %}
+       
+        <h2>Hero - {{ hero.name }}</h2>
+        <p>
+            This page shows my favorite hero.
+        </p>
+        <p>
+            Secret ID: {{ hero.identity }}
+        </p>
+        <img width="300" src="/static/images/{{ hero.name }}.jpg" alt="{{ hero.identity }}">
+    
+    {% endfor %}
+
+{% endblock main %}

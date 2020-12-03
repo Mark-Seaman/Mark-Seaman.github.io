@@ -1,0 +1,363 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>UNC Course Slides</title>
+
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reset.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reveal.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/theme/beige.css" id="theme">
+
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+        <link rel="stylesheet" href="slides.css">
+    </head>
+
+    <body>
+
+        <div class="reveal">
+            <div class="slides">
+
+                <section class="section"
+                         data-background-image="../images/autumn-leaves.jpg">
+                    <h1>bacs350 - Lesson 14</h1>
+                    <p><img class="logo" src="../images/Bear.png" alt="../images/Bear.png"></p>
+                    <p class="title">Mark Seaman</p>
+                    <p class="title">University of Northern Colorado</p>
+                </section>
+
+                
+                    <section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>LEARN</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Projects 
+* I will grade project weekly and update the gradebook
+* You know which projects you have completed
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Book
+* 1 - Setup tools
+* 2 - Create an app
+* 3 - App hosting
+* 4 - Database & Admin view
+* 5 - Tests
+* 6 - Forms
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Added Book Code
+* [Blog App Demo](https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week05/ch6-blog-app-with-forms)
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Data Models
+* ORM lets us write Data Models as Python Classes
+* Database is automatically updated 
+* Migration updates the tables
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Data Migrations
+Create the scripts to update the database
+
+Apply the migrations
+
+    python manage.py makemigrations hero
+    
+    python manage.py migrate
+    
+    
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### CRUD
+* CREATE - make a new record
+* READ - get one or more records
+* UPDATE - modify an existing record
+* DELETE - remove a record
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Django Shell
+A console window will let you execute Python code directly
+
+Do all the CRUD operations
+
+    python manage.py shell
+     
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Data Model
+* Superhero (name, identity)
+
+hero/models.py
+
+    class Superhero(models.Model):
+        name = models.CharField(max_length=20)
+        identity = models.CharField(max_length=20)
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### CREATE
+
+hero/hero.py
+
+    from .models import Superhero
+
+    def add_hero(hero_name, hero_id):
+        return Superhero.objects.create(name=hero_name, identity=hero_id)
+
+    
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### READ - List
+
+hero/hero.py
+
+    def list_heroes():
+        return Superhero.objects.all()
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### READ - Get
+
+hero/hero.py
+
+    def get_hero(pk):
+        return Superhero.objects.get(pk=pk)
+
+    def get_identity(id):
+        return Superhero.objects.get(identity=id)
+
+    def get_hero_name(supername):
+        return Superhero.objects.get(name=supername)
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### UPDATE
+
+hero/hero.py
+
+    def set_hero_id(pk, id):
+        w = get_hero(pk)
+        w.identity=id
+        w.save()
+        
+    def set_hero_name(pk, name):
+        w = get_hero(pk)
+        w.name=name
+        w.save()
+    
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### DELETE
+
+hero/hero.py
+
+    def delete_hero(pk):
+        Superhero.objects.get(pk=pk).delete()    
+ 
+
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+<section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>BUILD</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Test CRUD
+Use Django Tests to test the CRUD operations
+
+hero/tests.py
+
+    from django.test import TestCase
+    
+    from .models import Superhero
+    from .hero import list_heroes
+
+    class CrudTests(TestCase):
+
+        def test_num_heroes(self):
+            num_heroes = len(list_heroes())
+            self.assertEqual(num_heroes, 0)
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Test Each Operation
+Test every function you write
+
+    def test_hero_model(self):
+        pass
+        
+    def test_create(self):
+        pass
+        
+    def test_read(self):
+        pass
+        
+    def test_update(self):
+        pass
+        
+    def test_delete(self):
+        pass
+        
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Use the Query Functions
+* Tests the functions
+* Provides place to put business logic
+* Enable tests in small steps
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### You practice
+* Create access functions in hero/hero.py
+* Build tests in hero/tests.py
+* Debug tests and functions one at a time
+* Create five tests (model, create, read, update, delete)
+
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+                
+
+            </div>
+        </div>
+
+        <script src="https://shrinking-world.com/static/revealjs/dist/reveal.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/notes/notes.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/markdown/markdown.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/highlight/highlight.js"></script>
+        <script>
+            // More info about initialization & config:
+            // - https://revealjs.com/initialization/
+            // - https://revealjs.com/config/
+            Reveal.initialize({
+                hash: true,
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+            });
+
+        </script>
+    </body>
+
+</html>

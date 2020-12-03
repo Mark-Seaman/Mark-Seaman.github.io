@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>UNC Course Slides</title>
+
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reset.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reveal.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/theme/beige.css" id="theme">
+
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+        <link rel="stylesheet" href="slides.css">
+    </head>
+
+    <body>
+
+        <div class="reveal">
+            <div class="slides">
+
+                <section class="section"
+                         data-background-image="../images/autumn-leaves.jpg">
+                    <h1>bacs350 - Lesson 09</h1>
+                    <p><img class="logo" src="../images/Bear.png" alt="../images/Bear.png"></p>
+                    <p class="title">Mark Seaman</p>
+                    <p class="title">University of Northern Colorado</p>
+                </section>
+
+                
+                    <section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>LEARN</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Course Review
+* Week 1 - Setup Development Tools
+* Week 2 - Build a Django Project
+* Week 3 - Web App Hosting
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Week 1 - Setup Development Tools
+* Skill 1 - Setup Django
+* Skill 2 - Create a Django Project
+* Skill 3 - Serve Static Media
+* Project 1 - Install Python3, Virtual Env, Django
+* Django for Beginners - Chapter 1
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Week 2 - Build a Django Project
+* Skill 4 - Display HTML Templates
+* Skill 5 - Pass Data to a Template
+* Skill 6 - Pass Data from URL
+* Project 2 - Build a simple app with TemplateView
+* Django for Beginners - Chapter 2
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Week 3 - Web App Hosting
+* Skill 7 - Setup Python Anywhere
+* Skill 8 - Deploy Application
+* Project 3 - Setup Python Anywhere web hosting
+* Django for Beginners - Chapter 3
+
+
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+<section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>BUILD</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### TemplateView
+* HTML in templates/*.html
+* Views in views.py
+* URL Routes in urls.py
+
+
+#
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### templates/home.html
+
+    <h1>Home Page</h1>
+    <a href="about.html">About</a>
+    <a href="profile.html">Profile</a>
+  
+#
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### templates/profile.html
+
+    <h1>Profile Page</h1>
+    <a href="about.html">About</a>
+    <a href="home.html">Home</a>
+
+  
+#
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### templates/about.html
+
+    <h1>About Us Page</h1>
+    <a href="profile.html">Profile</a>
+    <a href="home.html">Home</a>
+
+
+#
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### templates/missing.html
+
+    <h1>Missing Page</h1>
+    <h2>404 - Page Not Found</h2>
+    <p>We are sorry, but 404 is for Losers!</p>
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Use one Route to Load Different Page Templates
+
+#
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### pages/views.py
+
+    from django.views.generic import TemplateView
+    
+    class PageView(TemplateView):
+    
+        def get_template_names(self):
+            template_name = self.kwargs.get('template')
+            return template_name
+        
+
+#
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### urls.py
+
+    from django.urls import path
+    from page.views import PageView
+    
+    urlpatterns = [
+        path('<str:template>', PageView.as_view()),
+    ]
+    
+    
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+                
+
+            </div>
+        </div>
+
+        <script src="https://shrinking-world.com/static/revealjs/dist/reveal.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/notes/notes.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/markdown/markdown.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/highlight/highlight.js"></script>
+        <script>
+            // More info about initialization & config:
+            // - https://revealjs.com/initialization/
+            // - https://revealjs.com/config/
+            Reveal.initialize({
+                hash: true,
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+            });
+
+        </script>
+    </body>
+
+</html>

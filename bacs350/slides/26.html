@@ -1,0 +1,299 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>UNC Course Slides</title>
+
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reset.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reveal.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/theme/beige.css" id="theme">
+
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+        <link rel="stylesheet" href="slides.css">
+    </head>
+
+    <body>
+
+        <div class="reveal">
+            <div class="slides">
+
+                <section class="section"
+                         data-background-image="../images/autumn-leaves.jpg">
+                    <h1>bacs350 - Lesson 26</h1>
+                    <p><img class="logo" src="../images/Bear.png" alt="../images/Bear.png"></p>
+                    <p class="title">Mark Seaman</p>
+                    <p class="title">University of Northern Colorado</p>
+                </section>
+
+                
+                    <section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>LEARN & BUILD</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Goals
+* Create a reusable solution for user management
+* Provide customization options
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Features
+* Register new users
+* Login
+* Logout
+* Check for login
+* Feedback for user login
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Register new users
+* Sign up form
+
+    templates/registration/signup.html
+
+    path('accounts/', SignUp.as_view(), name='signup')
+    
+ 
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Login
+* Allow user to login
+* Use Django code to handle login
+* LOGIN_REDIRECT_URL
+
+    templates/registration/login.html
+    
+    path('accounts/',   include('django.contrib.auth.urls')),
+    path('accounts/',   include('accounts.urls')), 
+    
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Logout
+* Allow user to logout
+* Use Django code to handle logout
+* LOGOUT_REDIRECT_URL
+
+    path('accounts/',   include('django.contrib.auth.urls')),
+    path('accounts/',   include('accounts.urls')), 
+    
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Check for login
+* Use LoginRequiredMixin to check for login
+
+    from django.contrib.auth.mixins import LoginRequiredMixin
+
+    class BlogListView(ListView):
+    class BlogDetailView(DetailView):
+    class BlogCreateView(LoginRequiredMixin, CreateView):
+    class BlogUpdateView(LoginRequiredMixin, UpdateView):
+    class BlogDeleteView(LoginRequiredMixin, DeleteView): 
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Show Login Status
+* Create a menu bar in base template
+* Add user info to menu bar
+
+```html
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+
+    <a class="navbar-brand" href="{{ menu.url }}">Blog App</a>
+
+    <ul class="navbar-nav ml-auto">
+
+        {% block menu_items %} ... {% endblock menu_items %}
+        
+        {% block user %} ... {% endblock user %}
+    </ul>
+
+</nav>
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Add User Info
+* Add as a block so that it can be replaced
+* Handle both logged in and not logged in
+
+```html
+{% block user %}
+   
+    {% if user.is_authenticated %}
+       ...
+    {% else %}
+        ...
+    {% endif %}
+    
+{% endblock user %}
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Logged In
+* Add as a block so that it can be replaced
+* Echo to the user info
+* Provide logout button
+
+
+ ```html
+{% if user.is_authenticated %}
+    <li class="nav-item active">
+        <span class="nav-link p-2 m-2">Welcome {{ user.username }}</span>
+    </li>
+    <li class="nav-item">
+        <a href="{% url 'logout' %}" class=" nav-link text-light p-2 m-2">
+            <i class="fas fa-sign-out-alt"></i> Log out
+        </a>
+    </li>
+
+{% endif %}
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Not Logged In
+* Show that user is not currently logged in
+* Provide a login link
+* Sign up available from login page
+
+
+ ```html
+{% if not user.is_authenticated %}
+   
+    <li class="nav-item">
+        <span class="nav-link p-2 m-2">You are not logged in.</span>
+    </li>
+
+    <li class="nav-item active">
+        <a href="{% url 'login' %}" class="nav-link text-light p-2 m-2">
+            <i class="fas fa-sign-in-alt"></i> Log In
+        </a>
+    </li>
+    
+{% endif %}
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Apply User Management
+* Duplicate code from Demo 26
+* Templates
+* URLs
+* Views
+
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### User Registration
+* [Demo 26](https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week09/Demo26)
+
+
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+                
+
+            </div>
+        </div>
+
+        <script src="https://shrinking-world.com/static/revealjs/dist/reveal.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/notes/notes.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/markdown/markdown.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/highlight/highlight.js"></script>
+        <script>
+            // More info about initialization & config:
+            // - https://revealjs.com/initialization/
+            // - https://revealjs.com/config/
+            Reveal.initialize({
+                hash: true,
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+            });
+
+        </script>
+    </body>
+
+</html>

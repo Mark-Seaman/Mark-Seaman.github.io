@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #28</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-28---template-includes">Lesson 28 - Template Includes</h1>
+<h2 id="learn">LEARN</h2>
+<h3 id="today">Today</h3>
+<ul>
+<li>Template Includes</li>
+<li>Partial templates</li>
+<li>_header, _main, _footer</li>
+<li>Responsive design</li>
+<li>Grid layout (container, row, col)</li>
+<li>Custom width columns</li>
+</ul>
+<h3 id="include-other-templates">Include Other Templates</h3>
+<ul>
+<li>Add HTML text from another file</li>
+<li>Allows templates to be simpler</li>
+</ul>
+<h3 id="header-template">Header Template</h3>
+<ul>
+<li>Define reusable templates</li>
+<li>templates/_header.html</li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html">   <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;row&quot;</span><span class="kw">&gt;</span>
+       <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col&quot;</span><span class="kw">&gt;</span>
+           <span class="kw">&lt;h1&gt;</span>BACS 350<span class="kw">&lt;/h1&gt;</span>
+           <span class="kw">&lt;h2&gt;</span>Intermediate Web Dev<span class="kw">&lt;/h2&gt;</span>
+       <span class="kw">&lt;/div&gt;</span>
+       <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col&quot;</span><span class="kw">&gt;</span>
+           <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;Bear.png&quot;</span><span class="kw">&gt;</span>
+       <span class="kw">&lt;/div&gt;</span>
+   <span class="kw">&lt;/div&gt;</span></code></pre>
+<h3 id="base-template">Base Template</h3>
+<ul>
+<li>Include in other templates</li>
+<li>templates/base.html</li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="er">&lt;</span> !DOCTYPE html&gt;
+<span class="er">&lt;</span> html lang=&quot;en&quot;&gt;
+    <span class="er">&lt;</span> head&gt;
+        <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;title&gt;</span>BACS 350 Page<span class="kw">&lt;/title&gt;</span>
+        <span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;styles.css&quot;</span><span class="kw">&gt;</span>
+    <span class="er">&lt;</span> /head&gt;
+    <span class="er">&lt;</span> body&gt;
+        {% include _header.html %}            
+        {% include _main.html %}
+        {% include _footer.html %}
+    <span class="er">&lt;</span> /body&gt;
+<span class="er">&lt;</span> /html&gt;</code></pre>
+<h3 id="use-blocks">Use blocks</h3>
+<ul>
+<li>Blocks let you customize</li>
+<li>Give a good default answer</li>
+<li>Replace the default components in the base page</li>
+</ul>
+<h3 id="header-template-1">Header Template</h3>
+<ul>
+<li>Define reusable templates</li>
+<li>Add block definition to override the default</li>
+<li>templates/_header.html</li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html">{% block header %}
+   <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;row&quot;</span><span class="kw">&gt;</span>
+       <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col&quot;</span><span class="kw">&gt;</span>
+           <span class="kw">&lt;h1&gt;</span>BACS 350<span class="kw">&lt;/h1&gt;</span>
+           <span class="kw">&lt;h2&gt;</span>Intermediate Web Dev<span class="kw">&lt;/h2&gt;</span>
+       <span class="kw">&lt;/div&gt;</span>
+       <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col&quot;</span><span class="kw">&gt;</span>
+           <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;Bear.png&quot;</span><span class="kw">&gt;</span>
+       <span class="kw">&lt;/div&gt;</span>
+   <span class="kw">&lt;/div&gt;</span>
+{% endblock header %}</code></pre>
+<h3 id="base-template-1">Base Template</h3>
+<ul>
+<li>Add block definition to override the default</li>
+<li>templates/base.html</li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="er">&lt;</span> !DOCTYPE html &gt;
+<span class="er">&lt;</span> html lang=&quot;en&quot; &gt;
+    <span class="er">&lt;</span> head &gt;
+        <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;title&gt;</span>BACS 350 Page<span class="kw">&lt;/title&gt;</span>
+        <span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;styles.css&quot;</span><span class="kw">&gt;</span>
+    <span class="er">&lt;</span> /head &gt;
+
+    <span class="er">&lt;</span> body &gt;
+        {% block content %}
+            {% include _header.html %}
+            {% include _main.html %}
+            {% include _footer.html %}
+        {% endblock content %}
+    <span class="er">&lt;</span> /body &gt;
+<span class="er">&lt;</span> /html &gt;</code></pre>
+<h3 id="page-layout">Page layout</h3>
+<ul>
+<li>container, row, col</li>
+<li>Responsive design</li>
+<li>Custom width columns</li>
+</ul>
+<h3 id="view-inheritance">View Inheritance</h3>
+<ul>
+<li><a href="../docs/ViewInheritance">View Inheritance Design Pattern</a></li>
+<li>Apply to your Superhero Project</li>
+</ul>
+<h3 id="containers">Containers</h3>
+<ul>
+<li><a href="https://www.w3schools.com/bootstrap4/bootstrap_containers.asp">Bootstrap Containers</a></li>
+<li>Use class &quot;container&quot;</li>
+<li>A container builds space on your page</li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;container bg-success text-light&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;h3&gt;</span>My First Bootstrap Page<span class="kw">&lt;/h3&gt;</span>
+    <span class="kw">&lt;p&gt;</span>This is some text.<span class="kw">&lt;/p&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre>
+<h3 id="container-fluid">Container Fluid</h3>
+<ul>
+<li>Allocate full display width</li>
+<li>Use class &quot;container-fluid&quot;</li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;container-fluid bg-primary text-light&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;h3&gt;</span>My First Bootstrap Page<span class="kw">&lt;/h3&gt;</span>
+    <span class="kw">&lt;p&gt;</span>This is some text.<span class="kw">&lt;/p&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre>
+<h3 id="flex-box">Flex Box</h3>
+<ul>
+<li><a href="https://www.w3schools.com/bootstrap4/bootstrap_flex.asp">Bootstrap Flex Box</a></li>
+<li>Use class &quot;d-flex&quot;</li>
+<li>A container builds space on your page</li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;d-flex p-3 bg-secondary text-white&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;p-2 bg-info&quot;</span><span class="kw">&gt;</span>Flex item 1<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;p-2 bg-warning&quot;</span><span class="kw">&gt;</span>Flex item 2<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;p-2 bg-primary&quot;</span><span class="kw">&gt;</span>Flex item 3<span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre>
+<h3 id="grid-system">Grid System</h3>
+<ul>
+<li><a href="https://www.w3schools.com/bootstrap4/bootstrap_grid_system.asp">Bootstrap Grid</a></li>
+<li>Use class &quot;row&quot; to pack items horizontally</li>
+<li>Use class &quot;col&quot; to size the columns</li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html"> <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;row&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col&quot;</span><span class="kw">&gt;</span>.col<span class="kw">&lt;/div&gt;</span>
+      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col&quot;</span><span class="kw">&gt;</span>.col<span class="kw">&lt;/div&gt;</span>
+      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col&quot;</span><span class="kw">&gt;</span>.col<span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/div&gt;</span> </code></pre>
+<h3 id="column-layout">12-Column Layout</h3>
+<ul>
+<li>Allocate width of columns to hold content</li>
+<li>Wraps at 12</li>
+<li>Example: 2, 6, 4</li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;row&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col-2 border&quot;</span><span class="kw">&gt;</span>.col-2<span class="kw">&lt;/div&gt;</span>
+      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col-6 border&quot;</span><span class="kw">&gt;</span>.col-6<span class="kw">&lt;/div&gt;</span>
+      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col-4 border&quot;</span><span class="kw">&gt;</span>.col-4<span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/div&gt;</span> </code></pre>
+<h3 id="mixed-sizing">Mixed sizing</h3>
+<ul>
+<li>Some numbers with spacing</li>
+<li>Some without</li>
+<li>Extra space in allocate evenly</li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;row&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col border&quot;</span><span class="kw">&gt;</span>.col<span class="kw">&lt;/div&gt;</span>
+      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col-6 border&quot;</span><span class="kw">&gt;</span>.col-6<span class="kw">&lt;/div&gt;</span>
+      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col border&quot;</span><span class="kw">&gt;</span>.col<span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/div&gt;</span> </code></pre>
+<h3 id="sizing-breakpoints">Sizing Breakpoints</h3>
+<ul>
+<li>sm, md, lg, xl</li>
+<li><a href="https://www.w3schools.com/bootstrap4/bootstrap_grid_system.asp">Bootstrap Grid</a></li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;row&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col-md-3 border&quot;</span><span class="kw">&gt;</span>.col-md-3<span class="kw">&lt;/div&gt;</span>
+      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col-md-6 border&quot;</span><span class="kw">&gt;</span>.col-md-6<span class="kw">&lt;/div&gt;</span>
+      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col-md border&quot;</span><span class="kw">&gt;</span>.col-md<span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/div&gt;</span> </code></pre>
+<h3 id="flex-column">Flex Column</h3>
+<ul>
+<li>Arrange vertically</li>
+<li>Use &quot;flex-column&quot; class</li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;row flex-column&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col-md-3 border&quot;</span><span class="kw">&gt;</span>.col-md-3<span class="kw">&lt;/div&gt;</span>
+      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col-md-6 border&quot;</span><span class="kw">&gt;</span>.col-md-6<span class="kw">&lt;/div&gt;</span>
+      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col-md border&quot;</span><span class="kw">&gt;</span>.col-md<span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/div&gt;</span> </code></pre>
+<h3 id="center-the-content">Center the content</h3>
+<ul>
+<li>Arrange the content alignment</li>
+<li>Use &quot;justify-content-center&quot; class</li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;row justify-content-center&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col-md-3 border&quot;</span><span class="kw">&gt;</span>.col-md-3<span class="kw">&lt;/div&gt;</span>
+      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col-md-4 border&quot;</span><span class="kw">&gt;</span>.col-md-4<span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/div&gt;</span> </code></pre>
+<h2 id="build">BUILD</h2>
+<h3 id="demo-code">Demo Code</h3>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week10/Demo28">Copy Demo 27</a></li>
+<li>Views
+<ul>
+<li>Inheritance</li>
+<li>Semantic Elements</li>
+<li>Bootstrap</li>
+<li>Menu</li>
+</ul></li>
+</ul>
+<h3 id="container">Container</h3>
+<ul>
+<li>Add container to center the content</li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;container&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;h1&gt;</span>Superhero Gallery<span class="kw">&lt;/h1&gt;</span>
+    <span class="kw">&lt;p&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, eos?<span class="kw">&lt;/p&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre>
+<h3 id="row">Row</h3>
+<ul>
+<li>A row will fit items horizontally</li>
+<li>Start with equal width</li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;container&quot;</span><span class="kw">&gt;</span>
+   <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;row&quot;</span><span class="kw">&gt;</span>
+       <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col&quot;</span><span class="kw">&gt;</span> Column 1<span class="kw">&lt;/div&gt;</span>
+       <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col&quot;</span><span class="kw">&gt;</span> Column 2<span class="kw">&lt;/div&gt;</span>
+       <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col&quot;</span><span class="kw">&gt;</span> Column 3<span class="kw">&lt;/div&gt;</span>
+   <span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre>
+<h3 id="smaller-space-for-photo">Smaller Space for Photo</h3>
+<ul>
+<li>Setup variable width columns</li>
+<li>Stack when below large</li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;container&quot;</span><span class="kw">&gt;</span>
+   <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;row&quot;</span><span class="kw">&gt;</span>
+       <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col-lg-10&quot;</span><span class="kw">&gt;</span>
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, amet.
+       <span class="kw">&lt;/div&gt;</span>
+       <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col-lg-2&quot;</span><span class="kw">&gt;</span> 
+           <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;happy.jpg&quot;</span><span class="ot"> alt=</span><span class="st">&quot;Smiley&quot;</span><span class="kw">&gt;</span>
+       <span class="kw">&lt;/div&gt;</span>
+   <span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre>
+<h3 id="project-9---superhero-styled-views">Project 9 - Superhero Styled Views</h3>
+<ul>
+<li>Style with Bootstrap</li>
+<li>View Inheritance</li>
+<li>Header, Main, Footer</li>
+<li>Dynamic Menu</li>
+<li>Responsive Design</li>
+<li>Data Fields - description, strengths, weakness, image</li>
+<li>User Auth</li>
+<li>Two column layout</li>
+</ul>
+<h3 id="project-9---instructions">Project 9 - Instructions</h3>
+<ul>
+<li><a href="../project/09">Project 9 - Instructions</a></li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

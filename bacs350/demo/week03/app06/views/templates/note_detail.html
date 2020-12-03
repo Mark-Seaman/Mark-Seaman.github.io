@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Note Detail</title>
+    </head>
+    <body>
+        <h1>Note Detail</h1>
+        <p>ID: {{ object.pk }}</p>
+        <p>Name: {{ object.name }}</p>
+        <p><a href="{{ object.pk }}/">Edit Note</a></p>
+        <a href=".">See all notes</a>
+    </body>
+</html>

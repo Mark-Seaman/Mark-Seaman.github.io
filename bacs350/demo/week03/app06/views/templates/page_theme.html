@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        {% if css %}
+            <link rel="stylesheet" href="{{ css }}">
+        {% endif %}
+    </head>
+    <body>
+        {% block content %}
+
+            {% block header %}
+                <h1>HEADER BLOCK</h1>
+            {% endblock header %}
+
+            {% block main %}
+                <h1>MAIN BLOCK</h1>
+            {% endblock main %}
+
+            {% block footer %}
+                <h1>FOOTER BLOCK</h1>
+            {% endblock footer %}
+
+        {% endblock content %}
+    </body>
+</html>

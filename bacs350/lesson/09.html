@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #9</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-9---template-pages">Lesson 9 - Template Pages</h1>
+<h2 id="learn">LEARN</h2>
+<h3 id="course-review">Course Review</h3>
+<ul>
+<li>Week 1 - Setup Development Tools</li>
+<li>Week 2 - Build a Django Project</li>
+<li>Week 3 - Web App Hosting</li>
+</ul>
+<h3 id="week-1---setup-development-tools">Week 1 - Setup Development Tools</h3>
+<ul>
+<li>Skill 1 - Setup Django</li>
+<li>Skill 2 - Create a Django Project</li>
+<li>Skill 3 - Serve Static Media</li>
+<li>Project 1 - Install Python3, Virtual Env, Django</li>
+<li>Django for Beginners - Chapter 1</li>
+</ul>
+<h3 id="week-2---build-a-django-project">Week 2 - Build a Django Project</h3>
+<ul>
+<li>Skill 4 - Display HTML Templates</li>
+<li>Skill 5 - Pass Data to a Template</li>
+<li>Skill 6 - Pass Data from URL</li>
+<li>Project 2 - Build a simple app with TemplateView</li>
+<li>Django for Beginners - Chapter 2</li>
+</ul>
+<h3 id="week-3---web-app-hosting">Week 3 - Web App Hosting</h3>
+<ul>
+<li>Skill 7 - Setup Python Anywhere</li>
+<li>Skill 8 - Deploy Application</li>
+<li>Project 3 - Setup Python Anywhere web hosting</li>
+<li>Django for Beginners - Chapter 3</li>
+</ul>
+<h2 id="build">BUILD</h2>
+<h3 id="templateview">TemplateView</h3>
+<ul>
+<li>HTML in templates/*.html</li>
+<li>Views in views.py</li>
+<li>URL Routes in urls.py</li>
+</ul>
+<h4 id="templateshome.html">templates/home.html</h4>
+<pre><code>&lt;h1&gt;Home Page&lt;/h1&gt;
+&lt;a href=&quot;about.html&quot;&gt;About&lt;/a&gt;
+&lt;a href=&quot;profile.html&quot;&gt;Profile&lt;/a&gt;</code></pre>
+<h4 id="templatesprofile.html">templates/profile.html</h4>
+<pre><code>&lt;h1&gt;Profile Page&lt;/h1&gt;
+&lt;a href=&quot;about.html&quot;&gt;About&lt;/a&gt;
+&lt;a href=&quot;home.html&quot;&gt;Home&lt;/a&gt;</code></pre>
+<h4 id="templatesabout.html">templates/about.html</h4>
+<pre><code>&lt;h1&gt;About Us Page&lt;/h1&gt;
+&lt;a href=&quot;profile.html&quot;&gt;Profile&lt;/a&gt;
+&lt;a href=&quot;home.html&quot;&gt;Home&lt;/a&gt;</code></pre>
+<h4 id="templatesmissing.html">templates/missing.html</h4>
+<pre><code>&lt;h1&gt;Missing Page&lt;/h1&gt;
+&lt;h2&gt;404 - Page Not Found&lt;/h2&gt;
+&lt;p&gt;We are sorry, but 404 is for Losers!&lt;/p&gt;</code></pre>
+<h3 id="use-one-route-to-load-different-page-templates">Use one Route to Load Different Page Templates</h3>
+<h4 id="pagesviews.py">pages/views.py</h4>
+<pre><code>from django.views.generic import TemplateView
+
+class PageView(TemplateView):
+
+    def get_template_names(self):
+        template_name = self.kwargs.get(&#39;template&#39;)
+        return template_name
+    </code></pre>
+<h4 id="urls.py">urls.py</h4>
+<pre><code>from django.urls import path
+from page.views import PageView
+
+urlpatterns = [
+    path(&#39;&lt;str:template&gt;&#39;, PageView.as_view()),
+]</code></pre>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

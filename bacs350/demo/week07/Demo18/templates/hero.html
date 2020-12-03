@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="unc.css">
+</head>
+
+<body>
+
+    <h1>{{ title }}</h1>
+
+    <p>List of heroes</p>
+    <ul>
+        {% for h in heroes %}
+        <li>
+            <p>Secret ID: <b>{{ h.identity }}</b></p>
+            <p>Name: <b>{{ h.name }}</b></p>
+            <p>Image: {{ h.image }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    <h2>{{ h.name }}</h2>
+
+</body>
+
+</html>

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #24</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-24---user-registration">Lesson 24 - User Registration</h1>
+<h2 id="learn-build">LEARN &amp; BUILD</h2>
+<h3 id="office-hours">Office Hours</h3>
+<ul>
+<li>Come to office hours to get help</li>
+<li>Find the link on Canvas (not the same as class)</li>
+</ul>
+<h3 id="complete-your-projects">Complete Your Projects</h3>
+<ul>
+<li>Project 1 - Setup development tools</li>
+<li>Project 2 - Build a simple app</li>
+<li>Project 3 - Application Hosting</li>
+<li>Project 4 - TemplateView</li>
+<li>Project 5 - Data Models</li>
+<li>Project 6 - Custom Template View</li>
+<li>Project 7 - Data Model Views</li>
+<li>Project 8 - User Registration</li>
+</ul>
+<h3 id="bacs-350-demos">BACS 350 Demos</h3>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350">Demo Repo</a></li>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/Superhero">Superhero App</a>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/Superhero/hero/models.py">models.py</a></li>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/Superhero/hero/views.py">views.py</a></li>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/Superhero/hero/urls.py">urls.py</a></li>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/Superhero/templates">templates</a></li>
+</ul></li>
+</ul>
+<h3 id="working-the-project-in-class">Working the Project in Class</h3>
+<ul>
+<li>Live demo of solving the problems</li>
+<li>You must apply this knowledge</li>
+<li>Publish your work in Github and Python Anywhere</li>
+<li>Email me when you want me to grade your work</li>
+</ul>
+<h3 id="user-registration">User Registration</h3>
+<ul>
+<li><a href="https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week09/Demo24">Demo 24</a></li>
+</ul>
+<h3 id="live-demo">Live Demo</h3>
+<ul>
+<li>For each view
+<ul>
+<li>Define Template</li>
+<li>Define View</li>
+<li>Define Route</li>
+</ul></li>
+</ul>
+<h3 id="demo-files">Demo Files</h3>
+<pre><code>.
+├── DemoUsers
+│   ├── settings.py
+│   ├── urls.py
+├── accounts
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── blog
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── db.sqlite3
+├── manage.py
+├── static
+│   ├── css
+│   │   └── base.css
+│   └── images
+│       ├── SWS_Logo_200.jpg
+└── templates
+    ├── home.html
+    ├── post_delete.html
+    ├── post_detail.html
+    ├── post_edit.html
+    ├── post_new.html
+    ├── registration
+    │   ├── login.html
+    │   └── signup.html
+    └── theme.html</code></pre>
+<h3 id="run-the-demo">Run the Demo</h3>
+<ul>
+<li>Show the behavior</li>
+<li>Review the code</li>
+</ul>
+<h3 id="add-users-to-superhero">Add Users to Superhero</h3>
+<ul>
+<li>Add User Registration to Superhero app</li>
+<li>Leverage Demo24</li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

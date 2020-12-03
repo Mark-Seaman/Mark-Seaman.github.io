@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>DjangoTests</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC CS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Software Engineering Skills</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="django-tests">Django Tests</h1>
+<p>Django is a web framework for perfectionists with deadlines. It comes with batteries included.</p>
+<p>One of the huge benefits of using Django is the direct support for testing via the test framework.</p>
+<h3 id="defining-tests">Defining Tests</h3>
+<p>Here is a simple test that fetches the root page of this site and checks for a status code of 200.</p>
+<p>book/tests.py</p>
+<pre><code>from django.test import SimpleTestCase
+
+class SimpleTests(SimpleTestCase):
+
+    def test_home_page_status_code(self):
+        response = self.client.get(&#39;/&#39;)
+        self.assertEqual(response.status_code, 200)
+
+    def test_about_page_status_code(self):
+        response = self.client.get(&#39;/book_list.html&#39;)
+        self.assertEqual(response.status_code, 200)</code></pre>
+<p>Create a test class that inherits from <strong>SimpleTest</strong>. This makes you test visible to Django test. It will be automatically executed from that point.</p>
+<p>Define a series of specific tests as methods within the SimpleTest class. These methods start with <strong>test_</strong>.</p>
+<p>Fetch web pages from your app by calling &quot;self.client.get&quot;. This performs an HTTP GET operation for the requested page. For example, &quot;/&quot; or &quot;/book_list.html&quot;.</p>
+<p>Look in the response for the &quot;status_code&quot; and make sure that it is &quot;200&quot;.</p>
+<h3 id="running-tests">Running Tests</h3>
+<p>A django script runs all of the tests defined inside all of the installed apps within the project.</p>
+<pre><code>python manage.py test</code></pre>
+<p>If any test fails the reason is shown so that it can be quickly fixed. A good test is two or three lines of code that tests one thing. Writing simple tests makes it easy to produce test code and maintain it.</p>
+<p>Tests should be run before committing code. Tests should be written before writing code.</p>
+<h3 id="test-driven-development-setup">Test-driven Development Setup</h3>
+<ul>
+<li>Developer tools setup</li>
+<li>Github Desktop
+<ul>
+<li>View changes</li>
+<li>Commit and changes</li>
+<li>Pull new code</li>
+</ul></li>
+<li>Run Editor
+<ul>
+<li>Use Open Folder in Brackets to remember code location</li>
+<li>Remember last change made</li>
+</ul></li>
+<li>Run a terminal window
+<ul>
+<li>Verify the virtual environment</li>
+<li>Run the server</li>
+<li>Test the code</li>
+<li>Fix any errors</li>
+</ul></li>
+</ul>
+<h3 id="workflow-for-development">Workflow for Development</h3>
+<ul>
+<li>Pull code</li>
+<li>Feature Loop (focus on one feature)
+<ul>
+<li>Create a failing test</li>
+<li>Create the code to pass the test</li>
+<li>Save the test code for later</li>
+<li>Commit and push changes</li>
+<li>Select next feature</li>
+</ul></li>
+<li>Run all tests</li>
+<li>Fix all defects</li>
+<li>Push code</li>
+</ul>
+<h3 id="book-builder-tests">Book Builder Tests</h3>
+<p>On Book Builder we will write tests that make page requests for each view in our project. These will be written as we create views to remove any development burden. Each test will check to make sure that the page is available and that the correct HTML template is used.</p>
+<ul>
+<li>See code for <a href="https://github.com/Mark-Seaman/Book-Builder/tree/master/bookbuilder/book/tests.py">Book Builder Tests</a></li>
+<li>Link to <a href="https://github.com/Mark-Seaman/Book-Builder/tree/master/docs/plan/Milestone-2/Code.md">Code for Book Builder</a></li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

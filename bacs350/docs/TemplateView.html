@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>TemplateView</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="skill-2---create-pages-from-templates">Skill #2 - Create Pages from Templates</h1>
+<p>This is the world's simplest web app</p>
+<p>Follow these steps to build it yourself</p>
+<p>Create the project</p>
+<pre><code>django-admin startproject app2
+
+tree</code></pre>
+<p>Create HTML templates</p>
+<pre><code>mkdir templates</code></pre>
+<p>Edit app2/settings.py to load the templates</p>
+<pre><code>TEMPLATES = [
+    {
+        ...
+        &#39;DIRS&#39;: [&#39;templates&#39;],
+        ...
+    },
+]</code></pre>
+<p>Create templates/home.html</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Home&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Home&lt;/h1&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<p>Edit app2/urls.py</p>
+<pre><code>from django.views.generic import TemplateView
+from django.urls import path
+
+class HomeView(TemplateView):
+    template_name=&#39;home.html&#39;
+
+urlpatterns = [
+    path(&#39;&#39;, HomeView.as_view()),
+]</code></pre>
+<p>Test the application</p>
+<pre><code>python ./manage.py runserver
+
+browse to http://127.0.0.1:8001/</code></pre>
+<p>Add pages app</p>
+<pre><code>python ./manage.py startapp pages
+
+tree</code></pre>
+<p>Move code from app2/urls.py to pages/views.py</p>
+<pre><code>from pages.views import HomeView</code></pre>
+<p>Add templates/about.html</p>
+<p>Add AboutView to pages/views.py</p>
+<p>Add route for 'about' to app2/urls.py</p>
+<p>Now you do it!</p>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

@@ -1,0 +1,33 @@
+{% if menu %}
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+
+        <div class="container">
+
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <a href="{{ menu.url }}" class="navbar-brand">{{ menu.label }}</a>
+
+                <ul class="navbar-nav ml-auto">
+
+                    {% for i in menu.menu_items %}
+                        <li class="nav-item {{ i.active }}">
+                            <a href="{{ i.url }}" class="nav-link">{{ i.label }}</a>
+                        </li>
+                    {% endfor %}
+
+                </ul>
+
+                {% include '_user_info.html' %}
+
+            </div>
+        </div>
+
+    </nav>
+
+{% endif %}
+
+

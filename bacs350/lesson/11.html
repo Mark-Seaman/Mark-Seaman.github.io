@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #11</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-11---composite-views">Lesson 11 - Composite Views</h1>
+<h2 id="learn">LEARN</h2>
+<h3 id="view-inheritance">View Inheritance</h3>
+<ul>
+<li>Define a base template</li>
+<li>Add &quot;{% block content %}&quot;</li>
+<li>Extend base template for other pages</li>
+</ul>
+<h3 id="templatesbase.html">templates/base.html</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;BACS 350 Page&lt;/title&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+    &lt;/head&gt;        
+    &lt;body&gt;
+        {% block content %}
+        {% endblock content %}
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h3 id="templatesabout.html">templates/about.html</h3>
+<pre><code>{% extends &#39;base.html&#39; %}
+
+{% block content %}
+    &lt;h2&gt;About Us&lt;/h2&gt;
+    &lt;p&gt;This is all about us!&lt;/p&gt;
+{% endblock content %}</code></pre>
+<h3 id="block-nesting---base.html">Block Nesting - base.html</h3>
+<pre><code>{% block content %}
+
+    {% block header %}
+    {% endblock header %}
+
+    {% block main %}
+    {% endblock main %}
+
+    {% block footer %}
+    {% endblock footer %}
+
+{% endblock content %}</code></pre>
+<h3 id="block-nesting---page.html">Block Nesting - page.html</h3>
+<pre><code>    {% extends &#39;base.html&#39; %}
+
+    {% block main %}
+    {% endblock main %}</code></pre>
+<h3 id="includes">Includes</h3>
+<ul>
+<li>Include another HTML file in a template</li>
+<li>Makes templates easy to read</li>
+<li>Partial templates should start with &quot;_&quot;</li>
+</ul>
+<pre><code>    {% include &#39;_head.html&#39; %}
+    {% include &#39;_main_menu.html&#39; %}
+    {% include &#39;_side_menu.html&#39; %}
+    {% include &#39;_main.html&#39; %}
+    {% include &#39;_footer.html&#39; %}</code></pre>
+<h2 id="build">BUILD</h2>
+<h3 id="project-4---superhero-news">Project 4 - Superhero News</h3>
+<ul>
+<li>Build a web app at Python Anywhere</li>
+<li>Index gives a list of heroes</li>
+<li>Links display details of each hero</li>
+<li>Each page has a photo</li>
+</ul>
+<h3 id="skills">Skills</h3>
+<ul>
+<li>Define and load HTML templates</li>
+<li>Pass data to a view</li>
+<li>Pass arguments from URL</li>
+<li>View inheritance</li>
+<li>Use of CSS</li>
+</ul>
+<h3 id="superhero-views">Superhero Views</h3>
+<ul>
+<li>startproject Superhero</li>
+<li>startapp hero</li>
+<li>setttings
+<ul>
+<li>templates (templates)</li>
+<li>static server (static)</li>
+<li>installed apps (hero)</li>
+<li>root URLs (hero.urls)</li>
+<li>migrate database models</li>
+</ul></li>
+</ul>
+<h3 id="add-views">Add Views</h3>
+<ul>
+<li>Index view template (index.html)</li>
+<li>Hero view template (hero.html)</li>
+<li>Views (Index View, Hero View)</li>
+<li>URL routes ('', 'hero/<str:hero>')</li>
+</ul>
+<h3 id="test-index-view">Test Index View</h3>
+<p>Use Django Tests to get index view</p>
+<pre><code>from django.test import SimpleTestCase
+
+class ViewTests(SimpleTestCase):
+
+    def test_index_view(self):
+        response = self.client.get(&#39;/&#39;)
+        self.assertEqual(response.status_code, 200)</code></pre>
+<h3 id="test-hero-views">Test Hero Views</h3>
+<p>Use Django Tests to get index view</p>
+<pre><code>from django.test import SimpleTestCase
+
+class ViewTests(SimpleTestCase):
+
+    def test_hero_view(self):
+        response = self.client.get(&#39;hero/hulk&#39;)
+        self.assertEqual(response.status_code, 200)
+        response = self.client.get(&#39;hero/widow&#39;)
+        self.assertEqual(response.status_code, 200)</code></pre>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

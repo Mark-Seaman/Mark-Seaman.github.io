@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Markdown</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC CS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Software Engineering Skills</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="markdown-text-display">Markdown Text Display</h1>
+<p>Add markdown text documents and display them as HTML.</p>
+<h2 id="virtual-environment">Virtual Environment</h2>
+<p>Create a virtual environment that includes markdown package.</p>
+<pre><code>python3 --version
+Python 3.8.6
+
+# Install a Python 3 enviroment
+python3 -m venv .venv
+
+# Activate environment
+source .venv/bin/activate
+
+# Install packages
+pip install django pillow markdown django-crispy-forms requests
+
+# List packages
+pip freeze</code></pre>
+<h2 id="markdown-test">Markdown Test</h2>
+<p>Run code by itself</p>
+<p>markdown.py</p>
+<pre><code>from markdown import markdown
+
+print(markdown(&#39;# Headline\n\nParagraph 1\n\nParagraph 2&#39;))</code></pre>
+<p>tests.py</p>
+<pre><code>from markdown import markdown
+from django.test import SimpleTestCase
+
+class MarkdownTests(SimpleTestCase):
+    
+    def test_markdown(self):
+        actual = markdown(&#39;# Headline\n\nParagraph 1\n\nParagraph 2&#39;)
+        expected = &#39;&lt;h1&gt;Headline&lt;/h1&gt;\n&lt;p&gt;Paragraph 1&lt;/p&gt;\n&lt;p&gt;Paragraph 2&lt;/p&gt;&#39;
+        self.assertEqual(actual, expected)</code></pre>
+<h2 id="data-model">Data Model</h2>
+<p>Add text field to data model</p>
+<pre><code>class Chapter(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, editable=False)
+    title = models.CharField(max_length=100)
+    chapter_num = models.IntegerField()
+    text = models.TextField(default=&#39;No Chapter Text&#39;)</code></pre>
+<p>Migrate the database</p>
+<pre><code>python manage.py makemigrations
+
+python manage.py migrate</code></pre>
+<p>Run the server</p>
+<pre><code>python manage.py runserver
+
+browse to http://127.0.0.1:8000/</code></pre>
+<h2 id="view">View</h2>
+<p>templates/chapter_edit.html</p>
+<pre><code>{% extends &#39;book_theme.html&#39; %}
+
+{% block main %}
+    &lt;form action=&quot;&quot; method=&quot;post&quot;&gt;{% csrf_token %}
+        {{ form.as_p }}
+        &lt;button type=&quot;submit&quot;&gt;Save&lt;/button&gt;
+    &lt;/form&gt;
+{% endblock main %}</code></pre>
+<p>templates/chapter_detail.html</p>
+<pre><code>{% extends &#39;book_theme.html&#39; %}
+
+{% block main %}
+    &lt;div class=&quot;card m-3&quot;&gt;
+       &lt;div class=&quot;card-header bg-light text-dark&quot;&gt;
+           {{ chapter.title }}
+       &lt;/div&gt;
+       &lt;div class=&quot;card-body bg-dark text-light&quot;&gt;
+           {% autoescape off %}
+               {{ markdown }}
+           {% endautoescape %}
+       &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;a href=&quot;{{ chapter.pk }}/&quot; class=&quot;btn btn-success m-3&quot;&gt;Edit Chapter&lt;/a&gt;
+{% endblock main %}</code></pre>
+<p>views.py</p>
+<pre><code>class ChapterEdit(UpdateView):
+    template_name = &quot;chapter_edit.html&quot;
+    model = Chapter
+    fields = &#39;__all__&#39;
+    
+
+class ChapterDetail(DetailView):
+    template_name = &#39;chapter_detail.html&#39;
+    model = Chapter
+    
+    def get_context_data(self, **kwargs):
+        kwargs = super().get_context_data(**kwargs)
+        kwargs[&#39;markdown&#39;] = markdown(kwargs[&#39;object&#39;].text)
+        return kwargs</code></pre>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

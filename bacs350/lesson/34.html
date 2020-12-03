@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #34</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-34---complex-views">Lesson 34 - Complex Views</h1>
+<h2 id="learn-build">LEARN &amp; BUILD</h2>
+<h3 id="workshop-views">Workshop Views</h3>
+<ul>
+<li>Theme View</li>
+<li>Workshop View</li>
+<li>Home View</li>
+<li>Card View</li>
+<li>Cards View</li>
+<li>Document View</li>
+<li>Tabs View</li>
+<li>Accordion View</li>
+<li>Carousel View</li>
+</ul>
+<h3 id="complex-views">Complex Views</h3>
+<ul>
+<li>Build a Super View to hold all others</li>
+<li>Pass in complex data for display</li>
+<li>Start with Simple page template</li>
+</ul>
+<p>templates/super.html</p>
+<pre><code>{% extends &#39;workshop.html&#39; %}
+
+{% block main %}
+
+    &lt;div class=&quot;container my-5&quot;&gt;
+
+        &lt;h2&gt;Super View&lt;/h2&gt;
+
+        {% include &#39;_card.html&#39; %}
+
+    &lt;/div&gt;
+
+{% endblock main %}</code></pre>
+<h3 id="if-data-then-structure">If Data Then Structure</h3>
+<ul>
+<li>Check for data before defining HTML</li>
+</ul>
+<p>template/card.html</p>
+<pre><code>{% if card %}
+
+    &lt;div class=&quot;{{ card.width }} my-3&quot;&gt;
+        &lt;div class=&quot;card&quot;&gt;
+            &lt;div class=&quot;card-header {{ card.color }}  text-light&quot;&gt;
+                &lt;h2&gt;{{ card.title }}&lt;/h2&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;card-body text-dark&quot;&gt;
+                {% autoescape off %}
+                    {{ card.body }}
+                {% endautoescape %}
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+{% endif %}</code></pre>
+<h3 id="view-logic">View Logic</h3>
+<ul>
+<li>Pass data to template</li>
+</ul>
+<p>workshop/views.py</p>
+<pre><code>class SuperView(TemplateView):
+    template_name = &#39;super.html&#39;
+    
+    def get_context_data(self, **kwargs):
+        return dict(card=card_data())</code></pre>
+<h3 id="add-more-data-logic">Add More Data Logic</h3>
+<ul>
+<li>Pass in more data to template</li>
+<li>Display any data elements that are present</li>
+</ul>
+<h3 id="nest-data-structures">Nest Data Structures</h3>
+<ul>
+<li>Create templates that expect containers of special data</li>
+<li>Build data structures that match</li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

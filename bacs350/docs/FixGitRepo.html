@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>FixGitRepo</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="fix-your-git-repo">Fix Your Git Repo</h1>
+<h2 id="detecting-the-problem">Detecting the Problem</h2>
+<p>Your Git repo cannot have the Virtual Environment committed. There are about 1000 files that are built into this one directory. Committing them to Git WILL cause problems for you.</p>
+<p>Python 3 creates cached files when it runs a program. These files cannot be committed to Git or they WILL cause problems.</p>
+<h3 id="do-you-have-the-problem">Do you have the problem?</h3>
+<p>Go to the Github Website. Click through all directories in your repo.</p>
+<p>Look for the Virtual Env (env, venv, etc.)</p>
+<p>Look for <strong>pycache</strong></p>
+<p>If you have either then you have the problem.</p>
+<h3 id="gitignore">.gitignore</h3>
+<p>Now look for .gitignore anywhere in the directory structure.</p>
+<p>You must have this file to tell git to ignore certain files.</p>
+<p>If you are missing .gitignore then copy the file from my repo and put it in your root.</p>
+<p>Now venv and <strong>pycache</strong> will not be committed.</p>
+<h3 id="remove-old-cache-files">Remove Old Cache files</h3>
+<p>cd into the directory where <strong>pycache</strong> lives.</p>
+<p>Remove all the files from git.</p>
+<pre><code>git pull
+
+git rm -r __pycache__
+
+git commit -m &#39;Remove cache files&#39;
+   
+git push</code></pre>
+<p>Clean up remote files</p>
+<pre><code># Throw away changes
+git checkout .
+
+# Bring in deletions
+git pull</code></pre>
+<h3 id="remove-venv-code">Remove Venv Code</h3>
+<p>cd into the directory where <strong>pycache</strong> lives.</p>
+<p>Remove all the files from git.</p>
+<pre><code>git pull
+
+git rm -r Venv
+
+git commit -m &#39;Remove Venv files&#39;
+
+git push</code></pre>
+<h3 id="rebuild-your-local-venv">Rebuild your Local Venv</h3>
+<p>Reinstall Venv</p>
+<pre><code>pipenv install django
+
+pipenv shell</code></pre>
+<h3 id="rebuild-your-remote-venv">Rebuild your Remote Venv</h3>
+<p>Create an isolated python environment</p>
+<pre><code>mkvirtualenv --python=/usr/bin/python3.8 .venv</code></pre>
+<p>Install Django in the environment</p>
+<pre><code>pip install django</code></pre>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

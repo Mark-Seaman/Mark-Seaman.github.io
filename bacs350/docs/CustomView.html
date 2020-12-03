@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>CustomView</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="custom-django-views">Custom Django Views</h1>
+<p>There are a set of design patterns that can be used to quickly build full custom views in Django.</p>
+<h2 id="degrees-of-freedom---how-to-customize">Degrees of Freedom - How to customize</h2>
+<p>Django views can be customized in a wide variety of ways. But choosing to the correct method can be tricky for beginners. Here are the common ways that you can implement the look an feel that you want. Apply these in priority order.</p>
+<h3 id="select-the-html-template">Select the HTML template</h3>
+<p>With static web pages every page is implemented by a different HTML file. This type of customization is available with Django templates. Unique HTML content can be provided by building files in the &quot;templates&quot; directory and them tying them to URL routes. This requires you to provide a route and view code for each template that you wish to use.</p>
+<p>Example</p>
+<pre><code>URL:    path(&#39;page.html&#39;, PageView.as_view())
+
+View:  
+        class PageView(TemplateView):
+            template_name = &#39;page.html&#39;</code></pre>
+<h3 id="template-selector-view">Template Selector View</h3>
+<p>A single view function can be used to serve many different page templates. An argument supplied with the URL route can be used to select from a number of possible templates.</p>
+<p>Example:</p>
+<pre><code>URL:    path(&#39;&lt;str:page&gt;&#39;, PageView.as_view())
+
+View:  
+        class PageView(TemplateView):
+        
+            def get_template_names(self):
+                return self.kwargs.get(&#39;page&#39;)
+                </code></pre>
+<h3 id="inject-data-variables-into-view">Inject Data Variables into View</h3>
+<p>Templates can contain placeholders for data that is supplied by the view. Data is provided as a Python dictionary.</p>
+<p>templates/page.html</p>
+<pre><code>&lt;h1&gt;{{ title }}&lt;/h1&gt;</code></pre>
+<p>views.py</p>
+<pre><code>class PageView(TemplateView):
+    template_name = &#39;page.html&#39;
+
+    def get_context_data(self, **kwargs):
+        return {&#39;title&#39;: &#39;My Page Title&#39;}</code></pre>
+<h3 id="entire-templates-can-be-included">Entire Templates Can be Included</h3>
+<p>One template can be included within another template file. This lets you reuse pieces of code without redefining the logic. For example, there may be a complex header at the top of every page. Define the header content once and include the file in every page. Designate files that do not define complete HTML with names that start with &quot;_&quot;.</p>
+<p>templates/_header.html</p>
+<pre><code>&lt;div&gt;
+    &lt;h1&gt;{{ title }}&lt;/h1&gt;
+    &lt;img src=&quot;my_logo.png&quot;&gt;
+&lt;/div&gt;</code></pre>
+<p>templates/page.html</p>
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;{{ title }}&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        {% include &#39;_header.html&#39; %}
+        &lt;p&gt;This is my text&lt;/p&gt;
+    &lt;body&gt;
+&lt;/html&gt;</code></pre>
+<h3 id="inherit-from-a-base-view">Inherit from a Base View</h3>
+<p>A base view template may define extensive HTML content that can be shared by all of the views. The logic can be defined once and used by inheriting from the base view. Variables provided to the derived view will be applied to the base view.</p>
+<p>templates/page_theme.html</p>
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;{{ title }}&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;{{ title }}&lt;/h1&gt;
+        &lt;p&gt;This is a paragraph&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>templates/page.html</p>
+<pre><code>{% extends &#39;page_theme.html&#39; %}</code></pre>
+<h3 id="override-blocks">Override Blocks</h3>
+<p>Blocks of HTML content can be defined in the base template. These can be overridden in each derived page. If the block is not defined then a default answer can be provided by the base template.</p>
+<p>templates/page_theme.html</p>
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;{{ title }}&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        {% block content %}
+            &lt;h1&gt;No CONTENT&lt;/h1&gt;
+        {% endblock content %}
+    &lt;/body&gt;
+&lt;/html&gt;    </code></pre>
+<p>templates/page.html</p>
+<pre><code>{% extends &#39;page_theme.html&#39; %}
+
+{% block content %}
+    &lt;h1&gt;{{ title }}&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph&lt;/p&gt;
+{% endblock content %}
+        </code></pre>
+<h3 id="if-for">if &amp; for</h3>
+<h3 id="build-custom-dictionary-in-view">Build custom dictionary in view</h3>
+<h3 id="data-lookup-from-files">Data Lookup from Files</h3>
+<h3 id="render-markdown-content-as-html">Render Markdown Content as HTML</h3>
+<h3 id="load-variables-from-json">Load Variables from JSON</h3>
+<h3 id="load-csv-files">Load CSV files</h3>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

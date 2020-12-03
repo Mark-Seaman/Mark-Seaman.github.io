@@ -1,0 +1,16 @@
+<html>
+
+<head>
+    {{ form.media }}
+</head>
+
+<body>
+    <form method="post">{% csrf_token %}
+        {{ form }}
+    </form>
+
+    <h1>Markdown Rendering</h1>
+    {{ form.object.name }}
+</body>
+
+</html>

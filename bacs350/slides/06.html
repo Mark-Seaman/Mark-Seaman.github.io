@@ -1,0 +1,362 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>UNC Course Slides</title>
+
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reset.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reveal.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/theme/beige.css" id="theme">
+
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+        <link rel="stylesheet" href="slides.css">
+    </head>
+
+    <body>
+
+        <div class="reveal">
+            <div class="slides">
+
+                <section class="section"
+                         data-background-image="../images/autumn-leaves.jpg">
+                    <h1>bacs350 - Lesson 06</h1>
+                    <p><img class="logo" src="../images/Bear.png" alt="../images/Bear.png"></p>
+                    <p class="title">Mark Seaman</p>
+                    <p class="title">University of Northern Colorado</p>
+                </section>
+
+                
+                    <section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>LEARN</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Sensei Login
+* Reworked the user registrations to extend the capability
+* I may have broken some user logins
+* If you cannot login then email me
+* Send your email and desired password
+* I will configure and test your specific user
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Class-based views
+* Defines all of the view logic as a Python object class
+* Override any behavior you wish
+* TemplateView shows an HTML template as a view
+* Design patterns for custom Django views
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### TemplateView template
+
+templates/hulk.html
+
+    <h1>Hulk Profile</h1>
+  
+    <img src="hulk.jpg" alt="Hulk">
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### TemplateView views.py
+
+views.py
+
+    from django.views.generic import TemplateView
+    
+    class HulkView(TemplateView):
+        template_name = 'hulk.html'
+
+        
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### TemplateView urls.py
+
+urls.py
+
+    from django.urls import path
+    from django.views.generic import HulkView, WidowView
+    
+    urlpatterns = [
+        path('hulk', HulkView.as_view()),
+    ]
+
+
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+<section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>BUILD</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Templates with Images
+
+templates/hulk.html
+
+    <h1>Hulk Profile</h1>
+    <img src="hulk.jpg" alt="Hulk">
+  
+
+templates/black_widow.html
+
+    <h1>Black Widow</h1>
+    <img src="black_widow.jpg" alt="Hulk">
+
+urls.py
+
+    from django.urls import path
+    from django.views.generic import HulkView, WidowView
+    
+    urlpatterns = [
+        path('hulk', HulkView.as_view()),
+        path('black_widow', WidowView.as_view()),
+    ]
+
+pages/views.py
+
+    from django.views.generic import TemplateView
+    
+    class HulkView(TemplateView):
+        template_name = 'hulk.html'
+
+    class WidowView(TemplateView):
+        template_name = "black_widow.html"
+        
+templates/
+
+    hulk.jpg
+    black_widow.jpg
+    
+ 
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Pages may Contain Images
+* Django serves pages expected to be processed
+* Static content is passed directly through without processing
+* Django contains a static server that can be enabled
+
+   
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Add Custom Django Views
+
+static/images/
+
+    hulk.jpg
+    black_widow.jpg
+
+templates/hulk.html
+
+    <h1>Hulk Profile</h1>
+    <img src="/static/images/hulk.jpg" alt="Hulk">
+  
+
+templates/black_widow.html
+
+    <h1>Black Widow</h1>
+    <img src="/static/images/black_widow.jpg" alt="Hulk">
+    
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### settings.py
+* STATIC_URL = '/static/'
+* STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Images, CSS, Javascript
+* < img src='/static/img/treetops.200.jpg' >
+* < link rel='stylesheet' href='/static/unc.css' >
+* < script href='/static/wow.js' >
+      
+  
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Add Data to Django Views
+    
+templates/hero.html
+
+    <h1>Hero: {{ hero }}</h1>
+    <img src="/static/images/{{ hero }}.jpg" alt="{{ hero }}">
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Data as dictionary
+
+Define what goes in the variable slots
+
+    {
+        'hero': 'hulk', 
+    }
+    
+    {
+        'hero': 'black_widow', 
+    }
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Hero View
+    
+pages/views.py
+    
+     class HulkView(TemplateView):
+        template_name = 'hero.html'
+        
+        def get_context_data(self, **kwargs):
+            return { 'hero': 'hulk' }
+               
+     
+     class WidowView(TemplateView):
+        template_name = "hero.html"
+        
+        def get_context_data(self, **kwargs):
+            return { 'hero': 'black_widow' }
+
+
+            
+     
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Demo Code in Github
+* [Mark-Seaman/UNC-BACS-350](https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week02/demo6)
+* Look at my code after you create your own
+* You learn by doing - practice makes perfect
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Exercise
+* Start with my code
+* Build a new view template, "profile.html"
+* Create a URL route, "profile" that shows the view
+* Add a home link to the page template
+* Define the context for all pages to take you home
+* Create template with HTML that validates 
+
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+                
+
+            </div>
+        </div>
+
+        <script src="https://shrinking-world.com/static/revealjs/dist/reveal.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/notes/notes.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/markdown/markdown.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/highlight/highlight.js"></script>
+        <script>
+            // More info about initialization & config:
+            // - https://revealjs.com/initialization/
+            // - https://revealjs.com/config/
+            Reveal.initialize({
+                hash: true,
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+            });
+
+        </script>
+    </body>
+
+</html>

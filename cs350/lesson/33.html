@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #33</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC CS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Software Engineering Skills</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-33---code">Lesson 33 - Code</h1>
+<h2 id="project">PROJECT</h2>
+<h3 id="graded-milestones-1-5">Graded Milestones 1-5</h3>
+<ul>
+<li>Checklists are updated and grades entered in Canvas</li>
+<li>80% of grade is for individual contribution</li>
+<li>20% of grade is for team contribution</li>
+<li>If you do more work you must contact me</li>
+<li>Summarize what you want me to look at</li>
+<li><a href="../docs/Milestones">Milestone Details</a></li>
+</ul>
+<h3 id="user-guide-landing-page">User Guide &amp; Landing Page</h3>
+<ul>
+<li>Before release focus on the customer experience</li>
+<li>App landing page</li>
+<li>User guide to help users understand</li>
+</ul>
+<h3 id="milestone-6---first-code-release">Milestone 6 - First Code Release</h3>
+<ul>
+<li>Every team member get the same grade</li>
+<li>Grading based on functionality and usability</li>
+<li>What is the user experience? Defects and missing features</li>
+<li>Code and document quality
+<ul>
+<li>Clean</li>
+<li>Simple</li>
+<li>Well-documented</li>
+<li>Project Metrics</li>
+</ul></li>
+<li>Grading will be very critical</li>
+</ul>
+<h3 id="milestone-7">Milestone 7</h3>
+<ul>
+<li>Each team will demonstrate the app in class</li>
+<li>Students will work with the application and give feedback</li>
+<li>Developers will respond to the feedback</li>
+<li>Grading will be done based on the Issue Log</li>
+</ul>
+<h3 id="project-team-demos">Project Team Demos</h3>
+<ul>
+<li>Nov 16 - SMS Twitter</li>
+<li>Nov 18 - Capture Webapp</li>
+<li>Nov 20 - ElBow Space</li>
+<li>Nov 30 - ShopLocal</li>
+<li>Dec 2 - Easel</li>
+</ul>
+<h3 id="milestone-7-1">Milestone 7</h3>
+<ul>
+<li>Grading
+<ul>
+<li>Functionality and quality</li>
+<li>Review of other teams</li>
+<li>Response to feedback</li>
+<li>Clean, Simple, Documented</li>
+</ul></li>
+</ul>
+<h2 id="refactoring">Refactoring</h2>
+<h3 id="code-metrics">Code Metrics</h3>
+<ul>
+<li>Lines of Code (files, product, tests)</li>
+<li>Issues (open, closed, test hours)</li>
+<li>Effort (hours of engineering)</li>
+<li>Design Patterns</li>
+</ul>
+<h3 id="lines-of-code">Lines of Code</h3>
+<ul>
+<li>Count the files</li>
+<li>Lines of product code</li>
+<li>Lines of test code</li>
+</ul>
+<pre><code> $ wc -l */*.py
+ 
+       0 accounts/__init__.py
+       3 accounts/admin.py
+       5 accounts/apps.py
+       3 accounts/models.py
+       3 accounts/tests.py
+      10 accounts/urls.py
+       9 accounts/views.py
+       0 book/__init__.py
+       7 book/admin.py
+       5 book/apps.py
+      20 book/author.py
+      25 book/book.py
+      41 book/chapter.py
+      56 book/models.py
+      53 book/tests.py
+      52 book/tests_author.py
+     148 book/tests_book.py
+      54 book/tests_chapter.py
+      33 book/text.py
+      26 book/urls.py
+      85 book/views.py
+       0 config/__init__.py
+      16 config/asgi.py
+     137 config/settings.py
+      16 config/wsgi.py
+     807 total
+     
+$ wc -l */*.html
+
+       5 templates/_footer.html
+      10 templates/_header.html
+      27 templates/_navbar.html
+      20 templates/_user.html
+      23 templates/book_add.html
+      38 templates/book_detail.html
+      23 templates/book_edit.html
+      16 templates/book_list.html
+      64 templates/book_theme.html
+      23 templates/chapter_add.html
+      21 templates/chapter_detail.html
+      25 templates/chapter_edit.html
+      17 templates/chapter_list.html
+      13 templates/home.html
+      14 templates/login.html
+      10 templates/logout.html
+      12 templates/register_author.html
+      12 templates/register_reader.html
+     373 total</code></pre>
+<h3 id="code-metrics-1">Code Metrics</h3>
+<ul>
+<li>500 lines of Python Product Code</li>
+<li>375 lines of HTML Template Code</li>
+<li>300 lines of Python Test Code</li>
+</ul>
+<h3 id="complexity">Complexity</h3>
+<ul>
+<li>Review the largest files in the code</li>
+<li>Think about complexity</li>
+<li>How close is this to the natural complexity</li>
+</ul>
+<pre><code>     148 book/tests_book.py
+     137 config/settings.py
+      85 book/views.py
+      56 book/models.py
+      53 book/tests.py
+      
+      64 templates/book_theme.html
+      38 templates/book_detail.html
+      21 templates/chapter_detail.html</code></pre>
+<h3 id="refactoring-1">Refactoring</h3>
+<ul>
+<li>Budget time for refactoring</li>
+<li>Seaman's Rules of Refactoring
+<ul>
+<li>Break up functions larger than 10 lines</li>
+<li>Break up files larger than 200 lines</li>
+<li>Eliminate any duplication of more than 3 lines</li>
+<li>No more than 3 thing on one line</li>
+</ul></li>
+<li>Short Files, Functions, Lines, Without Duplication</li>
+</ul>
+<h3 id="tests-firsts">Tests Firsts</h3>
+<ul>
+<li>Don't Refactor without tests</li>
+<li>Either test it or remove it</li>
+</ul>
+<h3 id="most-important-refactorings">Most Important Refactorings</h3>
+<ul>
+<li>Move function to new file</li>
+<li>Rename</li>
+<li>Extract function</li>
+<li>Extract variable</li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

@@ -1,0 +1,15 @@
+{% if cards %}
+    
+    <div class="container">
+        <h2> Cards Layout View</h2>
+        
+        <div class="row">
+
+            {% for card in cards %}
+                {% include '_card.html' %}
+            {% endfor %}
+            
+        </div>
+    </div>
+
+{% endif %}

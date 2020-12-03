@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #33</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-33---image-carousel">Lesson 33 - Image Carousel</h1>
+<h2 id="learn">LEARN</h2>
+<h3 id="carousel">Carousel</h3>
+<ul>
+<li>Copy code from Bootstrap demo</li>
+<li>Add images to Carousel</li>
+</ul>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> CarouselView(TemplateView):
+    template_name = <span class="st">&#39;carousel.html&#39;</span></code></pre>
+<h3 id="carousel-page">Carousel Page</h3>
+<ul>
+<li>Create a template to display the data</li>
+</ul>
+<p>templates/carousel.html</p>
+<pre class="sourceCode html"><code class="sourceCode html">{% extends &#39;workshop.html&#39; %}
+
+{% block main %}
+    {% include &#39;_carousel.html&#39; %}
+{% endblock main %}</code></pre>
+<h3 id="carousel-template">Carousel Template</h3>
+<ul>
+<li>Define the partial template</li>
+</ul>
+<p>templates/_carousel.html</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;slider2&quot;</span><span class="ot"> class=</span><span class="st">&quot;carousel slide&quot;</span><span class="ot"> data-ride=</span><span class="st">&quot;carousel&quot;</span><span class="kw">&gt;</span>
+           
+    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;carousel-inner&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;carousel-item active&quot;</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;img</span><span class="ot"> class=</span><span class="st">&quot;d-block img-fluid&quot;</span><span class="ot"> src=</span><span class="st">&quot;https://source.unsplash.com/random/1200x800?bear&quot;</span><span class="ot"> alt=</span><span class="st">&quot;Bear&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;/div&gt;</span>
+        <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;carousel-item&quot;</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;img</span><span class="ot"> class=</span><span class="st">&quot;d-block img-fluid&quot;</span><span class="ot"> src=</span><span class="st">&quot;https://source.unsplash.com/random/1200x800?forest&quot;</span><span class="ot"> alt=</span><span class="st">&quot;Forest&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;/div&gt;</span>
+        <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;carousel-item&quot;</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;img</span><span class="ot"> class=</span><span class="st">&quot;d-block img-fluid&quot;</span><span class="ot"> src=</span><span class="st">&quot;https://source.unsplash.com/random/1200x800?ocean&quot;</span><span class="ot"> alt=</span><span class="st">&quot;Ocean&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;/div&gt;</span>
+        <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;carousel-item&quot;</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;img</span><span class="ot"> class=</span><span class="st">&quot;d-block img-fluid&quot;</span><span class="ot"> src=</span><span class="st">&quot;https://source.unsplash.com/random/1200x800?flower&quot;</span><span class="ot"> alt=</span><span class="st">&quot;Flower&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;/div&gt;</span>
+    <span class="kw">&lt;/div&gt;</span>
+
+    <span class="co">&lt;!-- CONTROLS --&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#slider2&quot;</span><span class="ot"> class=</span><span class="st">&quot;carousel-control-prev&quot;</span><span class="ot"> data-slide=</span><span class="st">&quot;prev&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;carousel-control-prev-icon&quot;</span><span class="kw">&gt;&lt;/span&gt;</span>
+    <span class="kw">&lt;/a&gt;</span>
+
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#slider2&quot;</span><span class="ot"> class=</span><span class="st">&quot;carousel-control-next&quot;</span><span class="ot"> data-slide=</span><span class="st">&quot;next&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;carousel-control-next-icon&quot;</span><span class="kw">&gt;&lt;/span&gt;</span>
+    <span class="kw">&lt;/a&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre>
+<h3 id="carousel-javascript">Carousel JavaScript</h3>
+<ul>
+<li>Logic to run the carousel</li>
+</ul>
+<pre><code>&lt;script&gt;
+    $(&#39;.carousel&#39;).carousel({
+        interval: 2000,
+        keyboard: true,
+        pause: &#39;hover&#39;,
+        wrap: true
+    });
+&lt;/script&gt;</code></pre>
+<h3 id="unsplash">Unsplash</h3>
+<ul>
+<li>Visit <a href="https://Unsplash.com">Unsplash.com</a></li>
+<li>Select a category of photos</li>
+<li><a href="https://images.unsplash.com/photo-1604890574377-b1830f2e48e6">Specific Image</a> - https://images.unsplash.com/photo-1604890574377-b1830f2e48e6</li>
+</ul>
+<h3 id="size">Size</h3>
+<ul>
+<li><a href="https://source.unsplash.com/random/1200x800" class="uri">https://source.unsplash.com/random/1200x800</a></li>
+<li><a href="https://source.unsplash.com/random/600x100" class="uri">https://source.unsplash.com/random/600x100</a></li>
+</ul>
+<h3 id="category">Category</h3>
+<ul>
+<li><a href="https://source.unsplash.com/random/600x400?ocean">https://source.unsplash.com/random?ocean</a></li>
+<li><a href="https://source.unsplash.com/random/600x400?people">https://source.unsplash.com/random?people</a></li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

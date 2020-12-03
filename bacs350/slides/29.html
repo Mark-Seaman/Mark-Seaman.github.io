@@ -1,0 +1,303 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>UNC Course Slides</title>
+
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reset.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reveal.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/theme/beige.css" id="theme">
+
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+        <link rel="stylesheet" href="slides.css">
+    </head>
+
+    <body>
+
+        <div class="reveal">
+            <div class="slides">
+
+                <section class="section"
+                         data-background-image="../images/autumn-leaves.jpg">
+                    <h1>bacs350 - Lesson 29</h1>
+                    <p><img class="logo" src="../images/Bear.png" alt="../images/Bear.png"></p>
+                    <p class="title">Mark Seaman</p>
+                    <p class="title">University of Northern Colorado</p>
+                </section>
+
+                
+                    <section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>LEARN & BUILD</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Demo 29 - View Workshop
+* [View Workshop](https://github.com/Mark-Seaman/UNC-BACS-350/blob/master/demo/week10/Demo29/templates/workshop.html)
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### View Inheritance
+* [View Inheritance](../docs/ViewInheritance)
+* Build a [base template](https://github.com/Mark-Seaman/UNC-BACS-350/blob/master/demo/week10/Demo29/templates/theme.html)
+* Build [pages that extend the template](https://github.com/Mark-Seaman/UNC-BACS-350/blob/master/demo/week10/Demo29/templates/workshop.html)
+* Enable to part of the page you want
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Workshop View
+* Define a view for the default page
+
+templates/workshop.html
+
+```html
+{% extends 'theme.html' %}
+
+{% block main %}
+    <main>
+        <div class="container">
+
+            <h1> View Workshop</h1>
+            <p>
+                This page is to demonstrate how to build complex views with many layers.
+                Django makes it easy to composite view that are driven by data.
+                
+                <a href="cards" class="text-warning">Cards Layout View</a>
+            </p>
+
+        </div>
+    </main>
+{% endblock main %}   
+
+```
+
+
+workshop/views.py
+
+```python 
+class HomeView(TemplateView):
+    template_name = 'workshop.html'
+```
+
+
+workshop/urls.py
+
+```python 
+from django.urls import path
+from .views import  HomeView
+
+
+urlpatterns = [
+    
+    path('',  HomeView.as_view(), name='workshop'),
+    
+]
+```
+
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Card View
+* Template
+* View
+* URL
+
+
+templates/workshop.html
+
+```html
+{% extends 'workshop.html' %}
+
+{% block main %}
+
+    <h2> Card Layout View</h2>
+
+    <div class="container">
+
+        <div class="card">
+            <div class="card-header bg-primary text-light">
+                <h2>{{ card.title}}</h2>
+            </div>
+            <div class="card-body">
+                <p>{{ card.body }}</p>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock main %}
+```
+
+
+workshop/views.py
+
+```python 
+from django.views.generic import TemplateView
+
+text = '''Lorem ipsum dolor sit amet, ...'''
+
+class CardView(TemplateView):
+    template_name = 'card.html'
+
+    def get_context_data(self, **kwargs):
+        data = dict(title="Life is Great", body=text)
+        return dict(card=data)
+```
+
+
+workshop/urls.py
+
+```python 
+from django.urls import path
+from .views import  CardView
+
+urlpatterns = [
+    path('card',  CardView.as_view(), name='card'),
+]
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Cards View
+* Template
+* View
+* URL
+
+
+templates/workshop.html
+
+```html
+{% extends 'workshop.html' %}
+
+{% block main %}
+ 
+    <h2> Cards Layout View</h2>
+    
+    <div class="container">
+        <div class="row">
+
+            {% for card in cards %}
+
+                <div class="col-lg-6 my-3">
+                    <div class="card">
+                        <div class="card-header bg-primary text-light">
+                            <h2>{{ card.title }}</h2>
+                        </div>
+                        <div class="card-body text-dark">
+                            <p>{{ card.body }}</p>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+            
+        </div>
+    </div>
+
+{% endblock main %}
+
+```
+
+
+workshop/views.py
+
+```python 
+from django.views.generic import TemplateView
+
+text = '''Lorem ipsum dolor sit amet, ...'''
+
+class CardView(TemplateView):
+    template_name = 'cards.html'
+
+    def get_context_data(self, **kwargs):
+        return dict(cards=cards_data())
+```
+
+
+workshop/urls.py
+
+```python 
+from django.urls import path
+from .views import  CardView
+
+urlpatterns = [
+    path('cards',  CardsView.as_view(), name='cards'),
+    
+]
+```
+
+
+
+
+
+
+
+
+
+
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+                
+
+            </div>
+        </div>
+
+        <script src="https://shrinking-world.com/static/revealjs/dist/reveal.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/notes/notes.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/markdown/markdown.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/highlight/highlight.js"></script>
+        <script>
+            // More info about initialization & config:
+            // - https://revealjs.com/initialization/
+            // - https://revealjs.com/config/
+            Reveal.initialize({
+                hash: true,
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+            });
+
+        </script>
+    </body>
+
+</html>

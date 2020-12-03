@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>UNC Course Slides</title>
+
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reset.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reveal.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/theme/beige.css" id="theme">
+
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+        <link rel="stylesheet" href="slides.css">
+    </head>
+
+    <body>
+
+        <div class="reveal">
+            <div class="slides">
+
+                <section class="section"
+                         data-background-image="../images/autumn-leaves.jpg">
+                    <h1>bacs350 - Lesson 30</h1>
+                    <p><img class="logo" src="../images/Bear.png" alt="../images/Bear.png"></p>
+                    <p class="title">Mark Seaman</p>
+                    <p class="title">University of Northern Colorado</p>
+                </section>
+
+                
+                    <section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>LEARN & BUILD    </h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Workshop Views
+* Theme View
+* Workshop View
+* Home View
+* Card View
+* Cards View
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Markdown View
+* Use Markdown Converter to produce HTML
+* Display Markdown Document
+* Display File and Database records
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Convert Markdown
+* Import converter
+* Take Markdown and make HTML
+
+```python
+from markdown import markdown
+
+markdown_text = '# Headline'
+html_text = markdown(markdown_text)
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Add Markdown to View
+* Convert Markdown to HTML
+* Add variable to view
+* Use autoescape in template
+
+views.py
+
+```python
+markdown_text = '''
+# Headline
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+<section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>Subheadline</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Document File View
+* Pass in path name
+* Read Markdown from file
+* Pass HTML to View
+
+views.py
+
+```python
+class DocumentFileView(TemplateView):
+    template_name = 'doc.html'
+
+    def get_context_data(self, **kwargs):
+        text = open('README.md').read()
+        return dict(doc=markdown(text))
+```
+
+templates/doc.html
+
+```html
+{% extends 'workshop.html' %}
+
+{% block main %}
+    <h1>Markdown Doc - README.txt</h1>
+    {% autoescape off %}
+        {{ doc }}
+    {% endautoescape %}
+{% endblock main %}
+```
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Improve Layout
+* Use a container
+* Use a card
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Use a partial template
+* Define _document.html
+* Use in page template
+
+templates/_document.html
+
+```html
+<h1>Markdown Doc - {{ title }}</h1>
+{% autoescape off %}
+    {{ doc }}
+{% endautoescape %}
+```
+
+templates/doc.html
+
+```html
+{% extends 'workshop.html' %}
+
+{% block main %}
+    {% include '_document.html' %}
+{% endblock main %}
+```
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Nested Views
+* Theme Page
+* Workshop Page
+* Document Page
+* Card
+* Document 
+
+
+
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+<section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>BUILD</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Demo Code
+* [Copy Demo 30](https://github.com/Mark-Seaman/UNC-BACS-350/tree/master/demo/week11/Demo30)
+* Reconstruct these views
+    * Superhero Theme Page
+    * Document Page
+    * Card
+    * Document 
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Project 10 - Composite Views
+* Composite Views
+* Style with Bootstrap
+* View Inheritance
+* Dynamic Menu
+* Responsive Design
+* Data Fields - strengths, weakness, image
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Project 10 - Instructions
+* [Project 10 - Instructions](../project/10)
+
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+                
+
+            </div>
+        </div>
+
+        <script src="https://shrinking-world.com/static/revealjs/dist/reveal.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/notes/notes.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/markdown/markdown.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/highlight/highlight.js"></script>
+        <script>
+            // More info about initialization & config:
+            // - https://revealjs.com/initialization/
+            // - https://revealjs.com/config/
+            Reveal.initialize({
+                hash: true,
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+            });
+
+        </script>
+    </body>
+
+</html>

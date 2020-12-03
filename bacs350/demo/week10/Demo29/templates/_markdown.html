@@ -1,0 +1,12 @@
+<div class="card">
+    <div class="card-header bg-primary text-light">
+        <h2>{{ markdown.title }}</h2>
+    </div>
+    <div class="card-body text-dark">
+
+        {% autoescape off %}
+            {{ markdown.html }}
+        {% endautoescape %}
+
+    </div>
+</div>

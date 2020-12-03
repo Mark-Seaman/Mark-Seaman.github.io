@@ -1,0 +1,399 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>UNC Course Slides</title>
+
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reset.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/reveal.css">
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/dist/theme/beige.css" id="theme">
+
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="https://shrinking-world.com/static/revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+        <link rel="stylesheet" href="slides.css">
+    </head>
+
+    <body>
+
+        <div class="reveal">
+            <div class="slides">
+
+                <section class="section"
+                         data-background-image="../images/autumn-leaves.jpg">
+                    <h1>bacs350 - Lesson 15</h1>
+                    <p><img class="logo" src="../images/Bear.png" alt="../images/Bear.png"></p>
+                    <p class="title">Mark Seaman</p>
+                    <p class="title">University of Northern Colorado</p>
+                </section>
+
+                
+                    <section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>LEARN </h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Design Pattern
+* Create reusable knowledge and code 
+* Solve each type of problem only once
+* Use the solution everywhere you can
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Design Patterns
+* Data Models
+* Data CRUD
+* View Prototype
+* Data Views
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Design Pattern Simple Solution
+* Simplest Solution - Quick win
+* Fewest lines of code possible
+* Documented running example 
+* Recreate running code in less that five minutes
+* [W3Schools Tutorials](https://www.w3schools.com/python/trypython.asp?filename=demo_json)
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Reading and Writing
+* You must learn how to read first
+* Then you can learn to write
+* Writing takes 10 times the effort
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Using a Design Pattern
+* Using a well-designed pattern should take 1-2 hours
+* Copy the code
+* Run the demo and debug any issues you find
+* Make a series of incremental changes using test driven development
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Creating Your Own Pattern
+* You must have 100 hours of experience to create a pattern
+* Requires applying the pattern at least 10 times
+* Collect patterns from others
+* Build a library of design patterns
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Data Model Views Pattern
+* Build views for all CRUD operations
+* Supports CREATE using CreateView
+* Supports READ using ListView
+* Supports READ using DetailView
+* Supports UPDATE using UpdateView
+* Supports DELETE using DeleteView
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Data Model Views Pattern Solution
+* Collection of specific patterns
+    * Data Model Design Pattern
+    * CreateView Design Pattern
+    * ListView Design Pattern
+    * DetailView Design Pattern
+    * UpdateView Design Pattern
+    * DeleteView Design Pattern
+
+
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+<section>
+    <section class="section" data-background-image="../images/treetops.800.jpg">
+        <h2>BUILD</h2>
+    </section>
+
+
+    
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Blog Demo
+* Simple app that shows the Data View Design Pattern
+* Copy this code and debug it
+* Make changes to make it match your problem
+* [Blog App](https://github.com/Mark-Seaman/Book-Builder/tree/master/BlogApp)
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### Data Model Design Pattern 
+
+blog/models.py
+
+    from django.db import models
+    
+    class Post(models.Model):
+        title = models.CharField(max_length=200)
+        author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+        body = models.TextField()
+    
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### CreateView Design Pattern 
+
+templates/post_new.html
+
+```
+
+    <form action="" method="post">{% csrf_token %}
+       {{ form.as_p }}
+       <input type="submit" value="Save">
+    </form>
+```
+
+
+blog/urls.py
+
+    from django.urls import path
+    from .views import BlogCreateView
+    
+    urlpatterns = [
+        path('new/', BlogCreateView.as_view(), name='post_new'),
+    ]
+
+blog/views.py
+        
+    class BlogCreateView(CreateView):
+        model = Post
+        template_name = 'post_new.html'
+        fields = ['title', 'author', 'body']
+    
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### ListView Design Pattern 
+
+templates/post_list.html
+
+```
+    {% for post in object_list %}
+        <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
+        <p>{{ post.body }}</p>
+    {% endfor %}
+```   
+
+blog/urls.py
+
+    urlpatterns = [
+        path('', BlogListView.as_view(), name='post_list'),
+    ]
+    
+blog/views.py
+
+    class BlogListView(ListView):
+        model = Post
+        template_name = 'post_list.html'
+    
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### DetailView Design Pattern 
+
+templates/post_detail.html
+
+```   
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.body }}</p>
+    
+    <a href="{% url 'post_edit' post.pk %}">Edit Blog Post</a>
+    <a href="{% url 'post_delete' post.pk %}">Delete Blog Post</a>
+``` 
+
+blog/urls.py
+
+    urlpatterns = [
+        path('<int:pk>/', BlogDetailView.as_view(), name='post_detail'),
+    ]
+
+blog/views.py
+
+    class BlogDetailView(DetailView):
+        model = Post
+        template_name = 'post_detail.html'
+    
+
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### UpdateView Design Pattern
+
+templates/post_edit.html
+
+```
+    <form action="" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update">
+    </form>
+```
+
+blog/urls.py
+
+    urlpatterns = [
+        path('<int:pk>/edit/', BlogUpdateView.as_view(), name='post_edit'),
+    ]
+
+blog/views.py
+
+    class BlogUpdateView(UpdateView):
+        model = Post
+        template_name = 'post_edit.html'
+        fields = ['title', 'body']
+    
+    
+
+
+                </textarea>
+
+            </section>
+        
+            <section data-background-image="../images/paper.png" data-markdown data-separator="\n### ">
+
+                <textarea data-template>### DeleteView Design Pattern
+
+templates/post_delete.html
+
+```
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.body }}</p>
+    
+    <a href="{% url 'post_edit' post.pk %}">Edit Blog Post</a>
+    <a href="{% url 'post_delete' post.pk %}">Delete Blog Post</a>
+```
+
+blog/urls.py
+
+    urlpatterns = [
+        path('<int:pk>/delete/', BlogDeleteView.as_view(), name='post_delete'),
+    ]
+
+blog/views.py
+
+    from django.urls import reverse_lazy
+
+    class BlogDeleteView(DeleteView):
+        model = Post
+        template_name = 'post_delete.html'
+        success_url = reverse_lazy('post_list')
+
+
+                </textarea>
+
+            </section>
+        
+
+    
+
+
+</section>
+                
+
+            </div>
+        </div>
+
+        <script src="https://shrinking-world.com/static/revealjs/dist/reveal.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/notes/notes.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/markdown/markdown.js"></script>
+        <script src="https://shrinking-world.com/static/revealjs/plugin/highlight/highlight.js"></script>
+        <script>
+            // More info about initialization & config:
+            // - https://revealjs.com/initialization/
+            // - https://revealjs.com/config/
+            Reveal.initialize({
+                hash: true,
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+            });
+
+        </script>
+    </body>
+
+</html>

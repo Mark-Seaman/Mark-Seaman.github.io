@@ -1,0 +1,39 @@
+/* ----------------------------------------------- */
+/* HTML Elements */
+
+
+h1 {
+    color: #0E3D65;
+}
+
+h2 {
+    color: #F6B018;
+}
+
+
+header {
+    border: 5px solid #F6B018;
+    background-color: #0E3D65;
+    font-family: sans-serif;
+    padding: 1.5em;
+}
+
+header h1 {
+    color: #F6B018;
+}
+
+header h2 {
+    color: white;
+    background-color: #0E3D65;
+}
+
+
+/* ----------------------------------------------- */
+/* Classes */
+
+.border {
+    border: 1px solid gray;
+    box-shadow: 2px 2px 5px black;
+    margin: 3em;
+    padding: 3em;
+}

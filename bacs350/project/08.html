@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Project #8</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="project-8---secure-superhero-data-views">Project 8 - Secure Superhero Data Views</h1>
+<h2 id="goals">Goals</h2>
+<ul>
+<li>Extend Data Views with User Security</li>
+<li>Build an applications that has for generic Django views for the CRUD operations</li>
+<li>Django View Classes
+<ul>
+<li>TemplateView</li>
+<li>ListView</li>
+<li>DetailView</li>
+<li>CreateView</li>
+<li>UpdateView</li>
+<li>DeleteView</li>
+</ul></li>
+<li>Customize each of the views</li>
+<li>Use View Inheritance to apply styles and structure</li>
+<li>User Management
+<ul>
+<li>Users can Register</li>
+<li>Users login/logout</li>
+<li>Edit operations require login</li>
+</ul></li>
+</ul>
+<h2 id="steps">Steps</h2>
+<h3 id="create-a-new-django-project">Create a new Django project</h3>
+<ul>
+<li>The default view should contain a list of link to superheroes</li>
+<li>An add button will let users add a new record</li>
+</ul>
+<h3 id="listview">ListView</h3>
+<ul>
+<li>Create a table or divs that show a list of records</li>
+<li>Each hero should have a link that goes to the details page</li>
+</ul>
+<h3 id="detailview">DetailView</h3>
+<ul>
+<li>Display all info from the Database records</li>
+<li>Show the image as a thumbnail with a link to the large image</li>
+<li>Add a button to Edit the record</li>
+</ul>
+<h3 id="createview">CreateView</h3>
+<ul>
+<li>Create new records with a view</li>
+<li>You can cheat by loading the image file into a directory</li>
+<li>Add the image as a URL pointing to this file</li>
+<li>Requires login</li>
+</ul>
+<h3 id="updateview">UpdateView</h3>
+<ul>
+<li>Make sure that you can edit the records</li>
+<li>Make sure that the page is redirected after save</li>
+<li>Requires login</li>
+</ul>
+<h3 id="deleteview">DeleteView</h3>
+<ul>
+<li>Delete the records after confirmation</li>
+<li>Go to the list after a delete</li>
+<li>Requires login</li>
+</ul>
+<h3 id="view-inheritance">View Inheritance</h3>
+<ul>
+<li>Create a base page template</li>
+<li>Style all pages without duplicating any code</li>
+</ul>
+<h3 id="add-five-superhero-records">Add five Superhero records</h3>
+<h3 id="create-superhero-pages">Create Superhero Pages</h3>
+<ul>
+<li>Build one set of templates</li>
+<li>Build view that take arguments and displays the contents</li>
+<li>Build a URL route that call your view</li>
+</ul>
+<h3 id="create-images">Create Images</h3>
+<ul>
+<li>Create images that match your five selected heroes</li>
+<li>Add an image to your view to display the superhero image</li>
+<li>Debug your application code until photos display</li>
+<li>Commit to your Github repo</li>
+<li>Deploy at Python Anywhere</li>
+</ul>
+<h3 id="create-superhero-theme">Create Superhero Theme</h3>
+<ul>
+<li>Create a HTML template &quot;superhero_theme.html&quot;</li>
+<li>Add a bootstrap CSS and custom CSS to this template</li>
+<li>Add a &quot;{% block content %}&quot; section to the template</li>
+<li>Make index.html and hero.html use &quot;{% extends 'superhero_theme.html' %}&quot;</li>
+<li>Debug the view inheritance</li>
+<li>Give you pages some cool style</li>
+</ul>
+<h3 id="test-the-pages">Test the pages</h3>
+<ul>
+<li>Browse to http://YOUR_USER.pythonanywhere.com for Your Site</li>
+<li>Make sure this address is set in Sensei</li>
+</ul>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Your page must be available at http://YOUR_USER.pythonanywhere.com</li>
+<li>It must contain info about superheroes</li>
+<li>All heroes must come from database records</li>
+<li>ListView, DetailView</li>
+<li>CreateView requires login</li>
+<li>UpdateView requires login</li>
+<li>DeleteView requires login</li>
+<li>Register</li>
+<li>View Inheritance - &quot;superhero_theme.html&quot; base template for all pages</li>
+<li>Nice page style and layout</li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

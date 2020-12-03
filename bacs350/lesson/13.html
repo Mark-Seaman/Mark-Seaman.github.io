@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #13</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-13---crud">Lesson 13 - CRUD</h1>
+<h2 id="learn">LEARN</h2>
+<h3 id="projects">Projects</h3>
+<ul>
+<li>I will grade project weekly and update the gradebook</li>
+<li>You know which projects you have completed</li>
+</ul>
+<h3 id="book">Book</h3>
+<ul>
+<li>1 - Setup tools</li>
+<li>2 - Create an app</li>
+<li>3 - App hosting</li>
+<li>4 - Database &amp; Admin view</li>
+<li>5 - Tests</li>
+</ul>
+<h3 id="data-models">Data Models</h3>
+<ul>
+<li>ORM lets us write Data Models as Python Classes</li>
+<li>Database is automatically updated</li>
+<li>Migration updates the tables</li>
+</ul>
+<h3 id="data-migrations">Data Migrations</h3>
+<p>Create the scripts to update the database</p>
+<p>Apply the migrations</p>
+<pre><code>python manage.py makemigrations hero
+
+python manage.py migrate</code></pre>
+<h3 id="crud">CRUD</h3>
+<ul>
+<li>CREATE - make a new record</li>
+<li>READ - get one or more records</li>
+<li>UPDATE - modify an existing record</li>
+<li>DELETE - remove a record</li>
+</ul>
+<h3 id="django-shell">Django Shell</h3>
+<p>A console window will let you execute Python code directly</p>
+<p>Do all the CRUD operations</p>
+<pre><code>python manage.py shell</code></pre>
+<h3 id="crud-code">CRUD Code</h3>
+<ul>
+<li>CREATE - Superhero.objects.create()</li>
+<li>READ - Superhero.objects.get()</li>
+<li>UPDATE - hero.save()</li>
+<li>DELETE - hero.delete</li>
+</ul>
+<h3 id="data-model">Data Model</h3>
+<ul>
+<li>Superhero (name, identity)</li>
+</ul>
+<p>hero/models.py</p>
+<pre><code>class Superhero(models.Model):
+    name = models.CharField(max_length=20)
+    identity = models.CharField(max_length=20)</code></pre>
+<h3 id="create">CREATE</h3>
+<pre><code>Superhero.objects.create(name=&#39;Black Widow&#39;, identity=&#39;Natalia Romanova&#39;)</code></pre>
+<h3 id="read">READ</h3>
+<pre><code>w = Superhero.objects.get(name=&#39;Black Widow&#39;)
+print(w.identity)
+
+for s in Superhero.objects.all():
+    print(w.identity, w.name)</code></pre>
+<h3 id="update">UPDATE</h3>
+<pre><code>w = Superhero.objects.get(name=&#39;Black Widow&#39;)
+w.identity=&#39;Natasha Romanoff&#39;
+w.save()</code></pre>
+<h3 id="delete">DELETE</h3>
+<pre><code>Superhero.objects.get(name=&#39;Black Widow&#39;).delete()</code></pre>
+<h3 id="enable-the-admin-ui">Enable the Admin UI</h3>
+<p>Setup Django Admin</p>
+<p>hero/admin.py</p>
+<pre><code>from django.contrib import admin
+from .models import Superhero
+
+admin.site.register(Superhero)</code></pre>
+<h3 id="admin-routes">Admin Routes</h3>
+<p>URL Routes to Admin pages</p>
+<p>hero/urls.py</p>
+<pre><code>from django.contrib.admin import site
+
+urlpatterns = [
+    path(r&#39;admin/&#39;, site.urls),
+]</code></pre>
+<h3 id="create-objects">Create Objects</h3>
+<ul>
+<li>Browse to Admin &quot;http://127.0.0.1:8000/admin/&quot;</li>
+</ul>
+<h2 id="build">BUILD</h2>
+<h3 id="command-aliases">Command Aliases</h3>
+<ul>
+<li>project -- django-admin startproject</li>
+<li>app -- python manage.py startapp</li>
+<li>shell -- python manage.py shell</li>
+<li>serve -- python manage.py shell</li>
+<li>tst -- python manage.py shell</li>
+<li>start -- python manage.py shell</li>
+<li>gs -- git status</li>
+<li>co -- git add; git commit -m &quot;Message&quot;; git push</li>
+</ul>
+<h3 id="use-django-shell">Use Django Shell</h3>
+<ul>
+<li>Import the data model</li>
+<li>List the records</li>
+<li>Add one record</li>
+<li>Modify one record</li>
+<li>List the records</li>
+</ul>
+<h3 id="write-python-crud-functions">Write Python CRUD functions</h3>
+<p>Create functions to improve readability</p>
+<pre><code>def get_hero(name):
+    return Superhero.objects.get(name=name)
+    
+def list_heroes():
+    return Superhero.objects.all()</code></pre>
+<h3 id="test-crud">Test CRUD</h3>
+<p>Use Django Tests to test the CRUD operations</p>
+<pre><code>from django.test import TestCase
+
+from .models import Superhero
+
+class CrudTests(TestCase):
+
+    def test_num_heroes(self):
+        num_heroes = len(Superhero.objects.all())
+        self.assertEqual(num_heroes, 0)</code></pre>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

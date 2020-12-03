@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>ViewInheritance</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="use-view-inheritance">Use View Inheritance</h1>
+<p>Create a series of templates</p>
+<pre><code>book_theme.html
+_header.html
+_footer.html
+_navbar.html
+_user.html</code></pre>
+<h2 id="book_theme.html">book_theme.html</h2>
+<pre class="sourceCode html"><code class="sourceCode html">    <span class="er">&lt;</span>!doctype html&gt;
+    <span class="kw">&lt;html</span><span class="ot"> lang=</span><span class="st">&quot;en&quot;</span><span class="kw">&gt;</span>
+
+        <span class="kw">&lt;head&gt;</span>
+            <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;meta</span><span class="ot"> name=</span><span class="st">&quot;viewport&quot;</span>
+<span class="ot">                  content=</span><span class="st">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;meta</span><span class="ot"> http-equiv=</span><span class="st">&quot;X-UA-Compatible&quot;</span><span class="ot"> content=</span><span class="st">&quot;ie=edge&quot;</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;title&gt;</span>{{ page_title }}<span class="kw">&lt;/title&gt;</span>
+            <span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css&quot;</span>
+<span class="ot">                  integrity=</span><span class="st">&quot;sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z&quot;</span>
+<span class="ot">                  crossorigin=</span><span class="st">&quot;anonymous&quot;</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;/static/shrinking-world.css&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;/head&gt;</span>
+
+        <span class="kw">&lt;body</span><span class="ot"> class=</span><span class="st">&quot;bg-dark text-light&quot;</span><span class="kw">&gt;</span>
+
+            {% block content %}
+
+                {% block header %}
+                    {% include &#39;_header.html&#39; %}
+                {% endblock header %}
+
+
+                {% block navbar %}
+                    {% include &#39;_navbar.html&#39; %}
+                {% endblock navbar %}
+
+
+                <span class="kw">&lt;main</span><span class="ot"> class=</span><span class="st">&quot;text-dark&quot;</span><span class="kw">&gt;</span>
+                    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;container py-5&quot;</span><span class="kw">&gt;</span>
+
+                        {% block main %}
+                            <span class="kw">&lt;h2&gt;</span>NO MAIN DEFINED<span class="kw">&lt;/h2&gt;</span>
+                        {% endblock main %}
+
+                    <span class="kw">&lt;/div&gt;</span>
+                <span class="kw">&lt;/main&gt;</span>
+
+
+                {% block footer %}
+                    {% include &#39;_footer.html&#39; %}
+                {% endblock footer %}
+
+            {% endblock content %}
+
+            <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;https://code.jquery.com/jquery-3.5.1.slim.min.js&quot;</span>
+<span class="ot">                    integrity=</span><span class="st">&quot;sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj&quot;</span>
+<span class="ot">                    crossorigin=</span><span class="st">&quot;anonymous&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
+            <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js&quot;</span>
+<span class="ot">                    integrity=</span><span class="st">&quot;sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN&quot;</span>
+<span class="ot">                    crossorigin=</span><span class="st">&quot;anonymous&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
+            <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js&quot;</span>
+<span class="ot">                    integrity=</span><span class="st">&quot;sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV&quot;</span>
+<span class="ot">                    crossorigin=</span><span class="st">&quot;anonymous&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
+
+        <span class="kw">&lt;/body&gt;</span>
+
+    <span class="kw">&lt;/html&gt;</span></code></pre>
+<h2 id="header.html">_header.html</h2>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;p-lg-5&quot;</span><span class="kw">&gt;</span>
+
+    <span class="kw">&lt;h1</span><span class="ot"> class=</span><span class="st">&quot;display-4 ml-5&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;/&quot;</span><span class="kw">&gt;</span>Book Builder<span class="kw">&lt;/a&gt;</span>
+    <span class="kw">&lt;/h1&gt;</span>
+
+    <span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;ml-5&quot;</span><span class="kw">&gt;</span>An Author&#39;s Best Friend<span class="kw">&lt;/h2&gt;</span>
+
+<span class="kw">&lt;/header&gt;</span></code></pre>
+<h2 id="footer.html">_footer.html</h2>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;footer</span><span class="ot"> class=</span><span class="st">&quot;bg-primary p-3 text-center text-light&quot;</span><span class="kw">&gt;</span>
+    <span class="dv">&amp;copy;</span>2020 -
+    <span class="kw">&lt;b&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;https://shrinking-world.com&quot;</span><span class="ot"> class=</span><span class="st">&quot;text-light&quot;</span><span class="kw">&gt;</span>Shrinking World<span class="kw">&lt;/a&gt;&lt;/b&gt;</span>
+    - Practical Software Engineering
+<span class="kw">&lt;/footer&gt;</span></code></pre>
+<h2 id="navbar.html">_navbar.html</h2>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;navbar navbar-expand-sm navbar-light bg-light mb-2&quot;</span><span class="kw">&gt;</span>
+
+    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;container&quot;</span><span class="kw">&gt;</span>
+
+        <span class="kw">&lt;button</span><span class="ot"> class=</span><span class="st">&quot;navbar-toggler&quot;</span><span class="ot"> data-toggle=</span><span class="st">&quot;collapse&quot;</span><span class="ot"> data-target=</span><span class="st">&quot;#navbarCollapse&quot;</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;navbar-toggler-icon&quot;</span><span class="kw">&gt;&lt;/span&gt;</span>
+        <span class="kw">&lt;/button&gt;</span>
+
+        <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;collapse navbar-collapse&quot;</span><span class="ot"> id=</span><span class="st">&quot;navbarCollapse&quot;</span><span class="kw">&gt;</span>
+
+            <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;{% url &#39;home&#39; %}&quot;</span><span class="ot"> class=</span><span class="st">&quot;navbar-brand&quot;</span><span class="kw">&gt;</span>Book Builder App<span class="kw">&lt;/a&gt;</span>
+
+            <span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;navbar-nav ml-auto&quot;</span><span class="kw">&gt;</span>
+
+                {% for i in menu.menu_items %}
+                    <span class="kw">&lt;li</span><span class="ot"> class=</span><span class="st">&quot;nav-item {{ i.active }}&quot;</span><span class="kw">&gt;</span>
+                        <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;{{ i.url }}&quot;</span><span class="ot"> class=</span><span class="st">&quot;nav-link&quot;</span><span class="kw">&gt;</span>{{ i.label }}<span class="kw">&lt;/a&gt;</span>
+                    <span class="kw">&lt;/li&gt;</span>
+                {% endfor %}
+
+                {% include &#39;_user.html&#39; %}
+
+            <span class="kw">&lt;/ul&gt;</span>
+
+        <span class="kw">&lt;/div&gt;</span>
+    <span class="kw">&lt;/div&gt;</span>
+
+<span class="kw">&lt;/nav&gt;</span></code></pre>
+<h2 id="user.html">_user.html</h2>
+<pre class="sourceCode html"><code class="sourceCode html">{% if user.is_authenticated %}
+    <span class="kw">&lt;li</span><span class="ot"> class=</span><span class="st">&quot;nav-item active&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;nav-link p-2 m-2&quot;</span><span class="kw">&gt;</span>Welcome {{ user.username }}<span class="kw">&lt;/span&gt;</span>
+    <span class="kw">&lt;/li&gt;</span>
+    <span class="kw">&lt;li</span><span class="ot"> class=</span><span class="st">&quot;nav-item&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;{% url &#39;logout&#39; %}&quot;</span><span class="ot"> class=</span><span class="st">&quot; nav-link p-2 m-2&quot;</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;fas fa-sign-out-alt&quot;</span><span class="kw">&gt;&lt;/i&gt;</span> Log out
+        <span class="kw">&lt;/a&gt;</span>
+    <span class="kw">&lt;/li&gt;</span>
+{% else %}
+    <span class="kw">&lt;li</span><span class="ot"> class=</span><span class="st">&quot;nav-item&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;nav-link p-2 m-2&quot;</span><span class="kw">&gt;</span>You are not logged in.<span class="kw">&lt;/span&gt;</span>
+    <span class="kw">&lt;/li&gt;</span>
+
+    <span class="kw">&lt;li</span><span class="ot"> class=</span><span class="st">&quot;nav-item active&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;{% url &#39;login&#39; %}&quot;</span><span class="ot"> class=</span><span class="st">&quot;nav-link p-2 m-2&quot;</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;fas fa-sign-in-alt&quot;</span><span class="kw">&gt;&lt;/i&gt;</span> Log In
+        <span class="kw">&lt;/a&gt;</span>
+    <span class="kw">&lt;/li&gt;</span>
+{% endif %}</code></pre>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

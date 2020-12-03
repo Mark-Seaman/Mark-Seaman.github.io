@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #25</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-25---user-authorization">Lesson 25 - User Authorization</h1>
+<h2 id="learn-build">LEARN &amp; BUILD</h2>
+<h3 id="user-management">User Management</h3>
+<ul>
+<li>Authentication</li>
+<li>Authorization</li>
+<li>Encapsulation</li>
+</ul>
+<h3 id="todays-goal">Today's Goal</h3>
+<ul>
+<li>Complete building User Auth</li>
+<li>Test and Fix</li>
+<li>Create a drop-in module for other apps</li>
+</ul>
+<h3 id="development-setup">Development Setup</h3>
+<ul>
+<li>Editor, Server, Browser</li>
+<li>Test Demo 24 with Basic User Test</li>
+</ul>
+<h3 id="create-new-application">Create New Application</h3>
+<ul>
+<li><p>Use &quot;Django for Beginners&quot; design pattern for app structure</p>
+<p>mkdir Demo25 cd Demo25 django-admin startproject config .</p></li>
+</ul>
+<h3 id="app-leverage">App Leverage</h3>
+<ul>
+<li>Copy all files from Demo 24 to Demo 25</li>
+<li>Fix up references</li>
+<li>settings.py
+<ul>
+<li>INSTALLED_APPS</li>
+<li>TEMPLATES</li>
+<li>STATICFILES_DIRS</li>
+<li>LOGIN_REDIRECT_URL</li>
+<li>LOGOUT_REDIRECT_URL</li>
+</ul></li>
+</ul>
+<h3 id="technical-debt">Technical Debt</h3>
+<ul>
+<li>Test</li>
+<li>Fix</li>
+<li>Extend</li>
+<li>Improve</li>
+</ul>
+<h3 id="test-find-problems">Test (find problems)</h3>
+<ul>
+<li>Find existing problems</li>
+<li>No automatic test data, views, business logic</li>
+<li>User Stories
+<ul>
+<li>Home view presents a list with links</li>
+<li>Detail view shows one item</li>
+<li>Add a new item</li>
+<li>Edit an existing item</li>
+<li>Delete an item</li>
+</ul></li>
+</ul>
+<h3 id="fix-solve-known-problems">Fix (solve known problems)</h3>
+<ul>
+<li>No login required</li>
+<li>Add better bootstrap styling</li>
+<li>Do not edit user field</li>
+</ul>
+<h3 id="extend-build-new-features">Extend (build new features)</h3>
+<ul>
+<li>No delete feature implemented</li>
+<li>Create todo list manager</li>
+</ul>
+<h3 id="improve-simplify-structure">Improve (simplify structure)</h3>
+<ul>
+<li>Edit and Add templates are too similar</li>
+<li>Refactor url routes</li>
+<li>Use standard naming convention</li>
+</ul>
+<h3 id="to-do">To Do</h3>
+<ul>
+<li>Basic User Test</li>
+<li>No login required</li>
+<li>Add better bootstrap styling</li>
+<li>Do not edit user field</li>
+<li>No delete feature implemented</li>
+<li>Create todo list manager</li>
+<li>Edit and Add templates are too similar</li>
+<li>Refactor url routes</li>
+<li>Use standard naming convention</li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

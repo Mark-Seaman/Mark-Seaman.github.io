@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>DevelopmentLog</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC CS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Software Engineering Skills</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="book-builder-development-log">Book Builder Development Log</h1>
+<p>There are several goals that must be met on the Book Builder project.</p>
+<p>Here is a log of recent activity and notes for later.</p>
+<hr />
+<h2 id="goals-10-25">Goals 10-25</h2>
+<ul>
+<li>Rebuild Virtual Env (Installed Python 3.8.6)</li>
+<li>Add user administration</li>
+<li>Update Data Models (Author, Book, Chapter)</li>
+<li>Testing</li>
+</ul>
+<h3 id="rebuild-virtual-env">Rebuild Virtual Env</h3>
+<ul>
+<li><a href="RebuildVenv.md">Rebuild Virtual Env</a></li>
+</ul>
+<h3 id="add-user-administration">Add user administration</h3>
+<ul>
+<li><a href="UserAccounts.md">Users accounts</a></li>
+<li>Register</li>
+<li>Login/logout</li>
+<li>Require login</li>
+<li>Show login info</li>
+</ul>
+<h3 id="update-data-models">Update Data Models</h3>
+<ul>
+<li>Testing
+<ul>
+<li>dj test</li>
+<li>Basic user tests</li>
+</ul></li>
+<li>Known Problems
+<ul>
+<li>Author
+<ul>
+<li>Authors are currently hard code to Author 1</li>
+<li>Need to create views to add and edit new authors</li>
+<li>Tie author to logged in user</li>
+</ul></li>
+<li>Book
+<ul>
+<li>Works correctly</li>
+</ul></li>
+<li>Chapter
+<ul>
+<li>Tie add chapter to a specific book</li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="goals-10-27">Goals 10-27</h2>
+<ul>
+<li>Setup Dev Context</li>
+<li>Rename app settings folder</li>
+<li>Deploy &amp; test code</li>
+<li>Use View Inheritance</li>
+<li>Known Problems</li>
+</ul>
+<h3 id="setup-dev-context">Setup Dev Context</h3>
+<ul>
+<li>Define a script that sets up the dev environment and tools</li>
+<li><a href="../start">start development script</a></li>
+</ul>
+<h3 id="rename-app-settings-folder">Rename app settings folder</h3>
+<ul>
+<li>mv bookbuilder config</li>
+<li>Edit files (manage, asgi, wsgi, settings)</li>
+<li>dj test</li>
+<li>dj runserver</li>
+</ul>
+<h3 id="deploy-test-code">Deploy &amp; test code</h3>
+<ul>
+<li>Test locally (auto, manual)</li>
+<li>Commit and push</li>
+<li>Pull and bounce server</li>
+<li>Test remotely</li>
+<li><a href="UpdateServer.md">Update Server</a></li>
+</ul>
+<h3 id="use-view-inheritance">Use View Inheritance</h3>
+<p>Create a series of templates</p>
+<pre><code>book_theme.html
+_header.html
+_footer.html
+_navbar.html
+_user.html</code></pre>
+<p><a href="ViewInheritance.md">View Templates</a></p>
+<h3 id="improve-appearance">Improve Appearance</h3>
+<ul>
+<li>Use logic from Shrinking World website
+<ul>
+<li>Header with globe banner art</li>
+<li>CSS stylesheet (static/shrinking-world.css)</li>
+<li>Body background (static/paper.png)</li>
+<li>Set text color to dark</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="goals-10-29">Goals 10-29</h2>
+<ul>
+<li>Description for book</li>
+<li>Book for chapter</li>
+<li>Add and edit authors</li>
+<li>Author for book</li>
+<li>Favicon - Setup book icon</li>
+</ul>
+<h3 id="what-next">What Next?</h3>
+<ul>
+<li><strong>TEST</strong> (current state)
+<ul>
+<li>dj test, dj runserver</li>
+<li>Create tests find problems and log issues</li>
+</ul></li>
+<li><strong>FIX</strong> (known problems)
+<ul>
+<li>Fix known issues</li>
+</ul></li>
+<li><strong>EXTEND</strong> (new features)
+<ul>
+<li>Create features with tests</li>
+</ul></li>
+<li><strong>IMPROVE</strong> (simplify)
+<ul>
+<li>Refactor to eliminate duplication</li>
+<li>Refactor Django tests</li>
+</ul></li>
+</ul>
+<h3 id="test">Test</h3>
+<ul>
+<li>dj test</li>
+<li>dj runserver</li>
+</ul>
+<h3 id="known-problems">Known Problems</h3>
+<ul>
+<li>Description for book</li>
+<li>Book for chapter</li>
+<li>Add and edit authors</li>
+<li>Author for book</li>
+<li>Favicon - Setup book icon</li>
+<li>Automatically set chapter numbers</li>
+</ul>
+<h3 id="description-for-book">Description for book</h3>
+<ul>
+<li>Detail View pass in markdown HTML and display</li>
+<li>Modify book/models.py</li>
+<li>Modify book/views.py</li>
+<li>Modify templates/book_detail.html</li>
+<li>Modify book/tests.py</li>
+</ul>
+<h3 id="set-book-for-chapter">Set Book for chapter</h3>
+<ul>
+<li>Remove the book field from forms for add or edit</li>
+<li>Pass in the book Id when creating a new chapter</li>
+<li>Set the book Id in the form when saving the record</li>
+</ul>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># models.py</span>
+<span class="kw">class</span> Chapter(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, editable=<span class="ot">False</span>)
+    title = models.CharField(max_length=<span class="dv">100</span>)
+    chapter_num = models.IntegerField()
+    text = models.TextField(default=<span class="st">&#39;No Chapter Text&#39;</span>)
+
+    
+<span class="co"># urls.py</span>
+urlpatterns = [
+    <span class="co"># Pass the book id</span>
+    path(<span class="st">&#39;chapter/&lt;int:book_id&gt;/add&#39;</span>, ChapterAdd.as_view(),     name=<span class="st">&#39;chapter_add&#39;</span>),
+]
+
+
+<span class="co"># views.py</span>
+<span class="kw">class</span> ChapterAdd(LoginRequiredMixin, CreateView):
+
+    template_name = <span class="st">&quot;chapter_add.html&quot;</span>
+    model = Chapter
+    fields = <span class="st">&#39;__all__&#39;</span>
+
+    <span class="kw">def</span> form_valid(<span class="ot">self</span>, form):
+        book_id = <span class="ot">self</span>.kwargs.get(<span class="st">&#39;book_id&#39;</span>)
+        form.instance.book_id = book_id
+        <span class="kw">return</span> <span class="dt">super</span>().form_valid(form)</code></pre>
+<h3 id="favicon---setup-book-icon">Favicon - Setup book icon</h3>
+<ul>
+<li>Copy the Bear Icon and the Shrinking World icon to /static</li>
+<li>In the base template load the static files and set the icon</li>
+</ul>
+<pre class="sourceCode html"><code class="sourceCode html">{% load static %}
+
+<span class="er">&lt;</span>!doctype html&gt;
+<span class="kw">&lt;html</span><span class="ot"> lang=</span><span class="st">&quot;en&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;head&gt;</span>
+       ...
+        <span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;/static/shrinking-world.css&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;shortcut icon&quot;</span><span class="ot"> type=</span><span class="st">&quot;image/png&quot;</span><span class="ot"> href=</span><span class="st">&quot;{% static &#39;Bear.favicon.ico&#39; %}&quot;</span><span class="kw">/&gt;</span>
+    <span class="kw">&lt;/head&gt;</span></code></pre>
+<h3 id="test-view-without-data">Test View Without Data</h3>
+<ul>
+<li>Test the views for proper structure</li>
+<li>This tests looks a pages without any data</li>
+<li><a href="TestViews.md">Test Views</a></li>
+<li><a href="https://github.com/Mark-Seaman/Book-Builder/blob/master/bookbuilder/book/tests.py">View Tests Code</a></li>
+</ul>
+<h3 id="test-book-views">Test Book Views</h3>
+<ul>
+<li>Test the views for the Book data model</li>
+<li>Views
+<ul>
+<li>book_list</li>
+<li>book_add</li>
+<li>book_edit</li>
+<li>book_detail</li>
+<li>book_delete</li>
+</ul></li>
+<li><a href="TestBookViews.md">Test Book Views</a></li>
+<li><a href="https://github.com/Mark-Seaman/Book-Builder/blob/master/bookbuilder/book/tests_book.py">Book Tests Code</a></li>
+</ul>
+<h3 id="deploy-test-code-1">Deploy &amp; test code</h3>
+<ul>
+<li>Test locally (auto, manual)</li>
+<li>Commit and push</li>
+<li>Pull and bounce server</li>
+<li>Test remotely</li>
+<li><a href="UpdateServer.md">Update Server</a></li>
+</ul>
+<hr />
+<h2 id="remaining-tasks">Remaining Tasks</h2>
+<h3 id="known-problems-1">Known Problems</h3>
+<h3 id="extend-new-features">Extend (new features)</h3>
+<h3 id="improve-simplify">Improve (simplify)</h3>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

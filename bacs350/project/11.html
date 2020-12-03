@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Project #11</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="project-11---accordion-tabs">Project 11 - Accordion &amp; Tabs</h1>
+<h2 id="goals">Goals</h2>
+<ul>
+<li>Extend Data Views with Components</li>
+<li>Build an applications that uses generic Django views for the CRUD operations</li>
+<li>Use View Tricks
+<ul>
+<li>View Inheritance
+<ul>
+<li>templates/superhero_theme.html</li>
+</ul></li>
+<li>Partial Templates
+<ul>
+<li>include &quot;_navbar.html&quot;</li>
+<li>include &quot;_user.html&quot;</li>
+<li>include &quot;_header.html&quot;</li>
+<li>include &quot;_footer.html&quot;</li>
+<li>include &quot;_card.html&quot;</li>
+<li>include &quot;_cards.html&quot;</li>
+<li>include &quot;_doc.html&quot;</li>
+<li>include &quot;_tabs.html&quot;</li>
+<li>include &quot;_accordion.html&quot;</li>
+</ul></li>
+</ul></li>
+<li>Django View Design Patterns
+<ul>
+<li>CardView</li>
+<li>TableView</li>
+<li>DocumentView</li>
+<li>AccordionView</li>
+<li>TabsView</li>
+<li>Navbar - main menu</li>
+</ul></li>
+<li>User Management
+<ul>
+<li>Users can Register</li>
+<li>Users login/logout</li>
+<li>Edit operations require login</li>
+</ul></li>
+</ul>
+<h3 id="steps">Steps</h3>
+<p>Create a Superhero News website. Implement the these pages.</p>
+<p><strong>Home</strong> - Landing page with information about the website</p>
+<ul>
+<li>Contains Superhero page theme with Header, Navbar, Main, Footer</li>
+<li>Display info in a Bootstrap Card and Container</li>
+<li>Navbar shows brand, menu items (List, Add), user info</li>
+</ul>
+<p><strong>List</strong> - Show list of heros as an Accordion view</p>
+<ul>
+<li>Each hero entry shows name and small photo</li>
+<li>Each panel shows hero details: Name, Small photo, Link to Detail page</li>
+</ul>
+<p><strong>Detail</strong> - Detail page show read-only details</p>
+<ul>
+<li>Superhero Record
+<ul>
+<li>name</li>
+<li>identity</li>
+<li>description</li>
+<li>strength</li>
+<li>weakness</li>
+<li>image</li>
+</ul></li>
+</ul>
+<p><strong>Add</strong> - Add page allows logged in users to add a new hero</p>
+<ul>
+<li>Superhero Record
+<ul>
+<li>name</li>
+<li>identity</li>
+<li>description</li>
+<li>strength</li>
+<li>weakness</li>
+<li>image</li>
+</ul></li>
+<li>Images are added on the back-end or by setting an external URL</li>
+<li>Redirect to the list detail after add</li>
+</ul>
+<p><strong>Edit</strong> - Edit page allows logged in users to edit an existing hero</p>
+<ul>
+<li>Superhero Record
+<ul>
+<li>name</li>
+<li>identity</li>
+<li>description</li>
+<li>strength</li>
+<li>weakness</li>
+<li>image</li>
+</ul></li>
+<li>Redirect to the detail view after edit</li>
+</ul>
+<p><strong>Delete</strong> - Delete page allows logged in users to delete a hero</p>
+<ul>
+<li>Confirm the deletion</li>
+<li>Redirect to the list view after delete</li>
+</ul>
+<h2 id="requirements">Requirements</h2>
+<p>Details provided later</p>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

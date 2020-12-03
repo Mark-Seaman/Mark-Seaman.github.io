@@ -1,0 +1,44 @@
+.reveal h1 {
+    font-size: 250%;
+    color: yellow;
+    text-outline: black 2px 2px;
+    text-shadow: 2px 2px 5px #0a0a0a;
+}
+
+.reveal h2 {
+    /*font-size: 150%;*/
+    color: white;
+    text-shadow: 2px 2px 5px #0a0a0a;
+}
+
+.reveal h3{
+    color: yellow;
+    text-shadow: 2px 2px 5px #0a0a0a;
+}
+
+.reveal .title{
+    color: #222;
+    text-shadow: 2px 2px 5px yellow;
+}
+
+
+.reveal li {
+    color: darkgreen;
+}
+
+.reveal p {
+    font-size: 120%;
+    color: green;
+}
+
+.logo {
+    padding: 10px;
+    background-color: white;
+    border: 1px solid green;
+    box-shadow: 2px 2px 5px black;
+    border-radius: 20px;
+}
+
+code.html {
+    /*background-color: darkgray;*/
+}

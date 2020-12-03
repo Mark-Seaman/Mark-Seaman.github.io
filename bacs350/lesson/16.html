@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lesson #16</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="../unc.css">
+
+    </head>
+
+    <body>
+
+        
+            
+
+            
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../images/Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+
+
+            
+
+    <main>
+        <div class="container">
+            
+                <h1 id="lesson-16---test">Lesson 16 - Test</h1>
+<h2 id="blog-demo-code">Blog Demo Code</h2>
+<h3 id="blog-demo">Blog Demo</h3>
+<ul>
+<li>Simple app that shows the Data View Design Pattern</li>
+<li>Copy this code and debug it</li>
+<li>Make changes to make it match your problem</li>
+<li><a href="https://github.com/Mark-Seaman/Book-Builder/tree/master/BlogApp">Blog App</a></li>
+</ul>
+<h3 id="setup-for-workflow">Setup for Workflow</h3>
+<ul>
+<li>Build Blog project</li>
+<li>Setup automatic tests</li>
+<li>Setup development workflow</li>
+<li>Create one view</li>
+<li>Define TO DO LIST</li>
+</ul>
+<h3 id="create-view-test">Create view test</h3>
+<ul>
+<li>Test that the URL loads</li>
+</ul>
+<p>tests.py</p>
+<pre><code>from django.test import SimpleTestCase
+
+class ViewTests(SimpleTestCase):
+
+    def test_page_exists(self):
+        response = self.client.get(&#39;/&#39;)
+        self.assertEqual(response.status_code, 200)</code></pre>
+<h3 id="create-the-view">Create the view</h3>
+<ul>
+<li>Make the missing view to display template</li>
+</ul>
+<p>templates/index.html</p>
+<pre><code>&lt;h1&gt;To Do List&lt;/h1&gt;</code></pre>
+<p>blog/views.py</p>
+<pre><code>class IndexView(TemplateView):
+    template_name = &#39;index.html&#39;
+    </code></pre>
+<p>blog/urls.py</p>
+<pre><code>from django.urls import path
+from .views import IndexView
+
+urlpatterns = [
+    path(&#39;&#39;, IndexView.as_view(), name=&#39;index&#39;),
+]</code></pre>
+<h3 id="test-the-template">Test the Template</h3>
+<ul>
+<li>Make sure the correct template is used</li>
+</ul>
+<p>tests.py</p>
+<pre><code>from django.test import SimpleTestCase
+
+class ViewTests(SimpleTestCase):
+
+    def test_template(self):
+        response = self.client.get(&#39;/&#39;)
+        self.assertTemplateUsed(response, template_name=&#39;index.html&#39;)</code></pre>
+<h3 id="test-the-title">Test the Title</h3>
+<ul>
+<li>Look for HTML within the page</li>
+</ul>
+<p>tests.py</p>
+<pre><code>from django.test import SimpleTestCase
+
+class ViewTests(SimpleTestCase):
+
+    def test_title(self):
+        response = self.client.get(&#39;/&#39;)
+        self.assertContains(response, &#39;&lt;title&gt;To Do List&lt;/title&gt;&#39;)</code></pre>
+<p>add title to pass test</p>
+<h3 id="look-for-list-items">Look for list items</h3>
+<ul>
+<li>Look for HTML within the page</li>
+</ul>
+<p>tests.py</p>
+<pre><code>from django.test import SimpleTestCase
+
+class ViewTests(SimpleTestCase):
+
+    def test_title(self):
+        response = self.client.get(&#39;/&#39;)
+        self.assertContains(response, &#39;&lt;li&gt;&#39;, count=1)</code></pre>
+<p>add title to pass test</p>
+<h3 id="assertions">Assertions</h3>
+<ul>
+<li><a href="https://docs.djangoproject.com/en/3.1/topics/testing/tools/#assertions">Django Test Assertions</a></li>
+<li>Most useful assertions
+<ul>
+<li>assertTemplateUsed, assertTemplateNotUsed</li>
+<li>assertContains, assertContains</li>
+<li>assertEqual, assertNotEqual</li>
+<li>assertTrue, assertFalse</li>
+</ul></li>
+</ul>
+<h3 id="basic-tests">Basic tests</h3>
+<ul>
+<li>Check status code</li>
+<li>Check missing pages</li>
+<li>Check page content</li>
+<li>Check the URL</li>
+<li>Check for redirect</li>
+<li>Ensure bad content not present</li>
+</ul>
+<h3 id="data-model-design-pattern">Data Model Design Pattern</h3>
+<p>blog/models.py</p>
+<pre><code>from django.db import models
+
+class Post(models.Model):
+    title = models.CharField(max_length=200)
+    author = models.ForeignKey(&#39;auth.User&#39;, on_delete=models.CASCADE)
+    body = models.TextField()</code></pre>
+<h3 id="createview-design-pattern">CreateView Design Pattern</h3>
+<p>templates/post_new.html</p>
+<pre><code>
+    &lt;form action=&quot;&quot; method=&quot;post&quot;&gt;{% csrf_token %}
+       {{ form.as_p }}
+       &lt;input type=&quot;submit&quot; value=&quot;Save&quot;&gt;
+    &lt;/form&gt;</code></pre>
+<p>blog/urls.py</p>
+<pre><code>from django.urls import path
+from .views import BlogCreateView
+
+urlpatterns = [
+    path(&#39;new/&#39;, BlogCreateView.as_view(), name=&#39;post_new&#39;),
+]</code></pre>
+<p>blog/views.py</p>
+<pre><code>class BlogCreateView(CreateView):
+    model = Post
+    template_name = &#39;post_new.html&#39;
+    fields = [&#39;title&#39;, &#39;author&#39;, &#39;body&#39;]</code></pre>
+<h3 id="test-the-create">Test the Create</h3>
+<ul>
+<li><p>Test the object in memory</p>
+<p>from django.contrib.auth import get_user_model from django.test import TestCase from django.urls import reverse</p>
+<p>from .models import Post</p>
+<p>class BlogTests(TestCase):</p>
+<pre><code>def setUp(self):
+    self.user = get_user_model().objects.create_user(
+        username=&#39;testuser&#39;,
+        email=&#39;test@email.com&#39;,
+        password=&#39;secret&#39;
+    )
+
+    self.post = Post.objects.create(
+        title=&#39;A good title&#39;,
+        body=&#39;Nice body content&#39;,
+        author=self.user,
+    )
+
+def test_post_content(self):
+    self.assertEqual(f&#39;{self.post.title}&#39;, &#39;A good title&#39;)
+    self.assertEqual(f&#39;{self.post.author}&#39;, &#39;testuser&#39;)
+    self.assertEqual(f&#39;{self.post.body}&#39;, &#39;Nice body content&#39;)   </code></pre></li>
+</ul>
+<h3 id="test-the-database-records">Test the Database Records</h3>
+<ul>
+<li>Get the ListView</li>
+<li><p>Look for the content we added</p>
+<pre><code>def test_post_list_view(self):
+    response = self.client.get(reverse(&#39;post_list&#39;))
+    self.assertEqual(response.status_code, 200)
+    self.assertContains(response, &#39;Nice body content&#39;)
+    self.assertTemplateUsed(response, &#39;post_list.html&#39;)</code></pre></li>
+</ul>
+<h3 id="listview-design-pattern">ListView Design Pattern</h3>
+<p>templates/post_list.html</p>
+<pre><code>    {% for post in object_list %}
+        &lt;h3&gt;&lt;a href=&quot;{% url &#39;post_detail&#39; post.pk %}&quot;&gt;{{ post.title }}&lt;/a&gt;&lt;/h3&gt;
+        &lt;p&gt;{{ post.body }}&lt;/p&gt;
+    {% endfor %}</code></pre>
+<p>blog/urls.py</p>
+<pre><code>urlpatterns = [
+    path(&#39;&#39;, BlogListView.as_view(), name=&#39;post_list&#39;),
+]</code></pre>
+<p>blog/views.py</p>
+<pre><code>class BlogListView(ListView):
+    model = Post
+    template_name = &#39;post_list.html&#39;</code></pre>
+<h3 id="detailview-design-pattern">DetailView Design Pattern</h3>
+<p>templates/post_detail.html</p>
+<pre><code>    &lt;h2&gt;{{ post.title }}&lt;/h2&gt;
+    &lt;p&gt;{{ post.body }}&lt;/p&gt;
+    
+    &lt;a href=&quot;{% url &#39;post_edit&#39; post.pk %}&quot;&gt;Edit Blog Post&lt;/a&gt;
+    &lt;a href=&quot;{% url &#39;post_delete&#39; post.pk %}&quot;&gt;Delete Blog Post&lt;/a&gt;</code></pre>
+<p>blog/urls.py</p>
+<pre><code>urlpatterns = [
+    path(&#39;&lt;int:pk&gt;/&#39;, BlogDetailView.as_view(), name=&#39;post_detail&#39;),
+]</code></pre>
+<p>blog/views.py</p>
+<pre><code>class BlogDetailView(DetailView):
+    model = Post
+    template_name = &#39;post_detail.html&#39;</code></pre>
+<h3 id="updateview-design-pattern">UpdateView Design Pattern</h3>
+<p>templates/post_edit.html</p>
+<pre><code>    &lt;form action=&quot;&quot; method=&quot;post&quot;&gt;{% csrf_token %}
+        {{ form.as_p }}
+        &lt;input type=&quot;submit&quot; value=&quot;Update&quot;&gt;
+    &lt;/form&gt;</code></pre>
+<p>blog/urls.py</p>
+<pre><code>urlpatterns = [
+    path(&#39;&lt;int:pk&gt;/edit/&#39;, BlogUpdateView.as_view(), name=&#39;post_edit&#39;),
+]</code></pre>
+<p>blog/views.py</p>
+<pre><code>class BlogUpdateView(UpdateView):
+    model = Post
+    template_name = &#39;post_edit.html&#39;
+    fields = [&#39;title&#39;, &#39;body&#39;]</code></pre>
+<h3 id="deleteview-design-pattern">DeleteView Design Pattern</h3>
+<p>templates/post_delete.html</p>
+<pre><code>    &lt;h2&gt;{{ post.title }}&lt;/h2&gt;
+    &lt;p&gt;{{ post.body }}&lt;/p&gt;
+    
+    &lt;a href=&quot;{% url &#39;post_edit&#39; post.pk %}&quot;&gt;Edit Blog Post&lt;/a&gt;
+    &lt;a href=&quot;{% url &#39;post_delete&#39; post.pk %}&quot;&gt;Delete Blog Post&lt;/a&gt;</code></pre>
+<p>blog/urls.py</p>
+<pre><code>urlpatterns = [
+    path(&#39;&lt;int:pk&gt;/delete/&#39;, BlogDeleteView.as_view(), name=&#39;post_delete&#39;),
+]</code></pre>
+<p>blog/views.py</p>
+<pre><code>from django.urls import reverse_lazy
+
+class BlogDeleteView(DeleteView):
+    model = Post
+    template_name = &#39;post_delete.html&#39;
+    success_url = reverse_lazy(&#39;post_list&#39;)</code></pre>
+<h3 id="full-test-suite">Full Test Suite</h3>
+<ul>
+<li><p>Test code from &quot;Django for Beginners&quot; - William Vincent</p>
+<p>from django.contrib.auth import get_user_model from django.test import TestCase from django.urls import reverse</p>
+<p>from .models import Post</p>
+<p>class BlogTests(TestCase):</p>
+<pre><code>def setUp(self):
+    self.user = get_user_model().objects.create_user(
+        username=&#39;testuser&#39;,
+        email=&#39;test@email.com&#39;,
+        password=&#39;secret&#39;
+    )
+
+    self.post = Post.objects.create(
+        title=&#39;A good title&#39;,
+        body=&#39;Nice body content&#39;,
+        author=self.user,
+    )
+
+def test_string_representation(self):
+    post = Post(title=&#39;A sample title&#39;)
+    self.assertEqual(str(post), post.title)
+
+def test_get_absolute_url(self): 
+    self.assertEqual(self.post.get_absolute_url(), &#39;/post/1/&#39;)
+
+def test_post_content(self):
+    self.assertEqual(f&#39;{self.post.title}&#39;, &#39;A good title&#39;)
+    self.assertEqual(f&#39;{self.post.author}&#39;, &#39;testuser&#39;)
+    self.assertEqual(f&#39;{self.post.body}&#39;, &#39;Nice body content&#39;)
+
+def test_post_list_view(self):
+    response = self.client.get(reverse(&#39;home&#39;))
+    self.assertEqual(response.status_code, 200)
+    self.assertContains(response, &#39;Nice body content&#39;)
+    self.assertTemplateUsed(response, &#39;home.html&#39;)
+
+def test_post_detail_view(self):
+    response = self.client.get(&#39;/post/1/&#39;)
+    no_response = self.client.get(&#39;/post/100000/&#39;)
+    self.assertEqual(response.status_code, 200)
+    self.assertEqual(no_response.status_code, 404)
+    self.assertContains(response, &#39;A good title&#39;)
+    self.assertTemplateUsed(response, &#39;post_detail.html&#39;)
+
+def test_post_create_view(self):
+    response = self.client.post(reverse(&#39;post_new&#39;), {
+        &#39;title&#39;: &#39;New title&#39;,
+        &#39;body&#39;: &#39;New text&#39;,
+        &#39;author&#39;: self.user.id,
+    })
+    self.assertEqual(response.status_code, 302)
+    self.assertEqual(Post.objects.last().title, &#39;New title&#39;)
+    self.assertEqual(Post.objects.last().body, &#39;New text&#39;)
+
+def test_post_update_view(self):
+    response = self.client.post(reverse(&#39;post_edit&#39;, args=&#39;1&#39;), {
+        &#39;title&#39;: &#39;Updated title&#39;,
+        &#39;body&#39;: &#39;Updated text&#39;,
+    })
+    self.assertEqual(response.status_code, 302)
+
+def test_post_delete_view(self): 
+    response = self.client.post(
+        reverse(&#39;post_delete&#39;, args=&#39;1&#39;))
+    self.assertEqual(response.status_code, 302)</code></pre></li>
+</ul>
+
+            
+        </div>
+    </main>
+
+
+
+            
+                
+    <footer class="text-center m-5">
+        &copy;2020 <a href="https://shrinking-world.com">Shrinking World</a>
+        - Practical Software Engineering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </footer>
+
+            
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>

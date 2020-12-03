@@ -1,0 +1,26 @@
+{
+  "url": "https://shrinking-world.com",
+  "label": "Shrinking World",
+  "menu_items": [
+    {
+      "url": "https://markseaman.org",
+      "label": "Mark Seaman",
+      "page": "MarkSeaman"
+    },
+    {
+      "url": "https://seamanslog.com",
+      "label": "Blog",
+      "page": "seamanslog"
+    },
+    {
+      "url": "https://shrinking-world.com/course",
+      "label": "Courses",
+      "page": "course"
+    },
+    {
+      "url": "https://shrinking-world.com/book",
+      "label": "Books",
+      "page": "book"
+    }
+  ]
+}
