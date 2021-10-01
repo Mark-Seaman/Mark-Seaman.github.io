@@ -1,0 +1,93 @@
+/* ----------------------------------------------- */
+/* HTML Elements */
+
+* {
+    padding: 0px;
+    margin: 10px;
+    color: #0E3D65;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+article {
+    border: 1px solid gray;
+    box-shadow: 2px 2px 5px gray;
+    margin: 3em;
+    padding: 1em;
+}
+
+aside {
+    background-color: gray;
+    text-align: center;
+    font-size: 50px;
+    font-family: sans-serif;
+    color: white;
+    border: 2px solid red;
+    float: right;
+    width: 30%;
+}
+
+footer {
+    clear: both;
+    text-align: center;
+    margin: 2em;
+    padding: 2em;
+}
+
+header {
+    border: 3px solid #F6B018;
+    background-color: #0E3D65;
+    font-family: sans-serif;
+    height: 120px;
+    padding: 0;
+}
+
+header * {
+    color: #F6B018;
+}
+
+hr {
+    padding: 0px;
+    border: 4px solid #F6B018;
+}
+
+li {
+    margin: 5px 3em;
+    padding: 0px;
+}
+
+/* ----------------------------------------------- */
+/* Classes */
+
+.header_logo {
+    width: 80px;
+    float: right;
+    background-color: white;
+    box-shadow: 2px 2px 5px gray;
+    border-radius: 5px;
+    border: 1px solid white;
+    padding: 0;
+}
+
+.page {
+    padding: 2em;
+    box-shadow: 2px 2px 5px grey;
+    background-color: #eeeeee;
+    border: 3px solid #0E3D65;
+    border-radius: 10px;
+    width: 50%;
+    float: left;
+}
+
+body {
+    color: green;
+}
+
+h1 {
+    color: red;
+    text-align: center;
+    background-color: gray;
+}

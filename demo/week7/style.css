@@ -1,0 +1,18 @@
+h1 {
+    color: green;
+    font-size: 300%;
+    font-family: serif;
+    text-align: center;
+    font-weight: bolder;
+    text-shadow: -2px -2px 5px gray;
+}
+
+
+h2 {
+    color: grey;
+}
+
+p {
+    font-weight: bolder;
+
+}
