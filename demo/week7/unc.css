@@ -3,11 +3,16 @@ body {
 }
 
 h1 {
+    margin: 2em;
+    padding: 40px;
+    text-align: center;
+    font: 400% cursive;
     color: yellow;
     border: 1px solid gray;
-    background-color: black;
+    background-color: blue;
+    border-radius: 60px;
 }
 
 a {
-    color: red;
+    color: green;
 }
