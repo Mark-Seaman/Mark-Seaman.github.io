@@ -6,7 +6,186 @@
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lesson 20</title>
+    <title>Lesson 20 - Page Layout
+        
+
+## LEARN
+
+### Office Hours
+* If you need help please attend office hours
+* Connect in person or via zoom 1:30-2:30 MWF
+* Check the Canvas page for details
+* Wednesday Lab Session 2:30-3:20 in Kepner 0090
+
+
+### Reading for Today  
+* Read &lt;a target=&quot;_blank&quot; 
+href=&quot;https://learn.zybooks.com/zybook/UNCOBACS200SeamanFall2021/chapter/3/section/4&quot;&gt;
+3.4 Common properties
+&lt;/a&gt;
+* Follow &lt;a target=&quot;_blank&quot; href=&quot;/course/bacs200/docs/ZybooksReading&quot;&gt;Reading Schedule&lt;/a&gt;
+
+
+### Today
+* CSS Page Layout
+
+
+### CSS Rule Set
+* Example Rule Set
+
+```css
+h1 {
+    font-family: serif;
+    font-size: 120%;
+}
+```
+
+
+### Hooking up CSS
+* Link the Stylesheet to each HTML page
+
+```html
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+```
+
+### CSS Property Groups
+* Text
+* Color
+* Spacing
+* Borders
+
+
+### HTML Semantic Elements
+Why Semantic Elements?
+
+* Semantic HTML Elements let you organize the content of your page.
+
+
+### Semantic HTML Elements
+* Start with Basic Page Template
+* Add in Semantic Elements
+    * Header
+    * Main
+    * Footer
+
+
+### Basic HTML Template
+Add this content to index.html
+
+```html
+&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;Learning HTML&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+```
+
+
+### Page Layout Guide
+* Header
+* Main
+* Footer
+
+```html
+
+&lt;body&gt;
+    &lt;header&gt; ... &lt;/header&gt;
+    &lt;main&gt; ... &lt;/main&gt;
+    &lt;footer&gt; ... &lt;/footer&gt;
+&lt;/body&gt;
+
+```
+
+
+### Header Element
+* The header element defines a block at the top of the page
+
+```
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;img src=&quot;Bear.png&quot;
+             alt=&quot;Bear Logo&quot; style=&quot;float:right&quot; width=&quot;200&quot;&gt;
+        &lt;h2&gt;Your Name Title&lt;/h2&gt;
+    &lt;/header&gt;
+&lt;/body&gt;
+```
+
+
+### Main Element
+
+* The main element defines bulk of the page content
+
+
+```
+&lt;main&gt;
+    &lt;h1&gt;My Home Page&lt;/h1&gt;
+    &lt;p&gt;Paragraph&lt;/p&gt;
+&lt;/main&gt;
+```
+
+
+
+### Footer Element
+* The footer element defines bottom area of the page
+* Note the HTML entity for the copyright symbol &quot;&amp;amp;copy;&quot;
+
+```html
+
+&lt;footer&gt;
+    &lt;p&gt;&amp;copy; Copyright 2021 - Shrinking World Solutions&lt;/p&gt;
+&lt;/footer&gt;
+
+```
+
+
+### Never Write From Scratch
+* Don&#x27;t waste your time
+* Someone is paying for the end result
+* Give them good value for their money
+* Create a page template &quot;template.html&quot;
+
+
+### Creating Pages
+* Every page start with your master template
+* Customize to taste
+    * Set page and site titles
+    * Add new stylesheets
+    * Add desire structural components
+* Create custom content
+    * Write content as raw text
+    * Add HTML structure
+    * Add CSS style
+    
+    
+
+## BUILD
+
+
+### CSS Demo
+* [Demo Code](https://github.com/Mark-Seaman/Mark-Seaman.github.io/tree/master/demo/week7/index.html)
+* Study code so that you can reproduce these results
+* [See Demo on Server](https://Mark-Seaman.github.io/demo/week7/index.html)
+
+
+### W3Schools
+* [W3Schools - CSS](https://www.w3schools.com/css/default.asp)
+
+
+### Validator
+* [Validate the HTML](https://validator.w3.org/)
+* [Validate the CSS](http://jigsaw.w3.org/css-validator/)
+
+
+### Project 7 - Wanted Poster
+* [Project Instructions](../project/07)
+* Use float property to get divs side by side
+* Google: float w3schools
+
+</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"

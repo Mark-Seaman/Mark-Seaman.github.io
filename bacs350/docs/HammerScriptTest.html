@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hammer Script Test Design Pattern
+
+
+### Demo Code
+* Clone my repo and study the code in 
+[Hammer Test Source Code](https://github.com/Mark-Seaman/BACS350/tree/main/week14/HammerTest)
+* Build the code and experiment with it
+* Set up tests for your favorite web sites
+* Do it simple; do it now!
+
+
+### Data
+
+probe/models.py
+
+```python
+from django.db import models
+from django.urls.base import reverse_lazy
+
+
+class Test(models.Model):
+
+    name = models.CharField(max_length=100)
+    expected = models.TextField(default=&#x27;Initial Output&#x27;, null=True)
+    source = models.TextField(default=&#x27;none&#x27;)
+
+    def __str__(self):
+        return f&#x27;{self.name}&#x27;
+
+    def get_absolute_url(self):
+        return reverse_lazy(&#x27;test_list&#x27;)
+
+    @staticmethod
+    def create(**kwargs):
+        x = Test.objects.get_or_create(name=kwargs.get(&#x27;name&#x27;))[0]
+        expected = kwargs.get(&#x27;expected&#x27;)
+        if expected:
+            x.expected = expected
+        x.source = kwargs.get(&#x27;source&#x27;)
+        x.save()
+
+
+class Result(models.Model):
+
+    probe = models.ForeignKey(Test, on_delete=models.CASCADE, editable=False)
+    date = models.DateTimeField(auto_now=True)
+    output = models.TextField(default=&#x27;Not yet run&#x27;)
+    passed = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f&#x27;{self.probe.name} - {self.date} - {self.passed}&#x27;
+
+    def get_absolute_url(self):
+        return reverse_lazy(&#x27;test_list&#x27;)
+
+    @staticmethod
+    def create(**kwargs):
+        c = Result.objects.create(probe=kwargs.get(&#x27;probe&#x27;))
+        c.output = kwargs.get(&#x27;output&#x27;)
+        c.passed = kwargs.get(&#x27;passed&#x27;)
+        c.save()
+        return c
+
+```
+
+
+### Find the Page Probe Tests
+* Scan the test directory
+* Scan files for test functions
+
+probe/probe.py
+
+```python
+all_probes = {}
+
+def find_tests():
+
+    def module_list(directory):
+        return [f.replace(&#x27;.py&#x27;, &#x27;&#x27;) for f in listdir(directory) if f.startswith(&#x27;test_&#x27;)]
+
+    def test_functions(module_name):
+        module = get_module(module_name)
+        functions = getmembers(module, isfunction)
+        return [f for f in functions if f[0].startswith(&#x27;test_&#x27;)]
+
+    global all_probes
+
+    for module_name in module_list(&#x27;test&#x27;):
+        for f in test_functions(module_name):
+            source = &#x27;.&#x27;.join([&#x27;test&#x27;, module_name, f[0]])
+            all_probes[f[0]] = f[1]
+
+```
+
+test/test_system.py
+
+```python
+def test_system_source():
+    files = len(recursive_files(&#x27;.&#x27;))
+    return f&#x27;System files: {files}&#x27;
+
+
+def test_python_source():
+    files = len(recursive_files(&#x27;.&#x27;, filetype=&#x27;.py&#x27;))
+    return f&#x27;Python files: {files}&#x27;
+
+```
+
+
+### Execute Page Probe Tests
+* Fetch and examine web pages from local and remote servers
+* Use &quot;requests&quot; module in Python to fetch pages
+* Use an app to manage test cases
+
+probe/probe.py
+
+```python
+all_probes = {}
+
+def execute_probe(probe):
+
+    def get_test_function(probe):
+        global all_probes
+        return all_probes[probe.source]
+
+    try:
+        output = get_test_function(probe)()
+        passed = output == probe.expected
+    except:
+        output = f&#x27;Test Failed to execute:  {probe.name}&#x27;
+        passed = False
+
+    return Result.create(probe=probe, output=output, passed=passed)
+
+```
+
+
+### Views
+
+probe/probe_views.py
+
+```python
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import render
+from django.urls import reverse_lazy, reverse
+from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView
+
+from .models import Result, Test
+from .probe import approve_result, clear_probe_history, execute_probe, reset_tests, result_list
+
+
+class TestView(RedirectView):
+    url = reverse_lazy(&#x27;test_list&#x27;)
+
+
+class TestApproveView(RedirectView):
+
+    def get_redirect_url(self, **kwargs):
+        pk = self.kwargs.get(&#x27;pk&#x27;)
+        result = Result.objects.get(pk=pk)
+        result = approve_result(result)
+        return reverse(&#x27;test_detail&#x27;, args=[result.probe.pk])
+
+
+class TestListView(ListView):
+    template_name = &#x27;test_list.html&#x27;
+    model = Test
+
+
+class TestDetailView(DetailView):
+    template_name = &#x27;test_detail.html&#x27;
+    model = Test
+
+    def get_context_data(self, **kwargs):
+        kwargs = super().get_context_data(**kwargs)
+        probe = kwargs[&#x27;object&#x27;]
+        # execute_probe(probe)
+        kwargs[&#x27;results&#x27;] = result_list(probe)
+        return kwargs
+
+
+class TestCreateView(LoginRequiredMixin, CreateView):
+    template_name = &quot;test_add.html&quot;
+    model = Test
+    fields = &#x27;__all__&#x27;
+
+    def form_valid(self, form):
+        form.instance.author_id = 1
+        return super().form_valid(form)
+
+
+class TestResetView(RedirectView):
+
+    def get_redirect_url(self, **kwargs):
+        pk = self.kwargs.get(&#x27;pk&#x27;)
+        if pk == 0:
+            reset_tests()
+            return reverse(&#x27;test_list&#x27;)
+        else:
+            clear_probe_history(pk)
+            return reverse(&#x27;test_detail&#x27;, args=[pk])
+
+
+class TestRunView(RedirectView):
+
+    def get_redirect_url(self, **kwargs):
+        pk = self.kwargs.get(&#x27;pk&#x27;)
+        if pk == 0:
+            for probe in Test.objects.all():
+                execute_probe(probe)
+            return reverse(&#x27;test_list&#x27;)
+        else:
+            probe = Test.objects.get(pk=pk)
+            execute_probe(probe)
+            return reverse(&#x27;test_detail&#x27;, args=[pk])
+
+
+class TestUpdateView(LoginRequiredMixin, UpdateView):
+    template_name = &quot;test_edit.html&quot;
+    model = Test
+    fields = &#x27;__all__&#x27;
+
+
+class TestDeleteView(LoginRequiredMixin, DeleteView):
+    model = Test
+    template_name = &#x27;test_delete.html&#x27;
+    success_url = reverse_lazy(&#x27;test_list&#x27;)
+
+```
+
+
+### Templates
+
+
+templates/probe_detail.html
+
+```html  
+{% extends &#x27;theme.html&#x27; %}
+
+{% block content %}
+
+&lt;div class=&quot;container m-5&quot;&gt;
+
+    &lt;h1 class=&quot;text-primary&quot;&gt;Test Details - {{ object.name }}&lt;/h1&gt;
+
+    &lt;h2&gt;Expected Output&lt;/h2&gt;
+    &lt;pre&gt;{{ object.expected }}&lt;/pre&gt;
+
+    &lt;h2&gt;Python Source Code for Test&lt;/h2&gt;
+    &lt;pre&gt;{{ object.source }}&lt;/pre&gt;
+
+    &lt;a href=&quot;/test/&quot; class=&quot;btn btn-success m-5&quot;&gt;Test List&lt;/a&gt;
+    &lt;a href=&quot;/test/{{ object.pk }}/&quot; class=&quot;btn btn-success m-5&quot;&gt;Edit Test&lt;/a&gt;
+    &lt;a href=&quot;/test/{{ object.pk }}/delete&quot; class=&quot;btn btn-success m-5&quot;&gt;Delete Test&lt;/a&gt;
+    &lt;a href=&quot;/test/{{ object.pk }}/run&quot; class=&quot;btn btn-success m-5&quot;&gt;Run Test&lt;/a&gt;
+    &lt;a href=&quot;/test/{{ object.pk }}/reset&quot; class=&quot;btn btn-success m-5&quot;&gt;Clear History&lt;/a&gt;
+
+    &lt;h2&gt;Test History&lt;/h2&gt;
+    &lt;table class=&quot;table&quot;&gt;
+
+        &lt;tr&gt;
+            &lt;th&gt;Date&lt;/th&gt;
+            &lt;th&gt;Pass/Fail&lt;/th&gt;
+            &lt;th&gt;Text Output&lt;/th&gt;
+        &lt;/tr&gt;
+        {% for r in results %}
+        &lt;tr&gt;
+            &lt;td&gt;{{ r.date }}&lt;/td&gt;
+            &lt;td&gt;{% if r.passed %}PASS{% else %}FAIL{% endif %}&lt;/td&gt;
+            &lt;td&gt;{{ r.output }}&lt;/td&gt;
+            &lt;td&gt;&lt;a href=&quot;/test/{{ r.pk }}/approve&quot; class=&quot;btn btn-success&quot;&gt;Approve&lt;/a&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        {% endfor %}
+    &lt;/table&gt;
+
+&lt;/div&gt;
+
+{% endblock content %}
+```
+
+
+### URL Routes
+
+config/urls.py
+
+```python
+from hammer.views_probe import TestView
+
+urlpatterns = [
+    path(&#x27;&#x27;, TestView.as_view()),
+    path(&#x27;test/&#x27;, include(&#x27;hammer.urls_probe&#x27;)),
+]
+
+```
+
+
+probe/probe_urls.py
+
+```python
+
+from django.urls import path
+from .views_probe import (TestApproveView, TestCreateView, TestDeleteView, TestDetailView,
+                          TestListView, TestResetView, TestRunView, TestUpdateView)
+urlpatterns = [
+
+    # Test
+    path(&#x27;&#x27;,                       TestListView.as_view(),      name=&#x27;test_list&#x27;),
+    path(&#x27;&lt;int:pk&gt;&#x27;,               TestDetailView.as_view(),    name=&#x27;test_detail&#x27;),
+    path(&#x27;add&#x27;,                    TestCreateView.as_view(),    name=&#x27;test_add&#x27;),
+    path(&#x27;&lt;int:pk&gt;/&#x27;,              TestUpdateView.as_view(),    name=&#x27;test_edit&#x27;),
+    path(&#x27;&lt;int:pk&gt;/delete&#x27;,        TestDeleteView.as_view(),    name=&#x27;test_delete&#x27;),
+
+    # Results
+    path(&#x27;&lt;int:pk&gt;/run&#x27;,           TestRunView.as_view(),       name=&#x27;test_run&#x27;),
+    path(&#x27;&lt;int:pk&gt;/approve&#x27;,       TestApproveView.as_view(),   name=&#x27;test_approve&#x27;),
+    path(&#x27;&lt;int:pk&gt;/reset&#x27;,         TestResetView.as_view(),     name=&#x27;test_reset&#x27;),
+
+]
+
+```
+
+</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark text-light">
+
+        <div class="container">
+
+            <a class="navbar-brand text-light" href="/">UNC BACS 350</a>
+
+            <ul class="navbar-nav text-light ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../lesson/index.html">Lessons</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../project/index.html">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../docs/index.html">Documents</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Hammer Script Test Design Pattern</h1>
+<h3>Demo Code</h3>
+<ul>
+<li>Clone my repo and study the code in 
+<a href="https://github.com/Mark-Seaman/BACS350/tree/main/week14/HammerTest">Hammer Test Source Code</a></li>
+<li>Build the code and experiment with it</li>
+<li>Set up tests for your favorite web sites</li>
+<li>Do it simple; do it now!</li>
+</ul>
+<h3>Data</h3>
+<p>probe/models.py</p>
+<p>```python
+from django.db import models
+from django.urls.base import reverse_lazy</p>
+<p>class Test(models.Model):</p>
+<pre><code>name = models.CharField(max_length=100)
+expected = models.TextField(default='Initial Output', null=True)
+source = models.TextField(default='none')
+
+def __str__(self):
+    return f'{self.name}'
+
+def get_absolute_url(self):
+    return reverse_lazy('test_list')
+
+@staticmethod
+def create(**kwargs):
+    x = Test.objects.get_or_create(name=kwargs.get('name'))[0]
+    expected = kwargs.get('expected')
+    if expected:
+        x.expected = expected
+    x.source = kwargs.get('source')
+    x.save()
+</code></pre>
+<p>class Result(models.Model):</p>
+<pre><code>probe = models.ForeignKey(Test, on_delete=models.CASCADE, editable=False)
+date = models.DateTimeField(auto_now=True)
+output = models.TextField(default='Not yet run')
+passed = models.BooleanField(default=False)
+
+def __str__(self):
+    return f'{self.probe.name} - {self.date} - {self.passed}'
+
+def get_absolute_url(self):
+    return reverse_lazy('test_list')
+
+@staticmethod
+def create(**kwargs):
+    c = Result.objects.create(probe=kwargs.get('probe'))
+    c.output = kwargs.get('output')
+    c.passed = kwargs.get('passed')
+    c.save()
+    return c
+</code></pre>
+<p>```</p>
+<h3>Find the Page Probe Tests</h3>
+<ul>
+<li>Scan the test directory</li>
+<li>Scan files for test functions</li>
+</ul>
+<p>probe/probe.py</p>
+<p>```python
+all_probes = {}</p>
+<p>def find_tests():</p>
+<pre><code>def module_list(directory):
+    return [f.replace('.py', '') for f in listdir(directory) if f.startswith('test_')]
+
+def test_functions(module_name):
+    module = get_module(module_name)
+    functions = getmembers(module, isfunction)
+    return [f for f in functions if f[0].startswith('test_')]
+
+global all_probes
+
+for module_name in module_list('test'):
+    for f in test_functions(module_name):
+        source = '.'.join(['test', module_name, f[0]])
+        all_probes[f[0]] = f[1]
+</code></pre>
+<p>```</p>
+<p>test/test_system.py</p>
+<p>```python
+def test_system_source():
+    files = len(recursive_files('.'))
+    return f'System files: {files}'</p>
+<p>def test_python_source():
+    files = len(recursive_files('.', filetype='.py'))
+    return f'Python files: {files}'</p>
+<p>```</p>
+<h3>Execute Page Probe Tests</h3>
+<ul>
+<li>Fetch and examine web pages from local and remote servers</li>
+<li>Use "requests" module in Python to fetch pages</li>
+<li>Use an app to manage test cases</li>
+</ul>
+<p>probe/probe.py</p>
+<p>```python
+all_probes = {}</p>
+<p>def execute_probe(probe):</p>
+<pre><code>def get_test_function(probe):
+    global all_probes
+    return all_probes[probe.source]
+
+try:
+    output = get_test_function(probe)()
+    passed = output == probe.expected
+except:
+    output = f'Test Failed to execute:  {probe.name}'
+    passed = False
+
+return Result.create(probe=probe, output=output, passed=passed)
+</code></pre>
+<p>```</p>
+<h3>Views</h3>
+<p>probe/probe_views.py</p>
+<p>```python
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import render
+from django.urls import reverse_lazy, reverse
+from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, UpdateView</p>
+<p>from .models import Result, Test
+from .probe import approve_result, clear_probe_history, execute_probe, reset_tests, result_list</p>
+<p>class TestView(RedirectView):
+    url = reverse_lazy('test_list')</p>
+<p>class TestApproveView(RedirectView):</p>
+<pre><code>def get_redirect_url(self, **kwargs):
+    pk = self.kwargs.get('pk')
+    result = Result.objects.get(pk=pk)
+    result = approve_result(result)
+    return reverse('test_detail', args=[result.probe.pk])
+</code></pre>
+<p>class TestListView(ListView):
+    template_name = 'test_list.html'
+    model = Test</p>
+<p>class TestDetailView(DetailView):
+    template_name = 'test_detail.html'
+    model = Test</p>
+<pre><code>def get_context_data(self, **kwargs):
+    kwargs = super().get_context_data(**kwargs)
+    probe = kwargs['object']
+    # execute_probe(probe)
+    kwargs['results'] = result_list(probe)
+    return kwargs
+</code></pre>
+<p>class TestCreateView(LoginRequiredMixin, CreateView):
+    template_name = "test_add.html"
+    model = Test
+    fields = '<strong>all</strong>'</p>
+<pre><code>def form_valid(self, form):
+    form.instance.author_id = 1
+    return super().form_valid(form)
+</code></pre>
+<p>class TestResetView(RedirectView):</p>
+<pre><code>def get_redirect_url(self, **kwargs):
+    pk = self.kwargs.get('pk')
+    if pk == 0:
+        reset_tests()
+        return reverse('test_list')
+    else:
+        clear_probe_history(pk)
+        return reverse('test_detail', args=[pk])
+</code></pre>
+<p>class TestRunView(RedirectView):</p>
+<pre><code>def get_redirect_url(self, **kwargs):
+    pk = self.kwargs.get('pk')
+    if pk == 0:
+        for probe in Test.objects.all():
+            execute_probe(probe)
+        return reverse('test_list')
+    else:
+        probe = Test.objects.get(pk=pk)
+        execute_probe(probe)
+        return reverse('test_detail', args=[pk])
+</code></pre>
+<p>class TestUpdateView(LoginRequiredMixin, UpdateView):
+    template_name = "test_edit.html"
+    model = Test
+    fields = '<strong>all</strong>'</p>
+<p>class TestDeleteView(LoginRequiredMixin, DeleteView):
+    model = Test
+    template_name = 'test_delete.html'
+    success_url = reverse_lazy('test_list')</p>
+<p>```</p>
+<h3>Templates</h3>
+<p>templates/probe_detail.html</p>
+<p>```html<br />
+{% extends 'theme.html' %}</p>
+<p>{% block content %}</p>
+<div class="container m-5">
+
+    <h1 class="text-primary">Test Details - {{ object.name }}</h1>
+
+    <h2>Expected Output</h2>
+    <pre>{{ object.expected }}</pre>
+
+    <h2>Python Source Code for Test</h2>
+    <pre>{{ object.source }}</pre>
+
+    <a href="/test/" class="btn btn-success m-5">Test List</a>
+    <a href="/test/{{ object.pk }}/" class="btn btn-success m-5">Edit Test</a>
+    <a href="/test/{{ object.pk }}/delete" class="btn btn-success m-5">Delete Test</a>
+    <a href="/test/{{ object.pk }}/run" class="btn btn-success m-5">Run Test</a>
+    <a href="/test/{{ object.pk }}/reset" class="btn btn-success m-5">Clear History</a>
+
+    <h2>Test History</h2>
+    <table class="table">
+
+        <tr>
+            <th>Date</th>
+            <th>Pass/Fail</th>
+            <th>Text Output</th>
+        </tr>
+        {% for r in results %}
+        <tr>
+            <td>{{ r.date }}</td>
+            <td>{% if r.passed %}PASS{% else %}FAIL{% endif %}</td>
+            <td>{{ r.output }}</td>
+            <td><a href="/test/{{ r.pk }}/approve" class="btn btn-success">Approve</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+<p>{% endblock content %}
+```</p>
+<h3>URL Routes</h3>
+<p>config/urls.py</p>
+<p>```python
+from hammer.views_probe import TestView</p>
+<p>urlpatterns = [
+    path('', TestView.as_view()),
+    path('test/', include('hammer.urls_probe')),
+]</p>
+<p>```</p>
+<p>probe/probe_urls.py</p>
+<p>```python</p>
+<p>from django.urls import path
+from .views_probe import (TestApproveView, TestCreateView, TestDeleteView, TestDetailView,
+                          TestListView, TestResetView, TestRunView, TestUpdateView)
+urlpatterns = [</p>
+<pre><code># Test
+path('',                       TestListView.as_view(),      name='test_list'),
+path('&lt;int:pk&gt;',               TestDetailView.as_view(),    name='test_detail'),
+path('add',                    TestCreateView.as_view(),    name='test_add'),
+path('&lt;int:pk&gt;/',              TestUpdateView.as_view(),    name='test_edit'),
+path('&lt;int:pk&gt;/delete',        TestDeleteView.as_view(),    name='test_delete'),
+
+# Results
+path('&lt;int:pk&gt;/run',           TestRunView.as_view(),       name='test_run'),
+path('&lt;int:pk&gt;/approve',       TestApproveView.as_view(),   name='test_approve'),
+path('&lt;int:pk&gt;/reset',         TestResetView.as_view(),     name='test_reset'),
+</code></pre>
+<p>]</p>
+<p>```</p>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

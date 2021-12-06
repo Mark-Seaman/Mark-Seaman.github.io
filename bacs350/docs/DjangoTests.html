@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Django Tests Design Pattern
+
+
+## Overview
+
+### Goals
+
+Build a standard set of tests that can be automatically applied to each
+new data type.
+
+Build test without thinking (up and running in 5 minutes).
+
+Generate full test coverage.
+
+
+### Steps
+* Define data model
+* Define Data Test class
+* Define View Test class
+* Use template to create automatic code
+
+
+### Design Pattern for Django Tests
+* Blank database
+* Setup
+* Fixtures
+* Data (CRUD)
+* Views (list, detail, add, edit, delete)
+* Standard test design
+
+
+### Blank database
+* Before every test case a blank database is created
+* All database operations are performed on this test database
+
+
+### Setup
+* Initialization steps can be added to the setUp function
+which is run before every test case.
+* Objects needed by multiple tests are added to setUp.
+
+```python
+def setUp(self):
+    self.user, self.user_args = create_test_user()
+    self.author = Author.objects.create(user=self.user, name=&#x27;Mark&#x27;)
+    self.course = Course.objects.create(title=&#x27;BACS 350&#x27;, author=self.author)
+```
+
+
+### Fixtures
+* JSON test fixture can set the blank database to any known state
+* Test can be run in that database context
+
+
+### Data Test (CRUD)
+* Test for each operation (CREATE, READ, UPDATE, DELETE)
+
+
+```python
+class LessonDataTest(TestCase):
+
+    def setUp(self):
+        self.user, self.user_args = create_test_user()
+        self.author = Author.objects.create(user=self.user, 
+                                            name=&#x27;Mark Seaman&#x27;)
+        self.course = Course.objects.create(name=&#x27;bacs200&#x27;, title=&#x27;BACS 200&#x27;, 
+                                            author=self.author, 
+                                            doc_path=&#x27;Documents/Course/bacs200&#x27;)
+        self.lesson1 = dict(course=self.course, title=&#x27;Github&#x27;, order=&#x27;1&#x27;)
+        self.lesson2 = dict(course=self.course, title=&#x27;Servers&#x27;, order=&#x27;2&#x27;)
+
+    def test_add_lesson(self):
+        self.assertEqual(len(Lesson.objects.all()), 0)
+        Lesson.objects.create(**self.lesson1)
+        Lesson.objects.create(**self.lesson2)
+        self.assertEqual(len(Lesson.objects.all()), 2)
+
+    def test_lesson_list(self):
+        Lesson.objects.create(**self.lesson1)
+        Lesson.objects.create(**self.lesson2)
+        b = Lesson.objects.filter(course=self.course).order_by(&#x27;order&#x27;)
+        self.assertEqual(b[0].title, &#x27;Github&#x27;)
+        self.assertEqual(b[1].title, &#x27;Servers&#x27;)
+        self.assertEqual(b[1].document, &#x27;Documents/course/bacs200/lesson/02.md&#x27;)
+
+    def test_lesson_edit(self):
+        Lesson.objects.create(**self.lesson1)
+        b = Lesson.objects.get(pk=1)
+        b.title = &#x27;Servers&#x27;
+        b.order = 2
+        b.save()
+        self.assertEqual(b.title, &#x27;Servers&#x27;)
+        self.assertEqual(b.order, 2)
+        self.assertEqual(b.document, &#x27;Documents/course/bacs200/lesson/02.md&#x27;)
+
+    def test_lesson_delete(self):
+        Lesson.objects.create(**self.lesson1)
+        b = Lesson.objects.get(pk=1)
+        b.delete()
+        self.assertEqual(len(Lesson.objects.all()), 0)
+```
+
+
+### Views Test
+* Test all five views: list, detail, add, edit, delete
+
+```python
+class LessonViewsTest(TestCase):
+
+    def login(self):
+        response = self.client.login(username=self.user.username,  password=self.user_args[&#x27;password&#x27;])
+        self.assertEqual(response, True)
+
+    def setUp(self):
+        self.user, self.user_args = create_test_user()
+        self.author = Author.objects.create(user=self.user, name=&#x27;Charles Dickens&#x27;)
+        self.course = Course.objects.create(title=&#x27;Tale of Two Cities&#x27;, author=self.author,
+                                            description=&#x27;description&#x27;, doc_path=&#x27;Documents&#x27;)
+        self.lesson1 = dict(course=self.course, title=&#x27;Best of Times&#x27;, order=&#x27;1&#x27;, date=&#x27;2001-09-11&#x27;, week=&#x27;1&#x27;)
+        self.lesson2 = dict(course=self.course, title=&#x27;Worst of Times&#x27;, order=&#x27;2&#x27;, date=&#x27;2001-09-18&#x27;, week=&#x27;2&#x27;)
+
+    def test_lesson_list_view(self):
+        Lesson.objects.create(**self.lesson1)
+        self.assertEqual(reverse(&#x27;lesson_list&#x27;), &#x27;/lesson/&#x27;)
+        response = self.client.get(&#x27;/lesson/&#x27;)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, &#x27;lesson_list.html&#x27;)
+        self.assertTemplateUsed(response, &#x27;theme.html&#x27;)
+        self.assertContains(response, &#x27;&lt;tr&gt;&#x27;, count=2)
+
+    def test_lesson_detail_view(self):
+        self.assertEqual(reverse(&#x27;lesson_detail&#x27;, args=&#x27;1&#x27;), &#x27;/lesson/1&#x27;)
+        self.assertEqual(reverse(&#x27;lesson_detail&#x27;, args=&#x27;2&#x27;), &#x27;/lesson/2&#x27;)
+        Lesson.objects.create(**self.lesson1)
+        response = self.client.get(&#x27;/lesson/1&#x27;)
+        self.assertEqual(response.status_code, 200)
+
+    def test_lesson_add_view(self):
+
+        # Add without Login
+        response = self.client.post(reverse(&#x27;lesson_add&#x27;), self.lesson1)
+        self.assertEqual(response.url, &#x27;/accounts/login/?next=/lesson/add&#x27;)
+
+        # Login to add
+        self.login()
+        response = self.client.post(reverse(&#x27;lesson_add&#x27;), self.lesson1)
+        response = self.client.post(reverse(&#x27;lesson_add&#x27;), self.lesson2)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, &#x27;/lesson/&#x27;)
+        self.assertEqual(len(Lesson.objects.all()), 2)
+
+        # List the lessons
+        response = self.client.get(&#x27;/lesson/&#x27;)
+        self.assertContains(response, &#x27;&lt;tr&gt;&#x27;, count=3)
+
+    def test_lesson_edit_view(self):
+
+        # Edit without Login
+        Lesson.objects.create(**self.lesson1)
+        self.assertEqual(reverse(&#x27;lesson_edit&#x27;, args=&#x27;1&#x27;), &#x27;/lesson/1/&#x27;)
+        response = self.client.get(&#x27;/lesson/1/&#x27;)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, &#x27;/accounts/login/?next=/lesson/1/&#x27;)
+
+        # Login to edit
+        self.login()
+        response = self.client.post(&#x27;/lesson/1/&#x27;, self.lesson2)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, &#x27;/lesson/&#x27;)
+
+        # Check the course object
+        c = Lesson.objects.get(pk=1)
+        self.assertEqual(c.title, self.lesson2[&#x27;title&#x27;])
+        self.assertNotEqual(c.title, self.lesson1[&#x27;title&#x27;])
+        self.assertEqual(c.document, &#x27;Documents/course/XXX/lesson/02.md&#x27;)
+
+    def test_lesson_delete_view(self):
+        self.login()
+        Lesson.objects.create(**self.lesson1)
+        self.assertEqual(reverse(&#x27;lesson_delete&#x27;, args=&#x27;1&#x27;), &#x27;/lesson/1/delete&#x27;)
+        response = self.client.get(&#x27;/lesson/1/delete&#x27;)
+        self.assertEqual(response.status_code, 200)
+        response = self.client.post(&#x27;/lesson/1/delete&#x27;)
+        self.assertEqual(len(Lesson.objects.all()), 0)
+```
+
+
+### Standard test design
+* Use a standard template for generating new tests
+* Customize class name, object name, field names
+* Comment out all new test code
+* Debug one test case at a time
+
+</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark text-light">
+
+        <div class="container">
+
+            <a class="navbar-brand text-light" href="/">UNC BACS 350</a>
+
+            <ul class="navbar-nav text-light ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../lesson/index.html">Lessons</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../project/index.html">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../docs/index.html">Documents</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Django Tests Design Pattern</h1>
+<h2>Overview</h2>
+<h3>Goals</h3>
+<p>Build a standard set of tests that can be automatically applied to each
+new data type.</p>
+<p>Build test without thinking (up and running in 5 minutes).</p>
+<p>Generate full test coverage.</p>
+<h3>Steps</h3>
+<ul>
+<li>Define data model</li>
+<li>Define Data Test class</li>
+<li>Define View Test class</li>
+<li>Use template to create automatic code</li>
+</ul>
+<h3>Design Pattern for Django Tests</h3>
+<ul>
+<li>Blank database</li>
+<li>Setup</li>
+<li>Fixtures</li>
+<li>Data (CRUD)</li>
+<li>Views (list, detail, add, edit, delete)</li>
+<li>Standard test design</li>
+</ul>
+<h3>Blank database</h3>
+<ul>
+<li>Before every test case a blank database is created</li>
+<li>All database operations are performed on this test database</li>
+</ul>
+<h3>Setup</h3>
+<ul>
+<li>Initialization steps can be added to the setUp function
+which is run before every test case.</li>
+<li>Objects needed by multiple tests are added to setUp.</li>
+</ul>
+<p><code>python
+def setUp(self):
+    self.user, self.user_args = create_test_user()
+    self.author = Author.objects.create(user=self.user, name='Mark')
+    self.course = Course.objects.create(title='BACS 350', author=self.author)</code></p>
+<h3>Fixtures</h3>
+<ul>
+<li>JSON test fixture can set the blank database to any known state</li>
+<li>Test can be run in that database context</li>
+</ul>
+<h3>Data Test (CRUD)</h3>
+<ul>
+<li>Test for each operation (CREATE, READ, UPDATE, DELETE)</li>
+</ul>
+<p>```python
+class LessonDataTest(TestCase):</p>
+<pre><code>def setUp(self):
+    self.user, self.user_args = create_test_user()
+    self.author = Author.objects.create(user=self.user, 
+                                        name='Mark Seaman')
+    self.course = Course.objects.create(name='bacs200', title='BACS 200', 
+                                        author=self.author, 
+                                        doc_path='Documents/Course/bacs200')
+    self.lesson1 = dict(course=self.course, title='Github', order='1')
+    self.lesson2 = dict(course=self.course, title='Servers', order='2')
+
+def test_add_lesson(self):
+    self.assertEqual(len(Lesson.objects.all()), 0)
+    Lesson.objects.create(**self.lesson1)
+    Lesson.objects.create(**self.lesson2)
+    self.assertEqual(len(Lesson.objects.all()), 2)
+
+def test_lesson_list(self):
+    Lesson.objects.create(**self.lesson1)
+    Lesson.objects.create(**self.lesson2)
+    b = Lesson.objects.filter(course=self.course).order_by('order')
+    self.assertEqual(b[0].title, 'Github')
+    self.assertEqual(b[1].title, 'Servers')
+    self.assertEqual(b[1].document, 'Documents/course/bacs200/lesson/02.md')
+
+def test_lesson_edit(self):
+    Lesson.objects.create(**self.lesson1)
+    b = Lesson.objects.get(pk=1)
+    b.title = 'Servers'
+    b.order = 2
+    b.save()
+    self.assertEqual(b.title, 'Servers')
+    self.assertEqual(b.order, 2)
+    self.assertEqual(b.document, 'Documents/course/bacs200/lesson/02.md')
+
+def test_lesson_delete(self):
+    Lesson.objects.create(**self.lesson1)
+    b = Lesson.objects.get(pk=1)
+    b.delete()
+    self.assertEqual(len(Lesson.objects.all()), 0)
+</code></pre>
+<p>```</p>
+<h3>Views Test</h3>
+<ul>
+<li>Test all five views: list, detail, add, edit, delete</li>
+</ul>
+<p>```python
+class LessonViewsTest(TestCase):</p>
+<pre><code>def login(self):
+    response = self.client.login(username=self.user.username,  password=self.user_args['password'])
+    self.assertEqual(response, True)
+
+def setUp(self):
+    self.user, self.user_args = create_test_user()
+    self.author = Author.objects.create(user=self.user, name='Charles Dickens')
+    self.course = Course.objects.create(title='Tale of Two Cities', author=self.author,
+                                        description='description', doc_path='Documents')
+    self.lesson1 = dict(course=self.course, title='Best of Times', order='1', date='2001-09-11', week='1')
+    self.lesson2 = dict(course=self.course, title='Worst of Times', order='2', date='2001-09-18', week='2')
+
+def test_lesson_list_view(self):
+    Lesson.objects.create(**self.lesson1)
+    self.assertEqual(reverse('lesson_list'), '/lesson/')
+    response = self.client.get('/lesson/')
+    self.assertEqual(response.status_code, 200)
+    self.assertTemplateUsed(response, 'lesson_list.html')
+    self.assertTemplateUsed(response, 'theme.html')
+    self.assertContains(response, '&lt;tr&gt;', count=2)
+
+def test_lesson_detail_view(self):
+    self.assertEqual(reverse('lesson_detail', args='1'), '/lesson/1')
+    self.assertEqual(reverse('lesson_detail', args='2'), '/lesson/2')
+    Lesson.objects.create(**self.lesson1)
+    response = self.client.get('/lesson/1')
+    self.assertEqual(response.status_code, 200)
+
+def test_lesson_add_view(self):
+
+    # Add without Login
+    response = self.client.post(reverse('lesson_add'), self.lesson1)
+    self.assertEqual(response.url, '/accounts/login/?next=/lesson/add')
+
+    # Login to add
+    self.login()
+    response = self.client.post(reverse('lesson_add'), self.lesson1)
+    response = self.client.post(reverse('lesson_add'), self.lesson2)
+    self.assertEqual(response.status_code, 302)
+    self.assertEqual(response.url, '/lesson/')
+    self.assertEqual(len(Lesson.objects.all()), 2)
+
+    # List the lessons
+    response = self.client.get('/lesson/')
+    self.assertContains(response, '&lt;tr&gt;', count=3)
+
+def test_lesson_edit_view(self):
+
+    # Edit without Login
+    Lesson.objects.create(**self.lesson1)
+    self.assertEqual(reverse('lesson_edit', args='1'), '/lesson/1/')
+    response = self.client.get('/lesson/1/')
+    self.assertEqual(response.status_code, 302)
+    self.assertEqual(response.url, '/accounts/login/?next=/lesson/1/')
+
+    # Login to edit
+    self.login()
+    response = self.client.post('/lesson/1/', self.lesson2)
+    self.assertEqual(response.status_code, 302)
+    self.assertEqual(response.url, '/lesson/')
+
+    # Check the course object
+    c = Lesson.objects.get(pk=1)
+    self.assertEqual(c.title, self.lesson2['title'])
+    self.assertNotEqual(c.title, self.lesson1['title'])
+    self.assertEqual(c.document, 'Documents/course/XXX/lesson/02.md')
+
+def test_lesson_delete_view(self):
+    self.login()
+    Lesson.objects.create(**self.lesson1)
+    self.assertEqual(reverse('lesson_delete', args='1'), '/lesson/1/delete')
+    response = self.client.get('/lesson/1/delete')
+    self.assertEqual(response.status_code, 200)
+    response = self.client.post('/lesson/1/delete')
+    self.assertEqual(len(Lesson.objects.all()), 0)
+</code></pre>
+<p>```</p>
+<h3>Standard test design</h3>
+<ul>
+<li>Use a standard template for generating new tests</li>
+<li>Customize class name, object name, field names</li>
+<li>Comment out all new test code</li>
+<li>Debug one test case at a time</li>
+</ul>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -6,7 +6,72 @@
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lesson 40</title>
+    <title>Lesson 40 - Reveal - Slide Show
+
+## LEARN  
+
+### Office Hours - Remaining Times
+* 1:30-2:30 by Zoom
+    * Mon Nov 29, Wed Dec 1, Fri Dec 3
+* If you need help please attend office hours
+* Zoom:  https://unco.zoom.us/j/99180652183
+* Email: mark.seaman@unco.edu      
+
+
+### Reading for Today  
+* Read &lt;a target=&quot;_blank&quot; 
+href=&quot;https://learn.zybooks.com/zybook/UNCOBACS200SeamanFall2021/chapter/7/section/2&quot;&gt;
+7.2 Mobile websites and browsers
+&lt;/a&gt;
+* Follow &lt;a target=&quot;_blank&quot; href=&quot;/course/bacs200/docs/ZybooksReading&quot;&gt;Reading Schedule&lt;/a&gt;
+
+
+### Reveal.js
+* HTML Presentation Framework
+* Create slides in HTML or Markdown
+* Lots of special effects
+* Visit website - [https://revealjs.com/](https://revealjs.com/)
+
+
+### Setup JS and CSS libraries
+* Minimal Install for Github Pages
+    * [https://github.com/hakimel/reveal.js/archive/master.zip](https://github.com/hakimel/reveal.js/archive/master.zip)
+    * 6.3 MB
+    * Unzip to create &quot;BACS200/reveal.js-master&quot;
+* I do not recommend Git Clone
+    * 415 MB
+
+
+### Run Demo
+* cd &quot;BACS200/reveal.js-master&quot;
+* open demo.html
+* open index.html
+
+
+
+## BUILD
+
+### Install Reveal at Github Pages
+* Unzip to create &quot;BACS200/reveal.js-master&quot;
+* Commit and push
+
+
+### Create Slide Show
+* Copy &quot;reveal.js-master/index.html&quot; to &quot;bacs200/reveal-demo.html&quot;
+* Fix up JS and CSS references
+    * Example:
+    * &lt; link rel=&quot;stylesheet&quot; href=&quot;../../reveal.js-master/dist/reset.css&quot; &gt; 
+* Run locally and deploy
+
+
+### Compare to Mark&#x27;s Demo
+* Github -
+[https://github.com/Mark-Seaman/Mark-Seaman.github.io/blob/master/demo/week14/slides.html](https://github.com/Mark-Seaman/Mark-Seaman.github.io/blob/master/demo/week14/slides.html)
+* Web Page - 
+[https://Mark-Seaman.github.io/demo/week14/slides.html](https://Mark-Seaman.github.io/demo/week14/slides.html)
+
+
+</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
@@ -53,75 +118,74 @@
     <main>
         <div class="container">
             
-            <h1>Lesson 40 - Course Website</h1>
-<h2>COURSE WEBSITE</h2>
-<h3>Internet - Clients and Servers</h3>
-<p>Computers and phones request content from web servers</p>
-<p><img alt="" src="img/WebServer.png" /></p>
+            <h1>Lesson 40 - Reveal - Slide Show</h1>
+<h2>LEARN</h2>
+<h3>Office Hours - Remaining Times</h3>
 <ul>
-<li>Dynamic servers have a database</li>
-<li>Static servers return files</li>
+<li>1:30-2:30 by Zoom<ul>
+<li>Mon Nov 29, Wed Dec 1, Fri Dec 3</li>
 </ul>
-<h3>Sensei Server</h3>
-<ul>
-<li>Uses dynamic content from database</li>
-<li>Student list, student servers, URL Game, Test pages</li>
-<li>Every page is generated on request</li>
-<li>Must be hosted with the database</li>
+</li>
+<li>If you need help please attend office hours</li>
+<li>Zoom:  https://unco.zoom.us/j/99180652183</li>
+<li>Email: mark.seaman@unco.edu      </li>
 </ul>
-<h3>Static Site</h3>
+<h3>Reading for Today</h3>
 <ul>
-<li>Contains only HTML, CSS, Javascript</li>
-<li>No server-side logic (eg. Database, or code conversion)</li>
-<li>Server is only a directory of files</li>
+<li>Read <a target="_blank" 
+href="https://learn.zybooks.com/zybook/UNCOBACS200SeamanFall2021/chapter/7/section/2">
+7.2 Mobile websites and browsers
+</a></li>
+<li>Follow <a target="_blank" href="/course/bacs200/docs/ZybooksReading">Reading Schedule</a></li>
 </ul>
-<h3>Static Site Generator</h3>
+<h3>Reveal.js</h3>
 <ul>
-<li>Convert dynamic web pages into static web pages</li>
-<li>Avoid any dynamic logic in pages</li>
-<li>Save files in a Git repo</li>
+<li>HTML Presentation Framework</li>
+<li>Create slides in HTML or Markdown</li>
+<li>Lots of special effects</li>
+<li>Visit website - <a href="https://revealjs.com/">https://revealjs.com/</a></li>
 </ul>
-<h3>CS 350 Website</h3>
+<h3>Setup JS and CSS libraries</h3>
 <ul>
-<li>Stand-alone website</li>
-<li>Contains Lessons, Projects, Demos, Documents</li>
-<li>Will contain Videos for all Lectures</li>
+<li>Minimal Install for Github Pages<ul>
+<li><a href="https://github.com/hakimel/reveal.js/archive/master.zip">https://github.com/hakimel/reveal.js/archive/master.zip</a></li>
+<li>6.3 MB</li>
+<li>Unzip to create "BACS200/reveal.js-master"</li>
 </ul>
-<h3>Project Status</h3>
-<ul>
-<li>Download the initial repo now</li>
-<li>I will continue to enhance this code</li>
-<li>Need to serve video lecture from Shrinking World server</li>
-<li>Should be ready by Christmas</li>
+</li>
+<li>I do not recommend Git Clone<ul>
+<li>415 MB</li>
 </ul>
-<h3>Git Repo - UNC-BACS-200</h3>
-<ul>
-<li><a href="https://github.com/Mark-Seaman/UNC-BACS-200">https://github.com/Mark-Seaman/UNC-BACS-200</a></li>
-<li>Pull the repo</li>
-<li>Update the repo later to get new code</li>
+</li>
 </ul>
-<h2>HELP SESSION</h2>
-<h3>New Session Format</h3>
+<h3>Run Demo</h3>
 <ul>
-<li>We have completed the lecture series for BACS 200   </li>
-<li>The remaining classes will focus on the last four projects.  </li>
-<li>Class time - helping with student projects  </li>
-<li>You only need to attend when you need help</li>
+<li>cd "BACS200/reveal.js-master"</li>
+<li>open demo.html</li>
+<li>open index.html</li>
 </ul>
-<h3>Class Times</h3>
+<h2>BUILD</h2>
+<h3>Install Reveal at Github Pages</h3>
 <ul>
-<li>Zoom links (two different ones)</li>
-<li><a href="https://unco.zoom.us/j/96131314570">Class time - 1:25-2:15</a></li>
-<li><a href="https://unco.zoom.us/my/mark.seaman">Office hours - 3:20-4:20</a></li>
+<li>Unzip to create "BACS200/reveal.js-master"</li>
+<li>Commit and push</li>
 </ul>
-<h3>Daily Reading</h3>
+<h3>Create Slide Show</h3>
 <ul>
-<li>Continue with daily reading in Zybooks.</li>
+<li>Copy "reveal.js-master/index.html" to "bacs200/reveal-demo.html"</li>
+<li>Fix up JS and CSS references<ul>
+<li>Example:</li>
+<li>&lt; link rel="stylesheet" href="../../reveal.js-master/dist/reset.css" &gt; </li>
 </ul>
-<h3>Reading for Today  (Optional)</h3>
+</li>
+<li>Run locally and deploy</li>
+</ul>
+<h3>Compare to Mark's Demo</h3>
 <ul>
-<li><a href="https://learn.zybooks.com/zybook/UNCOBACS200SeamanFall2020/chapter/7/section/2">7.2 Mobile websites and browsers</a></li>
-<li>Follow <a href="/course/bacs200/docs/ZybooksReading">Reading Schedule</a></li>
+<li>Github -
+<a href="https://github.com/Mark-Seaman/Mark-Seaman.github.io/blob/master/demo/week14/slides.html">https://github.com/Mark-Seaman/Mark-Seaman.github.io/blob/master/demo/week14/slides.html</a></li>
+<li>Web Page - 
+<a href="https://Mark-Seaman.github.io/demo/week14/slides.html">https://Mark-Seaman.github.io/demo/week14/slides.html</a></li>
 </ul>
             
         </div>

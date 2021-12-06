@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data Manipulation Design Pattern
+
+## Overview
+
+### Goals
+
+Work with data from database in Python
+
+Typical data processing
+
+* Queries to work with database records
+* Processing with Python Lists, Dictionaries
+* Read and write files
+* Pass dictionary to templates within the view code
+
+
+### Steps
+* Common Queries
+* File read and write
+* Records to dictionary
+* Use a generic template to display the info
+* Allow for display of multiple documents
+
+
+
+## Data Queries
+
+See [CRUD Design Pattern](CRUD) for details
+
+```python
+# CREATE
+book = Book.objects.get_or_create(title=title, author=author)[0]
+
+# READ
+book = Book.objects.get(title=title)
+books = Book.objects.filter(author=author)
+
+# UPDATE
+book.title = &#x27;Children of Dune&#x27;
+book.save()
+
+# DELETE
+book.delete()
+```
+
+
+## File read and write
+
+Read and write files
+
+```python
+# Read a file
+text = open(filepath).read()
+
+# Write a file
+open(filepath, &#x27;w&#x27;).write(text)
+```
+
+
+Read and write CSV files
+
+```python
+from csv import reader, writer
+
+def read_csv_file(path):
+    with open(path) as f:
+        return [row for row in reader(f)]
+
+def write_csv_file(path, table):
+    with open(path, &#x27;w&#x27;, newline=&#x27;&#x27;) as f:
+        writer(f).writerows(table)
+
+```
+
+
+
+## Values of Data Records
+
+Query for the records and show values
+
+```python
+# Query for books
+books = Book.objects.all()
+
+# Convert to values list
+for book in books.values_list():
+    print(book)
+
+&gt;&gt;&gt; (1, &#x27;Leverage Principle&#x27;, None, 1, &#x27;None&#x27;, &#x27;Leverage&#x27;)
+&gt;&gt;&gt; (2, &#x27;From the Edge of Reality&#x27;, None, 1, &#x27;Insights and irony&#x27;, &#x27;Poems&#x27;)
+```
+
+
+Convert to dictionaries
+
+```python
+# Query for books
+books = Book.objects.all()
+
+# Convert to dictionary
+for book in books.values():
+    print(book)
+
+&gt;&gt;&gt; {&#x27;id&#x27;: 1, &#x27;title&#x27;: &#x27;Leverage Principle&#x27;, &#x27;subtitle&#x27;: None, &#x27;author_id&#x27;: 1, 
+&#x27;description&#x27;: &#x27;None&#x27;, &#x27;doc_path&#x27;: &#x27;Leverage&#x27;}
+&gt;&gt;&gt; {&#x27;id&#x27;: 2, &#x27;title&#x27;: &#x27;Edge of Reality&#x27;, &#x27;subtitle&#x27;: None, &#x27;author_id&#x27;: 1, 
+&#x27;description&#x27;: &#x27;Insights and irony&#x27;, &#x27;doc_path&#x27;: &#x27;Poems&#x27;}
+
+
+```
+
+
+Print dictionary with indents
+
+```python
+# Print with indents
+from pprint import pformat
+
+print(pformat(book, indent=4))
+
+
+{   &#x27;author_id&#x27;: 1,
+    &#x27;description&#x27;: &#x27;Insights and irony&#x27;,
+    &#x27;doc_path&#x27;: &#x27;Poems&#x27;,
+    &#x27;id&#x27;: 2,
+    &#x27;subtitle&#x27;: None,
+    &#x27;title&#x27;: &#x27;Edge of Reality&#x27;}
+
+```</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark text-light">
+
+        <div class="container">
+
+            <a class="navbar-brand text-light" href="/">UNC BACS 350</a>
+
+            <ul class="navbar-nav text-light ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../lesson/index.html">Lessons</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../project/index.html">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../docs/index.html">Documents</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Data Manipulation Design Pattern</h1>
+<h2>Overview</h2>
+<h3>Goals</h3>
+<p>Work with data from database in Python</p>
+<p>Typical data processing</p>
+<ul>
+<li>Queries to work with database records</li>
+<li>Processing with Python Lists, Dictionaries</li>
+<li>Read and write files</li>
+<li>Pass dictionary to templates within the view code</li>
+</ul>
+<h3>Steps</h3>
+<ul>
+<li>Common Queries</li>
+<li>File read and write</li>
+<li>Records to dictionary</li>
+<li>Use a generic template to display the info</li>
+<li>Allow for display of multiple documents</li>
+</ul>
+<h2>Data Queries</h2>
+<p>See <a href="CRUD">CRUD Design Pattern</a> for details</p>
+<p>```python</p>
+<h1>CREATE</h1>
+<p>book = Book.objects.get_or_create(title=title, author=author)[0]</p>
+<h1>READ</h1>
+<p>book = Book.objects.get(title=title)
+books = Book.objects.filter(author=author)</p>
+<h1>UPDATE</h1>
+<p>book.title = 'Children of Dune'
+book.save()</p>
+<h1>DELETE</h1>
+<p>book.delete()
+```</p>
+<h2>File read and write</h2>
+<p>Read and write files</p>
+<p>```python</p>
+<h1>Read a file</h1>
+<p>text = open(filepath).read()</p>
+<h1>Write a file</h1>
+<p>open(filepath, 'w').write(text)
+```</p>
+<p>Read and write CSV files</p>
+<p>```python
+from csv import reader, writer</p>
+<p>def read_csv_file(path):
+    with open(path) as f:
+        return [row for row in reader(f)]</p>
+<p>def write_csv_file(path, table):
+    with open(path, 'w', newline='') as f:
+        writer(f).writerows(table)</p>
+<p>```</p>
+<h2>Values of Data Records</h2>
+<p>Query for the records and show values</p>
+<p>```python</p>
+<h1>Query for books</h1>
+<p>books = Book.objects.all()</p>
+<h1>Convert to values list</h1>
+<p>for book in books.values_list():
+    print(book)</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>(1, 'Leverage Principle', None, 1, 'None', 'Leverage')
+(2, 'From the Edge of Reality', None, 1, 'Insights and irony', 'Poems')
+```</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Convert to dictionaries</p>
+<p>```python</p>
+<h1>Query for books</h1>
+<p>books = Book.objects.all()</p>
+<h1>Convert to dictionary</h1>
+<p>for book in books.values():
+    print(book)</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>{'id': 1, 'title': 'Leverage Principle', 'subtitle': None, 'author_id': 1, 
+'description': 'None', 'doc_path': 'Leverage'}
+{'id': 2, 'title': 'Edge of Reality', 'subtitle': None, 'author_id': 1, 
+'description': 'Insights and irony', 'doc_path': 'Poems'}</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>```</p>
+<p>Print dictionary with indents</p>
+<p>```python</p>
+<h1>Print with indents</h1>
+<p>from pprint import pformat</p>
+<p>print(pformat(book, indent=4))</p>
+<p>{   'author_id': 1,
+    'description': 'Insights and irony',
+    'doc_path': 'Poems',
+    'id': 2,
+    'subtitle': None,
+    'title': 'Edge of Reality'}</p>
+<p>```</p>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

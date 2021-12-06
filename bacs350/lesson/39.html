@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 39 - Django Test Design
+
+## LEARN
+
+### Office Hours
+* If you need help please attend office hours
+* MWF  1:30-2:30 by Zoom
+* Zoom:  https://unco.zoom.us/j/99180652183
+* Email: mark.seaman@unco.edu      
+
+
+### Today
+* Django Test Design Patterns
+
+
+### Catalog of Design Patterns
+* [Design Patterns](/course/bacs350/docs/DesignPatterns)
+* Use this catalog of patterns as you work on projects
+* [Django Tests](../docs/DjangoTests)
+
+
+### Django Tests Design Pattern
+* Create tests without thinking
+* Build a test suite in 5 minutes
+* Generate full test coverage
+
+
+### Steps to Design Pattern
+* Define data model
+* Define Data Test class
+* Define View Test class
+* Use template to create automatic code
+
+
+### Django Test Database
+* Before every test case a blank database is created
+* All database operations are performed on this test database
+* Test do not share a database
+
+
+### Setup
+* Initialization steps can be added to the setUp function
+which is run before every test case.
+* Objects needed by multiple tests are added to setUp.
+
+```python
+def setUp(self):
+    self.user, self.user_args = create_test_user()
+    self.author = Author.objects.create(user=self.user, name=&#x27;Mark&#x27;)
+    self.course = Course.objects.create(title=&#x27;BACS 350&#x27;, author=self.author)
+```
+
+
+### Fixtures
+* JSON test fixture can set the blank database to any known state
+* Test can be run in that database context
+           
+
+### Standard test design
+* Use a standard template for generating new tests
+* Customize class name, object name, field names
+* Comment out all new test code
+* Debug one test case at a time
+
+
+
+### Data Test (CRUD)
+* Test for each operation (CREATE, READ, UPDATE, DELETE)
+* Use consistent naming
+
+```python
+class LessonDataTest(TestCase):
+
+    def setUp(self):
+        pass
+
+    def test_add_lesson(self):
+        pass
+
+    def test_lesson_list(self):
+        pass
+
+    def test_lesson_edit(self):
+        pass
+
+    def test_lesson_delete(self):
+        pass
+```
+
+
+### Views Test
+* Test all five views: list, detail, add, edit, delete
+* Use consistent naming
+
+```python
+class LessonViewsTest(TestCase):
+
+    def login(self):
+        pass
+
+    def setUp(self):
+        pass
+
+    def test_lesson_list_view(self):
+        pass
+
+    def test_lesson_detail_view(self):
+        pass
+
+    def test_lesson_add_view(self):
+        pass
+
+    def test_lesson_edit_view(self):
+        pass
+
+    def test_lesson_delete_view(self):
+        pass
+```
+
+### Basic tests
+* Count objects
+* Check object fields
+* Test for login check
+* Check status code
+* Check missing pages
+* Check page content
+* Check the URL
+* Check for redirect
+* Ensure bad content not present
+
+
+### Assertions
+* [Django Test Assertions](https://docs.djangoproject.com/en/3.1/topics/testing/tools/#assertions)
+* Most useful assertions
+    * assertTemplateUsed, assertTemplateNotUsed
+    * assertContains, assertNotContains
+    * assertEqual, assertNotEqual
+    * assertTrue, assertFalse
+
+
+
+## BUILD
+
+### Practice
+* Clone my repo and study the code in &#x27;week14/CourseBuilder&#x27;
+* Read the [Design Patterns](/course/bacs350/docs/DesignPatterns)
+* Build the code and experiment with it
+
+
+### Course Builder
+* Explore the Course Builder App
+* Data
+* Views
+* Templates
+* Tests
+
+
+</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark text-light">
+
+        <div class="container">
+
+            <a class="navbar-brand text-light" href="/">UNC BACS 350</a>
+
+            <ul class="navbar-nav text-light ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../lesson/index.html">Lessons</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../project/index.html">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../docs/index.html">Documents</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Lesson 39 - Django Test Design</h1>
+<h2>LEARN</h2>
+<h3>Office Hours</h3>
+<ul>
+<li>If you need help please attend office hours</li>
+<li>MWF  1:30-2:30 by Zoom</li>
+<li>Zoom:  https://unco.zoom.us/j/99180652183</li>
+<li>Email: mark.seaman@unco.edu      </li>
+</ul>
+<h3>Today</h3>
+<ul>
+<li>Django Test Design Patterns</li>
+</ul>
+<h3>Catalog of Design Patterns</h3>
+<ul>
+<li><a href="/course/bacs350/docs/DesignPatterns">Design Patterns</a></li>
+<li>Use this catalog of patterns as you work on projects</li>
+<li><a href="../docs/DjangoTests">Django Tests</a></li>
+</ul>
+<h3>Django Tests Design Pattern</h3>
+<ul>
+<li>Create tests without thinking</li>
+<li>Build a test suite in 5 minutes</li>
+<li>Generate full test coverage</li>
+</ul>
+<h3>Steps to Design Pattern</h3>
+<ul>
+<li>Define data model</li>
+<li>Define Data Test class</li>
+<li>Define View Test class</li>
+<li>Use template to create automatic code</li>
+</ul>
+<h3>Django Test Database</h3>
+<ul>
+<li>Before every test case a blank database is created</li>
+<li>All database operations are performed on this test database</li>
+<li>Test do not share a database</li>
+</ul>
+<h3>Setup</h3>
+<ul>
+<li>Initialization steps can be added to the setUp function
+which is run before every test case.</li>
+<li>Objects needed by multiple tests are added to setUp.</li>
+</ul>
+<p><code>python
+def setUp(self):
+    self.user, self.user_args = create_test_user()
+    self.author = Author.objects.create(user=self.user, name='Mark')
+    self.course = Course.objects.create(title='BACS 350', author=self.author)</code></p>
+<h3>Fixtures</h3>
+<ul>
+<li>JSON test fixture can set the blank database to any known state</li>
+<li>Test can be run in that database context</li>
+</ul>
+<h3>Standard test design</h3>
+<ul>
+<li>Use a standard template for generating new tests</li>
+<li>Customize class name, object name, field names</li>
+<li>Comment out all new test code</li>
+<li>Debug one test case at a time</li>
+</ul>
+<h3>Data Test (CRUD)</h3>
+<ul>
+<li>Test for each operation (CREATE, READ, UPDATE, DELETE)</li>
+<li>Use consistent naming</li>
+</ul>
+<p>```python
+class LessonDataTest(TestCase):</p>
+<pre><code>def setUp(self):
+    pass
+
+def test_add_lesson(self):
+    pass
+
+def test_lesson_list(self):
+    pass
+
+def test_lesson_edit(self):
+    pass
+
+def test_lesson_delete(self):
+    pass
+</code></pre>
+<p>```</p>
+<h3>Views Test</h3>
+<ul>
+<li>Test all five views: list, detail, add, edit, delete</li>
+<li>Use consistent naming</li>
+</ul>
+<p>```python
+class LessonViewsTest(TestCase):</p>
+<pre><code>def login(self):
+    pass
+
+def setUp(self):
+    pass
+
+def test_lesson_list_view(self):
+    pass
+
+def test_lesson_detail_view(self):
+    pass
+
+def test_lesson_add_view(self):
+    pass
+
+def test_lesson_edit_view(self):
+    pass
+
+def test_lesson_delete_view(self):
+    pass
+</code></pre>
+<p>```</p>
+<h3>Basic tests</h3>
+<ul>
+<li>Count objects</li>
+<li>Check object fields</li>
+<li>Test for login check</li>
+<li>Check status code</li>
+<li>Check missing pages</li>
+<li>Check page content</li>
+<li>Check the URL</li>
+<li>Check for redirect</li>
+<li>Ensure bad content not present</li>
+</ul>
+<h3>Assertions</h3>
+<ul>
+<li><a href="https://docs.djangoproject.com/en/3.1/topics/testing/tools/#assertions">Django Test Assertions</a></li>
+<li>Most useful assertions<ul>
+<li>assertTemplateUsed, assertTemplateNotUsed</li>
+<li>assertContains, assertNotContains</li>
+<li>assertEqual, assertNotEqual</li>
+<li>assertTrue, assertFalse</li>
+</ul>
+</li>
+</ul>
+<h2>BUILD</h2>
+<h3>Practice</h3>
+<ul>
+<li>Clone my repo and study the code in 'week14/CourseBuilder'</li>
+<li>Read the <a href="/course/bacs350/docs/DesignPatterns">Design Patterns</a></li>
+<li>Build the code and experiment with it</li>
+</ul>
+<h3>Course Builder</h3>
+<ul>
+<li>Explore the Course Builder App</li>
+<li>Data</li>
+<li>Views</li>
+<li>Templates</li>
+<li>Tests</li>
+</ul>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

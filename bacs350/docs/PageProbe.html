@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Page Probe Test Design Pattern
+
+
+### Demo Code
+* Clone my repo and study the code in 
+[Page Probe Source Code](https://github.com/Mark-Seaman/BACS350/tree/main/week14/PageProbe)
+* Build the code and experiment with it
+* Set up tests for your favorite web sites
+* Do it simple; do it now!
+
+
+### Data
+
+probe/models.py
+
+```python
+from django.db import models
+from django.urls.base import reverse_lazy
+
+
+class Probe(models.Model):
+
+    name = models.CharField(max_length=100)
+    page = models.URLField()
+    text = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f&#x27;{self.name} - {self.page}&#x27;
+
+    def get_absolute_url(self):
+        return reverse_lazy(&#x27;probe_list&#x27;)
+
+    @staticmethod
+    def create(**kwargs):
+        c = Probe.objects.get_or_create(name=kwargs.get(&#x27;name&#x27;))[0]
+        c.page = kwargs.get(&#x27;page&#x27;)
+        c.text = kwargs.get(&#x27;text&#x27;)
+        c.save()
+        return c
+
+
+class Result(models.Model):
+
+    probe = models.ForeignKey(Probe, on_delete=models.CASCADE, editable=False)
+    date = models.DateTimeField(auto_now=True)
+    output = models.TextField(default=&#x27;Not yet run&#x27;)
+    passed = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f&#x27;{self.probe.name} - {self.date} - {self.passed}&#x27;
+
+    def get_absolute_url(self):
+        return reverse_lazy(&#x27;probe_list&#x27;)
+
+    @staticmethod
+    def create(**kwargs):
+        c = Result.objects.create(probe=kwargs.get(&#x27;probe&#x27;))
+        c.output = kwargs.get(&#x27;output&#x27;)
+        c.passed = kwargs.get(&#x27;passed&#x27;)
+        c.save()
+        return c
+
+```
+
+
+### Execute Page Probe Tests
+* Fetch and examine web pages from local and remote servers
+* Use &quot;requests&quot; module in Python to fetch pages
+* Use an app to manage test cases
+
+probe/probe.py
+
+```python
+def launch_all_probes():
+    for probe in Probe.objects.all():
+        execute_probe(probe)
+
+def execute_probe(probe):
+    try:
+        response = get(probe.page)
+    except:
+        response = None
+    if not response:
+        status = f&#x27;Status Code: Domain not found,  {probe.page}&#x27;
+        passed = False
+    elif response.status_code != 200:
+        status = f&#x27;Status Code: {response.status_code}&#x27;
+        passed = False
+    elif probe.text not in response.text:
+        status = f&#x27;Text not found: {probe.text}&#x27;
+        passed = False
+    else:
+        status = f&#x27;Matched: {probe.text}&#x27;
+        passed = True
+    Result.create(probe=probe, output=status, passed=passed)
+```
+
+
+### Views
+
+probe/probe_views.py
+
+```python
+from django.shortcuts import render
+from django.urls import reverse_lazy, reverse
+from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
+                                  RedirectView, UpdateView)
+from requests import get
+
+from .models import Probe
+from .probe import clear_probe_history, execute_probe, launch_all_probes, result_list
+
+
+class ProbeView(RedirectView):
+    url = reverse_lazy(&#x27;probe_list&#x27;)
+
+
+class ProbeListView(ListView):
+    template_name = &#x27;probe_list.html&#x27;
+    model = Probe
+
+
+class ProbeDetailView(DetailView):
+    template_name = &#x27;probe_detail.html&#x27;
+    model = Probe
+
+    def get_context_data(self, **kwargs):
+        kwargs = super().get_context_data(**kwargs)
+        probe = kwargs[&#x27;object&#x27;]
+        execute_probe(probe)
+        kwargs[&#x27;results&#x27;] = result_list(probe)
+        return kwargs
+
+
+class ProbeLaunchView(RedirectView):
+
+    def get_redirect_url(self, *args, **kwargs):
+        launch_all_probes()
+        return reverse(&#x27;probe_list&#x27;)
+
+
+class ProbeClearView(RedirectView):
+
+    def get_redirect_url(self, *args, **kwargs):
+        probe_pk = self.kwargs.get(&#x27;pk&#x27;)
+        clear_probe_history(probe_pk)
+        return reverse(&#x27;probe_detail&#x27;, args=[probe_pk])
+
+
+class ProbeCreateView(CreateView):
+    template_name = &quot;probe_add.html&quot;
+    model = Probe
+    fields = &#x27;__all__&#x27;
+
+    def form_valid(self, form):
+        form.instance.author_id = 1
+        return super().form_valid(form)
+
+
+class ProbeUpdateView(UpdateView):
+    template_name = &quot;probe_edit.html&quot;
+    model = Probe
+    fields = &#x27;__all__&#x27;
+
+
+class ProbeDeleteView(DeleteView):
+    model = Probe
+    template_name = &#x27;probe_delete.html&#x27;
+    success_url = reverse_lazy(&#x27;probe_list&#x27;)
+
+```
+
+
+### Templates
+
+
+templates/probe_detail.html
+
+```html  
+{% extends &#x27;theme.html&#x27; %}
+
+{% block content %}
+
+&lt;div class=&quot;container m-5&quot;&gt;
+
+    &lt;h1 class=&quot;text-primary&quot;&gt;Probe Details&lt;/h1&gt;
+
+    &lt;div class=&quot;row&quot;&gt;
+
+        &lt;div class=&quot;col-lg&quot;&gt;
+
+            &lt;table class=&quot;table&quot;&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Name&lt;/td&gt;
+                    &lt;td&gt;&lt;b&gt;&lt;a href=&quot;/probe/{{ object.pk }}/&quot;&gt;{{ object.name }}&lt;/a&gt;&lt;/b&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Page URL&lt;/td&gt;
+                    &lt;td&gt;&lt;b&gt;&lt;a href=&quot;{{ object.page }}&quot; target=&quot;page&quot;&gt;{{ object.page }}&lt;/a&gt;&lt;/b&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Text to Match&lt;/td&gt;
+                    &lt;td&gt;&lt;b&gt;{{ object.text }}&lt;/b&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;
+
+            &lt;h2&gt;Test Results&lt;/h2&gt;
+            &lt;table class=&quot;table&quot;&gt;
+
+                &lt;tr&gt;
+                    &lt;th&gt;Date&lt;/th&gt;
+                    &lt;th&gt;Pass/Fail&lt;/th&gt;
+                    &lt;th&gt;Text Output&lt;/th&gt;
+                &lt;/tr&gt;
+                {% for r in results %}
+                &lt;tr&gt;
+                    &lt;td&gt;{{ r.date }}&lt;/td&gt;
+                    &lt;td&gt;{% if r.passed %}PASS{% else %}FAIL{% endif %}&lt;/td&gt;
+                    &lt;td&gt;{{ r.output }}&lt;/td&gt;
+                &lt;/tr&gt;
+                {% endfor %}
+            &lt;/table&gt;
+
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+
+
+    &lt;a href=&quot;/probe/&quot; class=&quot;btn btn-success m-5&quot;&gt;Probe List&lt;/a&gt;
+    &lt;a href=&quot;/probe/{{ object.pk }}/clear&quot; class=&quot;btn btn-success m-5&quot;&gt;Clear History&lt;/a&gt;
+    &lt;a href=&quot;/probe/{{ object.pk }}/&quot; class=&quot;btn btn-success m-5&quot;&gt;Edit Probe&lt;/a&gt;
+    &lt;a href=&quot;/probe/{{ object.pk }}/delete&quot; class=&quot;btn btn-success m-5&quot;&gt;Delete Probe&lt;/a&gt;
+&lt;/div&gt;
+
+{% endblock content %}
+```
+
+
+### URL Routes
+
+config/urls.py
+
+```python
+from django.urls import path
+from django.urls.conf import include
+
+from probe.views_probe import ProbeView
+
+urlpatterns = [
+
+    path(&#x27;&#x27;, ProbeView.as_view()),
+    path(&#x27;probe/&#x27;, include(&#x27;probe.urls_probe&#x27;)),
+
+]
+```
+
+
+probe/probe_urls.py
+
+```python
+from django.urls import path
+from .views_probe import (ProbeClearView, ProbeCreateView, ProbeDeleteView,
+                          ProbeDetailView, ProbeLaunchView, ProbeListView,
+                          ProbeUpdateView)
+urlpatterns = [
+
+    path(&#x27;&#x27;,                       ProbeListView.as_view(),    name=&#x27;probe_list&#x27;),
+    path(&#x27;&lt;int:pk&gt;&#x27;,               ProbeDetailView.as_view(),  name=&#x27;probe_detail&#x27;),
+    path(&#x27;add&#x27;,                    ProbeCreateView.as_view(),  name=&#x27;probe_add&#x27;),
+    path(&#x27;&lt;int:pk&gt;/&#x27;,              ProbeUpdateView.as_view(),  name=&#x27;probe_edit&#x27;),
+    path(&#x27;&lt;int:pk&gt;/delete&#x27;,        ProbeDeleteView.as_view(),  name=&#x27;probe_delete&#x27;),
+    path(&#x27;&lt;int:pk&gt;/clear&#x27;,         ProbeClearView.as_view(),   name=&#x27;probe_clear&#x27;),
+    path(&#x27;test&#x27;,                   ProbeLaunchView.as_view(),  name=&#x27;probe_launch&#x27;),
+
+]
+```
+
+</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark text-light">
+
+        <div class="container">
+
+            <a class="navbar-brand text-light" href="/">UNC BACS 350</a>
+
+            <ul class="navbar-nav text-light ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../lesson/index.html">Lessons</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../project/index.html">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../docs/index.html">Documents</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Page Probe Test Design Pattern</h1>
+<h3>Demo Code</h3>
+<ul>
+<li>Clone my repo and study the code in 
+<a href="https://github.com/Mark-Seaman/BACS350/tree/main/week14/PageProbe">Page Probe Source Code</a></li>
+<li>Build the code and experiment with it</li>
+<li>Set up tests for your favorite web sites</li>
+<li>Do it simple; do it now!</li>
+</ul>
+<h3>Data</h3>
+<p>probe/models.py</p>
+<p>```python
+from django.db import models
+from django.urls.base import reverse_lazy</p>
+<p>class Probe(models.Model):</p>
+<pre><code>name = models.CharField(max_length=100)
+page = models.URLField()
+text = models.CharField(max_length=100)
+
+def __str__(self):
+    return f'{self.name} - {self.page}'
+
+def get_absolute_url(self):
+    return reverse_lazy('probe_list')
+
+@staticmethod
+def create(**kwargs):
+    c = Probe.objects.get_or_create(name=kwargs.get('name'))[0]
+    c.page = kwargs.get('page')
+    c.text = kwargs.get('text')
+    c.save()
+    return c
+</code></pre>
+<p>class Result(models.Model):</p>
+<pre><code>probe = models.ForeignKey(Probe, on_delete=models.CASCADE, editable=False)
+date = models.DateTimeField(auto_now=True)
+output = models.TextField(default='Not yet run')
+passed = models.BooleanField(default=False)
+
+def __str__(self):
+    return f'{self.probe.name} - {self.date} - {self.passed}'
+
+def get_absolute_url(self):
+    return reverse_lazy('probe_list')
+
+@staticmethod
+def create(**kwargs):
+    c = Result.objects.create(probe=kwargs.get('probe'))
+    c.output = kwargs.get('output')
+    c.passed = kwargs.get('passed')
+    c.save()
+    return c
+</code></pre>
+<p>```</p>
+<h3>Execute Page Probe Tests</h3>
+<ul>
+<li>Fetch and examine web pages from local and remote servers</li>
+<li>Use "requests" module in Python to fetch pages</li>
+<li>Use an app to manage test cases</li>
+</ul>
+<p>probe/probe.py</p>
+<p>```python
+def launch_all_probes():
+    for probe in Probe.objects.all():
+        execute_probe(probe)</p>
+<p>def execute_probe(probe):
+    try:
+        response = get(probe.page)
+    except:
+        response = None
+    if not response:
+        status = f'Status Code: Domain not found,  {probe.page}'
+        passed = False
+    elif response.status_code != 200:
+        status = f'Status Code: {response.status_code}'
+        passed = False
+    elif probe.text not in response.text:
+        status = f'Text not found: {probe.text}'
+        passed = False
+    else:
+        status = f'Matched: {probe.text}'
+        passed = True
+    Result.create(probe=probe, output=status, passed=passed)
+```</p>
+<h3>Views</h3>
+<p>probe/probe_views.py</p>
+<p>```python
+from django.shortcuts import render
+from django.urls import reverse_lazy, reverse
+from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
+                                  RedirectView, UpdateView)
+from requests import get</p>
+<p>from .models import Probe
+from .probe import clear_probe_history, execute_probe, launch_all_probes, result_list</p>
+<p>class ProbeView(RedirectView):
+    url = reverse_lazy('probe_list')</p>
+<p>class ProbeListView(ListView):
+    template_name = 'probe_list.html'
+    model = Probe</p>
+<p>class ProbeDetailView(DetailView):
+    template_name = 'probe_detail.html'
+    model = Probe</p>
+<pre><code>def get_context_data(self, **kwargs):
+    kwargs = super().get_context_data(**kwargs)
+    probe = kwargs['object']
+    execute_probe(probe)
+    kwargs['results'] = result_list(probe)
+    return kwargs
+</code></pre>
+<p>class ProbeLaunchView(RedirectView):</p>
+<pre><code>def get_redirect_url(self, *args, **kwargs):
+    launch_all_probes()
+    return reverse('probe_list')
+</code></pre>
+<p>class ProbeClearView(RedirectView):</p>
+<pre><code>def get_redirect_url(self, *args, **kwargs):
+    probe_pk = self.kwargs.get('pk')
+    clear_probe_history(probe_pk)
+    return reverse('probe_detail', args=[probe_pk])
+</code></pre>
+<p>class ProbeCreateView(CreateView):
+    template_name = "probe_add.html"
+    model = Probe
+    fields = '<strong>all</strong>'</p>
+<pre><code>def form_valid(self, form):
+    form.instance.author_id = 1
+    return super().form_valid(form)
+</code></pre>
+<p>class ProbeUpdateView(UpdateView):
+    template_name = "probe_edit.html"
+    model = Probe
+    fields = '<strong>all</strong>'</p>
+<p>class ProbeDeleteView(DeleteView):
+    model = Probe
+    template_name = 'probe_delete.html'
+    success_url = reverse_lazy('probe_list')</p>
+<p>```</p>
+<h3>Templates</h3>
+<p>templates/probe_detail.html</p>
+<p>```html<br />
+{% extends 'theme.html' %}</p>
+<p>{% block content %}</p>
+<div class="container m-5">
+
+    <h1 class="text-primary">Probe Details</h1>
+
+    <div class="row">
+
+        <div class="col-lg">
+
+            <table class="table">
+                <tr>
+                    <td>Name</td>
+                    <td><b><a href="/probe/{{ object.pk }}/">{{ object.name }}</a></b></td>
+                </tr>
+                <tr>
+                    <td>Page URL</td>
+                    <td><b><a href="{{ object.page }}" target="page">{{ object.page }}</a></b></td>
+                </tr>
+                <tr>
+                    <td>Text to Match</td>
+                    <td><b>{{ object.text }}</b></td>
+                </tr>
+            </table>
+
+            <h2>Test Results</h2>
+            <table class="table">
+
+                <tr>
+                    <th>Date</th>
+                    <th>Pass/Fail</th>
+                    <th>Text Output</th>
+                </tr>
+                {% for r in results %}
+                <tr>
+                    <td>{{ r.date }}</td>
+                    <td>{% if r.passed %}PASS{% else %}FAIL{% endif %}</td>
+                    <td>{{ r.output }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <a href="/probe/" class="btn btn-success m-5">Probe List</a>
+    <a href="/probe/{{ object.pk }}/clear" class="btn btn-success m-5">Clear History</a>
+    <a href="/probe/{{ object.pk }}/" class="btn btn-success m-5">Edit Probe</a>
+    <a href="/probe/{{ object.pk }}/delete" class="btn btn-success m-5">Delete Probe</a>
+</div>
+
+<p>{% endblock content %}
+```</p>
+<h3>URL Routes</h3>
+<p>config/urls.py</p>
+<p>```python
+from django.urls import path
+from django.urls.conf import include</p>
+<p>from probe.views_probe import ProbeView</p>
+<p>urlpatterns = [</p>
+<pre><code>path('', ProbeView.as_view()),
+path('probe/', include('probe.urls_probe')),
+</code></pre>
+<p>]
+```</p>
+<p>probe/probe_urls.py</p>
+<p>```python
+from django.urls import path
+from .views_probe import (ProbeClearView, ProbeCreateView, ProbeDeleteView,
+                          ProbeDetailView, ProbeLaunchView, ProbeListView,
+                          ProbeUpdateView)
+urlpatterns = [</p>
+<pre><code>path('',                       ProbeListView.as_view(),    name='probe_list'),
+path('&lt;int:pk&gt;',               ProbeDetailView.as_view(),  name='probe_detail'),
+path('add',                    ProbeCreateView.as_view(),  name='probe_add'),
+path('&lt;int:pk&gt;/',              ProbeUpdateView.as_view(),  name='probe_edit'),
+path('&lt;int:pk&gt;/delete',        ProbeDeleteView.as_view(),  name='probe_delete'),
+path('&lt;int:pk&gt;/clear',         ProbeClearView.as_view(),   name='probe_clear'),
+path('test',                   ProbeLaunchView.as_view(),  name='probe_launch'),
+</code></pre>
+<p>]
+```</p>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

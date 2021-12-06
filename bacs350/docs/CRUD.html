@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CRUD Design Pattern
+
+## Overview
+
+### Goals
+
+Use data models with the Django ORM to update the database records.
+
+Support CREATE, READ, UPDATE, DELETE operations on each data type.
+
+Ensure database integrity.
+
+Work with data using Python.
+
+
+### Steps
+* Define data model as a Python class
+* Use operations defined in Django models.Model to do CRUD
+* Create named access functions for clarity
+
+
+
+## Data
+
+Data Model
+
+```python
+from django.db import models
+
+class Book(models.Model):
+    title = models.CharField(max_length=200)
+    subtitle = models.CharField(max_length=200, null=True, blank=True)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, editable=False)
+```
+
+
+## CRUD
+
+### CREATE
+
+book/book.py
+
+```python
+from book.models import Book
+
+# Create one object
+b = Book.objects.create(title=&#x27;Dune&#x27;, author=herbert)
+
+# Create if needed
+b = Book.objects.get_or_create(title=&#x27;Dune&#x27;, author=herbert)[0]
+
+# Create function
+def create_book(title, author, subtitle):
+    c = Book.objects.get_or_create(title=title, author=author)[0]
+    c.subtitle = subtitle
+    c.save()
+    return c
+```
+
+
+### READ
+
+book/book.py
+
+```python
+# Query for one object
+book = Book.objects.get(title=title)
+
+book.title
+
+# Query for list of objects
+books = Book.objects.filter(author=author)
+
+for b in books:
+    print(b.title, b.author)
+
+# Books by author
+def books_by_author(author):
+    return Book.objects.filter(author=author)
+```
+
+
+### UPDATE
+
+book/book.py
+
+```python
+# Edit one object
+book = Book.objects.get(title=title)
+
+book.title = &#x27;Children of Dune&#x27;
+book.subtitle = &#x27;Sequel&#x27;
+
+book.save()
+```
+
+
+### DELETE
+
+book/book.py
+
+```python
+# Delete one object
+book = Book.objects.get(title=title)
+book.delete()
+
+# Delete multiple objects
+Book.objects.filter(author=author).delete()
+```
+
+
+
+## Tests
+
+book/tests.py
+
+```python
+from django.test import TestCase
+
+class BookDataTest(TestCase):
+
+    def test_book_add(self):
+        pass
+
+    def test_book_list(self):
+        pass
+
+    def test_book_detail(self):
+        pass
+
+    def test_book_edit(self):
+        pass
+
+    def test_book_delete(self):
+        pass
+```
+
+</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark text-light">
+
+        <div class="container">
+
+            <a class="navbar-brand text-light" href="/">UNC BACS 350</a>
+
+            <ul class="navbar-nav text-light ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../lesson/index.html">Lessons</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../project/index.html">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../docs/index.html">Documents</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>CRUD Design Pattern</h1>
+<h2>Overview</h2>
+<h3>Goals</h3>
+<p>Use data models with the Django ORM to update the database records.</p>
+<p>Support CREATE, READ, UPDATE, DELETE operations on each data type.</p>
+<p>Ensure database integrity.</p>
+<p>Work with data using Python.</p>
+<h3>Steps</h3>
+<ul>
+<li>Define data model as a Python class</li>
+<li>Use operations defined in Django models.Model to do CRUD</li>
+<li>Create named access functions for clarity</li>
+</ul>
+<h2>Data</h2>
+<p>Data Model</p>
+<p>```python
+from django.db import models</p>
+<p>class Book(models.Model):
+    title = models.CharField(max_length=200)
+    subtitle = models.CharField(max_length=200, null=True, blank=True)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, editable=False)
+```</p>
+<h2>CRUD</h2>
+<h3>CREATE</h3>
+<p>book/book.py</p>
+<p>```python
+from book.models import Book</p>
+<h1>Create one object</h1>
+<p>b = Book.objects.create(title='Dune', author=herbert)</p>
+<h1>Create if needed</h1>
+<p>b = Book.objects.get_or_create(title='Dune', author=herbert)[0]</p>
+<h1>Create function</h1>
+<p>def create_book(title, author, subtitle):
+    c = Book.objects.get_or_create(title=title, author=author)[0]
+    c.subtitle = subtitle
+    c.save()
+    return c
+```</p>
+<h3>READ</h3>
+<p>book/book.py</p>
+<p>```python</p>
+<h1>Query for one object</h1>
+<p>book = Book.objects.get(title=title)</p>
+<p>book.title</p>
+<h1>Query for list of objects</h1>
+<p>books = Book.objects.filter(author=author)</p>
+<p>for b in books:
+    print(b.title, b.author)</p>
+<h1>Books by author</h1>
+<p>def books_by_author(author):
+    return Book.objects.filter(author=author)
+```</p>
+<h3>UPDATE</h3>
+<p>book/book.py</p>
+<p>```python</p>
+<h1>Edit one object</h1>
+<p>book = Book.objects.get(title=title)</p>
+<p>book.title = 'Children of Dune'
+book.subtitle = 'Sequel'</p>
+<p>book.save()
+```</p>
+<h3>DELETE</h3>
+<p>book/book.py</p>
+<p>```python</p>
+<h1>Delete one object</h1>
+<p>book = Book.objects.get(title=title)
+book.delete()</p>
+<h1>Delete multiple objects</h1>
+<p>Book.objects.filter(author=author).delete()
+```</p>
+<h2>Tests</h2>
+<p>book/tests.py</p>
+<p>```python
+from django.test import TestCase</p>
+<p>class BookDataTest(TestCase):</p>
+<pre><code>def test_book_add(self):
+    pass
+
+def test_book_list(self):
+    pass
+
+def test_book_detail(self):
+    pass
+
+def test_book_edit(self):
+    pass
+
+def test_book_delete(self):
+    pass
+</code></pre>
+<p>```</p>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

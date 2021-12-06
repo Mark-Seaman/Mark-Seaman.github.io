@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 15 - Forms for Data
+
+
+## LEARN
+
+### Django for Beginners
+* Chapter 1 - Django project tools
+* Chapter 2 - Django app structure
+* Chapter 3 - Basic views with templates
+* Chapter 4 - Django Admin views
+* Chapter 5 - Database and ORM
+* Chapter 6 - Django Forms views
+
+
+### Admin Views
+* Provide forms for creating and modifying records
+* Logic for updating the database
+* Views
+    * TemplateView
+    * ListView
+    * DetailView
+
+
+### Using Forms
+* Security - login permission, CSRF
+* Authenticated users only can modify data
+* Prevent hackers from booking info
+* Views
+    * CreateView
+    * UpdateView
+    * DeleteView
+
+
+### Cross-Site Request Forgery
+* Hacker can book a form to your website
+* Web forms come from web server
+* Views must contain a token from the server
+* All logic is provided by Django
+
+
+templates/book_new.html
+
+```
+    &lt;form action=&quot;&quot; method=&quot;book&quot;&gt;{% csrf_token %}
+       {{ form.as_p }}
+       &lt;input type=&quot;submit&quot; value=&quot;Save&quot;&gt;
+    &lt;/form&gt;
+```
+
+
+book/views.py
+        
+    class BookCreateView(CreateView):
+        model = Book
+        template_name = &#x27;book_new.html&#x27;
+        fields = [&#x27;title&#x27;, &#x27;author&#x27;]
+    
+
+
+
+## BUILD
+
+### Book Builder Demo
+* Follow along with [Book Builder](https://github.com/Mark-Seaman/BACS350/tree/main/week6)
+* Use these concepts on your Superhero app
+
+
+### Create Week6 code
+* Use week5 as a starting point
+* Test current status
+* New Features
+    * Add CreateView
+    * Add UpdateView
+    * Add DeleteView
+
+
+### Settings Design Pattern
+
+[config/settings.py](https://github.com/Mark-Seaman/BACS350/tree/main/week6/config/settings.py)
+
+    # Variables to adjust
+
+    TEMPLATES
+    STATIC_URL
+    STATICFILES_DIRS
+    STATIC_ROOT
+    ALLOWED_HOSTS
+    INSTALLED_APPS
+
+
+### Data Model Design Pattern 
+
+book/models.py
+
+    from django.db import models
+    
+    class Book(models.Model):
+        title = models.CharField(max_length=200)
+        author = models.ForeignKey(&#x27;auth.User&#x27;, on_delete=models.CASCADE)
+        body = models.TextField()
+
+        def __str__(self):
+            return f&#x27;{self.pk} - {self.title} by {self.author}&#x27;
+
+        def get_absolute_url(self):
+            return reverse(&#x27;book_detail&#x27;, args=[str(self.id)])
+
+
+### CRUD Design Pattern
+* CREATE - make a new record
+* READ - get one or more records
+* UPDATE - modify an existing record
+* DELETE - remove a record
+
+
+### Data Views Design Pattern
+* CreateView
+* ListView
+* DetailView
+* UpdateView
+* DeleteView
+
+
+### Data Views URLs Design Pattern
+
+config/urls.py
+
+    urlpatterns = [
+        # Book
+         
+    ]
+
+
+
+### Data Views Templates Design Pattern
+
+templates/book_list.html
+
+```
+    {% for book in object_list %}
+        &lt;h3&gt;&lt;a href=&quot;{% url &#x27;book_detail&#x27; book.pk %}&quot;&gt;{{ book.title }}&lt;/a&gt;&lt;/h3&gt;
+        &lt;p&gt;by {{ book.author }}&lt;/p&gt;
+    {% endfor %}
+```   
+
+templates/book_detail.html
+
+```   
+    &lt;h2&gt;{{ book.title }}&lt;/h2&gt;
+    &lt;p&gt;{{ book.author }}&lt;/p&gt;
+    
+    &lt;a href=&quot;{% url &#x27;book_edit&#x27; book.pk %}&quot;&gt;Edit Book Book&lt;/a&gt;
+    &lt;a href=&quot;{% url &#x27;book_delete&#x27; book.pk %}&quot;&gt;Delete Book Book&lt;/a&gt;
+``` 
+
+templates/book_new.html
+
+```
+
+    &lt;form action=&quot;&quot; method=&quot;book&quot;&gt;{% csrf_token %}
+       {{ form.as_p }}
+       &lt;input type=&quot;submit&quot; value=&quot;Save&quot;&gt;
+    &lt;/form&gt;
+```
+
+templates/book_edit.html
+
+```
+    &lt;form action=&quot;&quot; method=&quot;book&quot;&gt;{% csrf_token %}
+        {{ form.as_p }}
+        &lt;input type=&quot;submit&quot; value=&quot;Update&quot;&gt;
+    &lt;/form&gt;
+```
+
+templates/book_delete.html
+
+```
+    &lt;h1&gt;Delete Book&lt;/h1&gt;
+    &lt;form action=&quot;&quot; method=&quot;post&quot;&gt;{% csrf_token %}
+      &lt;p&gt;Are you sure you want to delete &quot;{{ book.title }}&quot;?&lt;/p&gt;
+      &lt;input type=&quot;submit&quot; value=&quot;Confirm&quot;&gt;
+    &lt;/form&gt;
+```
+
+
+### Data Views Design Pattern
+
+book/views.py
+        
+    class BookView(RedirectView):
+        url = &#x27;/book/&#x27;
+
+    class BookListView(ListView):
+        template_name = &#x27;book_list.html&#x27;
+        model = Book
+
+    class BookDetailView(DetailView):
+        template_name = &#x27;book_detail.html&#x27;
+        model = Book
+
+    class BookCreateView(LoginRequiredMixin, CreateView):
+        template_name = &quot;book_edit.html&quot;
+        model = Book
+        fields = [&#x27;title&#x27;, &#x27;author&#x27;]
+
+    class BookUpdateView(LoginRequiredMixin, UpdateView):
+        template_name = &quot;book_edit.html&quot;
+        model = Book
+        fields = [&#x27;title&#x27;, &#x27;author&#x27;]
+
+    class BookDeleteView(LoginRequiredMixin, DeleteView):
+        model = Book
+        template_name = &#x27;book_delete.html&#x27;
+        success_url = reverse_lazy(&#x27;book_list&#x27;)
+
+</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark text-light">
+
+        <div class="container">
+
+            <a class="navbar-brand text-light" href="/">UNC BACS 350</a>
+
+            <ul class="navbar-nav text-light ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../lesson/index.html">Lessons</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../project/index.html">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../docs/index.html">Documents</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Lesson 15 - Forms for Data</h1>
+<h2>LEARN</h2>
+<h3>Django for Beginners</h3>
+<ul>
+<li>Chapter 1 - Django project tools</li>
+<li>Chapter 2 - Django app structure</li>
+<li>Chapter 3 - Basic views with templates</li>
+<li>Chapter 4 - Django Admin views</li>
+<li>Chapter 5 - Database and ORM</li>
+<li>Chapter 6 - Django Forms views</li>
+</ul>
+<h3>Admin Views</h3>
+<ul>
+<li>Provide forms for creating and modifying records</li>
+<li>Logic for updating the database</li>
+<li>Views<ul>
+<li>TemplateView</li>
+<li>ListView</li>
+<li>DetailView</li>
+</ul>
+</li>
+</ul>
+<h3>Using Forms</h3>
+<ul>
+<li>Security - login permission, CSRF</li>
+<li>Authenticated users only can modify data</li>
+<li>Prevent hackers from booking info</li>
+<li>Views<ul>
+<li>CreateView</li>
+<li>UpdateView</li>
+<li>DeleteView</li>
+</ul>
+</li>
+</ul>
+<h3>Cross-Site Request Forgery</h3>
+<ul>
+<li>Hacker can book a form to your website</li>
+<li>Web forms come from web server</li>
+<li>Views must contain a token from the server</li>
+<li>All logic is provided by Django</li>
+</ul>
+<p>templates/book_new.html</p>
+<p><code>&lt;form action="" method="book"&gt;{% csrf_token %}
+       {{ form.as_p }}
+       &lt;input type="submit" value="Save"&gt;
+    &lt;/form&gt;</code></p>
+<p>book/views.py</p>
+<pre><code>class BookCreateView(CreateView):
+    model = Book
+    template_name = 'book_new.html'
+    fields = ['title', 'author']
+</code></pre>
+<h2>BUILD</h2>
+<h3>Book Builder Demo</h3>
+<ul>
+<li>Follow along with <a href="https://github.com/Mark-Seaman/BACS350/tree/main/week6">Book Builder</a></li>
+<li>Use these concepts on your Superhero app</li>
+</ul>
+<h3>Create Week6 code</h3>
+<ul>
+<li>Use week5 as a starting point</li>
+<li>Test current status</li>
+<li>New Features<ul>
+<li>Add CreateView</li>
+<li>Add UpdateView</li>
+<li>Add DeleteView</li>
+</ul>
+</li>
+</ul>
+<h3>Settings Design Pattern</h3>
+<p><a href="https://github.com/Mark-Seaman/BACS350/tree/main/week6/config/settings.py">config/settings.py</a></p>
+<pre><code># Variables to adjust
+
+TEMPLATES
+STATIC_URL
+STATICFILES_DIRS
+STATIC_ROOT
+ALLOWED_HOSTS
+INSTALLED_APPS
+</code></pre>
+<h3>Data Model Design Pattern</h3>
+<p>book/models.py</p>
+<pre><code>from django.db import models
+
+class Book(models.Model):
+    title = models.CharField(max_length=200)
+    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    body = models.TextField()
+
+    def __str__(self):
+        return f'{self.pk} - {self.title} by {self.author}'
+
+    def get_absolute_url(self):
+        return reverse('book_detail', args=[str(self.id)])
+</code></pre>
+<h3>CRUD Design Pattern</h3>
+<ul>
+<li>CREATE - make a new record</li>
+<li>READ - get one or more records</li>
+<li>UPDATE - modify an existing record</li>
+<li>DELETE - remove a record</li>
+</ul>
+<h3>Data Views Design Pattern</h3>
+<ul>
+<li>CreateView</li>
+<li>ListView</li>
+<li>DetailView</li>
+<li>UpdateView</li>
+<li>DeleteView</li>
+</ul>
+<h3>Data Views URLs Design Pattern</h3>
+<p>config/urls.py</p>
+<pre><code>urlpatterns = [
+    # Book
+
+]
+</code></pre>
+<h3>Data Views Templates Design Pattern</h3>
+<p>templates/book_list.html</p>
+<p><code>{% for book in object_list %}
+        &lt;h3&gt;&lt;a href="{% url 'book_detail' book.pk %}"&gt;{{ book.title }}&lt;/a&gt;&lt;/h3&gt;
+        &lt;p&gt;by {{ book.author }}&lt;/p&gt;
+    {% endfor %}</code>   </p>
+<p>templates/book_detail.html</p>
+<p>``` <br />
+    <h2>{{ book.title }}</h2>
+    <p>{{ book.author }}</p></p>
+<pre><code>&lt;a href="{% url 'book_edit' book.pk %}"&gt;Edit Book Book&lt;/a&gt;
+&lt;a href="{% url 'book_delete' book.pk %}"&gt;Delete Book Book&lt;/a&gt;
+</code></pre>
+<p>``` </p>
+<p>templates/book_new.html</p>
+<p>```</p>
+<pre><code>&lt;form action="" method="book"&gt;{% csrf_token %}
+   {{ form.as_p }}
+   &lt;input type="submit" value="Save"&gt;
+&lt;/form&gt;
+</code></pre>
+<p>```</p>
+<p>templates/book_edit.html</p>
+<p><code>&lt;form action="" method="book"&gt;{% csrf_token %}
+        {{ form.as_p }}
+        &lt;input type="submit" value="Update"&gt;
+    &lt;/form&gt;</code></p>
+<p>templates/book_delete.html</p>
+<p><code>&lt;h1&gt;Delete Book&lt;/h1&gt;
+    &lt;form action="" method="post"&gt;{% csrf_token %}
+      &lt;p&gt;Are you sure you want to delete "{{ book.title }}"?&lt;/p&gt;
+      &lt;input type="submit" value="Confirm"&gt;
+    &lt;/form&gt;</code></p>
+<h3>Data Views Design Pattern</h3>
+<p>book/views.py</p>
+<pre><code>class BookView(RedirectView):
+    url = '/book/'
+
+class BookListView(ListView):
+    template_name = 'book_list.html'
+    model = Book
+
+class BookDetailView(DetailView):
+    template_name = 'book_detail.html'
+    model = Book
+
+class BookCreateView(LoginRequiredMixin, CreateView):
+    template_name = "book_edit.html"
+    model = Book
+    fields = ['title', 'author']
+
+class BookUpdateView(LoginRequiredMixin, UpdateView):
+    template_name = "book_edit.html"
+    model = Book
+    fields = ['title', 'author']
+
+class BookDeleteView(LoginRequiredMixin, DeleteView):
+    model = Book
+    template_name = 'book_delete.html'
+    success_url = reverse_lazy('book_list')
+</code></pre>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

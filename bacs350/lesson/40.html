@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 40 - Page Probe Tests
+
+## LEARN
+
+### End of Course
+* All work must be completed by Friday, Dec 3
+* If you have not gotten credit for your projects 
+[email me](mailto:Mark.Seaman@unco.edu) with details
+
+
+### Office Hours
+* If you need help please attend office hours
+* MWF  1:30-2:30 by Zoom
+* Zoom:  https://unco.zoom.us/j/99180652183
+* Email: mark.seaman@unco.edu      
+
+
+### Today
+* Page Probe Test Design Patterns
+
+
+### Catalog of Design Patterns
+* [Design Patterns](/course/bacs350/docs/DesignPatterns)
+* Use this catalog of patterns as you work on projects
+* [Django Tests](../docs/DjangoTests)
+
+
+### Shrinking World Testing
+* Django Tests - Unit tests with test database
+* Page Probe Tests - Fetch and examine web pages from local and remote servers
+* Hammer Script Tests - Live local and remote servers
+
+
+### Django Tests 
+- Unit tests with test database
+* Tests isolated components
+* Does not change production data
+
+
+### Page Probe Tests
+* Fetch and examine web pages from local and remote servers
+* Use &quot;requests&quot; module in Python to fetch pages
+* Use an app to manage test cases
+
+```python
+def execute_probe(probe):
+    try:
+        response = get(probe.page)
+    except:
+        response = None
+    if not response:
+        status = f&#x27;Status Code: Domain not found,  {probe.page}&#x27;
+        passed = False
+    elif response.status_code != 200:
+        status = f&#x27;Status Code: {response.status_code}&#x27;
+        passed = False
+    elif probe.text not in response.text:
+        status = f&#x27;Text not found: {probe.text}&#x27;
+        passed = False
+    else:
+        status = f&#x27;Matched: {probe.text}&#x27;
+        passed = True
+    Result.create(probe=probe, output=status, passed=passed)
+```
+
+
+### Hammer Script Tests
+* Live local and remote servers
+* Used to test  and 
+    * Complete server with command scripts
+    * Local file environment
+
+
+
+## BUILD
+
+### Practice
+* Clone my repo and study the code in 
+[Page Probe Source Code](https://github.com/Mark-Seaman/BACS350/tree/main/week14/PageProbe)
+* Build the code and experiment with it
+* Set up tests for your favorite web sites
+* Do it simple; do it now!
+</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../unc.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark text-light">
+
+        <div class="container">
+
+            <a class="navbar-brand text-light" href="/">UNC BACS 350</a>
+
+            <ul class="navbar-nav text-light ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../lesson/index.html">Lessons</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../project/index.html">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="../docs/index.html">Documents</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <header class="p-lg-5">
+        <div class="row media">
+            <div class="media-body">
+                <h1 class="display-4 ml-5">
+                    <a href="../index.html">UNC BACS 350</a>
+                </h1>
+                <h2 class="display-6 ml-5">Web Apps with Python/Django</h2>
+            </div>
+            <img class="m-3 rounded-circle image-fluid" src="../Bear.png" alt="Logo" width="150">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+            <h1>Lesson 40 - Page Probe Tests</h1>
+<h2>LEARN</h2>
+<h3>End of Course</h3>
+<ul>
+<li>All work must be completed by Friday, Dec 3</li>
+<li>If you have not gotten credit for your projects 
+<a href="mailto:Mark.Seaman@unco.edu">email me</a> with details</li>
+</ul>
+<h3>Office Hours</h3>
+<ul>
+<li>If you need help please attend office hours</li>
+<li>MWF  1:30-2:30 by Zoom</li>
+<li>Zoom:  https://unco.zoom.us/j/99180652183</li>
+<li>Email: mark.seaman@unco.edu      </li>
+</ul>
+<h3>Today</h3>
+<ul>
+<li>Page Probe Test Design Patterns</li>
+</ul>
+<h3>Catalog of Design Patterns</h3>
+<ul>
+<li><a href="/course/bacs350/docs/DesignPatterns">Design Patterns</a></li>
+<li>Use this catalog of patterns as you work on projects</li>
+<li><a href="../docs/DjangoTests">Django Tests</a></li>
+</ul>
+<h3>Shrinking World Testing</h3>
+<ul>
+<li>Django Tests - Unit tests with test database</li>
+<li>Page Probe Tests - Fetch and examine web pages from local and remote servers</li>
+<li>Hammer Script Tests - Live local and remote servers</li>
+</ul>
+<h3>Django Tests</h3>
+<ul>
+<li>Unit tests with test database</li>
+<li>Tests isolated components</li>
+<li>Does not change production data</li>
+</ul>
+<h3>Page Probe Tests</h3>
+<ul>
+<li>Fetch and examine web pages from local and remote servers</li>
+<li>Use "requests" module in Python to fetch pages</li>
+<li>Use an app to manage test cases</li>
+</ul>
+<p><code>python
+def execute_probe(probe):
+    try:
+        response = get(probe.page)
+    except:
+        response = None
+    if not response:
+        status = f'Status Code: Domain not found,  {probe.page}'
+        passed = False
+    elif response.status_code != 200:
+        status = f'Status Code: {response.status_code}'
+        passed = False
+    elif probe.text not in response.text:
+        status = f'Text not found: {probe.text}'
+        passed = False
+    else:
+        status = f'Matched: {probe.text}'
+        passed = True
+    Result.create(probe=probe, output=status, passed=passed)</code></p>
+<h3>Hammer Script Tests</h3>
+<ul>
+<li>Live local and remote servers</li>
+<li>Used to test  and <ul>
+<li>Complete server with command scripts</li>
+<li>Local file environment</li>
+</ul>
+</li>
+</ul>
+<h2>BUILD</h2>
+<h3>Practice</h3>
+<ul>
+<li>Clone my repo and study the code in 
+<a href="https://github.com/Mark-Seaman/BACS350/tree/main/week14/PageProbe">Page Probe Source Code</a></li>
+<li>Build the code and experiment with it</li>
+<li>Set up tests for your favorite web sites</li>
+<li>Do it simple; do it now!</li>
+</ul>
+            
+        </div>
+    </main>
+
+    
+    <footer class="container-fluid text-center bg-dark text-light mt-5 p-3">
+
+    <div class="row">
+        <div class="col text-center ">
+            &copy;2021 <a href="https://seamanslog.com">Seaman's Log</a> - Big Ideas &amp; Deep Thoughts
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col p-3">
+            <a href="https://twitter.com/mdseaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large"
+                data-show-count="false">
+                Follow mdseaman
+            </a>
+        </div>
+
+        <div class="col p-3">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-show-count="false">
+                Tweet
+            </a>
+        </div>
+
+        <div class="col p-3">
+
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="vWwSzcgD"></script>
+            If you like share it!
+
+            <div class="fb-share-button" data-href="" data-layout="button" data-size="large">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Facebook Share
+                </a>
+            </div>
+        </div>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
