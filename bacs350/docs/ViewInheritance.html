@@ -6,68 +6,7 @@
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>View Inheritance Design Pattern
-
-## Overview
-
-### Goals
-
-Build a common theme that is used on all pages on a website.
-
-Provide one place for each feature.
-
-Encapsulate all common logic for reuse.
-
-Build views without thinking.
-
-Use Bootstrap to create high visual impact.
-
-Use Partial Templates to organize your code logic.
-
-Use Template Blocks to override default behavior.
-
-Provide useful default behavior.
-
-
-### Steps
-
-Create a series of templates
-    
-    theme.html
-    _header.html
-    _footer.html
-    _navbar.html
-    _user.html
-
-Define blocks for page composition
-
-    title
-    navbar
-    user
-    header
-    content
-    footer
-    
-
-## Template
-
-
-### Theme
-
-theme.html
-
-```html
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-
-    &lt;title&gt;{% block title %}NO TITLE{% endblock title %}&lt;/title&gt;
-
-    &lt;link href=&quot;https://cdn.jsdelivr.net</title>
+    <title>View Inheritance Design Pattern</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"

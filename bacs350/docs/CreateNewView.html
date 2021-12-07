@@ -6,44 +6,7 @@
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add Data to Django Views
-
-There are a set of design patterns that can be used to quickly build full custom views in 
-Django.
-
-
-### Simple File Viewer
-
-urls.py
-
-    from django.urls import path
-    from .views import MyStoryView
-
-    urlpatterns = [
-        path(&#x27;story&#x27;, MyStoryView.as_view()),
-    ]
-    
-views.py
-
-    from django.views.generic import TemplateView
-
-    class MyStoryView(TemplateView):
-        template_name = &quot;story.html&quot;
-        
-        def get_context_data(self, **kwargs):
-            return {
-                &#x27;title&#x27;: &#x27;Three Pigs&#x27;, 
-                &#x27;body&#x27;: &#x27;Once upon a time ...&#x27;,
-            }
-     
-templates/story.html
-
-    &lt;h1&gt;{{ title }}&lt;/h1&gt;
-    &lt;p&gt;
-        {{ body}}
-    &lt;/p&gt;
-
-        </title>
+    <title>Add Data to Django Views</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
