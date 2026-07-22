@@ -1,0 +1,401 @@
+/* Brainchild Publishing — Site Styles */
+
+:root {
+    --brand: #1a1a2e;
+    --accent: #e07a2f;
+    --accent-hover: #c46820;
+    --text: #2c2c2c;
+    --text-light: #666;
+    --bg: #faf9f7;
+    --white: #fff;
+    --border: #e0ddd8;
+    --section-alt: #f3f1ed;
+    --max-width: 860px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.75;
+    font-size: 18px;
+}
+
+/* ---- Navbar ---- */
+nav {
+    background: var(--brand);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+nav .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+}
+
+nav .logo {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    padding: 1rem 0;
+    letter-spacing: 0.5px;
+}
+
+nav .logo span {
+    color: var(--accent);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 0;
+}
+
+nav ul li a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 1.2rem 1rem;
+    display: block;
+    transition: color 0.2s, background 0.2s;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--white);
+    background: rgba(255,255,255,0.08);
+}
+
+nav .cta-nav {
+    color: var(--accent) !important;
+    font-weight: 700;
+}
+
+nav .cta-nav:hover {
+    color: var(--white) !important;
+    background: var(--accent) !important;
+}
+
+/* Mobile nav toggle */
+nav .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 1rem 0;
+}
+
+@media (max-width: 768px) {
+    nav .menu-toggle { display: block; }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--brand);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    nav ul.open { display: flex; }
+    nav ul li a { padding: 1rem 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); }
+    nav .nav-inner { flex-wrap: wrap; }
+}
+
+/* ---- Hero ---- */
+.hero {
+    background: var(--brand);
+    color: var(--white);
+    text-align: center;
+    padding: 5rem 2rem 4rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+}
+
+.hero .tagline {
+    font-size: 1.4rem;
+    color: var(--accent);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    max-width: 620px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.8;
+}
+
+.hero .cta-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--white);
+    text-decoration: none;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.9rem 2.5rem;
+    border-radius: 4px;
+    transition: background 0.2s;
+    letter-spacing: 0.3px;
+}
+
+.hero .cta-btn:hover {
+    background: var(--accent-hover);
+}
+
+/* ---- Content ---- */
+.content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.content h1 {
+    font-size: 2.4rem;
+    margin-bottom: 0.3rem;
+    color: var(--brand);
+}
+
+.content h2 {
+    font-size: 1.6rem;
+    margin: 2.5rem 0 1rem;
+    color: var(--brand);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.4rem;
+}
+
+.content h3 {
+    font-size: 1.2rem;
+    margin: 2rem 0 0.7rem;
+    color: var(--brand);
+}
+
+.content p {
+    margin-bottom: 1.2rem;
+}
+
+.content ul, .content ol {
+    margin: 0 0 1.5rem 1.5rem;
+}
+
+.content li {
+    margin-bottom: 0.5rem;
+}
+
+.content a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.content a:hover {
+    border-bottom-color: var(--accent);
+}
+
+.content strong {
+    color: var(--brand);
+}
+
+.content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3rem 0;
+}
+
+/* ---- Product Cards ---- */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 2rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+}
+
+.card h3 {
+    color: var(--accent);
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+}
+
+.card .card-tagline {
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.card .card-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--accent);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.card .card-link:hover {
+    text-decoration: underline;
+}
+
+/* ---- Values Grid ---- */
+.values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.value-item {
+    padding: 1.5rem;
+    background: var(--white);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+}
+
+.value-item strong {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+    color: var(--accent);
+}
+
+@media (max-width: 600px) {
+    .values { grid-template-columns: 1fr; }
+}
+
+/* ---- Tables ---- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+}
+
+th {
+    text-align: left;
+    background: var(--brand);
+    color: var(--white);
+    padding: 0.8rem 1rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+td {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+tr:hover td {
+    background: rgba(224,122,47,0.04);
+}
+
+/* ---- Price Tag ---- */
+.price {
+    display: inline-block;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 1rem 0;
+}
+
+/* ---- CTA Section ---- */
+.cta-section {
+    background: var(--brand);
+    color: var(--white);
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-top: 3rem;
+}
+
+.cta-section h2 {
+    color: var(--white);
+    border: none;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    color: rgba(255,255,255,0.85);
+    max-width: 500px;
+    margin: 0 auto 1.5rem;
+}
+
+.cta-section .cta-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--white);
+    text-decoration: none;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.9rem 2.5rem;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.cta-section .cta-btn:hover {
+    background: var(--accent-hover);
+}
+
+/* ---- Footer ---- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border);
+}
+
+footer strong {
+    color: var(--text);
+}
