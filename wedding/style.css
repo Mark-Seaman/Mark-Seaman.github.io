@@ -1,0 +1,156 @@
+:root {
+  --navy: #1f2e4d;
+  --navy-soft: #3a4a6b;
+  --cream: #faf7f2;
+  --white: #ffffff;
+  --gold: #b8955a;
+  --ink: #2b2b2b;
+  --muted: #6b6b6b;
+  --radius: 14px;
+  --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --sans: "Lato", "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.65;
+}
+
+a { color: var(--navy); }
+
+header.site {
+  background: var(--navy);
+  color: var(--white);
+  padding: 0.9rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+header.site .brand {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+
+header.site nav a {
+  color: var(--white);
+  text-decoration: none;
+  margin-left: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+header.site nav a:hover { opacity: 1; text-decoration: underline; }
+
+.hero {
+  text-align: center;
+  padding: 4.5rem 1.25rem 3.5rem;
+  background: linear-gradient(180deg, var(--white), var(--cream));
+  border-bottom: 1px solid #e8e2d6;
+}
+
+.hero .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 0.8rem;
+  color: var(--gold);
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(2.6rem, 7vw, 4.5rem);
+  color: var(--navy);
+  margin: 0.4rem 0;
+}
+
+.hero p { color: var(--muted); max-width: 38rem; margin: 0.5rem auto 0; }
+
+main { max-width: 68rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+
+.rooms {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 1.25rem;
+}
+
+.room-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  border-top: 4px solid var(--navy);
+  padding: 1.5rem;
+  text-decoration: none;
+  color: var(--ink);
+  box-shadow: 0 2px 10px rgba(31, 46, 77, 0.07);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.room-card:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(31, 46, 77, 0.14); }
+
+.room-card h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0 0.4rem;
+  font-size: 1.6rem;
+}
+
+.room-card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+.room h1 {
+  font-family: var(--serif);
+  font-weight: 500;
+  color: var(--navy);
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  margin: 0 0 0.5rem;
+}
+
+.room .intro { font-size: 1.1rem; max-width: 42rem; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.75rem 0; }
+
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.4rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.button.primary { background: var(--navy); color: var(--white); }
+.button.secondary { border: 2px solid var(--navy); color: var(--navy); }
+.button.pending { background: #e8e2d6; color: var(--muted); cursor: default; }
+
+.note {
+  background: var(--white);
+  border-left: 4px solid var(--gold);
+  padding: 1rem 1.25rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  color: var(--muted);
+  max-width: 42rem;
+}
+
+.pager { display: flex; justify-content: space-between; margin-top: 3rem; gap: 1rem; flex-wrap: wrap; }
+
+footer.site {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  border-top: 1px solid #e8e2d6;
+}
+
+@media (max-width: 560px) {
+  header.site nav a { margin: 0 0.75rem 0 0; }
+}
