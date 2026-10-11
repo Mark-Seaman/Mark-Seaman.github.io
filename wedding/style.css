@@ -154,3 +154,10 @@ footer.site {
 @media (max-width: 560px) {
   header.site nav a { margin: 0 0.75rem 0 0; }
 }
+
+.story { max-width: 42rem; margin: 2rem 0 1rem; font-size: 1.08rem; }
+.story h2 { font-family: var(--serif); font-weight: 600; color: var(--navy); font-size: 1.8rem; margin: 2.2rem 0 0.6rem; }
+.story p { margin: 0 0 1.1rem; }
+.verse { font-family: var(--serif); font-size: 1.45rem; color: var(--navy); border-left: 4px solid var(--gold); margin: 1.5rem 0; padding: 0.4rem 0 0.4rem 1.2rem; }
+.verse cite { display: block; font-family: var(--sans); font-size: 0.9rem; font-style: normal; color: var(--muted); margin-top: 0.4rem; }
+.album-heading { font-family: var(--serif); color: var(--navy); font-size: 1.8rem; margin: 2.5rem 0 0.5rem; }
