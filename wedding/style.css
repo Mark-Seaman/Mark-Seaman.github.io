@@ -161,3 +161,10 @@ footer.site {
 .verse { font-family: var(--serif); font-size: 1.45rem; color: var(--navy); border-left: 4px solid var(--gold); margin: 1.5rem 0; padding: 0.4rem 0 0.4rem 1.2rem; }
 .verse cite { display: block; font-family: var(--sans); font-size: 0.9rem; font-style: normal; color: var(--muted); margin-top: 0.4rem; }
 .album-heading { font-family: var(--serif); color: var(--navy); font-size: 1.8rem; margin: 2.5rem 0 0.5rem; }
+
+.video-card { position: relative; display: block; max-width: 48rem; border-radius: var(--radius); overflow: hidden; box-shadow: 0 6px 20px rgba(31, 46, 77, 0.18); margin: 1rem 0 0.5rem; }
+.video-card img { display: block; width: 100%; height: auto; }
+.video-card .play { position: absolute; top: 50%; left: 50%; width: 5rem; height: 5rem; margin: -2.5rem 0 0 -2.5rem; border-radius: 50%; background: rgba(31, 46, 77, 0.82); transition: transform 0.15s ease, background 0.15s ease; }
+.video-card .play::after { content: ""; position: absolute; left: 1.95rem; top: 1.45rem; border-style: solid; border-width: 1.05rem 0 1.05rem 1.7rem; border-color: transparent transparent transparent var(--white); }
+.video-card:hover .play { transform: scale(1.08); background: var(--navy); }
+.caption { color: var(--muted); font-size: 0.9rem; margin: 0 0 1.5rem; }
