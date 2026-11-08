@@ -1,0 +1,32 @@
+:root{--ink:#2a2420;--muted:#6f655c;--bg:#faf6f0;--card:#fff;--accent:#a8501f;--dark:#2e2118;--radius:12px;--serif:"Lora",Georgia,serif;--sans:"Source Sans 3","Helvetica Neue",Arial,sans-serif}
+@media(prefers-color-scheme:dark){:root{--ink:#eee4d8;--muted:#b3a698;--bg:#1d1611;--card:#2a2019;--accent:#e08a4f;--dark:#120d09}}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.7;font-size:18px}
+a{color:var(--accent)}
+header.site{background:var(--dark);color:#fff;padding:.9rem 1.25rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;justify-content:space-between}
+header.site .brand{font-family:var(--serif);font-size:1.3rem;color:#fff;text-decoration:none}
+header.site nav a{color:#f1d9c3;margin-left:1.2rem;text-decoration:none}
+header.site nav a:hover{text-decoration:underline}
+.hero{max-width:44rem;margin:0 auto;padding:3rem 1.25rem 1rem}
+.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;color:var(--accent);font-weight:600}
+h1{font-family:var(--serif);font-size:clamp(2.2rem,6vw,3.2rem);line-height:1.15;margin:.4rem 0 1rem}
+.lede{font-size:1.2rem;color:var(--muted)}
+main{max-width:44rem;margin:0 auto;padding:0 1.25rem 3rem}
+h2{font-family:var(--serif);font-size:1.7rem;margin:2.4rem 0 .6rem}
+h3{font-family:var(--serif);margin:.5rem 0 0}
+.cta{margin-top:2.5rem;font-weight:600}
+.team-desc{color:var(--muted);margin-top:0}
+.agents{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem}
+.agent{background:var(--card);border-radius:var(--radius);padding:.8rem;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.agent img{width:100%;height:auto;border-radius:8px;display:block}
+.agent .role{color:var(--accent);font-size:.9rem;font-weight:600}
+.agent p{font-size:.95rem;margin:.3rem 0 0}
+.rules li{margin:.3rem 0}
+footer{max-width:44rem;margin:0 auto;padding:1.5rem 1.25rem 3rem;color:var(--muted);font-size:.9rem;border-top:1px solid rgba(128,128,128,.3)}
+a.agent{display:block;color:inherit;text-decoration:none}
+a.agent:hover{box-shadow:0 3px 10px rgba(0,0,0,.25)}
+a.agent h3{color:var(--accent)}
+.hero.profile{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap}
+.portrait{width:200px;max-width:100%;height:auto;border-radius:var(--radius);box-shadow:0 1px 6px rgba(0,0,0,.25)}
+main ul{padding-left:1.3rem}
+main li{margin:.35rem 0}
